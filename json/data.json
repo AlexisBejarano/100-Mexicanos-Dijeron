@@ -1,0 +1,667 @@
+	
+var preguntas = [
+    {
+        "titulo": "Menciona un bicho que puedes encontrar dentro de tu casa.",
+        "respuestas": [
+            {"respuestaUno": "Arañas", "puntuacionUno": 22},
+            {"respuestaDos": "Moscas", "puntuacionDos": 17},
+            {"respuestaTres": "Cucharachas", "puntuacionTres": 13},
+            {"respuestaCuatro": "Hormigas", "puntuacionCuatro": 13},
+            {"respuestaCinco": "Mosc@s", "puntuacionCinco": 10}
+        ]
+    },
+    {
+        "titulo": "Menciona un alimento de color rojo",
+        "respuestas": [
+            {"respuestaUno": "Manzana", "puntuacionUno": 30},
+            {"respuestaDos": "Jitomate", "puntuacionDos": 20},
+            {"respuestaTres": "Fresa", "puntuacionTres": 13},
+            {"respuestaCuatro": "Mole", "puntuacionCuatro": 8},
+            {"respuestaCinco": "Sandía", "puntuacionCinco": 0}
+        ]
+    },
+    {
+        "titulo": "Menciona algo que se obtiene de un árbol",
+        "respuestas": [
+            {"respuestaUno": "Fruta", "puntuacionUno": 40},
+			{"respuestaDos": "Papel", "puntuacionDos": 15},
+			{"respuestaTres": "Madera", "puntuacionTres": 12},
+			{"respuestaCuatro": "Lápiz", "puntuacionCuatro": 8},
+			{"respuestaCinco": "Oxigeno" ,"puntuacionCinco": 4}
+        ]
+    },
+    {
+		"titulo" : "Nombra un país de América del Sur.",
+		"respuestas": [
+			{"respuestaUno": "Brasil", "puntuacionUno": 40},
+			{"respuestaDos": "Argentina", "puntuacionDos": 15},
+			{"respuestaTres": "Chile", "puntuacionTres": 12},
+			{"respuestaCuatro": "Guatemala", "puntuacionCuatro": 8},
+			{"respuestaCinco": "Bolivia", "puntuacionCinco": 3}
+		]
+	},
+	{
+		"titulo" : "Menciona una especialidad médica.",
+		"respuestas": [
+			{"respuestaUno": "Ginecología", "puntuacionUno": 38},
+			{"respuestaDos": "Odontología", "puntuacionDos": 27},
+			{"respuestaTres": "Cardiologia", "puntuacionTres": 12},
+			{"respuestaCuatro": "Pediatría", "puntuacionCuatro": 10},
+			{"respuestaCinco": "Cirujano", "puntuacionCinco": 8}
+		]
+	},
+	{
+		"titulo" : "Menciona regalo barato que siempre será bien aceptado.",
+		"respuestas": [
+			{"respuestaUno": "Flores", "puntuacionUno": 44},
+			{"respuestaDos": "Tarjeta/Carta", "puntuacionDos": 24},
+			{"respuestaTres": "Chocolates", "puntuacionTres": 18},
+			{"respuestaCuatro": "Peluches", "puntuacionCuatro": 11},
+			{"respuestaCinco": "Dinero", "puntuacionCinco": 6}
+		]
+	},
+	{
+		"titulo" : "Termina la frase: Estoy que me lleva la...",
+		"respuestas": [
+			{"respuestaUno": "Fregada", "puntuacionUno": 37},
+			{"respuestaDos": "Chingada", "puntuacionDos": 31},
+			{"respuestaTres": "Verga", "puntuacionTres": 12},
+			{"respuestaCuatro": "Que me trajo", "puntuacionCuatro": 12},
+			{"respuestaCinco": "Canción", "puntuacionCinco": 8}		
+		]
+	},
+	{
+		"titulo" : "Menciona Dato el cual se puede leer en una caja de cereal.",
+		"respuestas": [
+			{"respuestaUno": "Datos Nutricionales", "puntuacionUno": 44},
+			{"respuestaDos": "Ingredientes", "puntuacionDos": 23},
+			{"respuestaTres": "Marca", "puntuacionTres": 16},
+			{"respuestaCuatro": "Nombre del producto", "puntuacionCuatro": 7,}
+			{"respuestaCinco": "Juego o Cupón", "puntuacionCinco": 2}		
+		]
+	},
+	{
+		"titulo" : "Menciona Carrera la cuál suele asociarse como Artista.",
+		"respuestas": [
+			{"respuestaUno": "Canto", "puntuacionUno": 23},
+			{"respuestaDos": "Actuación", "puntuacionDos": 20},
+			{"respuestaTres": "Baile/Danza", "puntuacionTres": 18},
+			{"respuestaCuatro": "Pintura/Dibujo", "puntuacionCuatro": 13},
+			{"respuestaCinco": "Músico", "puntuacionCinco": 7}		
+		]
+	},
+	{
+		"titulo" : "Menciona un sabor de una crema en una fiesta",
+		"respuestas": [
+			{"respuestaUno": "Queso", "puntuacionUno": 32},
+			{"respuestaDos": "Atun", "puntuacionDos": 25},
+			{"respuestaTres": "Cebolla", "puntuacionTres": 25},
+			{"respuestaCuatro": "Chipotle", "puntuacionCuatro": 14},
+			{"respuestaCinco": "Chile", "puntuacionCinco": 13}
+		]
+	},
+	{
+		"titulo" : "Menciona una fobia o miedo",
+		"respuestas": [
+			{"respuestaUno": "Alturas", "puntuacionUno": 25},
+			{"respuestaDos": "Arañas", "puntuacionDos": 21},
+			{"respuestaTres": "Oscuridad", "puntuacionTres": 16},
+			{"respuestaCuatro": "Estar encerrado", "puntuacionCuatro": 10},
+			{"respuestaCinco": "Ratas", "puntuacionCinco": 4}		]
+	},
+	{
+		"titulo" : "Nombra algo que desafía la ley de la Gravedad.",
+		"respuestas": [
+			{"respuestaUno": "Aviones", "puntuacionUno": 37},
+			{"respuestaDos": "Drones", "puntuacionDos": 29},
+			{"respuestaTres": "Helicópteros", "puntuacionTres": 21},
+			{"respuestaCuatro": "Cohetes", "puntuacionCuatro": 16},
+			{"respuestaCinco": "Satélites","Cinco": 10}
+		]
+	},
+	{
+		"titulo" : "Menciona lugar donde los estudiantes se la pintean.",
+		"respuestas": [
+			{"respuestaUno": "Parque", "puntuacionUno": 41},
+			{"respuestaDos": "Cine", "puntuacionDos": 18},
+			{"respuestaTres": "Maquinitas", "puntuacionTres": 12},
+			{"respuestaCuatro": "Centro", "puntuacionCuatro": 10},
+			{"respuestaCinco": "Billar o Bar", "puntuacionCinco": 4}		
+		]
+	},
+	{
+		"titulo" : "Menciona cosas que llevamos para acampar.",
+		"respuestas": [
+			{"respuestaUno": "Casa de campaña", "puntuacionUno": 38},
+			{"respuestaDos": "Bolsa para dormir", "puntuacionDos": 33},
+			{"respuestaTres": "Comida", "puntuacionTres": 24},
+			{"respuestaCuatro": "Lámpara/Linterna", "puntuacionCuatro": 15},
+			{"respuestaCinco": "Mochila", "puntuacionCinco": 11}
+		]
+	},
+	{
+		"titulo" : "Menciona preguntas que te hacen cuando vas a las carnes frias.",
+		"respuestas": [
+			{"respuestaUno": "¿Que va a llevar?", "puntuacionUno": 35},
+			{"respuestaDos": "¿Cuánto va a llevar?", "puntuacionDos": 24},
+			{"respuestaTres": "¿De que marca?", "puntuacionTres": 20},
+			{"respuestaCuatro": "¿Así está bien?", "puntuacionCuatro": 17},
+			{"respuestaCinco": "¿En que le puedo ayudar?", "puntuacionCinco": 9}		
+		]
+	},
+	{
+		"titulo" : "Menciona un animal marino que no sea un pez.",
+		"respuestas": [
+			{"respuestaUno": "Camarón", "puntuacionUno": 48},
+			{"respuestaDos": "Pulpo", "puntuacionDos": 39},
+			{"respuestaTres": "Ballena", "puntuacionTres": 21},
+			{"respuestaCuatro": "Tortuga", "puntuacionCuatro": 13},
+			{"respuestaCinco": "Caballito de mar", "puntuacionCinco": 2}		
+		]
+	},
+	{
+		"titulo" : "Menciona un pan No Dulce.",
+		"respuestas": [
+			{"respuestaUno": "Torcido", "puntuacionUno": 29},
+			{"respuestaDos": "Pan de caja(Bimbo)", "puntuacionDos": 27},
+			{"respuestaTres": "Virginia", "puntuacionTres":18,}
+			{"respuestaCuatro": "Telera", "puntuacionCuatro":11,}
+			{"respuestaCinco": "Baguette", "puntuacionCinco": 6}		
+		]
+	},
+	{
+		"titulo" : "Menciona deporte que entre mas pesado estes mas te aydua.",
+		"respuestas": [
+			{"respuestaUno": "Sumo", "puntuacionUno": 39},
+			{"respuestaDos": "Lucha libre", "puntuacionDos": 31},
+			{"respuestaTres": "FútBol Americano", "puntuacionTres": 27},
+			{"respuestaCuatro": "Levantamiento de pesas", "puntuacionCuatro": 15},
+			{"respuestaCinco": "Box", "puntuacionCinco": 12}
+		]
+	},
+	{
+		"titulo" : "Menciona material que se usa para hacer esculturas.",
+		"respuestas": [
+			{"respuestaUno": "Barro", "puntuacionUno": 45},
+			{"respuestaDos": "Piedra", "puntuacionDos": 37},
+			{"respuestaTres": "Mármol", "puntuacionTres": 24},
+			{"respuestaCuatro": "Yeso", "puntuacionCuatro": 15},
+			{"respuestaCinco": "Metal", "puntuacionCinco": 10}
+		]
+	},
+	{
+		"titulo" : "Menciona Características de la gente Asiática.",
+		"respuestas": [
+			{"respuestaUno": "Ojos chinos", "puntuacionUno": 39},
+			{"respuestaDos": "DelgaDos", "puntuacionDos": 31},
+			{"respuestaTres": "Inteligencia", "puntuacionTres": 27},
+			{"respuestaCuatro": "Color de piel", "puntuacionCuatro": 15},
+			{"respuestaCinco": "Idioma", "puntuacionCinco": 12}
+		]
+	},
+	{
+		"titulo" : "Menciona algo que es malo para el cabello.",
+		"respuestas": [
+			{"respuestaUno": "Tintes", "puntuacionUno": 43},
+			{"respuestaDos": "Fijadores", "puntuacionDos": 36},
+			{"respuestaTres": "El sol", "puntuacionTres": 24},
+			{"respuestaCuatro": "Caspa", "puntuacionCuatro": 18},
+			{"respuestaCinco": "Gel", "puntuacionCinco": 8}		]
+	},
+	{
+		"titulo" : "Menciona un objeto que explota.",
+		"respuestas": [
+			{"respuestaUno": "Bomba", "puntuacionUno": 38},
+			{"respuestaDos": "Trike", "puntuacionDos": 29},
+			{"respuestaTres": "Dinamita", "puntuacionTres": 20},
+			{"respuestaCuatro": "Tanques de gas", "puntuacionCuatro": 13},
+			{"respuestaCinco": "Granada", "puntuacionCinco": 7}		
+		]
+	},
+	{
+		"titulo" : "Menciona un pan de Dulce.",
+		"respuestas": [
+			{"respuestaUno": "Dona", "puntuacionUno": 36},
+			{"respuestaDos": "Concha", "puntuacionDos": 32},
+			{"respuestaTres": "Leño", "puntuacionTres": 26},
+			{"respuestaCuatro": "Puerquito", "puntuacionCuatro": 15},
+			{"respuestaCinco": "Cocodrilo/Elote", "puntuacionCinco": 6}		
+		]
+	},
+	{
+		"titulo" : "Menciona que hay en una billetera de un Hombre.",
+		"respuestas": [
+			{"respuestaUno": "Dinero", "puntuacionUno": 31},
+			{"respuestaDos": "Fotos", "puntuacionDos": 30},
+			{"respuestaTres": "Credenciales", "puntuacionTres": 20},
+			{"respuestaCuatro": "Tarjetas", "puntuacionCuatro": 11},
+			{"respuestaCinco": "Condones", "puntuacionCinco": 2}		
+		]
+	},
+	{
+		"titulo" : "Menciona una característica de una Limosina.",
+		"respuestas": [
+			{"respuestaUno": "Larga", "puntuacionUno": 31},
+			{"respuestaDos": "Color negro", "puntuacionDos": 22},
+			{"respuestaTres": "Elegante", "puntuacionTres": 16},
+			{"respuestaCuatro": "Costosa", "puntuacionCuatro": 14},
+			{"respuestaCinco": "Divertida", "puntuacionCinco": 10}
+		]
+	},
+	{
+		"titulo" : "Sin decir marcas Menciona alimentos que se pueden comprar en maquina Expendedora.",
+		"respuestas": [
+			{"respuestaUno": "Refresco", "puntuacionUno": 37},
+			{"respuestaDos": "Sabritas", "puntuacionDos": 34},
+			{"respuestaTres": "Galletas", "puntuacionTres": 22},
+			{"respuestaCuatro": "Dulces", "puntuacionCuatro": 15},
+			{"respuestaCinco": "Agua", "puntuacionCinco": 14}
+		]
+	},
+	{
+		"titulo" : "Menciona un lugar donde haya un chicle pegado.",
+		"respuestas": [
+			{"respuestaUno": "Piso", "puntuacionUno": 46},
+			{"respuestaDos": "Bajo la mesa", "puntuacionDos": 32},
+			{"respuestaTres": "Zapato", "puntuacionTres": 27},
+			{"respuestaCuatro": "Silla", "puntuacionCuatro": 22},
+			{"respuestaCinco": "Pared", "puntuacionCinco": 16}
+		]
+	},
+	{
+		"titulo" : "Menciona cosas que la gente compra esperando que le dure toda la vida.",
+		"respuestas": [
+			{"respuestaUno": "Casa", "puntuacionUno": 46},
+			{"respuestaDos": "Carro", "puntuacionDos": 34},
+			{"respuestaTres": "Ropa", "puntuacionTres": 29},
+			{"respuestaCuatro": "Muebles", "puntuacionCuatro": 17},
+			{"respuestaCinco": "Electrodomestico", "puntuacionCinco": 7}		
+		]
+	},
+	{
+		"titulo" : "Menciona que cosas hacen los Gatos.",
+		"respuestas": [
+			{"respuestaUno": "Jugar", "puntuacionUno": 47},
+			{"respuestaDos": "Dormir", "puntuacionDos": 39},
+			{"respuestaTres": "Comer", "puntuacionTres": 21},
+			{"respuestaCuatro": "Maullar", "puntuacionCuatro": 20},
+			{"respuestaCinco": "Lamer", "puntuacionCinco": 13}
+		]
+	},
+	{
+		"titulo" : "Menciona vegetal que el mexicano promedio fríe.",
+		"respuestas": [
+			{"respuestaUno": "Papas", "puntuacionUno": 35},
+			{"respuestaDos": "Cebolla", "puntuacionDos": 27},
+			{"respuestaTres": "Calabaza", "puntuacionTres": 22},
+			{"respuestaCuatro": "Zanahoria", "puntuacionCuatro": 11},
+			{"respuestaCinco": "Chile", "puntuacionCinco": 5}		
+		]
+	},
+	{
+		"titulo" : "Menciona utensilios de cocina.",
+		"respuestas": [
+			{"respuestaUno": "Cuchara", "puntuacionUno": 38},
+			{"respuestaDos": "Cuchillo", "puntuacionDos": 28},
+			{"respuestaTres": "Sartén", "puntuacionTres": 15},
+			{"respuestaCuatro": "Tenedor", "puntuacionCuatro": 10},
+			{"respuestaCinco": "Cazuela", "puntuacionCinco": 3}		
+		]
+	},
+	{
+		"titulo" : "Menciona algo que se enciende con un cerillo.",
+		"respuestas": [
+			{"respuestaUno": "Cigarro", "puntuacionUno": 43},
+			{"respuestaDos": "Estufa", "puntuacionDos":20},
+			{"respuestaTres": "Velas", "puntuacionTres":10},
+			{"respuestaCuatro": "Papel", "puntuacionCuatro":8},
+			{"respuestaCinco": "Fuegos Artificiales", "puntuacionCinco": 5}		
+		]
+	},
+	{
+		"titulo" : "Menciona algo que tenga cuernos.",
+		"respuestas": [
+			{"respuestaUno": "Toro", "puntuacionUno": 62},
+			{"respuestaDos": "Venado", "puntuacionDos": 50},
+			{"respuestaTres": "Chivo", "puntuacionTres": 22},
+			{"respuestaCuatro": "Vaca", "puntuacionCuatro": 17},
+			{"respuestaCinco": "Buey", "puntuacionCinco": 5}		
+		]
+	},
+	{
+		"titulo" : "Menciona que es lo más constante que hace un bebe.",
+		"respuestas": [
+			{"respuestaUno": "Llorar", "puntuacionUno": 63},
+			{"respuestaDos": "Popo", "puntuacionDos": 42},
+			{"respuestaTres": "Comer", "puntuacionTres": 33},
+			{"respuestaCuatro": "Dormir", "puntuacionCuatro": 19},
+			{"respuestaCinco": "Jugar", "puntuacionCinco": 10}		
+		]
+	},
+	{
+		"titulo" : "Menciona un alimento que se vende en lata.",
+		"respuestas": [
+			{"respuestaUno": "Atún", "puntuacionUno": 47},
+			{"respuestaDos": "Frijoles", "puntuacionDos": 39},
+			{"respuestaTres": "Chícharos", "puntuacionTres": 22},
+			{"respuestaCuatro": "Chiles", "puntuacionCuatro": 11},
+			{"respuestaCinco": "Refresco", "puntuacionCinco": 7}		
+		]
+	},
+	{
+		"titulo" : "Menciona Artículos de higiene que no suelen faltar en un viaje.",
+		"respuestas": [
+			{"respuestaUno": "Pasta dental", "puntuacionUno": 36},
+			{"respuestaDos": "Cepillo de dientes", "puntuacionDos": 34},
+			{"respuestaTres": "peine", "puntuacionTres": 24},
+			{"respuestaCuatro": "Desodorante", "puntuacionCuatro": 18},
+			{"respuestaCinco": "Shampoo", "puntuacionCinco": 7}		
+		]
+	},
+	{
+		"titulo" : "Menciona una razón para viajar.",
+		"respuestas": [
+			{"respuestaUno": "Vacaciones", "puntuacionUno": 32},
+			{"respuestaDos": "Fiesta familiar", "puntuacionDos": 27},
+			{"respuestaTres": "Fecha festiva", "puntuacionTres": 22},
+			{"respuestaCuatro": "Por mejor precio", "puntuacionCuatro": 19},
+			{"respuestaCinco": "Descanso", "puntuacionCinco": 16}		
+		]
+	},
+	{
+		"titulo" : "Menciona Lugar en donde conseguir hospedaje.",
+		"respuestas": [
+			{"respuestaUno": "App/Página web", "puntuacionUno": 38},
+			{"respuestaDos": "Hotel", "puntuacionDos": 30},
+			{"respuestaTres": "Motel", "puntuacionTres": 27},
+			{"respuestaCuatro": "Hostel", "puntuacionCuatro": 18},
+			{"respuestaCinco": "Con un conocido/Familiar", "puntuacionCinco": 13}		
+		]
+	},
+	{
+		"titulo" : "Menciona personaje clasico de terror.",
+		"respuestas": [
+			{"respuestaUno": "Chucky", "puntuacionUno": 39},
+			{"respuestaDos": "", "puntuacionDos":31},
+			{"respuestaTres": "Freddy Krueger", "puntuacionTres": 29},
+			{"respuestaCuatro": "Máscara de fantasma(Scream)", "puntuacionCuatro": 21},
+			{"respuestaCinco": "Jason", "puntuacionCinco": 7}		
+		]
+	},
+	{
+		"titulo" : "Menciona pelicula antigua de terror.",
+		"respuestas": [
+			{"respuestaUno": "Drácula", "puntuacionUno": 31},
+			{"respuestaDos": "El Exorcista", "puntuacionDos": 26},
+			{"respuestaTres": "El Resplandor", "puntuacionTres": 20},
+			{"respuestaCuatro": "It (Eso)", "puntuacionCuatro": 17},
+			{"respuestaCinco": "Psicosis", "puntuacionCinco": 3}		
+		]
+	},
+	{
+		"titulo" : "Menciona disfraces clasicos Sexys que una chica suele vestirse.",
+		"respuestas": [
+			{"respuestaUno": "Gatita", "puntuacionUno": 35},
+			{"respuestaDos": "Vampira", "puntuacionDos": 29},
+			{"respuestaTres": "Diablita", "puntuacionTres": 22},
+			{"respuestaCuatro": "Brujita", "puntuacionCuatro": 12},
+			{"respuestaCinco": "Caperucita Roja", "puntuacionCinco": 6}		
+		]
+	},
+	{
+		"titulo" : "Menciona que debe tener una casa para ser mansión.",
+		"respuestas": [
+			{"respuestaUno": "Muy grande", "puntuacionUno": 46},
+			{"respuestaDos": "Tener alberca", "puntuacionDos": 46},
+			{"respuestaTres": "Gigante jardín", "puntuacionTres": 26},
+			{"respuestaCuatro": "Muebles lujosos", "puntuacionCuatro": 17},
+			{"respuestaCinco": "Muy alta", "puntuacionCinco": 6}		
+		]
+	},
+	{
+		"titulo" : "Menciona especie usada en la cocina.",
+		"respuestas": [
+			{"respuestaUno": "Sal", "puntuacionUno": 31},
+			{"respuestaDos": "Pimienta", "puntuacionDos": 28},
+			{"respuestaTres": "Clavo", "puntuacionTres": 25},
+			{"respuestaCuatro": "Ajo", "puntuacionCuatro": 17},
+			{"respuestaCinco": "Orégano", "puntuacionCinco": 13}		
+		]
+	},
+	{
+		"titulo" : "Menciona cosas que un niño puede querer y tiene ruedas.",
+		"respuestas": [
+			{"respuestaUno": "Bicicleta", "puntuacionUno": 36},
+			{"respuestaDos": "Un coche", "puntuacionDos": 33},
+			{"respuestaTres": "Patines", "puntuacionTres": 27},
+			{"respuestaCuatro": "Juguete", "puntuacionCuatro": 14},
+			{"respuestaCinco": "Patineta", "puntuacionCinco": 8}		
+		]
+	},
+	{
+		"titulo" : "Menciona cosas bonitas que alguien se pudiera decir en el espejo.",
+		"respuestas": [
+			{"respuestaUno": "Que guapo/bonito", "puntuacionUno": 39},
+			{"respuestaDos": "Que alto te ves", "puntuacionDos": 32},
+			{"respuestaTres": "Que delgado te ves", "puntuacionTres":28},
+			{"respuestaCuatro": "Que sexy te ves", "puntuacionCuatro": 15},
+			{"respuestaCinco": "Bien vestido te ves", "puntuacionCinco": 12}		
+		]
+	},
+	{
+		"titulo" : "Menciona cosas que comen los gusanos.",
+		"respuestas": [
+			{"respuestaUno": "Plantas", "puntuacionUno": 45},
+			{"respuestaDos": "Cadáveres", "puntuacionDos": 37},
+			{"respuestaTres": "Frutas", "puntuacionTres": 31},
+			{"respuestaCuatro": "Comida echada a perder", "puntuacionCuatro": 16},
+			{"respuestaCinco": "Cosas podridas", "puntuacionCinco": 11}		
+		]
+	},
+	{
+		"titulo" : "Menciona signo de ortografía que sirve para marcas pausa.",
+		"respuestas": [
+			{"respuestaUno": "Coma", "puntuacionUno": 39},
+			{"respuestaDos": "Punto", "puntuacionDos": 36},
+			{"respuestaTres": "Punto y coma", "puntuacionTres": 25},
+			{"respuestaCuatro": "Guión", "puntuacionCuatro": 20},
+			{"respuestaCinco": "Dos puntos", "puntuacionCinco": 8}		
+		]
+	},
+	{
+		"titulo" : "Menciona cosas que se venden para fiestas patrias.",
+		"respuestas": [
+			{"respuestaUno": "Banderas", "puntuacionUno": 39},
+			{"respuestaDos": "Bigotes", "puntuacionDos": 36},
+			{"respuestaTres": "Confeti", "puntuacionTres": 25},
+			{"respuestaCuatro": "Sombreros", "puntuacionCuatro": 20},
+			{"respuestaCinco": "Alcohol", "puntuacionCinco": 8}		
+		]
+	},
+	{
+		"titulo" : "Termina la frase 'Te quiero de aquí hasta...'.",
+		"respuestas": [
+			{"respuestaUno": "El cielo", "puntuacionUno": 39},
+			{"respuestaDos": "La luna", "puntuacionDos": 36},
+			{"respuestaTres": "El infinito", "puntuacionTres": 28},
+			{"respuestaCuatro": "El mas allá", "puntuacionCuatro": 17},
+			{"respuestaCinco": "Las estrellas", "puntuacionCinco": 9}		
+		]
+	},
+	{
+		"titulo" : "Menciona que suele ver en carnavales.",
+		"respuestas": [
+			{"respuestaUno": "Disfraces", "puntuacionUno": 37},
+			{"respuestaDos": "Carros alegóricos", "puntuacionDos": 32},
+			{"respuestaTres": "Máscaras/antifraces", "puntuacionTres": 26},
+			{"respuestaCuatro": "Bailes", "puntuacionCuatro": 21},
+			{"respuestaCinco": "Mucha gente", "puntuacionCinco": 13}		
+		]
+	},
+	{
+		"titulo" : "Menciona parte del cuerpo que puedes tocar para provocar el coito.",
+		"respuestas": [
+			{"respuestaUno": "Cuello", "puntuacionUno": 60},
+			{"respuestaDos": "Cintura", "puntuacionDos": 23},
+			{"respuestaTres": "Espalda", "puntuacionTres": 20},
+			{"respuestaCuatro": "Piernas", "puntuacionCuatro":15},
+			{"respuestaCinco": "Pecho", "puntuacionCinco": 9}		
+		]
+	},
+	{
+		"titulo" : "Menciona animal que la gente suele ver con sus crias.",
+		"respuestas": [
+			{"respuestaUno": "Gallina", "puntuacionUno": 47},
+			{"respuestaDos": "Perro", "puntuacionDos": 40},
+			{"respuestaTres": "Gato", "puntuacionTres": 34},
+			{"respuestaCuatro": "Puercos", "puntuacionCuatro": 13},
+			{"respuestaCinco": "Roedores", "puntuacionCinco": 2}		
+		]
+	},
+	{
+		"titulo" : "Menciona un insecto que asuste.",
+		"respuestas": [
+			{"respuestaUno": "Araña/Trantula", "puntuacionUno": 38},
+			{"respuestaDos": "Cucaracha Voladora", "puntuacionDos": 24},
+			{"respuestaTres": "Alacrán", "puntuacionTres": 8},
+			{"respuestaCuatro": "Abeja/Avispa", "puntuacionCuatro": 8},
+			{"respuestaCinco": "Cienpiés", "puntuacionCinco": 5}		
+		]
+	},
+	{
+		"titulo" : "Menciona que puede agregarse al café.",
+		"respuestas": [
+			{"respuestaUno": "Azúcar", "puntuacionUno": 33},
+			{"respuestaDos": "Crema", "puntuacionDos": 28},
+			{"respuestaTres": "Leche", "puntuacionTres": 23},
+			{"respuestaCuatro": "Canela", "puntuacionCuatro": 10},
+			{"respuestaCinco": "Alcohol", "puntuacionCinco": 4}		
+		]
+	},
+	{
+		"titulo" : "Menciona frase clásica para decir que no te interesa tu EX.",
+		"respuestas": [
+			{"respuestaUno": "No l@ queria", "puntuacionUno": 26},
+			{"respuestaDos": "Era aburrid@", "puntuacionDos": 20},
+			{"respuestaTres": "Era odioso/No soportaba", "puntuacionTres": 12},
+			{"respuestaCuatro": "Infidelidad", "puntuacionCuatro": 8},
+			{"respuestaCinco": "Yo l@ deje", "puntuacionCinco": 2}		
+		]
+	},
+	{
+		"titulo" : "Menciona un objeto hecho de vidrio.",
+		"respuestas": [
+			{"respuestaUno": "Vaso", "puntuacionUno": 38},
+			{"respuestaDos": "Botellas", "puntuacionDos": 19},
+			{"respuestaTres": "Espejos", "puntuacionTres": 15},
+			{"respuestaCuatro": "Ventanas", "puntuacionCuatro": 5},
+			{"respuestaCinco": "Copa", "puntuacionCinco": 1}		
+		]
+	},
+	{
+		"titulo" : "Menciona medio de transporte con el que podrías conocer todo el mundo.",
+		"respuestas": [
+			{"respuestaUno": "Avión", "puntuacionUno": 34},
+			{"respuestaDos": "Motocicleta", "puntuacionDos": 16},
+			{"respuestaTres": "Automóvil", "puntuacionTres": 16},
+			{"respuestaCuatro": "Helicóptero", "puntuacionCuatro": 7},
+			{"respuestaCinco": "Autobús/Casa Rodante", "puntuacionCinco": 5}		
+		]
+	},
+	{
+		"titulo" : "Menciona parte del cuerpo donde suelen hacerle cosquillas.",
+		"respuestas": [
+			{"respuestaUno": "Pies", "puntuacionUno": 37},
+			{"respuestaDos": "Estómago", "puntuacionDos": 19},
+			{"respuestaTres": "Axila", "puntuacionTres": 15},
+			{"respuestaCuatro": "Costillas", "puntuacionCuatro": 9},
+			{"respuestaCinco": "Cuello", "puntuacionCinco": 3}		
+		]
+	},
+	{
+		"titulo" : "Menciona un país que últimamente ha estado en algún tipo de guerra.",
+		"respuestas": [
+			{"respuestaUno": "Rusia", "puntuacionUno": 28},
+			{"respuestaDos": "Ucrania", "puntuacionDos": 17},
+			{"respuestaTres": "China", "puntuacionTres": 16},
+			{"respuestaCuatro": "Estados Unidos", "puntuacionCuatro": 12},
+			{"respuestaCinco": "Israel", "puntuacionCinco": 8}		
+		]
+	},
+	{
+		"titulo" : "Menciona algo que suele estar en el refigerador de un soltero.",
+		"respuestas": [
+			{"respuestaUno": "Cerveza", "puntuacionUno": 39},
+			{"respuestaDos": "Leche", "puntuacionDos": 24},
+			{"respuestaTres": "Comida", "puntuacionTres": 14},
+			{"respuestaCuatro": "Refresco", "puntuacionCuatro": 12},
+			{"respuestaCinco": "Fruta/Verduras", "puntuacionCinco": 4}		
+		]
+	},
+	{
+		"titulo" : "Menciona una actividad que provoca cansancio en los ojos.",
+		"respuestas": [
+			{"respuestaUno": "Leer", "puntuacionUno": 36},
+			{"respuestaDos": "Televisión", "puntuacionDos": 28},
+			{"respuestaTres": "Teléfono", "puntuacionTres": 26},
+			{"respuestaCuatro": "Estar en el sol", "puntuacionCuatro": 13},
+			{"respuestaCinco": "Computadora", "puntuacionCinco": 5}		
+		]
+	},
+	{
+		"titulo" : "Menciona característica clásica de una porrista de fútbol americano.",
+		"respuestas": [
+			{"respuestaUno": "Mini falda", "puntuacionUno": 42},
+			{"respuestaDos": "Pompones", "puntuacionDos": 33},
+			{"respuestaTres": "Buen cuerpo", "puntuacionTres": 23},
+			{"respuestaCuatro": "Guapas/Bonitas", "puntuacionCuatro": 17},
+			{"respuestaCinco": "Flexibilidad", "puntuacionCinco": 8}		
+		]
+	},
+	{
+		"titulo" : "Menciona prenda la cúal se abotone.",
+		"respuestas": [
+			{"respuestaUno": "Camisa", "puntuacionUno": 44},
+			{"respuestaDos": "Blusa", "puntuacionDos": 34},
+			{"respuestaTres": "Pantalón", "puntuacionTres": 27},
+			{"respuestaCuatro": "Suéter", "puntuacionCuatro": 22},
+			{"respuestaCinco": "Falda", "puntuacionCinco": 13}		
+		]
+	},
+	{
+		"titulo" : "Menciona ademas de Okay, di otra manera de decir que estás de acuerdo.",
+		"respuestas": [
+			{"respuestaUno": "Bien", "puntuacionUno": 45},
+			{"respuestaDos": "Si", "puntuacionDos": 19},
+			{"respuestaTres": "Claro", "puntuacionTres": 16},
+			{"respuestaCuatro": "Perfecto", "puntuacionCuatro": 10},
+			{"respuestaCinco": "De acuerdo", "puntuacionCinco": 7}		
+		]
+	},
+	{
+		"titulo" : "Menciona algo en lo que los niños se trepen.",
+		"respuestas": [
+			{"respuestaUno": "Árboles", "puntuacionUno": 44},
+			{"respuestaDos": "Culumpio", "puntuacionDos": 38},
+			{"respuestaTres": "Resbaladilla", "puntuacionTres": 24},
+			{"respuestaCuatro": "En la gente", "puntuacionCuatro": 10},
+			{"respuestaCinco": "Coches", "puntuacionCinco": 9}		
+		]
+	},
+	{
+		"titulo" : "Menciona la cantidad de un billete de México.",
+		"respuestas": [
+			{"respuestaUno": "Cien", "puntuacionUno": 23},
+			{"respuestaDos": "Veinte", "puntuacionDos": 20},
+			{"respuestaTres": "Doscientos", "puntuacionTres": 15},
+			{"respuestaCuatro": "Quinientos", "puntuacionCuatro": 10},
+			{"respuestaCinco": "Mil", "puntuacionCinco": 8}		
+		]
+	}
+
+	//TERMINE LA TEMPORADA SIETE, EMPEZAR CON LA 8 EN ADELANTE.
+
+
+
+
+]

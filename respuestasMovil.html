@@ -1,0 +1,3195 @@
+po481<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">  
+
+    <style type="text/css">
+      .listPreguntas{
+  margin: 0px auto 0px auto;
+  max-width: 200px;
+  padding-top: 20px;
+}
+
+hr {
+  margin: 3px;
+}
+
+.row{
+  margin-right: 0;
+    margin-left: 0;
+}
+
+.container-fluid{
+  padding-right: 0;
+    padding-left: 0;
+    background-color: #fcfbfb;
+}
+
+.mainListPreguntas{
+  max-width: 800px;
+  margin: auto;
+  box-shadow: 0px 0px 20px 0px #00000045;
+  background-color: white;
+
+}
+
+.col-5X-Resp{
+  max-width: 194px;
+}
+
+.listPreguntas{
+  margin: 0px auto 0px auto;
+  max-width: 200px;
+  padding-top: 20px;
+}
+
+.listRespText{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.accordion-body-X-Resp {
+    max-width: 480px;
+    margin: auto;
+}
+
+.card-X-Resp{
+  --bs-card-border-color: none;
+  background-color: #C2ECAC;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+
+  border-radius: 15px;
+}
+ 
+.col-2{
+  padding: 0px;
+  display: flex;
+  width: 40px;
+    justify-content: center;
+}
+    </style>
+
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      const preguntas = [ 
+    {
+  titulo: "Menciona un bicho que puedes encontrar dentro de tu casa.",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Arañas", puntuacionUno: 22},
+            {respuestaDos: "Moscas", puntuacionDos: 17},
+            {respuestaTres: "Cucharachas", puntuacionTres: 13},
+            {respuestaCuatro: "Hormigas", puntuacionCuatro: 13},
+            {respuestaCinco: "Mosc@s", puntuacionCinco: 10}
+        ]
+    },
+    {
+  titulo: "Menciona un alimento de color rojo.",
+  tipo: "alimento",
+  respuestas: [
+            {respuestaUno: "Manzana", puntuacionUno: 30},
+            {respuestaDos: "Jitomate", puntuacionDos: 20},
+            {respuestaTres: "Fresa", puntuacionTres: 13},
+            {respuestaCuatro: "Sandía", puntuacionCuatro: 8},
+            {respuestaCinco: "Ciruela", puntuacionCinco: 4}
+        ]
+    },
+    {
+  titulo: "Menciona algo que se obtiene de un árbol.",
+  tipo: "naturaleza",
+  respuestas: [
+            {respuestaUno: "Fruta", puntuacionUno: 40},
+      {respuestaDos: "Papel", puntuacionDos: 15},
+      {respuestaTres: "Madera", puntuacionTres: 12},
+      {respuestaCuatro: "Lápiz", puntuacionCuatro: 8},
+      {respuestaCinco: "Oxigeno" ,puntuacionCinco: 4}
+        ]
+    },
+    {
+  titulo : "Nombra un país de América del Sur.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Brasil", puntuacionUno: 40},
+      {respuestaDos: "Argentina", puntuacionDos: 15},
+      {respuestaTres: "Chile", puntuacionTres: 12},
+      {respuestaCuatro: "Guatemala", puntuacionCuatro: 8},
+      {respuestaCinco: "Bolivia", puntuacionCinco: 3}
+    ]
+  },
+  {
+  titulo : "Menciona una especialidad médica.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Ginecología", puntuacionUno: 38},
+      {respuestaDos: "Odontología", puntuacionDos: 27},
+      {respuestaTres: "Cardiologia", puntuacionTres: 12},
+      {respuestaCuatro: "Pediatría", puntuacionCuatro: 10},
+      {respuestaCinco: "Cirujano", puntuacionCinco: 8}
+    ]
+  },
+  {
+  titulo : "Menciona regalo barato que siempre será bien aceptado.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Flores", puntuacionUno: 44},
+      {respuestaDos: "Tarjeta/Carta", puntuacionDos: 24},
+      {respuestaTres: "Chocolates", puntuacionTres: 18},
+      {respuestaCuatro: "Peluches", puntuacionCuatro: 11},
+      {respuestaCinco: "Dinero", puntuacionCinco: 6}
+    ]
+  },
+  {
+  titulo : "Termina la frase: Estoy que me lleva la...",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Fregada", puntuacionUno: 37},
+      {respuestaDos: "Chingada", puntuacionDos: 31},
+      {respuestaTres: "Verga", puntuacionTres: 12},
+      {respuestaCuatro: "Que me trajo", puntuacionCuatro: 12},
+      {respuestaCinco: "Canción", puntuacionCinco: 8}   
+    ]
+  },
+  {
+  titulo : "Menciona Dato el cual se puede leer en una caja de cereal.",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Datos Nutricionales", puntuacionUno: 44},
+      {respuestaDos: "Ingredientes", puntuacionDos: 23},
+      {respuestaTres: "Marca", puntuacionTres: 16},
+      {respuestaCuatro: "Nombre del producto", puntuacionCuatro: 7},
+      {respuestaCinco: "Juego o Cupón", puntuacionCinco: 2}   
+    ]
+  },
+  {
+  titulo : "Menciona Carrera la cuál suele asociarse como Artista.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Canto", puntuacionUno: 23},
+      {respuestaDos: "Actuación", puntuacionDos: 20},
+      {respuestaTres: "Baile/Danza", puntuacionTres: 18},
+      {respuestaCuatro: "Pintura/Dibujo", puntuacionCuatro: 13},
+      {respuestaCinco: "Músico", puntuacionCinco: 7}    
+    ]
+  },
+  {
+  titulo : "Menciona un sabor de una crema en una fiesta.",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Queso", puntuacionUno: 32},
+      {respuestaDos: "Atun", puntuacionDos: 25},
+      {respuestaTres: "Cebolla", puntuacionTres: 25},
+      {respuestaCuatro: "Chipotle", puntuacionCuatro: 14},
+      {respuestaCinco: "Chile", puntuacionCinco: 13}
+    ]
+  },
+  {
+  titulo : "Menciona una fobia o miedo.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Alturas", puntuacionUno: 25},
+      {respuestaDos: "Arañas", puntuacionDos: 21},
+      {respuestaTres: "Oscuridad", puntuacionTres: 16},
+      {respuestaCuatro: "Estar encerrado", puntuacionCuatro: 10},
+      {respuestaCinco: "Ratas", puntuacionCinco: 4}   
+    ]
+  },
+  {
+  titulo : "Nombra algo que desafía la ley de la Gravedad.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Aviones", puntuacionUno: 37},
+      {respuestaDos: "Drones", puntuacionDos: 29},
+      {respuestaTres: "Helicópteros", puntuacionTres: 21},
+      {respuestaCuatro: "Cohetes", puntuacionCuatro: 16},
+      {respuestaCinco: "Satélites", puntuacionCinco: 10}
+    ]
+  },
+  {
+  titulo : "Menciona lugar donde los estudiantes se la pintean.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Parque", puntuacionUno: 41},
+      {respuestaDos: "Cine", puntuacionDos: 18},
+      {respuestaTres: "Maquinitas", puntuacionTres: 12},
+      {respuestaCuatro: "Centro", puntuacionCuatro: 10},
+      {respuestaCinco: "Billar o Bar", puntuacionCinco: 4}    
+    ]
+  },
+  {
+  titulo : "Menciona cosas que llevamos para acampar.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Casa de campaña", puntuacionUno: 38},
+      {respuestaDos: "Bolsa para dormir", puntuacionDos: 33},
+      {respuestaTres: "Comida", puntuacionTres: 24},
+      {respuestaCuatro: "Lámpara/Linterna", puntuacionCuatro: 15},
+      {respuestaCinco: "Mochila", puntuacionCinco: 11}
+    ]
+  },
+  {
+  titulo : "Menciona preguntas que te hacen cuando vas a las carnes frias.",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "¿Que va a llevar?", puntuacionUno: 35},
+      {respuestaDos: "¿Cuánto va a llevar?", puntuacionDos: 24},
+      {respuestaTres: "¿De que marca?", puntuacionTres: 20},
+      {respuestaCuatro: "¿Así está bien?", puntuacionCuatro: 17},
+      {respuestaCinco: "¿En que le puedo ayudar?", puntuacionCinco: 9}    
+    ]
+  },
+  {
+  titulo : "Menciona un animal marino que no sea un pez.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Camarón", puntuacionUno: 48},
+      {respuestaDos: "Pulpo", puntuacionDos: 39},
+      {respuestaTres: "Ballena", puntuacionTres: 21},
+      {respuestaCuatro: "Tortuga", puntuacionCuatro: 13},
+      {respuestaCinco: "Caballito de mar", puntuacionCinco: 2}    
+    ]
+  },
+  {
+  titulo : "Menciona un pan No Dulce.",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Torcido", puntuacionUno: 29},
+      {respuestaDos: "Pan de caja(Bimbo)", puntuacionDos: 27},
+      {respuestaTres: "Virginia", puntuacionTres:18},
+      {respuestaCuatro: "Telera", puntuacionCuatro:11},
+      {respuestaCinco: "Baguette", puntuacionCinco: 6}    
+    ]
+  },
+  {
+  titulo : "Menciona deporte que entre mas pesado estes mas te aydua.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Sumo", puntuacionUno: 39},
+      {respuestaDos: "Lucha libre", puntuacionDos: 31},
+      {respuestaTres: "FútBol Americano", puntuacionTres: 27},
+      {respuestaCuatro: "Levantamiento de pesas", puntuacionCuatro: 15},
+      {respuestaCinco: "Box", puntuacionCinco: 12}
+    ]
+  },
+  {
+  titulo : "Menciona material que se usa para hacer esculturas.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Barro", puntuacionUno: 45},
+      {respuestaDos: "Piedra", puntuacionDos: 37},
+      {respuestaTres: "Mármol", puntuacionTres: 24},
+      {respuestaCuatro: "Yeso", puntuacionCuatro: 15},
+      {respuestaCinco: "Metal", puntuacionCinco: 10}
+    ]
+  },
+  {
+  titulo : "Menciona Características de la gente Asiática.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Ojos chinos", puntuacionUno: 39},
+      {respuestaDos: "DelgaDos", puntuacionDos: 31},
+      {respuestaTres: "Inteligencia", puntuacionTres: 27},
+      {respuestaCuatro: "Color de piel", puntuacionCuatro: 15},
+      {respuestaCinco: "Idioma", puntuacionCinco: 12}
+    ]
+  },
+  {
+  titulo : "Menciona algo que es malo para el cabello.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Tintes", puntuacionUno: 43},
+      {respuestaDos: "Fijadores", puntuacionDos: 36},
+      {respuestaTres: "El sol", puntuacionTres: 24},
+      {respuestaCuatro: "Caspa", puntuacionCuatro: 18},
+      {respuestaCinco: "Gel", puntuacionCinco: 8}   ]
+  },
+  {
+  titulo : "Menciona un objeto que explota.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Bomba", puntuacionUno: 38},
+      {respuestaDos: "Trike", puntuacionDos: 29},
+      {respuestaTres: "Dinamita", puntuacionTres: 20},
+      {respuestaCuatro: "Tanques de gas", puntuacionCuatro: 13},
+      {respuestaCinco: "Granada", puntuacionCinco: 7}   
+    ]
+  },
+  {
+  titulo : "Menciona un pan de Dulce.",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Dona", puntuacionUno: 36},
+      {respuestaDos: "Concha", puntuacionDos: 32},
+      {respuestaTres: "Leño", puntuacionTres: 26},
+      {respuestaCuatro: "Puerquito", puntuacionCuatro: 15},
+      {respuestaCinco: "Cocodrilo/Elote", puntuacionCinco: 6}   
+    ]
+  },
+  {
+  titulo : "Menciona que hay en una billetera de un Hombre.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Dinero", puntuacionUno: 31},
+      {respuestaDos: "Fotos", puntuacionDos: 30},
+      {respuestaTres: "Credenciales", puntuacionTres: 20},
+      {respuestaCuatro: "Tarjetas", puntuacionCuatro: 11},
+      {respuestaCinco: "Condones", puntuacionCinco: 2}    
+    ]
+  },
+  {
+  titulo : "Menciona una característica de una Limosina.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Larga", puntuacionUno: 31},
+      {respuestaDos: "Color negro", puntuacionDos: 22},
+      {respuestaTres: "Elegante", puntuacionTres: 16},
+      {respuestaCuatro: "Costosa", puntuacionCuatro: 14},
+      {respuestaCinco: "Divertida", puntuacionCinco: 10}
+    ]
+  },
+  {
+  titulo : "Sin decir marcas Menciona alimentos que se pueden comprar en maquina Expendedora.",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Refresco", puntuacionUno: 37},
+      {respuestaDos: "Sabritas", puntuacionDos: 34},
+      {respuestaTres: "Galletas", puntuacionTres: 22},
+      {respuestaCuatro: "Dulces", puntuacionCuatro: 15},
+      {respuestaCinco: "Agua", puntuacionCinco: 14}
+    ]
+  },
+  {
+  titulo : "Menciona un lugar donde haya un chicle pegado.",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Piso", puntuacionUno: 46},
+      {respuestaDos: "Bajo la mesa", puntuacionDos: 32},
+      {respuestaTres: "Zapato", puntuacionTres: 27},
+      {respuestaCuatro: "Silla", puntuacionCuatro: 22},
+      {respuestaCinco: "Pared", puntuacionCinco: 16}
+    ]
+  },
+  {
+  titulo : "Menciona cosas que la gente compra esperando que le dure toda la vida.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Casa", puntuacionUno: 46},
+      {respuestaDos: "Carro", puntuacionDos: 34},
+      {respuestaTres: "Ropa", puntuacionTres: 29},
+      {respuestaCuatro: "Muebles", puntuacionCuatro: 17},
+      {respuestaCinco: "Electrodomestico", puntuacionCinco: 7}    
+    ]
+  },
+  {
+  titulo : "Menciona que cosas hacen los Gatos.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Jugar", puntuacionUno: 47},
+      {respuestaDos: "Dormir", puntuacionDos: 39},
+      {respuestaTres: "Comer", puntuacionTres: 21},
+      {respuestaCuatro: "Maullar", puntuacionCuatro: 20},
+      {respuestaCinco: "Lamer", puntuacionCinco: 13}
+    ]
+  },
+  {
+  titulo : "Menciona utensilios de cocina.",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Cuchara", puntuacionUno: 38},
+      {respuestaDos: "Cuchillo", puntuacionDos: 28},
+      {respuestaTres: "Sartén", puntuacionTres: 15},
+      {respuestaCuatro: "Tenedor", puntuacionCuatro: 10},
+      {respuestaCinco: "Cazuela", puntuacionCinco: 3}   
+    ]
+  },
+  {
+  titulo : "Menciona algo que se enciende con un cerillo.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Cigarro", puntuacionUno: 43},
+      {respuestaDos: "Estufa", puntuacionDos:20},
+      {respuestaTres: "Velas", puntuacionTres:10},
+      {respuestaCuatro: "Papel", puntuacionCuatro:8},
+      {respuestaCinco: "Fuegos Artificiales", puntuacionCinco: 5}   
+    ]
+  },
+  {
+  titulo : "Menciona algo que tenga cuernos.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Mi Ex", puntuacionUno: 62},
+      {respuestaDos: "Venado", puntuacionDos: 50},
+      {respuestaTres: "Chivo", puntuacionTres: 22},
+      {respuestaCuatro: "Vaca", puntuacionCuatro: 17},
+      {respuestaCinco: "Buey", puntuacionCinco: 5}    
+    ]
+  },
+  {
+  titulo : "Menciona que es lo más constante que hace un bebe.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Llorar", puntuacionUno: 63},
+      {respuestaDos: "Popo", puntuacionDos: 42},
+      {respuestaTres: "Comer", puntuacionTres: 33},
+      {respuestaCuatro: "Dormir", puntuacionCuatro: 19},
+      {respuestaCinco: "Jugar", puntuacionCinco: 10}    
+    ]
+  },
+  {
+  titulo : "Menciona un alimento que se vende en lata.",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Atún", puntuacionUno: 47},
+      {respuestaDos: "Frijoles", puntuacionDos: 39},
+      {respuestaTres: "Chícharos", puntuacionTres: 22},
+      {respuestaCuatro: "Chiles", puntuacionCuatro: 11},
+      {respuestaCinco: "Refresco", puntuacionCinco: 7}    
+    ]
+  },
+  {
+  titulo : "Menciona Artículos de higiene que no suelen faltar en un viaje.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Pasta dental", puntuacionUno: 36},
+      {respuestaDos: "Cepillo de dientes", puntuacionDos: 34},
+      {respuestaTres: "peine", puntuacionTres: 24},
+      {respuestaCuatro: "Desodorante", puntuacionCuatro: 18},
+      {respuestaCinco: "Shampoo", puntuacionCinco: 7}   
+    ]
+  },
+  {
+  titulo : "Menciona Lugar en donde conseguir hospedaje.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "App/Página web", puntuacionUno: 38},
+      {respuestaDos: "Hotel", puntuacionDos: 30},
+      {respuestaTres: "Motel", puntuacionTres: 27},
+      {respuestaCuatro: "Hostel", puntuacionCuatro: 18},
+      {respuestaCinco: "Con un conocido/Familiar", puntuacionCinco: 13}   
+    ]
+  },
+  {
+  titulo : "Menciona personaje clasico de terror.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Chucky", puntuacionUno: 39},
+      {respuestaDos: "Wazaa :p", puntuacionDos:31},
+      {respuestaTres: "Freddy Krueger", puntuacionTres: 29},
+      {respuestaCuatro: "Un negro", puntuacionCuatro: 21},
+      {respuestaCinco: "Jason", puntuacionCinco: 7}   
+    ]
+  },
+  {
+  titulo : "Menciona pelicula antigua de terror.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Drácula", puntuacionUno: 31},
+      {respuestaDos: "El Exorcista", puntuacionDos: 26},
+      {respuestaTres: "El Resplandor", puntuacionTres: 20},
+      {respuestaCuatro: "It (Eso)", puntuacionCuatro: 17},
+      {respuestaCinco: "Psicosis", puntuacionCinco: 3}    
+    ]
+  },
+  {
+  titulo : "Menciona disfraces clasicos Sexys que una chica suele vestirse.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Gatita", puntuacionUno: 35},
+      {respuestaDos: "Vampira", puntuacionDos: 29},
+      {respuestaTres: "Diablita", puntuacionTres: 22},
+      {respuestaCuatro: "Brujita", puntuacionCuatro: 12},
+      {respuestaCinco: "Caperucita Roja", puntuacionCinco: 6}   
+    ]
+  },
+  {
+  titulo : "Menciona que debe tener una casa para ser mansión.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Muy grande", puntuacionUno: 46},
+      {respuestaDos: "Tener alberca", puntuacionDos: 46},
+      {respuestaTres: "Gigante jardín", puntuacionTres: 26},
+      {respuestaCuatro: "Muebles lujosos", puntuacionCuatro: 17},
+      {respuestaCinco: "Muy alta", puntuacionCinco: 6}    
+    ]
+  },
+  {
+  titulo : "Menciona especia usada en la cocina.",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Sal", puntuacionUno: 31},
+      {respuestaDos: "Pimienta", puntuacionDos: 28},
+      {respuestaTres: "Ajo", puntuacionTres: 25},
+      {respuestaCuatro: "laurel", puntuacionCuatro: 17},
+      {respuestaCinco: "Orégano", puntuacionCinco: 13}    
+    ]
+  },
+  {
+  titulo : "Menciona cosas que un niño puede querer y tiene ruedas.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Bicicleta", puntuacionUno: 36},
+      {respuestaDos: "Un coche", puntuacionDos: 33},
+      {respuestaTres: "Patines", puntuacionTres: 27},
+      {respuestaCuatro: "Juguete", puntuacionCuatro: 14},
+      {respuestaCinco: "Patineta", puntuacionCinco: 8}    
+    ]
+  },
+  {
+  titulo : "Menciona cosas bonitas que alguien se pudiera decir en el espejo.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Que guapo/bonito", puntuacionUno: 39},
+      {respuestaDos: "Que alto te ves", puntuacionDos: 32},
+      {respuestaTres: "Que delgado te ves", puntuacionTres:28},
+      {respuestaCuatro: "Que sexy te ves", puntuacionCuatro: 15},
+      {respuestaCinco: "me veo muy bien", puntuacionCinco: 12}    
+    ]
+  },
+  {
+  titulo : "Menciona cosas que comen los gusanos.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Plantas", puntuacionUno: 45},
+      {respuestaDos: "Cadáveres", puntuacionDos: 37},
+      {respuestaTres: "Frutas", puntuacionTres: 31},
+      {respuestaCuatro: "Comida echada a perder", puntuacionCuatro: 16},
+      {respuestaCinco: "Cosas podridas", puntuacionCinco: 11}   
+    ]
+  },
+  {
+  titulo : "Menciona signo de ortografía que sirve para marcas pausa.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Coma", puntuacionUno: 39},
+      {respuestaDos: "Punto", puntuacionDos: 36},
+      {respuestaTres: "Punto y coma", puntuacionTres: 25},
+      {respuestaCuatro: "Guión", puntuacionCuatro: 20},
+      {respuestaCinco: "Dos puntos", puntuacionCinco: 8}    
+    ]
+  },
+  {
+  titulo : "Menciona cosas que se venden para fiestas patrias.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Banderas", puntuacionUno: 39},
+      {respuestaDos: "Bigotes", puntuacionDos: 36},
+      {respuestaTres: "Confeti", puntuacionTres: 25},
+      {respuestaCuatro: "Sombreros", puntuacionCuatro: 20},
+      {respuestaCinco: "Alcohol", puntuacionCinco: 8}   
+    ]
+  },
+  {
+  titulo : "Termina la frase 'Te quiero de aquí hasta...'.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "El cielo", puntuacionUno: 39},
+      {respuestaDos: "La luna", puntuacionDos: 36},
+      {respuestaTres: "El infinito", puntuacionTres: 28},
+      {respuestaCuatro: "El mas allá", puntuacionCuatro: 17},
+      {respuestaCinco: "Las estrellas", puntuacionCinco: 9}   
+    ]
+  },
+  {
+  titulo : "Menciona que suele ver en carnavales.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Disfraces", puntuacionUno: 37},
+      {respuestaDos: "Carros alegóricos", puntuacionDos: 32},
+      {respuestaTres: "Máscaras/antifraces", puntuacionTres: 26},
+      {respuestaCuatro: "Bailes", puntuacionCuatro: 21},
+      {respuestaCinco: "Mucha gente", puntuacionCinco: 13}    
+    ]
+  },
+  {
+  titulo : "Menciona parte del cuerpo que puedes tocar para provocar el coito.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Cuello", puntuacionUno: 60},
+      {respuestaDos: "Cintura", puntuacionDos: 23},
+      {respuestaTres: "Espalda", puntuacionTres: 20},
+      {respuestaCuatro: "Piernas", puntuacionCuatro:15},
+      {respuestaCinco: "Pecho", puntuacionCinco: 9}   
+    ]
+  },
+  {
+  titulo : "Menciona animal que la gente suele ver con sus crias.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Gallina", puntuacionUno: 47},
+      {respuestaDos: "Perro", puntuacionDos: 40},
+      {respuestaTres: "Gato", puntuacionTres: 34},
+      {respuestaCuatro: "Puercos", puntuacionCuatro: 13},
+      {respuestaCinco: "Roedores", puntuacionCinco: 2}    
+    ]
+  },
+  {
+  titulo : "Menciona un insecto que asuste.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Araña/Trantula", puntuacionUno: 38},
+      {respuestaDos: "Cucaracha Voladora", puntuacionDos: 24},
+      {respuestaTres: "Alacrán", puntuacionTres: 8},
+      {respuestaCuatro: "Abeja/Avispa", puntuacionCuatro: 8},
+      {respuestaCinco: "Cienpiés", puntuacionCinco: 5}    
+    ]
+  },
+  {
+  titulo : "Menciona que puede agregarse al café.",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Azúcar", puntuacionUno: 33},
+      {respuestaDos: "Crema", puntuacionDos: 28},
+      {respuestaTres: "Leche", puntuacionTres: 23},
+      {respuestaCuatro: "Canela", puntuacionCuatro: 10},
+      {respuestaCinco: "Alcohol", puntuacionCinco: 4}   
+    ]
+  },
+  {
+  titulo : "Menciona frase clásica para decir que no te interesa tu EX.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "No l@ queria", puntuacionUno: 26},
+      {respuestaDos: "Era aburrid@", puntuacionDos: 20},
+      {respuestaTres: "Era odioso/No soportaba", puntuacionTres: 12},
+      {respuestaCuatro: "Infidelidad", puntuacionCuatro: 8},
+      {respuestaCinco: "Yo l@ deje", puntuacionCinco: 2}    
+    ]
+  },
+  {
+  titulo : "Menciona un objeto hecho de vidrio.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Vaso", puntuacionUno: 38},
+      {respuestaDos: "Botellas", puntuacionDos: 19},
+      {respuestaTres: "Espejos", puntuacionTres: 15},
+      {respuestaCuatro: "Ventanas", puntuacionCuatro: 5},
+      {respuestaCinco: "Copa", puntuacionCinco: 1}    
+    ]
+  },
+  {
+  titulo : "Menciona medio de transporte con el que podrías conocer todo el mundo.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Avión", puntuacionUno: 34},
+      {respuestaDos: "Motocicleta", puntuacionDos: 16},
+      {respuestaTres: "Automóvil", puntuacionTres: 16},
+      {respuestaCuatro: "Helicóptero", puntuacionCuatro: 7},
+      {respuestaCinco: "Autobús/Casa Rodante", puntuacionCinco: 5}    
+    ]
+  },
+  {
+  titulo : "Menciona parte del cuerpo donde suelen hacerle cosquillas.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Pies", puntuacionUno: 37},
+      {respuestaDos: "Estómago", puntuacionDos: 19},
+      {respuestaTres: "Axila", puntuacionTres: 15},
+      {respuestaCuatro: "Costillas", puntuacionCuatro: 9},
+      {respuestaCinco: "Cuello", puntuacionCinco: 3}    
+    ]
+  },
+  {
+  titulo : "Menciona un país que últimamente ha estado en algún tipo de guerra.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Rusia", puntuacionUno: 28},
+      {respuestaDos: "Ucrania", puntuacionDos: 17},
+      {respuestaTres: "China", puntuacionTres: 16},
+      {respuestaCuatro: "Estados Unidos", puntuacionCuatro: 12},
+      {respuestaCinco: "Israel", puntuacionCinco: 8}    
+    ]
+  },
+  {
+  titulo : "Menciona algo que suele estar en el refigerador de un soltero.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Cerveza", puntuacionUno: 39},
+      {respuestaDos: "Leche", puntuacionDos: 24},
+      {respuestaTres: "Comida", puntuacionTres: 14},
+      {respuestaCuatro: "Refresco", puntuacionCuatro: 12},
+      {respuestaCinco: "Fruta/Verduras", puntuacionCinco: 4}    
+    ]
+  },
+  {
+  titulo : "Menciona una actividad que provoca cansancio en los ojos.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Leer", puntuacionUno: 36},
+      {respuestaDos: "Televisión", puntuacionDos: 28},
+      {respuestaTres: "Teléfono", puntuacionTres: 26},
+      {respuestaCuatro: "Estar en el sol", puntuacionCuatro: 13},
+      {respuestaCinco: "Computadora", puntuacionCinco: 5}   
+    ]
+  },
+  {
+  titulo : "Menciona característica clásica de una porrista de fútbol americano.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Mini falda", puntuacionUno: 42},
+      {respuestaDos: "Pompones", puntuacionDos: 33},
+      {respuestaTres: "Buen cuerpo", puntuacionTres: 23},
+      {respuestaCuatro: "Guapas/Bonitas", puntuacionCuatro: 17},
+      {respuestaCinco: "Flexibilidad", puntuacionCinco: 8}    
+    ]
+  },
+  {
+  titulo : "Menciona prenda la cúal se abotone.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Camisa", puntuacionUno: 44},
+      {respuestaDos: "Blusa", puntuacionDos: 34},
+      {respuestaTres: "Pantalón", puntuacionTres: 27},
+      {respuestaCuatro: "Suéter", puntuacionCuatro: 22},
+      {respuestaCinco: "Falda", puntuacionCinco: 13}    
+    ]
+  },
+  {
+  titulo : "Menciona ademas de Okay, di otra manera de decir que estás de acuerdo.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Bien", puntuacionUno: 45},
+      {respuestaDos: "Si", puntuacionDos: 19},
+      {respuestaTres: "Claro", puntuacionTres: 16},
+      {respuestaCuatro: "Perfecto", puntuacionCuatro: 10},
+      {respuestaCinco: "De acuerdo", puntuacionCinco: 7}    
+    ]
+  },
+  {
+  titulo : "Menciona algo en lo que los niños se trepen.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Árboles", puntuacionUno: 44},
+      {respuestaDos: "Culumpio", puntuacionDos: 38},
+      {respuestaTres: "Resbaladilla", puntuacionTres: 24},
+      {respuestaCuatro: "En la gente", puntuacionCuatro: 10},
+      {respuestaCinco: "Coches", puntuacionCinco: 9}    
+    ]
+  },
+  {
+  titulo : "Menciona la cantidad de un billete de México.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Cien", puntuacionUno: 23},
+      {respuestaDos: "Veinte", puntuacionDos: 20},
+      {respuestaTres: "Doscientos", puntuacionTres: 15},
+      {respuestaCuatro: "Quinientos", puntuacionCuatro: 10},
+      {respuestaCinco: "Mil", puntuacionCinco: 8}   
+    ]
+  },
+    {
+  titulo : "Menciona vegetal que el mexicano promedio fríe.",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Papas", puntuacionUno: 35},
+      {respuestaDos: "Cebolla", puntuacionDos: 27},
+      {respuestaTres: "Calabaza", puntuacionTres: 22},
+      {respuestaCuatro: "Zanahoria", puntuacionCuatro: 11},
+      {respuestaCinco: "Chile", puntuacionCinco: 5}   
+    ]
+  },
+  {
+  titulo : "Articulo escolar que pierden los niños",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "El Lápiz", puntuacionUno: 34},
+      {respuestaDos: "Sacapuntas", puntuacionDos: 30},
+      {respuestaTres: "Borrador", puntuacionTres: 25},
+      {respuestaCuatro: "Colores", puntuacionCuatro: 21},
+      {respuestaCinco: "Regla", puntuacionCinco: 14}    
+    ]
+  },
+  {
+  titulo : "Menciona fruta que se usa de botana",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Mango", puntuacionUno: 35},
+      {respuestaDos: "Pepino", puntuacionDos: 30},
+      {respuestaTres: "Jicama", puntuacionTres: 27},
+      {respuestaCuatro: "Manzana", puntuacionCuatro: 15},
+      {respuestaCinco: "Uva", puntuacionCinco: 10}    
+    ]
+  },
+  {
+  titulo : "Critica general que le suelen hacer a un restaurante",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Comida", puntuacionUno: 41},
+      {respuestaDos: "Servicio", puntuacionDos: 32},
+      {respuestaTres: "Decoración", puntuacionTres: 22},
+      {respuestaCuatro: "Ubicación", puntuacionCuatro: 20},
+      {respuestaCinco: "Igiene", puntuacionCinco: 13}   
+    ]
+  },
+  {
+  titulo : "Algo que la gente suele desperticiar",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Agua", puntuacionUno: 40},
+      {respuestaDos: "Comida", puntuacionDos: 34},
+      {respuestaTres: "Tiempo", puntuacionTres: 26},
+      {respuestaCuatro: "Basura", puntuacionCuatro: 17},
+      {respuestaCinco: "Dinero", puntuacionCinco: 11}   
+    ]
+  },
+  {
+  titulo : "Dinos una fobia comun de la gente",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Alturas", puntuacionUno: 42},
+      {respuestaDos: "Arañas", puntuacionDos: 35},
+      {respuestaTres: "Encerrado", puntuacionTres: 29},
+      {respuestaCuatro: "Hablar publico", puntuacionCuatro: 19},
+      {respuestaCinco: "Oscuridad", puntuacionCinco: 15}    
+    ]
+  },
+  {
+  titulo : "Menciona algo especifico que las mujeres usan para maquillarse",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Labial", puntuacionUno: 41},
+      {respuestaDos: "Rimen", puntuacionDos: 35},
+      {respuestaTres: "Base", puntuacionTres: 33},
+      {respuestaCuatro: "Polvo", puntuacionCuatro: 25},
+      {respuestaCinco: "Rugor", puntuacionCinco: 12}    
+    ]
+  },
+  {
+  titulo : "Menciona un ingrediente del Pozole",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Maiz", puntuacionUno: 38},
+      {respuestaDos: "Carne", puntuacionDos: 34},
+      {respuestaTres: "Chile", puntuacionTres: 22},
+      {respuestaCuatro: "Lechuga", puntuacionCuatro: 18},
+      {respuestaCinco: "Orégano", puntuacionCinco: 11}    
+    ]
+  },
+  {
+  titulo : "Menciona un Animal que sea muy fuerte",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "León", puntuacionUno: 39},
+      {respuestaDos: "Oso", puntuacionDos: 31},
+      {respuestaTres: "Elefante", puntuacionTres: 29},
+      {respuestaCuatro: "Gorila", puntuacionCuatro: 21},
+      {respuestaCinco: "Tigre", puntuacionCinco: 7}   
+    ]
+  },
+  {
+  titulo : "Castigo que los padres solían hacer a sus hijos",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "No salir", puntuacionUno: 37},
+      {respuestaDos: "Te pegaban", puntuacionDos: 30},
+      {respuestaTres: "No ver TV/Celular", puntuacionTres: 21},
+      {respuestaCuatro: "No comer", puntuacionCuatro: 12},
+      {respuestaCinco: "No dar Dinero", puntuacionCinco: 3}   
+    ]
+  },
+  {
+  titulo: "Menciona algo común que arruina Las Vacaciones",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Mal Clima", puntuacionUno: 31},
+            {respuestaDos: "Enfermedad", puntuacionDos: 30},
+            {respuestaTres: "Accidente", puntuacionTres: 21},
+            {respuestaCuatro: "Por Dinero", puntuacionCuatro: 13},
+            {respuestaCinco: "Trabajo", puntuacionCinco: 9}
+        ]
+    },
+    {
+  titulo: "Forma común de decir que estuvo bien",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Estuvo Suave", puntuacionUno: 42},
+            {respuestaDos: "Estuvo Chingon", puntuacionDos: 32},
+            {respuestaTres: "Estuvo Padre", puntuacionTres: 16},
+            {respuestaCuatro: "Estuvo Genial", puntuacionCuatro: 15},
+            {respuestaCinco: "Estuvo Maravilloso", puntuacionCinco: 3}
+        ]
+    },
+  {
+  titulo: "Catástrofes que hayan sido tema de Películas",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Terremoto", puntuacionUno: 43},
+            {respuestaDos: "Huracán", puntuacionDos: 37},
+            {respuestaTres: "Hundimiento de Barco", puntuacionTres: 17},
+            {respuestaCuatro: "Erupción de volcán", puntuacionCuatro: 15},
+            {respuestaCinco: "Tornado", puntuacionCinco: 11}
+        ]
+    },
+  {
+  titulo: "Además de Fútbol, menciona un deporte con mucha afición.",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Básquetbol", puntuacionUno: 26},
+            {respuestaDos: "Tenis", puntuacionDos: 23},
+            {respuestaTres: "Béisbol", puntuacionTres: 17},
+            {respuestaCuatro: "Fútbol Americano", puntuacionCuatro: 12},
+            {respuestaCinco: "Voleibol", puntuacionCinco: 8}
+        ]
+    },
+  {
+  titulo: "Malestares que puede ocasionar subirse a un avión",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Mido", puntuacionUno: 40},
+            {respuestaDos: "Dolor de cabeza", puntuacionDos: 35},
+            {respuestaTres: "Dolor de estómago", puntuacionTres: 22},
+            {respuestaCuatro: "Obstrucción de oídos", puntuacionCuatro: 16},
+            {respuestaCinco: "Náuseas", puntuacionCinco: 9}
+        ]
+    },
+  {
+  titulo: "Con que suele rellenarse un Globo",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Aire", puntuacionUno: 37},
+            {respuestaDos: "Gas", puntuacionDos: 26},
+            {respuestaTres: "Agua", puntuacionTres: 20},
+            {respuestaCuatro: "Harina", puntuacionCuatro: 13},
+            {respuestaCinco: "Confeti", puntuacionCinco: 11}
+        ]
+    },
+  {
+  titulo: "Menciona algo que tenga rayas",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Cebra", puntuacionUno: 31},
+            {respuestaDos: "Ropa", puntuacionDos: 22},
+            {respuestaTres: "Cuaderno", puntuacionTres: 16},
+            {respuestaCuatro: "El piso/Asulejos", puntuacionCuatro: 13},
+            {respuestaCinco: "Una Regla", puntuacionCinco: 10}
+        ]
+    },
+  {
+  titulo: "Menciona cosas en las que la gente se fija antes de comprar un celular",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "La marca", puntuacionUno: 43},
+           {respuestaDos: "Si esta bonito", puntuacionDos: 33},
+            {respuestaTres: "Precio", puntuacionTres: 26},
+            {respuestaCuatro: "Color", puntuacionCuatro: 19},
+            {respuestaCinco: "Camara", puntuacionCinco: 13}
+        ]
+    },
+  {
+  titulo: "Cosas que te encuentras en un camino de terracería",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Piedras", puntuacionUno: 33},
+            {respuestaDos: "Animales", puntuacionDos: 25},
+            {respuestaTres: "Tierra", puntuacionTres: 21},
+            {respuestaCuatro: "Árboles", puntuacionCuatro: 14},
+            {respuestaCinco: "Polvo", puntuacionCinco: 7}
+        ]
+    },
+  {
+  titulo: "Cosas que la familia se turna para usar.",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "El Baño", puntuacionUno: 52},
+            {respuestaDos: "La Televisión", puntuacionDos: 41},
+            {respuestaTres: "Ropa", puntuacionTres: 33},
+            {respuestaCuatro: "La Computadora", puntuacionCuatro: 27},
+            {respuestaCinco: "El Coche", puntuacionCinco: 22}
+        ]
+    },
+  {
+  titulo: "Nombra una profesión que requiera estar detrás de series de TV o Novelas",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Camarógrafo", puntuacionUno: 48},
+            {respuestaDos: "Director", puntuacionDos: 37},
+            {respuestaTres: "Productor", puntuacionTres: 30},
+            {respuestaCuatro: "Actor/Actriz", puntuacionCuatro: 23},
+            {respuestaCinco: "Escritor", puntuacionCinco: 16}
+        ]
+    },
+  {
+  titulo: "Nombra una manera de llamar a la lluvia según su intensidad",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Tormenta", puntuacionUno: 34},
+            {respuestaDos: "Uracan", puntuacionDos: 32},
+            {respuestaTres: "ChipiChipi", puntuacionTres: 29},
+            {respuestaCuatro: "Tifón", puntuacionCuatro: 22},
+            {respuestaCinco: "Llovizna", puntuacionCinco: 11}
+        ]
+    },
+  {
+  titulo: "Menciona un personaje de Alicia en el país de las maravillas",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Alicia", puntuacionUno: 41},
+            {respuestaDos: "Conejo", puntuacionDos: 37},
+            {respuestaTres: "Sombrero", puntuacionTres: 21},
+            {respuestaCuatro: "Reina Roja", puntuacionCuatro: 15},
+            {respuestaCinco: "Gato", puntuacionCinco: 6}
+        ]
+    },
+  {
+  titulo: "Menciona una Aderezo para ensalada",
+  tipo: "alimento",
+  respuestas: [
+            {respuestaUno: "Ranch", puntuacionUno: 39},
+            {respuestaDos: "César", puntuacionDos: 33},
+            {respuestaTres: "Vinagreta", puntuacionTres: 24},
+            {respuestaCuatro: "Mayonesa", puntuacionCuatro: 16},
+            {respuestaCinco: "Chipotle", puntuacionCinco: 5}
+        ]
+    },
+  {
+  titulo: "Figuras clásicas que se hacen con hojas de papel",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Barco", puntuacionUno: 38},
+            {respuestaDos: "Avion", puntuacionDos: 31},
+            {respuestaTres: "Paloma/Ave", puntuacionTres: 27},
+            {respuestaCuatro: "Corazón", puntuacionCuatro: 18},
+            {respuestaCinco: "Sobre", puntuacionCinco: 7}
+        ]
+    },
+  {
+  titulo: "Cosas que los bebes hacen y causan Ternura",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Su risa", puntuacionUno: 32},
+            {respuestaDos: "Hacer Pucheros", puntuacionDos: 28},
+            {respuestaTres: "Balbucear", puntuacionTres: 20},
+            {respuestaCuatro: "Llorar", puntuacionCuatro: 14},
+            {respuestaCinco: "Dormir", puntuacionCinco: 5}
+        ]
+    },
+  {
+  titulo: "Canción mexicana que se canta en ocasiones especiales",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Cielito Lindo", puntuacionUno: 37},
+            {respuestaDos: "Las Mañanitas", puntuacionDos: 25},
+            {respuestaTres: "México lindo", puntuacionTres: 23},
+            {respuestaCuatro: "Himno nacional", puntuacionCuatro: 23},
+            {respuestaCinco: "La Guadalupana", puntuacionCinco: 12}
+        ]
+    },
+  {
+  titulo: "Nombra un insecto que no vuela",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "La Hormiga", puntuacionUno: 31},
+            {respuestaDos: "Gusano", puntuacionDos: 25},
+            {respuestaTres: "Araña", puntuacionTres: 23},
+            {respuestaCuatro: "Cochinilla", puntuacionCuatro: 12},
+            {respuestaCinco: "Mantis", puntuacionCinco: 10}
+        ]
+    },
+    {
+  titulo: "Algo que debes evitar cuando estás enfermo de la garganta",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Tomar Cosas Frías", puntuacionUno: 39},
+            {respuestaDos: "Estar en lo frío", puntuacionDos: 31},
+            {respuestaTres: "Fumar", puntuacionTres: 25},
+            {respuestaCuatro: "Hablar", puntuacionCuatro: 17},
+            {respuestaCinco: "Comer Picante", puntuacionCinco: 10}
+        ]
+    },
+    {
+  titulo: "Nombra un animal de boca grande",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Cocodrilo", puntuacionUno: 30},
+            {respuestaDos: "Tiburón", puntuacionDos: 26},
+            {respuestaTres: "Ballena", puntuacionTres: 16},
+            {respuestaCuatro: "León", puntuacionCuatro: 11},
+            {respuestaCinco: "Hipopótamo", puntuacionCinco: 10}
+        ]
+    },
+    {
+  titulo: "Cosas que le suele caer sobre la cabreza a personaje de caricatura",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Piedra", puntuacionUno: 37},
+            {respuestaDos: "Yunque", puntuacionDos: 25},
+            {respuestaTres: "Ladrillo", puntuacionTres: 17},
+            {respuestaCuatro: "Maceta", puntuacionCuatro: 13},
+            {respuestaCinco: "Agua", puntuacionCinco: 5}
+        ]
+    },
+    {
+  titulo: "Razones por las que una persona preferiría tener cabello corto",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Rapidez al peinar", puntuacionUno: 33},
+            {respuestaDos: "Porque se ve mejor", puntuacionDos: 28},
+            {respuestaTres: "Por el calor", puntuacionTres: 22},
+            {respuestaCuatro: "Por Moda", puntuacionCuatro: 10},
+            {respuestaCinco: "Se ensucia menos",puntuacionCinco: 7}
+        ]
+    },
+    {
+  titulo: "Manera de destruir un documento",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Quemandolo", puntuacionUno: 33},
+            {respuestaDos: "Mojandolo", puntuacionDos: 28},
+            {respuestaTres: "Partirlo en pedazos", puntuacionTres: 22},
+            {respuestaCuatro: "Rayandolo", puntuacionCuatro: 10},
+            {respuestaCinco: "En la Trituradora", puntuacionCinco: 7}
+        ]
+    },
+    {
+  titulo: "Menciona un nombre que va acompañado de Maria",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Guadalupe", puntuacionUno: 30},
+            {respuestaDos: "Isabel", puntuacionDos: 28},
+            {respuestaTres: "José", puntuacionTres: 21}, 
+            {respuestaCuatro: "Antonia", puntuacionCuatro: 17},
+            {respuestaCinco: "Fernanda", puntuacionCinco: 9}
+        ]
+    },
+    {
+  titulo: "Menciona un caldo",
+  tipo: "alimento",
+  respuestas: [
+            {respuestaUno: "De Pollo", puntuacionUno: 42},
+            {respuestaDos: "De Res", puntuacionDos: 35},
+            {respuestaTres: "De papas", puntuacionTres: 27},
+            {respuestaCuatro: "Albóndigas", puntuacionCuatro: 21},
+            {respuestaCinco: "Verduras/Cocido", puntuacionCinco: 13}
+        ]
+    },
+    {
+  titulo: "Actividad doméstica que se puede hacer en menos de 10Min",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Barrer", puntuacionUno: 34},
+            {respuestaDos: "Tender la cama", puntuacionDos: 28},
+            {respuestaTres: "Lavar trastes", puntuacionTres: 21},
+            {respuestaCuatro: "Sacudir", puntuacionCuatro: 14},
+            {respuestaCinco: "Trapear", puntuacionCinco: 10}
+        ]
+    },
+    {
+  titulo: "Menciona accesorio que complementa el vestido de novia",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Ramo", puntuacionUno: 28},
+            {respuestaDos: "Velo", puntuacionDos: 24},
+            {respuestaTres: "Zapatillas", puntuacionTres: 19},
+            {respuestaCuatro: "Anillo", puntuacionCuatro: 12},
+            {respuestaCinco: "La Cola", puntuacionCinco: 10}
+        ]
+    },
+    {
+  titulo: "Oficio o Profesión que se usen tijeras",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Costurero", puntuacionUno: 37},
+            {respuestaDos: "Peluquero/Estilista", puntuacionDos: 33},
+            {respuestaTres: "Modista", puntuacionTres: 28},
+            {respuestaCuatro: "Decorador", puntuacionCuatro: 17},
+            {respuestaCinco: "Jardinero", puntuacionCinco: 13}
+        ]
+    },
+    {
+  titulo: "Menciona algo que puede ser confundido con un OVNI a lo lejos",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Avion", puntuacionUno: 33},
+            {respuestaDos: "Estrella", puntuacionDos: 28},
+            {respuestaTres: "Globo", puntuacionTres: 23},
+            {respuestaCuatro: "Helicoptero", puntuacionCuatro: 18},
+            {respuestaCinco: "Cometa", puntuacionCinco: 14}
+        ]
+    },
+    {
+  titulo: "Además del Rey menciona una pieza de Ajedrez",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Caballo", puntuacionUno: 26},
+            {respuestaDos: "Reina", puntuacionDos: 19},
+            {respuestaTres: "Peón", puntuacionTres: 15},
+            {respuestaCuatro: "Torre", puntuacionCuatro: 8},
+            {respuestaCinco: "Alfil", puntuacionCinco: 3}
+        ]
+    },
+    {
+  titulo: "Menciona un oficio donde se requiere la ayuda de un chalan",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Albañil", puntuacionUno: 35},
+            {respuestaDos: "Mecánico", puntuacionDos: 31},
+            {respuestaTres: "Pintor", puntuacionTres: 27},
+            {respuestaCuatro: "Carpintero", puntuacionCuatro: 19},
+            {respuestaCinco: "Carniero", puntuacionCinco: 10}
+        ]
+    },
+    {
+  titulo: "Cosas que suelen rentarse",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Una casa", puntuacionUno: 38},
+            {respuestaDos: "Un Avion", puntuacionDos: 34},
+            {respuestaTres: "Departamento", puntuacionTres: 22},
+            {respuestaCuatro: "Una Habitación", puntuacionCuatro: 18},
+            {respuestaCinco: "Ropa", puntuacionCinco: 14}
+        ]
+    },
+    {
+  titulo: "Nombra un juego de mesa",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Uno", puntuacionUno: 41},
+             {respuestaDos: "Turista", puntuacionDos: 36},
+            {respuestaTres: "Domino", puntuacionTres: 29},
+            {respuestaCuatro: "Baraja", puntuacionCuatro: 11},
+            {respuestaCinco: "Lotería", puntuacionCinco: 8}
+        ]
+    },
+    {
+  titulo: "Ingrediente básico de un guacamole",
+  tipo: "alimento",
+  respuestas: [
+            {respuestaUno: "Aguacate", puntuacionUno: 40},
+            {respuestaDos: "Tomate", puntuacionDos: 30},
+            {respuestaTres: "Cebolla", puntuacionTres: 26},
+            {respuestaCuatro: "Sal", puntuacionCuatro: 16},
+            {respuestaCinco: "limón", puntuacionCinco: 7}
+        ]
+    },
+    {
+  titulo: "Antes de la invención de la luz ¿Con que se Iluminaba?",
+  tipo: "normal",
+  respuestas: [
+            {respuestaUno: "Vela", puntuacionUno: 27},
+            {respuestaDos: "Quinques", puntuacionDos: 20},
+            {respuestaTres: "Fogata", puntuacionTres: 15},
+            {respuestaCuatro: "Antorcha", puntuacionCuatro: 7},
+            {respuestaCinco: "Faroles", puntuacionCinco: 6}
+        ]
+    },
+    {
+  titulo: "Menciona refresco tipico de Sonora",
+  tipo: "alimento",
+  respuestas: [
+            {respuestaUno: "Coca Cola", puntuacionUno: 40},
+            {respuestaDos: "Pepsi", puntuacionDos: 38},
+            {respuestaTres: "Sprite", puntuacionTres: 20},
+            {respuestaCuatro: "Fresca", puntuacionCuatro: 10},
+            {respuestaCinco: "Fanta", puntuacionCinco: 6}
+        ]
+    },
+    {
+  titulo : "Menciona una razón para viajar.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Vacaciones", puntuacionUno: 32},
+      {respuestaDos: "Fiesta familiar", puntuacionDos: 27},
+      {respuestaTres: "Fecha festiva", puntuacionTres: 22},
+      {respuestaCuatro: "Por mejor precio", puntuacionCuatro: 19},
+      {respuestaCinco: "Descanso", puntuacionCinco: 16}   
+    ]
+  },
+  {
+  titulo : "Dinos algo que los niños juegan a imitar a los adultos",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "A la casita", puntuacionUno: 54},
+      {respuestaDos: "Policias y ladrones", puntuacionDos: 40},
+      {respuestaTres: "A la comidita", puntuacionTres: 32},
+      {respuestaCuatro: "Al doctor", puntuacionCuatro: 26},
+      {respuestaCinco: "A los soldados", puntuacionCinco: 17}   
+    ]
+  },
+  {
+  titulo : "Menciona un estado de ánimo",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Feliz/Contento", puntuacionUno: 41},
+      {respuestaDos: "Triste", puntuacionDos: 34},
+      {respuestaTres: "Aburrido", puntuacionTres: 25},
+      {respuestaCuatro: "Asustado", puntuacionCuatro: 20},
+      {respuestaCinco: "Sorprendido", puntuacionCinco: 12}    
+    ]
+  },
+  {
+  titulo : "Nombra una fruta tropical",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Piña", puntuacionUno: 38},
+      {respuestaDos: "Mango", puntuacionDos: 33},
+      {respuestaTres: "Coco", puntuacionTres: 28},
+      {respuestaCuatro: "Naranja", puntuacionCuatro: 25},
+      {respuestaCinco: "Papaya", puntuacionCinco: 16}   
+    ]
+  },
+  {
+  titulo : "Objetos o cosas que deja la gente debajo del colchón",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Dinero", puntuacionUno: 31},
+      {respuestaDos: "Revistas", puntuacionDos: 30},
+      {respuestaTres: "Documentos", puntuacionTres: 24},
+      {respuestaCuatro: "Cartas", puntuacionCuatro: 18},
+      {respuestaCinco: "Zapatos", puntuacionCinco: 11}    
+    ]
+  },
+  {
+  titulo : "Cosa extraña que se encuentra en al comida de un restaurante y casue asco.",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Cucaracha", puntuacionUno: 30},
+      {respuestaDos: "Mosca", puntuacionDos: 26},
+      {respuestaTres: "Mosquito", puntuacionTres: 18},
+      {respuestaCuatro: "Gusano", puntuacionCuatro: 12},
+      {respuestaCinco: "Un cabello", puntuacionCinco: 4}    
+    ]
+  },
+  {
+  titulo : "Nombra de dulce típico Mexicano",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Mazapan", puntuacionUno: 39},
+      {respuestaDos: "Cocada", puntuacionDos: 30},
+      {respuestaTres: "Jamoncillo", puntuacionTres: 26},
+      {respuestaCuatro: "Pepitorias", puntuacionCuatro: 17},
+      {respuestaCinco: "Camote", puntuacionCinco: 9}    
+    ]
+  },
+  {
+  titulo : "Menciona una señal de carretera",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Curva peligrosa", puntuacionUno: 35},
+      {respuestaDos: "Max velocidad", puntuacionDos: 27},
+      {respuestaTres: "Alto", puntuacionTres: 20},
+      {respuestaCuatro: "Tope", puntuacionCuatro: 11},
+      {respuestaCinco: "Retorno", puntuacionCinco: 5}   
+    ]
+  },
+  {
+  titulo : "Menciona algo que la gente hace estando triste",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Llorar", puntuacionUno: 39},
+      {respuestaDos: "Escuchar Musica", puntuacionDos: 31},
+      {respuestaTres: "Pensar/No salir", puntuacionTres: 29},
+      {respuestaCuatro: "Comer", puntuacionCuatro: 16},
+      {respuestaCinco: "Hablar con alguien", puntuacionCinco: 13}   
+    ]
+  },
+  {
+  titulo : "Mueble que puede reparar un carpintero",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Silla", puntuacionUno: 31},
+      {respuestaDos: "Mesa", puntuacionDos: 27},
+      {respuestaTres: "Sillón", puntuacionTres: 22},
+      {respuestaCuatro: "Ropero/closet", puntuacionCuatro: 14},
+      {respuestaCinco: "Tocador", puntuacionCinco: 11}    
+    ]
+  },
+  {
+  titulo : "Cuentanos una clásica crítica a un hotel.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "La cama", puntuacionUno: 38},
+      {respuestaDos: "La ubicación", puntuacionDos: 33},
+      {respuestaTres: "La habitación", puntuacionTres: 28},
+      {respuestaCuatro: "El servicio", puntuacionCuatro: 22},
+      {respuestaCinco: "La comida", puntuacionCinco: 15}    
+    ]
+  },
+  {
+  titulo : "Acompañante de comida clásica de la dieta mexicana",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Tortilla", puntuacionUno: 36},
+      {respuestaDos: "Frijoles", puntuacionDos: 31},
+      {respuestaTres: "Arroz", puntuacionTres: 26},
+      {respuestaCuatro: "Pan", puntuacionCuatro: 17},
+      {respuestaCinco: "Refresco", puntuacionCinco: 11}   
+    ]
+  },
+  {
+  titulo : "Menciona un tipo de salsa",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Valentina", puntuacionUno: 39},
+      {respuestaDos: "Sonora", puntuacionDos: 33},
+      {respuestaTres: "Mexico Lindo", puntuacionTres: 29},
+      {respuestaCuatro: "De Tomate", puntuacionCuatro: 22},
+      {respuestaCinco: "Bufalo", puntuacionCinco: 13}   
+    ]
+  },
+  {
+  titulo : "Menciona un pariente Político en masculino",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Suegro", puntuacionUno: 33},
+      {respuestaDos: "Yerno", puntuacionDos: 28},
+      {respuestaTres: "Cuñado", puntuacionTres: 25},
+      {respuestaCuatro: "Tío", puntuacionCuatro: 17},
+      {respuestaCinco: "Concuño", puntuacionCinco: 11}    
+    ]
+  },
+  {
+  titulo : "Que suele incluir la caja de un celular nuevo",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Celular", puntuacionUno: 38},
+      {respuestaDos: "Cargador", puntuacionDos: 30},
+      {respuestaTres: "Audífonos", puntuacionTres: 22},
+      {respuestaCuatro: "Instructivo", puntuacionCuatro: 16},
+      {respuestaCinco: "Llave tarjeta SIM", puntuacionCinco: 6}   
+    ]
+  },
+  {
+  titulo : "Menciona alimento que viene enlatado",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Frijoles", puntuacionUno: 30},
+      {respuestaDos: "Chiles", puntuacionDos: 26},
+      {respuestaTres: "Atún", puntuacionTres: 17},
+      {respuestaCuatro: "Elotes", puntuacionCuatro: 11},
+      {respuestaCinco: "Hongos", puntuacionCinco: 3}    
+    ]
+  },
+  {
+  titulo : "Ocaciones donde se le cita a los padres a la escuela.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Final de curso", puntuacionUno: 39},
+      {respuestaDos: "Dias festivos", puntuacionDos: 27},
+      {respuestaTres: "Reporte", puntuacionTres: 20},
+      {respuestaCuatro: "Graduación", puntuacionCuatro: 14},
+      {respuestaCinco: "Juntas", puntuacionCinco: 7}    
+    ]
+  },
+  {
+  titulo : "Cosas que a los niños se les prohíbe llevar a la escuela",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Juguetes", puntuacionUno: 48},
+      {respuestaDos: "Animales", puntuacionDos: 34},
+      {respuestaTres: "Armas", puntuacionTres: 23},
+      {respuestaCuatro: "Sustancias tóxicas", puntuacionCuatro: 16},
+      {respuestaCinco: "Porno", puntuacionCinco: 12}    
+    ]
+  },
+  {
+  titulo : "Menciona algo donde se pueda ser capitan",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Barco", puntuacionUno: 33},
+      {respuestaDos: "Equipo Deportivo", puntuacionDos: 29},
+      {respuestaTres: "Ejercicio", puntuacionTres: 27},
+      {respuestaCuatro: "Meseros", puntuacionCuatro: 14},
+      {respuestaCinco: "Bomberos", puntuacionCinco: 9}    
+    ]
+  },
+  {
+  titulo : "Platillo extranjero popular en mexico",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Pizza", puntuacionUno: 32},
+      {respuestaDos: "Comida china", puntuacionDos: 29},
+      {respuestaTres: "Hamburguesa", puntuacionTres: 23},
+      {respuestaCuatro: "Sushi", puntuacionCuatro: 18},
+      {respuestaCinco: "HotDogs", puntuacionCinco: 6}   
+    ]
+  },
+  {
+  titulo : "Menciona algo que es transparente",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Aire", puntuacionUno: 47},
+      {respuestaDos: "Agua", puntuacionDos: 35},
+      {respuestaTres: "Plástico", puntuacionTres: 21},
+      {respuestaCuatro: "Vidrio", puntuacionCuatro: 13},
+      {respuestaCinco: "Bolsa de nylon", puntuacionCinco: 4}    
+    ]
+  },
+  {
+  titulo : "Juguetes de niños que suelen estar en un parque",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Columpio", puntuacionUno: 40},
+      {respuestaDos: "Resbaladilla", puntuacionDos: 33},
+      {respuestaTres: "Sube y baja", puntuacionTres: 22},
+      {respuestaCuatro: "Psamanos", puntuacionCuatro: 17},
+      {respuestaCinco: "Gira gira", puntuacionCinco: 10}    
+    ]
+  },
+  {
+  titulo : 'Dinos una manera popular de decirle a alguien que "Se ponga listo".',
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Abusado", puntuacionUno: 38},
+      {respuestaDos: "Trucha", puntuacionDos: 36},
+      {respuestaTres: "Al tiro", puntuacionTres: 27},
+      {respuestaCuatro: "Aguas", puntuacionCuatro: 19},
+      {respuestaCinco: "Ponte buso", puntuacionCinco: 11}   
+    ]
+  },
+  {
+  titulo : "Menciona un animal que se considere un felino",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Gato", puntuacionUno: 36},
+      {respuestaDos: "León", puntuacionDos: 34},
+      {respuestaTres: "Tigre", puntuacionTres: 17},
+      {respuestaCuatro: "Leopardo", puntuacionCuatro: 10},
+      {respuestaCinco: "Puma", puntuacionCinco: 3}    
+    ]
+  },
+  {
+    titulo : "Cosas que la gente suele robarse de un restaurante",
+    tipo: "normal",
+    respuestas: [
+        {respuestaUno: "La comida", puntuacionUno: 38},
+        {respuestaDos: "Cubiertos", puntuacionDos: 29},
+        {respuestaTres: "Servilletas", puntuacionTres: 21},
+        {respuestaCuatro: "Cenicero", puntuacionCuatro: 10},
+        {respuestaCinco: "Basos", puntuacionCinco: 1}   
+      ]
+    },
+    {
+  titulo : "Menciona una herramienta de un carpintero",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Martillo", puntuacionUno: 31},
+      {respuestaDos: "Sierra", puntuacionDos: 29},
+      {respuestaTres: "Cinta métrica", puntuacionTres: 20},
+      {respuestaCuatro: "Nivel de gota", puntuacionCuatro: 13},
+      {respuestaCinco: "Pinzas", puntuacionCinco: 9}    
+    ]
+  },
+  {
+  titulo : "Cosas que necesitas para servirte un buen café en casa",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Café", puntuacionUno: 35},
+      {respuestaDos: "Leche", puntuacionDos: 24},
+      {respuestaTres: "Taza", puntuacionTres: 17},
+      {respuestaCuatro: "Azucar", puntuacionCuatro: 9},
+      {respuestaCinco: "Agua", puntuacionCinco: 4}    
+    ]
+  },
+  {
+  titulo : "Alimentos que suelen comerse en rebanadas",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Pizza", puntuacionUno: 33},
+      {respuestaDos: "Jamón", puntuacionDos: 26},
+      {respuestaTres: "Pastel", puntuacionTres: 17},
+      {respuestaCuatro: "Sushi", puntuacionCuatro: 11},
+      {respuestaCinco: "Fruta", puntuacionCinco: 2}   
+    ]
+  },
+  {
+  titulo : "Menciona una forma o manera de preparar los chiles",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Rellenos", puntuacionUno: 36},
+      {respuestaDos: "Asados", puntuacionDos: 27},
+      {respuestaTres: "En Nogada", puntuacionTres: 19},
+      {respuestaCuatro: "En vinagre", puntuacionCuatro: 9},
+      {respuestaCinco: "En salsa", puntuacionCinco: 4}    
+    ]
+  },
+  {
+  titulo : "Menciona un súper héroe de Marvel",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Spiderman", puntuacionUno: 31},
+      {respuestaDos: "Hulk", puntuacionDos: 29},
+      {respuestaTres: "IronMan", puntuacionTres: 21},
+      {respuestaCuatro: "Capitan America", puntuacionCuatro: 14},
+      {respuestaCinco: "Wolverine", puntuacionCinco: 7}   
+    ]
+  },
+  {
+  titulo : "Animal que puede andan en tierra como en agua",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Tortuga", puntuacionUno: 38},
+      {respuestaDos: "Cocodrilo", puntuacionDos: 27},
+      {respuestaTres: "Hipopótamo", puntuacionTres: 19},
+      {respuestaCuatro: "Pato", puntuacionCuatro: 10},
+      {respuestaCinco: "Rana", puntuacionCinco: 4}    
+    ]
+  },
+  {
+  titulo : "Actividad donde se suela cerrarse los ojos",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Dormir", puntuacionUno: 40},
+      {respuestaDos: "Besar", puntuacionDos: 33},
+      {respuestaTres: "Estornudar", puntuacionTres: 27},
+      {respuestaCuatro: "Meditar", puntuacionCuatro: 16},
+      {respuestaCinco: "Guiñar", puntuacionCinco: 8}    
+    ]
+  },
+  {
+  titulo : "Alimentos que suelen venderse en un carrito por las noches",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "HotDogs", puntuacionUno: 44},
+      {respuestaDos: "Hamburguesas", puntuacionDos: 37},
+      {respuestaTres: "Tacos", puntuacionTres: 26},
+      {respuestaCuatro: "Helados", puntuacionCuatro: 17},
+      {respuestaCinco: "Elotes", puntuacionCinco: 10}   
+    ]
+  },
+  {
+  titulo : "Sabor comun de aguas frescas",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Limón", puntuacionUno: 42},
+      {respuestaDos: "Jamaica", puntuacionDos: 34},
+      {respuestaTres: "Horchata", puntuacionTres: 29},
+      {respuestaCuatro: "Fresa", puntuacionCuatro: 20},
+      {respuestaCinco: "Tamarindo", puntuacionCinco: 13}    
+    ]
+  },
+  {
+  titulo : "Menciona una verdura verde",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Lechuga", puntuacionUno: 30},
+      {respuestaDos: "Brócoli", puntuacionDos: 28},
+      {respuestaTres: "Calabaza", puntuacionTres: 16},
+      {respuestaCuatro: "Chiles", puntuacionCuatro: 10},
+      {respuestaCinco: "Repollo", puntuacionCinco: 2}   
+    ]
+  },
+  {
+  titulo : "Habitacion o cuarto de un hogar",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Recamara", puntuacionUno: 36},
+      {respuestaDos: "Comedor", puntuacionDos: 21},
+      {respuestaTres: "Cocina", puntuacionTres: 17},
+      {respuestaCuatro: "Baño", puntuacionCuatro: 10},
+      {respuestaCinco: "Sala", puntuacionCinco: 7}    
+    ]
+  },
+  {
+  titulo : "Antojitos mexicanos mas populares",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Tacos", puntuacionUno: 33},
+      {respuestaDos: "Pozole", puntuacionDos: 26},
+      {respuestaTres: "Enchiladas", puntuacionTres: 21},
+      {respuestaCuatro: "Quesadillas", puntuacionCuatro: 15},
+      {respuestaCinco: "Tostadas", puntuacionCinco: 10}   
+    ]
+  },
+  {
+  titulo : "Menciona algo que enciendes y apagas todos los dias",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "La luz", puntuacionUno: 38},
+      {respuestaDos: "El automovil", puntuacionDos: 28},
+      {respuestaTres: "La television", puntuacionTres: 24},
+      {respuestaCuatro: "Celular/Laptop", puntuacionCuatro: 13},
+      {respuestaCinco: "Estufa", puntuacionCinco: 11}   
+    ]
+  },
+  {
+  titulo : "Parte del cuerpo que comúnmente le duele a la gente",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "La cabeza", puntuacionUno: 33},
+      {respuestaDos: "El estomago", puntuacionDos: 26},
+      {respuestaTres: "La espalda", puntuacionTres: 20},
+      {respuestaCuatro: "Las piernas", puntuacionCuatro: 9},
+      {respuestaCinco: "El cuello", puntuacionCinco: 2}   
+    ]
+  },
+  {
+  titulo : "Ademas del pollo ¿Que ave suele comerse?",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Pavo", puntuacionUno: 33},
+      {respuestaDos: "Pato", puntuacionDos: 26},
+      {respuestaTres: "Codorniz", puntuacionTres: 20},
+      {respuestaCuatro: "Gallina", puntuacionCuatro: 9},
+      {respuestaCinco: "Paloma", puntuacionCinco: 2}    
+    ]
+  },
+  {
+  titulo : "Problemas que te pueden suceder cuando vas al WC",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "No hay papel", puntuacionUno: 37},
+      {respuestaDos: "Estreñido", puntuacionDos: 31},
+      {respuestaTres: "No hay agua", puntuacionTres: 24},
+      {respuestaCuatro: "Tapar el baño", puntuacionCuatro: 15},
+      {respuestaCinco: "Ocupado", puntuacionCinco: 5}   
+    ]
+  },
+  {
+  titulo : "Sobrenombre que suele hacer referencia a que eres menor.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Niño", puntuacionUno: 41},
+      {respuestaDos: "Chamaco", puntuacionDos: 39},
+      {respuestaTres: "Escuincle", puntuacionTres: 28},
+      {respuestaCuatro: "Chiquillo", puntuacionCuatro: 12},
+      {respuestaCinco: "Plevello", puntuacionCinco: 6}    
+    ]
+  },
+  {
+  titulo : "Manera Mexicana de hacer referencia al dinero",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Lana", puntuacionUno: 47},
+      {respuestaDos: "Baro", puntuacionDos: 32},
+      {respuestaTres: "Feria", puntuacionTres: 24},
+      {respuestaCuatro: "Billete", puntuacionCuatro: 11},
+      {respuestaCinco: "Money", puntuacionCinco: 5}   
+    ]
+  },
+  {
+  titulo : "Que suele robar la gente en un asalto.",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Dinero", puntuacionUno: 43},
+      {respuestaDos: "Reloj", puntuacionDos: 30},
+      {respuestaTres: "Aretes", puntuacionTres: 27},
+      {respuestaCuatro: "Teléfono", puntuacionCuatro: 16},
+      {respuestaCinco: "Mochila/Bolsa", puntuacionCinco: 10}    
+    ]
+  },
+  {
+  titulo : "Menciona un objeto con ruedas",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Automovil", puntuacionUno: 41},
+      {respuestaDos: "Motocicleta", puntuacionDos: 37},
+      {respuestaTres: "Bicicleta", puntuacionTres: 23},
+      {respuestaCuatro: "Silla Ancianos", puntuacionCuatro: 11},
+      {respuestaCinco: "Carretilla", puntuacionCinco: 3}    
+    ]
+  },
+  {
+  titulo : "Menciona un deporte que utilice un balón",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Fútbol", puntuacionUno: 52},
+      {respuestaDos: "Baloncesto", puntuacionDos: 38},
+      {respuestaTres: "Voleibol", puntuacionTres: 17},
+      {respuestaCuatro: "Fútbol Amerciano", puntuacionCuatro: 13},
+      {respuestaCinco: "Handbol", puntuacionCinco: 1}   
+    ]
+  },
+  {
+  titulo : "Sin decir marcas, menciona bebidas alcohólicas",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Tequila", puntuacionUno: 47},
+      {respuestaDos: "Vodka", puntuacionDos: 35},
+      {respuestaTres: "Whisky", puntuacionTres: 24},
+      {respuestaCuatro: "Cerveza", puntuacionCuatro: 19},
+      {respuestaCinco: "Ron", puntuacionCinco: 10}    
+    ]
+  },
+  {
+  titulo : "Formas románticas de referirte a tu pareja",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Amor", puntuacionUno: 41},
+      {respuestaDos: "Cariño", puntuacionDos: 33},
+      {respuestaTres: "Cielo", puntuacionTres: 27},
+      {respuestaCuatro: "Vida", puntuacionCuatro: 21},
+      {respuestaCinco: "Tesoro", puntuacionCinco: 12}   
+    ]
+  },{
+  titulo : "Redes sociales mas importantes del momento",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Facebook", puntuacionUno: 44},
+      {respuestaDos: "Instagram", puntuacionDos: 32},
+      {respuestaTres: "TikTok", puntuacionTres: 25},
+      {respuestaCuatro: "Twitter", puntuacionCuatro: 17},
+      {respuestaCinco: "Whatsapp", puntuacionCinco: 9}    
+    ]
+  },
+  {
+  titulo : "Menciona algo que te pones en los pies para caminar",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Tenis", puntuacionUno: 32},
+      {respuestaDos: "Zapatos", puntuacionDos: 26},
+      {respuestaTres: "Chanclas", puntuacionTres: 19},
+      {respuestaCuatro: "Pantuflas", puntuacionCuatro: 14},
+      {respuestaCinco: "Mocasines", puntuacionCinco: 7}   
+    ]
+  },
+  {
+  titulo : "Prenda que sueles vestir para cubrirse del frío",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Chamarra", puntuacionUno: 36},
+      {respuestaDos: "Abrigo", puntuacionDos: 29},
+      {respuestaTres: "Suéter", puntuacionTres: 25},
+      {respuestaCuatro: "Chaqueta", puntuacionCuatro: 18},
+      {respuestaCinco: "Chaleco", puntuacionCinco: 8}   
+    ]
+  },
+  {
+  titulo : "Objeto que sueles ponerte encima de la cabeza",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Gorra", puntuacionUno: 32},
+      {respuestaDos: "Gorro", puntuacionDos: 29},
+      {respuestaTres: "Sombrero", puntuacionTres: 17},
+      {respuestaCuatro: "Visera", puntuacionCuatro: 16},
+      {respuestaCinco: "Boina", puntuacionCinco: 10}    
+    ]
+  },
+  {
+  titulo : "Género musical para bailar en pareja",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Salsa", puntuacionUno: 35},
+      {respuestaDos: "Cumbia", puntuacionDos: 28},
+      {respuestaTres: "Banda", puntuacionTres: 23},
+      {respuestaCuatro: "Danzón", puntuacionCuatro: 17},
+      {respuestaCinco: "Bachata", puntuacionCinco: 7}   
+    ]
+  },
+  {
+  titulo : "Objetos que te llevas a la playa",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Traje de baño", puntuacionUno: 31},
+      {respuestaDos: "Chanclas", puntuacionDos: 24},
+      {respuestaTres: "Bloqueador", puntuacionTres: 19},
+      {respuestaCuatro: "Gafas", puntuacionCuatro: 10},
+      {respuestaCinco: "Goggles", puntuacionCinco: 7}   
+    ]
+  },
+  {
+  titulo : "Objeto de joyeria que se pueden hacer con el oro",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Anillos", puntuacionUno: 46},
+      {respuestaDos: "Cadenas", puntuacionDos: 35},
+      {respuestaTres: "Esclava", puntuacionTres: 27},
+      {respuestaCuatro: "Aretes", puntuacionCuatro: 14},
+      {respuestaCinco: "Relojes", puntuacionCinco: 3}   
+    ]
+  },
+  {
+  titulo : "Productos de mar (Comida) que se venden en lata",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Atún", puntuacionUno: 41},
+      {respuestaDos: "Sardinas", puntuacionDos: 37},
+      {respuestaTres: "Pulpo", puntuacionTres: 29},
+      {respuestaCuatro: "Ostiones", puntuacionCuatro: 16},
+      {respuestaCinco: "Jaiba", puntuacionCinco: 8}   
+    ]
+  },
+  {
+  titulo : "Que color se distingue en el fuego",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Rojo", puntuacionUno: 35},
+      {respuestaDos: "Naranja", puntuacionDos: 27},
+      {respuestaTres: "Amarillo", puntuacionTres: 19},
+      {respuestaCuatro: "Azul", puntuacionCuatro: 13},
+      {respuestaCinco: "Morado", puntuacionCinco: 2}    
+    ]
+  },
+  {
+  titulo : "Menciona lugar donde la gente guarda el dinero",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Billetera", puntuacionUno: 36},
+      {respuestaDos: "Alcancia", puntuacionDos: 28},
+      {respuestaTres: "El colchon", puntuacionTres: 20},
+      {respuestaCuatro: "El banco", puntuacionCuatro: 15},
+      {respuestaCinco: "Monedero", puntuacionCinco: 8}    
+    ]
+  },
+  {
+  titulo : "Cosas que las mujeres suelen ponerse postizo",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Bubis", puntuacionUno: 33},
+      {respuestaDos: "Pompis", puntuacionDos: 29},
+      {respuestaTres: "Pestañas", puntuacionTres: 23},
+      {respuestaCuatro: "Uñas", puntuacionCuatro: 16},
+      {respuestaCinco: "Cabello", puntuacionCinco: 10}    
+    ]
+  },
+  {
+  titulo : "Pieza de pollo que pides en una polleria",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Pechuga", puntuacionUno: 37},
+      {respuestaDos: "Alas", puntuacionDos: 28},
+      {respuestaTres: "Perna", puntuacionTres: 22},
+      {respuestaCuatro: "Muslo", puntuacionCuatro: 16},
+      {respuestaCinco: "Patas", puntuacionCinco: 3}   
+    ]
+  },
+  {
+  titulo : "Animal comestible de carne blanca",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Pollo", puntuacionUno: 38},
+      {respuestaDos: "Pavo", puntuacionDos: 26},
+      {respuestaTres: "Cerdo", puntuacionTres: 19},
+      {respuestaCuatro: "Conejo", puntuacionCuatro: 13},
+      {respuestaCinco: "Cordero", puntuacionCinco: 5}   
+    ]
+  },
+  {
+  titulo : "Lugar donde la gente puede desnudarse. 7u7",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "En su cuarto", puntuacionUno: 46},
+      {respuestaDos: "En el baño", puntuacionDos: 38},
+      {respuestaTres: "Motel/Hotel", puntuacionTres: 18},
+      {respuestaCuatro: "Playa", puntuacionCuatro: 12},
+      {respuestaCinco: "Vestidores", puntuacionCinco: 3}    
+    ]
+  },
+  {
+  titulo : "Menciona un platillo popular de huevos",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Estrellados", puntuacionUno: 34},
+      {respuestaDos: "Revuelto", puntuacionDos: 31},
+      {respuestaTres: "Divorciados", puntuacionTres: 23},
+      {respuestaCuatro: "Huevo Torta", puntuacionCuatro: 17},
+      {respuestaCinco: "Ranchero", puntuacionCinco: 8}    
+    ]
+  },
+  {
+  titulo : "Frutas que suelen ponerse arriba de un postre",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Fresa", puntuacionUno: 30},
+      {respuestaDos: "Cereza", puntuacionDos: 23},
+      {respuestaTres: "Uva", puntuacionTres: 20},
+      {respuestaCuatro: "Piña", puntuacionCuatro: 15},
+      {respuestaCinco: "Mango", puntuacionCinco: 2}   
+    ]
+  },
+  {
+  titulo : "Partes del hardware de una computadora",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Pantalla", puntuacionUno: 33},
+      {respuestaDos: "Mouse", puntuacionDos: 26},
+      {respuestaTres: "Teclado", puntuacionTres: 21},
+      {respuestaCuatro: "CPU", puntuacionCuatro: 14},
+      {respuestaCinco: "...", puntuacionCinco: 0}   
+    ]
+  },
+  {
+  titulo : "Accesorios o joyas que van en al cabeza",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Diadema", puntuacionUno: 37},
+      {respuestaDos: "Corona", puntuacionDos: 31},
+      {respuestaTres: "Broche", puntuacionTres: 25},
+      {respuestaCuatro: "Moño", puntuacionCuatro: 13},
+      {respuestaCinco: "Liga", puntuacionCinco: 4}    
+    ]
+  },
+  {
+  titulo : "Reptil que se puede usar como mascota",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Tortuga", puntuacionUno: 37},
+      {respuestaDos: "Camaleón", puntuacionDos: 28},
+      {respuestaTres: "Iguana", puntuacionTres: 24},
+      {respuestaCuatro: "Vibora", puntuacionCuatro: 16},
+      {respuestaCinco: "Lagartija", puntuacionCinco: 8}   
+    ]
+  },
+  {
+  titulo : "Forma mas popular de referirse a un niño",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Chamaco", puntuacionUno: 25},
+      {respuestaDos: "Morrito", puntuacionDos: 17},
+      {respuestaTres: "Escuincle", puntuacionTres: 15},
+      {respuestaCuatro: "Mocoso", puntuacionCuatro: 11},
+      {respuestaCinco: "Chiquillo", puntuacionCinco: 4}   
+    ]
+  },
+  {
+  titulo : "Que le pones a un plato de frutas",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Yogurt", puntuacionUno: 28},
+      {respuestaDos: "Miel", puntuacionDos: 23},
+      {respuestaTres: "Cereal", puntuacionTres: 19},
+      {respuestaCuatro: "Queso", puntuacionCuatro: 13},
+      {respuestaCinco: "Chile piquín", puntuacionCinco: 7}    
+    ]
+  },
+  {
+  titulo : "Menciona un producto lácteo",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "La leche", puntuacionUno: 31},
+      {respuestaDos: "El queso", puntuacionDos: 24},
+      {respuestaTres: "La crema", puntuacionTres: 16},
+      {respuestaCuatro: "El Yogurt", puntuacionCuatro: 10},
+      {respuestaCinco: "La nata", puntuacionCinco: 1}   
+    ]
+  },
+  {
+  titulo : "Menciona una raza de perro",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Chihuahua", puntuacionUno: 33},
+      {respuestaDos: "Salchicha", puntuacionDos: 25},
+      {respuestaTres: "Pug", puntuacionTres: 17},
+      {respuestaCuatro: "Dálamta", puntuacionCuatro: 9},
+      {respuestaCinco: "Labrador", puntuacionCinco: 2}    
+    ]
+  },
+  {
+  titulo : "Actividades que se hacen con la nariz",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Oler", puntuacionUno: 37},
+      {respuestaDos: "Sacarse mocos", puntuacionDos: 23},
+      {respuestaTres: "Estrnudar", puntuacionTres: 16},
+      {respuestaCuatro: "Rascarse", puntuacionCuatro: 11},
+      {respuestaCinco: "Respirar", puntuacionCinco: 7}    
+    ]
+  },
+  {
+  titulo : "Menciona un deporte individual",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Natacion", puntuacionUno: 37},
+      {respuestaDos: "Tenis", puntuacionDos: 23},
+      {respuestaTres: "Arco", puntuacionTres: 16},
+      {respuestaCuatro: "Gimnasia", puntuacionCuatro: 11},
+      {respuestaCinco: "Boxeo", puntuacionCinco: 7}   
+    ]
+  },
+  {
+  titulo : "Menciona que parte del cuerpo se puede inyectar",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Brazo", puntuacionUno: 33},
+      {respuestaDos: "Pompas", puntuacionDos: 28},
+      {respuestaTres: "Abdomen", puntuacionTres: 21},
+      {respuestaCuatro: "Hombro", puntuacionCuatro: 13},
+      {respuestaCinco: "Muñeca", puntuacionCinco: 10}   
+    ]
+  },
+  {
+  titulo : "Pretexto de un niño para no ir a la escuela",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Dolor de estómago", puntuacionUno: 38},
+      {respuestaDos: "Resfriado", puntuacionDos: 30},
+      {respuestaTres: "No hizo tarea", puntuacionTres: 22},
+      {respuestaCuatro: "No estoy bien", puntuacionCuatro: 17},
+      {respuestaCinco: "Lo molestan", puntuacionCinco: 14}    
+    ]
+  },
+  {
+  titulo : "Marca de automoviles en mexico",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "VolksWagen", puntuacionUno: 37},
+      {respuestaDos: "Ford", puntuacionDos: 33},
+      {respuestaTres: "Honda", puntuacionTres: 25},
+      {respuestaCuatro: "Toyota", puntuacionCuatro: 18},
+      {respuestaCinco: "Nissan", puntuacionCinco: 10}   
+    ]
+  },
+  {
+  titulo : "Menciona un personajes que haya revolucionado la tecnologia en los ultimos años",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Steve Jobs", puntuacionUno: 36},
+      {respuestaDos: "Bill Gates", puntuacionDos: 28},
+      {respuestaTres: "Mark Zuckerberg", puntuacionTres: 24},
+      {respuestaCuatro: "Elon Musk", puntuacionCuatro: 13},
+      {respuestaCinco: "Jeff Bezos", puntuacionCinco: 6}    
+    ]
+  },
+  {
+  titulo : "Menciona un pais que tenga rojo en su bandera",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Mexico", puntuacionUno: 43},
+      {respuestaDos: "Canada", puntuacionDos: 37},
+      {respuestaTres: "China", puntuacionTres: 29},
+      {respuestaCuatro: "Japón", puntuacionCuatro: 11},
+      {respuestaCinco: "España", puntuacionCinco: 8}    
+    ]
+  },
+  {
+  titulo : "Nombra a una princesa famosa de Disney",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "BlancaNieves", puntuacionUno: 33},
+      {respuestaDos: "Cenicienta", puntuacionDos: 26},
+      {respuestaTres: "Aurora", puntuacionTres: 18},
+      {respuestaCuatro: "Ariel", puntuacionCuatro: 14},
+      {respuestaCinco: "Bella", puntuacionCinco: 9}   
+    ]
+  },
+  {
+  titulo : "Menciona un personaje de los Simpson",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Homero", puntuacionUno: 33},
+      {respuestaDos: "Bart", puntuacionDos: 26},
+      {respuestaTres: "Lisa", puntuacionTres: 18},
+      {respuestaCuatro: "Marge", puntuacionCuatro: 14},
+      {respuestaCinco: "Maggie", puntuacionCinco: 9}    
+    ]
+  },
+  {
+  titulo : "Menciona un personaje icónico de Eugenio Derbez",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Ludovico Peluches", puntuacionUno: 34},
+      {respuestaDos: "Longe Moco", puntuacionDos: 25},
+      {respuestaTres: "Armando Hoyos", puntuacionTres: 16},
+      {respuestaCuatro: "Diablito", puntuacionCuatro: 11},
+      {respuestaCinco: "Burro de Shrek", puntuacionCinco: 5}    
+    ]
+  },
+  {
+  titulo : "Cosas que más importan en un hotel",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "La cama", puntuacionUno: 30},
+      {respuestaDos: "La ubicación", puntuacionDos: 26},
+      {respuestaTres: "La limpieza", puntuacionTres: 15},
+      {respuestaCuatro: "La alberca", puntuacionCuatro: 9},
+      {respuestaCinco: "La comida", puntuacionCinco: 4}   
+    ]
+  },
+  {
+  titulo : "Artículo con el que se suele escribir a mano",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Lápiz", puntuacionUno: 29},
+      {respuestaDos: "Lapicero", puntuacionDos: 27},
+      {respuestaTres: "Plumón", puntuacionTres: 15},
+      {respuestaCuatro: "Pluma", puntuacionCuatro: 10},
+      {respuestaCinco: "Colores", puntuacionCinco: 3}   
+    ]
+  },
+  {
+  titulo : "Menciona un marisco popular",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Camarón", puntuacionUno: 29},
+      {respuestaDos: "Cangrejo", puntuacionDos: 23},
+      {respuestaTres: "Langosta", puntuacionTres: 16},
+      {respuestaCuatro: "Langostino", puntuacionCuatro: 11},
+      {respuestaCinco: "Ostras", puntuacionCinco: 3}    
+    ]
+  },
+  {
+  titulo : "Deporte donde se usa casco",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Fútbol Americano", puntuacionUno: 32},
+      {respuestaDos: "Hockey", puntuacionDos: 24},
+      {respuestaTres: "Ciclismo", puntuacionTres: 18},
+      {respuestaCuatro: "Motociclismo", puntuacionCuatro: 14},
+      {respuestaCinco: "Beisbol", puntuacionCinco: 6}   
+    ]
+  },
+  {
+  titulo : "Fruta comun que se da en los arboles",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Manzana", puntuacionUno: 29},
+      {respuestaDos: "Naranja", puntuacionDos: 23},
+      {respuestaTres: "Plátano", puntuacionTres: 17},
+      {respuestaCuatro: "Mango", puntuacionCuatro: 10},
+      {respuestaCinco: "Limón", puntuacionCinco: 5}   
+    ]
+  },
+  {
+  titulo : "Alimento que se da en una Vaina",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Chícharos", puntuacionUno: 36},
+      {respuestaDos: "Habas", puntuacionDos: 27},
+      {respuestaTres: "Lentejas", puntuacionTres: 19},
+      {respuestaCuatro: "Frijoles", puntuacionCuatro: 11},
+      {respuestaCinco: "Tamarindo", puntuacionCinco: 8}   
+    ]
+  },
+  {
+  titulo : "Menciona las partes que conforman un libro",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Portada", puntuacionUno: 26},
+      {respuestaDos: "Contraportada", puntuacionDos: 21},
+      {respuestaTres: "Lomo", puntuacionTres: 14},
+      {respuestaCuatro: "Introduccion", puntuacionCuatro: 7},
+      {respuestaCinco: "Cuerpo", puntuacionCinco: 2}    
+    ]
+  },
+  {
+  titulo : "Medio de transporte que vuelan",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Avión", puntuacionUno: 25},
+      {respuestaDos: "Helicóptero", puntuacionDos: 20},
+      {respuestaTres: "Globo", puntuacionTres: 17},
+      {respuestaCuatro: "Planeador", puntuacionCuatro: 14},
+      {respuestaCinco: "Cohete", puntuacionCinco: 8}    
+    ]
+  },
+  {
+  titulo : "Idiomas mas comunes en el mundo",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Español", puntuacionUno: 31},
+      {respuestaDos: "Chino", puntuacionDos: 27},
+      {respuestaTres: "Inglés", puntuacionTres: 19},
+      {respuestaCuatro: "Coreano", puntuacionCuatro: 16},
+      {respuestaCinco: "Francés", puntuacionCinco: 10}    
+    ]
+  },
+  {
+  titulo : "Personaje del chavo del ocho",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "El chavo", puntuacionUno: 38},
+      {respuestaDos: "Kiko", puntuacionDos: 27},
+      {respuestaTres: "Don Ramón", puntuacionTres: 19},
+      {respuestaCuatro: "Chilindrina", puntuacionCuatro: 10},
+      {respuestaCinco: "Doña Florinda", puntuacionCinco: 4}   
+    ]
+  },
+  {
+  titulo : "Los ultimos presidenes de México",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Obrador", puntuacionUno: 38},
+      {respuestaDos: "Peña", puntuacionDos: 27},
+      {respuestaTres: "Calderón", puntuacionTres: 19},
+      {respuestaCuatro: "Fox", puntuacionCuatro: 10},
+      {respuestaCinco: "Zedillo", puntuacionCinco: 4}   
+    ]
+  },
+  {
+  titulo : "Deporte mas popular en México",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Fútbol", puntuacionUno: 28},
+      {respuestaDos: "Boxeo", puntuacionDos: 23},
+      {respuestaTres: "Basquetbol", puntuacionTres: 17},
+      {respuestaCuatro: "Natacion", puntuacionCuatro: 10},
+      {respuestaCinco: "Beisbol", puntuacionCinco: 4}   
+    ]
+  },
+  {
+  titulo : "Cadena de comida rápida más popular en México",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "McDonal's", puntuacionUno: 36},
+      {respuestaDos: "Burger King", puntuacionDos: 27},
+      {respuestaTres: "Pizza Domino's", puntuacionTres: 23},
+      {respuestaCuatro: "Little Caesars", puntuacionCuatro: 16},
+      {respuestaCinco: "KFC", puntuacionCinco: 9}   
+    ]
+  },
+  {
+  titulo : "Postre Mexicano mas popular",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Arroz con leche", puntuacionUno: 33},
+      {respuestaDos: "Flan", puntuacionDos: 29},
+      {respuestaTres: "Pastel Galleta", puntuacionTres: 21},
+      {respuestaCuatro: "Churros", puntuacionCuatro: 14},
+      {respuestaCinco: "Helado/Nieve", puntuacionCinco: 11}   
+    ]
+  },
+  {
+  titulo : "Instrumento con cuerdas",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Guitarra", puntuacionUno: 34},
+      {respuestaDos: "Bajo", puntuacionDos: 26},
+      {respuestaTres: "Ukelele", puntuacionTres: 21},
+      {respuestaCuatro: "Violín", puntuacionCuatro: 12},
+      {respuestaCinco: "Guitarra Eléctrica", puntuacionCinco: 4}    
+    ]
+  },
+  {
+  titulo : "Que sueles untar al pan blanco",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Mayonesa", puntuacionUno: 33},
+      {respuestaDos: "Mermelada", puntuacionDos: 25},
+      {respuestaTres: "Nutella", puntuacionTres: 12},
+      {respuestaCuatro: "Frijoles", puntuacionCuatro: 8},
+      {respuestaCinco: "Mantequilla", puntuacionCinco: 5}   
+    ]
+  },
+  {
+  titulo : "Tipos de madera mas conocidos",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Roble", puntuacionUno: 33},
+      {respuestaDos: "Pino", puntuacionDos: 24},
+      {respuestaTres: "Caoba", puntuacionTres: 19},
+      {respuestaCuatro: "Cerezo", puntuacionCuatro: 13},
+      {respuestaCinco: "Fresno", puntuacionCinco: 8}    
+    ]
+  },
+  {
+  titulo : "Minearles mas populares",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Diamante", puntuacionUno: 36},
+      {respuestaDos: "Oro", puntuacionDos: 27},
+      {respuestaTres: "Plata", puntuacionTres: 20},
+      {respuestaCuatro: "Esmeralda", puntuacionCuatro: 15},
+      {respuestaCinco: "Rubí", puntuacionCinco: 2}    
+    ]
+  },
+  {
+  titulo : "Cargo mas comun para hacer una pelicula",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Director", puntuacionUno: 31},
+      {respuestaDos: "Guionista", puntuacionDos: 27},
+      {respuestaTres: "Actores", puntuacionTres: 22},
+      {respuestaCuatro: "Productor", puntuacionCuatro: 14},
+      {respuestaCinco: "Camarógrafo", puntuacionCinco: 9}   
+    ]
+  },
+  {
+  titulo : "Partes que componen un teatro",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Escenario", puntuacionUno: 28},
+      {respuestaDos: "Sillas", puntuacionDos: 24},
+      {respuestaTres: "Telón", puntuacionTres: 19},
+      {respuestaCuatro: "Vestíbulo", puntuacionCuatro: 11},
+      {respuestaCinco: "Vestuario", puntuacionCinco: 2}   
+    ]
+  },
+  {
+  titulo : "Menciona a los compañeros de clases del chavo del ocho",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Ñoño", puntuacionUno: 37},
+      {respuestaDos: "Kiko", puntuacionDos: 27},
+      {respuestaTres: "Chilindrina", puntuacionTres: 15},
+      {respuestaCuatro: "Popis", puntuacionCuatro: 10},
+      {respuestaCinco: "Godínez", puntuacionCinco: 6}   
+    ]
+  },
+  {
+  titulo : "Menciona tipos de leche mas comunes",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "De vaca", puntuacionUno: 34},
+      {respuestaDos: "De Almendra", puntuacionDos: 23},
+      {respuestaTres: "De cabra", puntuacionTres: 17},
+      {respuestaCuatro: "En polvo", puntuacionCuatro: 13},
+      {respuestaCinco: "De soja", puntuacionCinco: 9}   
+    ]
+  },
+  {
+  titulo : "Ingredientes de un guacamoles",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Aguacate", puntuacionUno: 38},
+      {respuestaDos: "Jitomate", puntuacionDos: 22},
+      {respuestaTres: "Cebolla", puntuacionTres: 17},
+      {respuestaCuatro: "Chile", puntuacionCuatro: 11},
+      {respuestaCinco: "Sal", puntuacionCinco: 6}   
+    ]
+  },{
+  titulo : "Menciona diez marcas de supermercado mas populares en mexico",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Walmart", puntuacionUno: 41},
+      {respuestaDos: "Soriana", puntuacionDos: 31},
+      {respuestaTres: "Bodega Aurrerá", puntuacionTres: 26},
+      {respuestaCuatro: "Chedraui", puntuacionCuatro: 17},
+      {respuestaCinco: "Ley", puntuacionCinco: 4}   
+    ]
+  },
+  {
+  titulo : "Materia básica en primaria",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Matemáticas", puntuacionUno: 35},
+      {respuestaDos: "Español", puntuacionDos: 27},
+      {respuestaTres: "Historia", puntuacionTres: 20},
+      {respuestaCuatro: "Eduacación Física", puntuacionCuatro: 15},
+      {respuestaCinco: "Computación", puntuacionCinco: 9}   
+    ]
+  },
+  {
+  titulo : 'Menciona un color de los "Power Rangers"',
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Rojo", puntuacionUno: 38},
+      {respuestaDos: "Amarillo", puntuacionDos: 29},
+      {respuestaTres: "Rosa", puntuacionTres: 21},
+      {respuestaCuatro: "Verde", puntuacionCuatro: 11},
+      {respuestaCinco: "Azul", puntuacionCinco: 3}    
+    ]
+  },
+  {
+  titulo : "Fruta que no puedes comerte con cascara",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Plátano", puntuacionUno: 41},
+      {respuestaDos: "Sandía", puntuacionDos: 37},
+      {respuestaTres: "Melón", puntuacionTres: 23},
+      {respuestaCuatro: "Piña", puntuacionCuatro: 15},
+      {respuestaCinco: "Naranja", puntuacionCinco: 9}   
+    ]
+  },
+  {
+  titulo : "Menciona un país con mayor población en el mundo",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "China", puntuacionUno: 36},
+      {respuestaDos: "India", puntuacionDos: 29},
+      {respuestaTres: "Estados Unidos", puntuacionTres: 21},
+      {respuestaCuatro: "Indonesia", puntuacionCuatro: 11},
+      {respuestaCinco: "Brasil", puntuacionCinco: 8}    
+    ]
+  },
+  {
+  titulo : "Dinos la posición de un jugaro de fútbol",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Delantero", puntuacionUno: 31},
+      {respuestaDos: "Portero", puntuacionDos: 27},
+      {respuestaTres: "Defensa", puntuacionTres: 19},
+      {respuestaCuatro: "Medio Campista", puntuacionCuatro: 14},
+      {respuestaCinco: "Lateral", puntuacionCinco: 2}   
+    ]
+  },
+  {
+  titulo : "Dinos un personaje de pinocho",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Pinocho", puntuacionUno: 29},
+      {respuestaDos: "Geppetto", puntuacionDos: 26},
+      {respuestaTres: "Grillo", puntuacionTres: 17},
+      {respuestaCuatro: "Hada Azul", puntuacionCuatro: 13},
+      {respuestaCinco: "Zorro/Gato", puntuacionCinco: 1}    
+    ]
+  },
+  {
+  titulo : "Menciona un personaje de la biblia",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Jesus", puntuacionUno: 34},
+      {respuestaDos: "La virgen", puntuacionDos: 28},
+      {respuestaTres: "Adan/Eva", puntuacionTres: 21},
+      {respuestaCuatro: "Dios", puntuacionCuatro: 16},
+      {respuestaCinco: "Moises", puntuacionCinco: 6}    
+    ]
+  },
+  {
+  titulo : "Menciona un regalo para el 14 de febrero",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Flores", puntuacionUno: 43},
+      {respuestaDos: "Chocolates", puntuacionDos: 28},
+      {respuestaTres: "Peluches", puntuacionTres: 25},
+      {respuestaCuatro: "Carta", puntuacionCuatro: 19},
+      {respuestaCinco: "Comida", puntuacionCinco: 10}   
+    ]
+  },
+  {
+  titulo : "Verduras tipicas de una Sopa de verduras",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Zanahoria", puntuacionUno: 47},
+      {respuestaDos: "Cebolla", puntuacionDos: 40},
+      {respuestaTres: "Calabaza", puntuacionTres: 36},
+      {respuestaCuatro: "Papa", puntuacionCuatro: 15},
+      {respuestaCinco: "Brócoli", puntuacionCinco: 5}   
+    ]
+  },
+  {
+  titulo : "Lugar donde sueles ver la hora",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "En el teléfono", puntuacionUno: 36},
+      {respuestaDos: "En la pared", puntuacionDos: 30},
+      {respuestaTres: "En la TV", puntuacionTres: 24},
+      {respuestaCuatro: "En la PC", puntuacionCuatro: 15},
+      {respuestaCinco: "En la muñeca", puntuacionCinco: 4}    
+    ]
+  },
+  {
+  titulo : "Lugar donde haces amigos",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Escuela", puntuacionUno: 39},
+      {respuestaDos: "Trabajo", puntuacionDos: 27},
+      {respuestaTres: "Internet", puntuacionTres: 20},
+      {respuestaCuatro: "Deporte", puntuacionCuatro: 14},
+      {respuestaCinco: "En la calle", puntuacionCinco: 7}   
+    ]
+  },
+  {
+  titulo : "Lugares en una casa donde suelen tener televisores",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Habitacion", puntuacionUno: 41},
+      {respuestaDos: "Sala", puntuacionDos: 35},
+      {respuestaTres: "Cocina", puntuacionTres: 26},
+      {respuestaCuatro: "Jardín", puntuacionCuatro: 15},
+      {respuestaCinco: "Comedor", puntuacionCinco: 8}   
+    ]
+  },
+  {
+  titulo : "Cosas que relajan a una persona",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Dormir", puntuacionUno: 36},
+      {respuestaDos: "Un abrazo", puntuacionDos: 33},
+      {respuestaTres: "La Musica", puntuacionTres: 22},
+      {respuestaCuatro: "Comida", puntuacionCuatro: 13},
+      {respuestaCinco: "Un Masaje", puntuacionCinco: 4}   
+    ]
+  },
+  {
+  titulo : "Menciona Elenco (Personajes) de TOY STORY",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Woody", puntuacionUno: 37},
+      {respuestaDos: "Buzz", puntuacionDos: 26},
+      {respuestaTres: "Señor cara de papa", puntuacionTres: 19},
+      {respuestaCuatro: "Ham (Cerdo)", puntuacionCuatro: 11},
+      {respuestaCinco: "Jessie", puntuacionCinco: 5}    
+    ]
+  },
+  {
+  titulo : "Menciona tipo de sabores populares de la marca Chips",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Fuego/Moradas", puntuacionUno: 80},
+      {respuestaDos: "Jalapeño/Verdes", puntuacionDos: 76},
+      {respuestaTres: "Sal de mar/Amarillas", puntuacionTres: 50},
+      {respuestaCuatro: "Adobadas/Rojas", puntuacionCuatro: 45},
+      {respuestaCinco: "Toreadas/habanero", puntuacionCinco: 30}    
+    ]
+  },
+  {
+  titulo : "Valor de monedas mas usadas en México",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Cinco pesos", puntuacionUno: 45},
+      {respuestaDos: "Diez pesos", puntuacionDos: 39},
+      {respuestaTres: "Dos pesos", puntuacionTres: 31},
+      {respuestaCuatro: "Un peso", puntuacionCuatro: 23},
+      {respuestaCinco: "Cincuenta centavos", puntuacionCinco: 11}   
+    ]
+  },
+  {
+  titulo : "Alimentos mas consumidos en mexico",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Tortilla", puntuacionUno: 31},
+      {respuestaDos: "Frijoles", puntuacionDos: 27},
+      {respuestaTres: "Huevo", puntuacionTres: 19},
+      {respuestaCuatro: "Chile", puntuacionCuatro: 11},
+      {respuestaCinco: "Pan", puntuacionCinco: 7}   
+    ]
+  },
+  {
+  titulo : "Objetos naturales que vemos al observar el cielo",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Sol", puntuacionUno: 44},
+      {respuestaDos: "Luna", puntuacionDos: 36},
+      {respuestaTres: "Estrellas", puntuacionTres: 28},
+      {respuestaCuatro: "Nubes", puntuacionCuatro: 17},
+      {respuestaCinco: "Pajaro", puntuacionCinco: 9}    
+    ]
+  },
+  {
+  titulo : "Documento que necesite tu firma",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Identificación", puntuacionUno: 44},
+      {respuestaDos: "Contrato", puntuacionDos: 37},
+      {respuestaTres: "Pasaporte", puntuacionTres: 28},
+      {respuestaCuatro: "Acta de nacimiento", puntuacionCuatro: 11},
+      {respuestaCinco: "Licencia de conducir", puntuacionCinco: 6}    
+    ]
+  },
+  {
+  titulo : "Donde podrías ponerte un reloj",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "En la muñeca", puntuacionUno: 33},
+      {respuestaDos: "En la pared", puntuacionDos: 28},
+      {respuestaTres: "En la oficina", puntuacionTres: 21},
+      {respuestaCuatro: "Trabajo", puntuacionCuatro: 8},
+      {respuestaCinco: "En el buró", puntuacionCinco: 2}    
+    ]
+  },
+  {
+  titulo : "Que tipo de personas lleva dentro un coche blindado",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Politícos", puntuacionUno: 38},
+      {respuestaDos: "Artistas", puntuacionDos: 27},
+      {respuestaTres: "Prisioneros", puntuacionTres: 19},
+      {respuestaCuatro: "Mafiosos", puntuacionCuatro: 10},
+      {respuestaCinco: "Delincuentes", puntuacionCinco: 1}    
+    ]
+  },
+  {
+  titulo : "De que se suele rellenar un chile",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Queso", puntuacionUno: 33},
+      {respuestaDos: "Carne", puntuacionDos: 31},
+      {respuestaTres: "Verduras", puntuacionTres: 25},
+      {respuestaCuatro: "Camaron", puntuacionCuatro: 12},
+      {respuestaCinco: "Pollo", puntuacionCinco: 4}   
+    ]
+  },
+  {
+  titulo : "Algun objeto que puedas rentar en la playa",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Camastro", puntuacionUno: 31},
+      {respuestaDos: "Sombrilla", puntuacionDos: 26},
+      {respuestaTres: "Moto", puntuacionTres: 17},
+      {respuestaCuatro: "Lancha", puntuacionCuatro: 14},
+      {respuestaCinco: "Goggles", puntuacionCinco: 4}   
+    ]
+  },
+  {
+  titulo : "Menciona un tipo de consomé",
+  tipo: "alimento",
+  respuestas: [
+      {respuestaUno: "Pollo", puntuacionUno: 36},
+      {respuestaDos: "Res", puntuacionDos: 21},
+      {respuestaTres: "Tomate", puntuacionTres: 17},
+      {respuestaCuatro: "Camaron", puntuacionCuatro: 13},
+      {respuestaCinco: "Verduras", puntuacionCinco: 2}    
+    ]
+  },
+  {
+  titulo : "Lugares donde puedas encontrar un baño",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "En la casa", puntuacionUno: 35},
+      {respuestaDos: "Restaurante", puntuacionDos: 26},
+      {respuestaTres: "Hotel", puntuacionTres: 22},
+      {respuestaCuatro: "Cafetería", puntuacionCuatro: 13},
+      {respuestaCinco: "supermercado", puntuacionCinco: 4}    
+    ]
+  },
+  {
+  titulo : "Menciona algo que forma parte de la decoarión de una casa",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Muebles", puntuacionUno: 37},
+      {respuestaDos: "Floreros", puntuacionDos: 31},
+      {respuestaTres: "Alfombras", puntuacionTres: 24},
+      {respuestaCuatro: "Cortinas", puntuacionCuatro: 19},
+      {respuestaCinco: "Pinturas", puntuacionCinco: 6}    
+    ]
+  },
+  {
+  titulo : "Menciona una característica de Michael Jackson",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Su baile", puntuacionUno: 41},
+      {respuestaDos: "Guante Blanco", puntuacionDos: 37},
+      {respuestaTres: "Su grito uhhhh", puntuacionTres: 22},
+      {respuestaCuatro: "Su vestimenta", puntuacionCuatro: 14},
+      {respuestaCinco: "Su sombrero", puntuacionCinco: 2}   
+    ]
+  },
+  {
+  titulo : "Cosas que te hacen crecer la panza",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Embarazo", puntuacionUno: 38},
+      {respuestaDos: "Alcohol", puntuacionDos: 33},
+      {respuestaTres: "Las grasas", puntuacionTres: 20},
+      {respuestaCuatro: "Falta de ejercicio", puntuacionCuatro: 10},
+      {respuestaCinco: "Enfermedad", puntuacionCinco: 1}    
+    ]
+  },
+  {
+  titulo : "Dinos un color que sea el nombre de una mujer",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Blanca", puntuacionUno: 28},
+      {respuestaDos: "Rosa", puntuacionDos: 22},
+      {respuestaTres: "Violeta", puntuacionTres: 14},
+      {respuestaCuatro: "Celeste", puntuacionCuatro: 11},
+      {respuestaCinco: "Azul", puntuacionCinco: 4}    
+    ]
+  },
+  {
+  titulo : "Que suele hacer un niño a la hora de hacer berrinche",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Llorar", puntuacionUno: 34},
+      {respuestaDos: "Gritar", puntuacionDos: 29},
+      {respuestaTres: "Pegar", puntuacionTres: 25},
+      {respuestaCuatro: "Patalear", puntuacionCuatro: 17},
+      {respuestaCinco: "Ofender", puntuacionCinco: 2}   
+    ]
+  },
+  {
+  titulo : "Departamentos de un súper mercado",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Carnes Frias", puntuacionUno: 41},
+      {respuestaDos: "Abarrotes", puntuacionDos: 30},
+      {respuestaTres: "Panadería", puntuacionTres: 24},
+      {respuestaCuatro: "Hogar", puntuacionCuatro: 11},
+      {respuestaCinco: "Jugueteria", puntuacionCinco: 6}    
+    ]
+  },
+  {
+  titulo : "Cosas comunes que se compran en la tienda de la esquina",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Refresco", puntuacionUno: 47},
+      {respuestaDos: "Botana", puntuacionDos: 34},
+      {respuestaTres: "Alcohol", puntuacionTres: 27},
+      {respuestaCuatro: "Despensa Basica", puntuacionCuatro: 16},
+      {respuestaCinco: "Dulces", puntuacionCinco: 4}    
+    ]
+  },
+  {
+  titulo : "¿Que bebida es tradicional acompañar en una comida?",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Refresco", puntuacionUno: 40},
+      {respuestaDos: "Cerveza", puntuacionDos: 34},
+      {respuestaTres: "Agua", puntuacionTres: 24},
+      {respuestaCuatro: "Aguas Frescas", puntuacionCuatro: 11},
+      {respuestaCinco: "Café", puntuacionCinco: 2}    
+    ]
+  },
+  {
+  titulo : "Fechas importantes para una pareja",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Dia de novios", puntuacionUno: 45},
+      {respuestaDos: "Dia de boda", puntuacionDos: 32},
+      {respuestaTres: "Cuando se conocieron", puntuacionTres: 21},
+      {respuestaCuatro: "Compromiso", puntuacionCuatro: 16},
+      {respuestaCinco: "San valentin", puntuacionCinco: 5}    
+    ]
+  },
+  {
+  titulo : "Requisitos comunes para pedir empleo",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Edad", puntuacionUno: 33},
+      {respuestaDos: "Experiencia", puntuacionDos: 22},
+      {respuestaTres: "Sexo", puntuacionTres: 19},
+      {respuestaCuatro: "Disponibilidad", puntuacionCuatro: 15},
+      {respuestaCinco: "Ganas", puntuacionCinco: 2}   
+    ]
+  },
+  {
+  titulo : "Beneficios de tener trabajo",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Salario", puntuacionUno: 41},
+      {respuestaDos: "Prestaciones", puntuacionDos: 33},
+      {respuestaTres: "Experiencia", puntuacionTres: 30},
+      {respuestaCuatro: "Conocer Gente", puntuacionCuatro: 18},
+      {respuestaCinco: "Hacer algo", puntuacionCinco: 7}    
+    ]
+  },
+  {
+  titulo : "Que es importante considerar al elegir una carrera universitaria",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Habilidades", puntuacionUno: 39},
+      {respuestaDos: "Intereses", puntuacionDos: 26},
+      {respuestaTres: "Salario", puntuacionTres: 17},
+      {respuestaCuatro: "Oferta Laboral", puntuacionCuatro: 13},
+      {respuestaCinco: "Campus", puntuacionCinco: 10}   
+    ]
+  },
+  {
+  titulo : "Operaciones que hacen en un banco",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Depositar", puntuacionUno: 40},
+      {respuestaDos: "Retirar Dinero", puntuacionDos: 38},
+      {respuestaTres: "Transferir cuenta", puntuacionTres: 29},
+      {respuestaCuatro: "Abrir cuenta", puntuacionCuatro: 11},
+      {respuestaCinco: "Cambiar cheque", puntuacionCinco: 2}    
+    ]
+  },
+  {
+  titulo : "Menciona un género de televisión",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Noticiero", puntuacionUno: 35},
+      {respuestaDos: "Telenovelas", puntuacionDos: 27},
+      {respuestaTres: "Serie", puntuacionTres: 15},
+      {respuestaCuatro: "Caricaturas", puntuacionCuatro: 10},
+      {respuestaCinco: "Deportes", puntuacionCinco: 7}    
+    ]
+  },
+  {
+  titulo : "Algo que suele enmarcarse",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Fotografias", puntuacionUno: 31},
+      {respuestaDos: "Pinturas", puntuacionDos: 29},
+      {respuestaTres: "Diplomas", puntuacionTres: 19},
+      {respuestaCuatro: "Titulos", puntuacionCuatro: 14},
+      {respuestaCinco: "Carteles", puntuacionCinco: 5}    
+    ]
+  },
+  {
+  titulo : "Cosas que se ponen encima de una mesa de restaurante",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Platos", puntuacionUno: 35},
+      {respuestaDos: "Vasos", puntuacionDos: 28},
+      {respuestaTres: "Cubiertos", puntuacionTres: 23},
+      {respuestaCuatro: "Mantel", puntuacionCuatro: 16},
+      {respuestaCinco: "Flores", puntuacionCinco: 9}    
+    ]
+  },
+  {
+  titulo : "Liquido que contiene una botella de plastico",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Agua", puntuacionUno: 35},
+      {respuestaDos: "Refresco", puntuacionDos: 28},
+      {respuestaTres: "Jugo", puntuacionTres: 23},
+      {respuestaCuatro: "Alcohol", puntuacionCuatro: 16},
+      {respuestaCinco: "Aceite", puntuacionCinco: 9}    
+    ]
+  },
+  {
+  titulo : "Verdura que no sea de color verde",
+  tipo: "normal",
+  respuestas: [
+      {respuestaUno: "Zanahoria", puntuacionUno: 44},
+      {respuestaDos: "Coliflor", puntuacionDos: 30},
+      {respuestaTres: "Cebolla", puntuacionTres: 26},
+      {respuestaCuatro: "Ajo", puntuacionCuatro: 15},
+      {respuestaCinco: "Pimiento", puntuacionCinco: 3}    
+    ]
+  },
+  /*
+  {
+  titulo : "",
+  tipo: "",
+  respuestas: [
+      {respuestaUno: "", puntuacionUno: },
+      {respuestaDos: "", puntuacionDos: },
+      {respuestaTres: "", puntuacionTres: },
+      {respuestaCuatro: "", puntuacionCuatro: },
+      {respuestaCinco: "", puntuacionCinco: }   
+    ]
+  },*/
+
+
+  //TERMINE LA TEMPORADA 26, EMPEZAR CON LA 27s EN ADELANTE.
+
+  //MUSICA ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    {
+  titulo : "Menciona las claves musicales mas comunes (3 respuestas).",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "Sol", puntuacionUno: 40},
+      {respuestaDos: "Fa", puntuacionDos: 30},
+      {respuestaTres: "Do", puntuacionTres: 22},
+      {respuestaCuatro: "", puntuacionCuatro: 0},
+      {respuestaCinco: "", puntuacionCinco: 0}    
+    ]
+  },
+    {
+  titulo : "Menciona las claves musicales mas comunes (3 respuestas).",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "Sol", puntuacionUno: 40},
+      {respuestaDos: "Fa", puntuacionDos: 30},
+      {respuestaTres: "Do", puntuacionTres: 22},
+      {respuestaCuatro: "", puntuacionCuatro: 0},
+      {respuestaCinco: "", puntuacionCinco: 0}    
+    ]
+  },
+  {
+  titulo : "Menciona armaduras mas comunes en musica.",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "Do mayor, La menor (0#)", puntuacionUno: 36},
+      {respuestaDos: "Re mayor, Si menor (2#)", puntuacionDos: 30},
+      {respuestaTres: "Fa mayor, Re menor (1b)", puntuacionTres: 22},
+      {respuestaCuatro: "Sol mayor, Mi menor (1#)", puntuacionCuatro: 17},
+      {respuestaCinco: "La mayor, f# menor (3#)", puntuacionCinco: 15}    
+    ]
+  },
+  {
+  titulo : "Menciona indicadores de Compás mas comunes en musica.",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "4/4", puntuacionUno: 50},
+      {respuestaDos: "3/4", puntuacionDos: 46},
+      {respuestaTres: "2/4", puntuacionTres: 26},
+      {respuestaCuatro: "Compasillo (C)", puntuacionCuatro: 13},
+      {respuestaCinco: "Compasillo Binario (C|)", puntuacionCinco: 15}    
+    ]
+  },
+  {
+  titulo : "Nombra Alteraciones Musicales.",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "Sostenido", puntuacionUno: 33},
+      {respuestaDos: "Bemol", puntuacionDos: 29},
+      {respuestaTres: "Becuadro", puntuacionTres: 20},
+      {respuestaCuatro: "Doble Sostenido (x)", puntuacionCuatro: 5},
+      {respuestaCinco: "Doble Bemol (bb)", puntuacionCinco: 2}    
+    ]
+  },
+  {
+  titulo : "Nombra Articulaciones que podrias encontrar en una partitura.",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "Staccato (.)", puntuacionUno: 46},
+      {respuestaDos: "Tenuto (-)", puntuacionDos: 37},
+      {respuestaTres: "Marcato (v)", puntuacionTres: 18},
+      {respuestaCuatro: "Trino (tr)", puntuacionCuatro: 15},
+      {respuestaCinco: "Calderón (c.)", puntuacionCinco: 10}    
+    ]
+  },
+  {
+  titulo : "Menciona las notas musicales.",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "Corchea", puntuacionUno: 30},
+      {respuestaDos: "Negra", puntuacionDos: 27},
+      {respuestaTres: "Redonda", puntuacionTres: 25},
+      {respuestaCuatro: "Blanca", puntuacionCuatro: 10},
+      {respuestaCinco: "Cuadrada", puntuacionCinco: 1}    
+    ]
+  },
+  {
+  titulo : "Menciona barra de compas que encuentras en una Partitura (3 respuestas).",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "Repeticion", puntuacionUno: 45},
+      {respuestaDos: "Barra Final", puntuacionDos: 30},
+      {respuestaTres: "Barra de compas", puntuacionTres: 27},
+      {respuestaCuatro: "", puntuacionCuatro: 0},
+      {respuestaCinco: "", puntuacionCinco: 0}    
+    ]
+  },
+  {
+  titulo : "Menciona dinámicas mas utilizadas.",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "Forte", puntuacionUno: 50},
+      {respuestaDos: "Piano", puntuacionDos: 45},
+      {respuestaTres: "MezzoPiano", puntuacionTres: 30},
+      {respuestaCuatro: "MezzoForte", puntuacionCuatro: 25},
+      {respuestaCinco: "Fortísimo", puntuacionCinco: 10}    
+    ]
+  },
+  {
+  titulo : "Menciona mejores compositores de música clásica.",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "Wolfgang Amadeus Mozart", puntuacionUno: 46},
+      {respuestaDos: "Ludwig van Beethoven", puntuacionDos: 44},
+      {respuestaTres: "Vivaldi", puntuacionTres: 38},
+      {respuestaCuatro: "Chopin", puntuacionCuatro: 30},
+      {respuestaCinco: "Johann Sebastian Bach", puntuacionCinco: 28}    
+    ]
+  },
+  {
+  titulo : "Menciona las notas principales que forman el acorde de Sol mayor (3 respuestas).",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "Sol", puntuacionUno: 33},
+      {respuestaDos: "Si", puntuacionDos: 28},
+      {respuestaTres: "Re", puntuacionTres: 17},
+      {respuestaCuatro: "", puntuacionCuatro: 0},
+      {respuestaCinco: "", puntuacionCinco: 0}    
+    ]
+  },
+  {
+  titulo : "Menciona las notas principales que forman el acorde de Re mayor (3 respuestas).",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "Re", puntuacionUno: 45},
+      {respuestaDos: "Fa#", puntuacionDos: 38},
+      {respuestaTres: "La", puntuacionTres: 36},
+      {respuestaCuatro: "", puntuacionCuatro: 0},
+      {respuestaCinco: "", puntuacionCinco: 0}    
+    ]
+  },
+  {
+  titulo : "Menciona las notas principales que forman el acorde de Do mayor (3 respuestas).",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "Do", puntuacionUno: 20},
+      {respuestaDos: "Mi", puntuacionDos: 17},
+      {respuestaTres: "Sol", puntuacionTres: 14},
+      {respuestaCuatro: "", puntuacionCuatro: 0},
+      {respuestaCinco: "", puntuacionCinco: 0}    
+    ]
+  },
+  {
+  titulo : "Menciona las notas principales que forman el acorde de La menor (3 respuestas).",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "La", puntuacionUno: 60},
+      {respuestaDos: "Do", puntuacionDos: 40},
+      {respuestaTres: "Mi", puntuacionTres: 36},
+      {respuestaCuatro: "", puntuacionCuatro: 0},
+      {respuestaCinco: "", puntuacionCinco: 0}    
+    ]
+  },
+  {
+  titulo : "Menciona instrumentos que mas famosos en una orquesta.",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "Violin", puntuacionUno: 36},
+      {respuestaDos: "Cello", puntuacionDos: 34},
+      {respuestaTres: "Trompeta", puntuacionTres: 28},
+      {respuestaCuatro: "Piano", puntuacionCuatro: 24},
+      {respuestaCinco: "Viola c:", puntuacionCinco: 1}    
+    ]
+  },
+  {
+  titulo : "Menciona instrumentos de cuerda Frotada (4 respuestas).",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "Violin", puntuacionUno: 24},
+      {respuestaDos: "Cello", puntuacionDos: 20},
+      {respuestaTres: "Viola", puntuacionTres: 13},
+      {respuestaCuatro: "Contra Bajo", puntuacionCuatro: 8},
+      {respuestaCinco: "", puntuacionCinco: 0}    
+    ]
+  },
+  {
+  titulo : "Menciona instrumentos de cuerda Pulsada.",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "Guitarra", puntuacionUno: 34},
+      {respuestaDos: "Arpa", puntuacionDos: 28},
+      {respuestaTres: "Banjo", puntuacionTres: 20},
+      {respuestaCuatro: "Tololoche", puntuacionCuatro: 17},
+      {respuestaCinco: "Mandolina", puntuacionCinco: 12}    
+    ]
+  },
+  {
+  titulo : "Menciona instrumentos de Aliento",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "Trompeta", puntuacionUno: 32},
+      {respuestaDos: "Flauta", puntuacionDos: 28},
+      {respuestaTres: "Clarinete", puntuacionTres: 23},
+      {respuestaCuatro: "Oboe", puntuacionCuatro: 17},
+      {respuestaCinco: "Fagot", puntuacionCinco: 4}   
+    ]
+  },
+  {
+  titulo : "Menciona las secciones de una orquesta (4 respuestas).",
+  tipo: "musica",
+  respuestas: [
+      {respuestaUno: "Cuerdas", puntuacionUno: 40},
+      {respuestaDos: "Maderas", puntuacionDos: 36},
+      {respuestaTres: "Metales", puntuacionTres: 28},
+      {respuestaCuatro: "Percusiones", puntuacionCuatro: 15},
+      {respuestaCinco: "", puntuacionCinco: 0}    
+    ]
+  }
+]
+
+
+  const cantidadPreguntas = preguntas.length;
+
+      //Interfaz con respuestas.
+      function respuestas(){
+  var printResp = '<div class="mainListPreguntas"><div class="listPreguntas"><h4>Lista de preguntas</h4></div><br><p style="text-align: center;" >Cantidad de preguntas: '+cantidadPreguntas+'</p>';
+  
+for (var x = 0; x < cantidadPreguntas; x++) {
+
+    printResp += '<hr><div class="accordion accordion-flush" id="flush-headingOne"><div class="accordion-item"><h2 class="accordion-header" id="flush-headingOne"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#resAccor'+x+'" aria-expanded="false" aria-controls="resAccor'+x+'"><div class="listRespText"><strong>'+x+':.  </strong>'+preguntas[x].titulo+'</div></button></h2><div id="resAccor'+x+'" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#flush-headingOne"><div class="accordion-body-X-Resp">';
+    printResp += '<div class="card-X-Resp card-body" style=" text-align: center;"><div class="row">';
+    printResp += '<div class="col-5 col-5X-Resp">'+preguntas[x].respuestas[0].respuestaUno+'</div><div class="col-2">---></div><div class="col-5 col-5X-Resp">'+preguntas[x].respuestas[0].puntuacionUno+'</div>';
+    printResp += '</div></div>';
+
+    //pizarra Respuesta 2
+    printResp += '<div class="card-X-Resp card-body" style=" text-align: center;"><div class="row">';
+    printResp += '<div class="col-5 col-5X-Resp">'+preguntas[x].respuestas[1].respuestaDos+'</div><div class="col-2">---></div><div class="col-5 col-5X-Resp">'+preguntas[x].respuestas[1].puntuacionDos+'</div>';
+    printResp += '</div></div>';
+
+    //pizarra Respuesta 3
+    printResp += '<div class="card-X-Resp card-body" style=" text-align: center;"><div class="row">';
+    printResp += '<div class="col-5 col-5X-Resp">'+preguntas[x].respuestas[2].respuestaTres+'</div><div class="col-2">---></div><div class="col-5 col-5X-Resp">'+preguntas[x].respuestas[2].puntuacionTres+'</div>';
+    printResp += '</div></div>';
+
+    //pizarra Respuesta 4
+    printResp += '<div class="card-X-Resp card-body" style=" text-align: center;"><div class="row">';
+    printResp += '<div class="col-5 col-5X-Resp">'+preguntas[x].respuestas[3].respuestaCuatro+'</div><div class="col-2">---></div><div class="col-5 col-5X-Resp">'+preguntas[x].respuestas[3].puntuacionCuatro+'</div>';
+    printResp += '</div></div>';
+
+    //pizarra Respuesta 5
+    printResp += '<div class="card-X-Resp card-body" style=" text-align: center;"><div class="row">';
+    printResp += '<div class="col-5 col-5X-Resp">'+preguntas[x].respuestas[4].respuestaCinco+'</div><div class="col-2">---></div><div class="col-5 col-5X-Resp">'+preguntas[x].respuestas[4].puntuacionCinco+'</div>';
+    printResp += '</div></div></div></div></div></div>';
+    
+  }
+  printResp += '</div>';
+  document.getElementById('mainIndex').innerHTML = printResp;
+
+      }
+    </script>
+
+    <div class="container-fluid" id="mainIndex">
+      <center><h1>RESPUESTAS MOVIL</h1>
+      <button class="btn-menu" onclick="respuestas()">
+                        Respuestas
+                    </button></center>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>100 Mexicanos Dijeron</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css-bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- FONTS -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Kreon&display=swap');
+
+      @media only screen and (max-width: 1370px){
+        .punt-ronda{
+          width: 230px;
+        }
+        .stylePunt{
+          top: 50px;
+        }
+        .cont-punt{
+          width: 300px;
+        }
+        .familias{
+          height: 230px;
+        }
+      }
+
+      @media only screen and (max-width: 950px){
+        .familias{
+          height: auto;
+          display: flex;
+          flex-direction: column;
+        }
+        .cont-punt{
+          margin-bottom: 50px;
+        }
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <!--confetti-->
+      <canvas id="canvas"></canvas>
+     <!-- <button id="startButton"></button>-->
+      <!--<button id="stopButton"></button>-->
+
+    <div class="container-fluid" id="mainIndex">
+
+
+      
+      <!--main-->
+            <div class="main">
+              <div class="style-img-main-top">
+                <img class="img-main-top" src="img/logo-100.png">
+              </div>
+              <!--<div class="style-img-main">
+                <img class="img-main" src="img/vitor.png">
+              </div>-->
+                <div class="menu-main">
+                  <div class="main-btns">
+                    <button class="btn-menu" onclick="preComenzar()">
+                        Jugar
+                    </button>
+                    <button class="btn-menu" onclick="respuestas()">
+                        Respuestas
+                    </button>
+                    <button class="btn-menu" onclick="instrucciones()">
+                        Instrucciones
+                    </button>
+                  </div>
+                </div>
+
+            </div>
+      <!--main-->
+    
+
+    </div>
+    <script type="text/javascript" src="js-bootstrap/bootstrap.bundle.min.js"></script>
+    
+    
+     
+        <!--Conffeti-->
+        <script src="js/jquery-3.1.0.min.js"></script>
+        <script src="js/confetti.js"></script>  
+ 
+
+<script type="text/javascript" src="js/data.js"></script>
+
+    
+  </body>
+</html>
