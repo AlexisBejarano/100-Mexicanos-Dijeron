@@ -1,3066 +1,2949 @@
-const preguntas = [ 
-    {
-	titulo: "Menciona un bicho que puedes encontrar dentro de tu casa.",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Arañas", puntuacionUno: 22},
-            {respuestaDos: "Moscas", puntuacionDos: 17},
-            {respuestaTres: "Cucharachas", puntuacionTres: 13},
-            {respuestaCuatro: "Hormigas", puntuacionCuatro: 13},
-            {respuestaCinco: "Mosc@s", puntuacionCinco: 10}
-        ]
-    },
-    {
-	titulo: "Menciona un alimento de color rojo.",
-	tipo: "alimento",
-	respuestas: [
-            {respuestaUno: "Manzana", puntuacionUno: 30},
-            {respuestaDos: "Jitomate", puntuacionDos: 20},
-            {respuestaTres: "Fresa", puntuacionTres: 13},
-            {respuestaCuatro: "Sandía", puntuacionCuatro: 8},
-            {respuestaCinco: "Ciruela", puntuacionCinco: 4}
-        ]
-    },
-    {
-	titulo: "Menciona algo que se obtiene de un árbol.",
-	tipo: "naturaleza",
-	respuestas: [
-            {respuestaUno: "Fruta", puntuacionUno: 40},
-			{respuestaDos: "Papel", puntuacionDos: 15},
-			{respuestaTres: "Madera", puntuacionTres: 12},
-			{respuestaCuatro: "Lápiz", puntuacionCuatro: 8},
-			{respuestaCinco: "Oxigeno" ,puntuacionCinco: 4}
-        ]
-    },
-    {
-	titulo : "Nombra un país de América del Sur.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Brasil", puntuacionUno: 40},
-			{respuestaDos: "Argentina", puntuacionDos: 15},
-			{respuestaTres: "Chile", puntuacionTres: 12},
-			{respuestaCuatro: "Guatemala", puntuacionCuatro: 8},
-			{respuestaCinco: "Bolivia", puntuacionCinco: 3}
-		]
-	},
-	{
-	titulo : "Menciona una especialidad médica.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Ginecología", puntuacionUno: 38},
-			{respuestaDos: "Odontología", puntuacionDos: 27},
-			{respuestaTres: "Cardiologia", puntuacionTres: 12},
-			{respuestaCuatro: "Pediatría", puntuacionCuatro: 10},
-			{respuestaCinco: "Cirujano", puntuacionCinco: 8}
-		]
-	},
-	{
-	titulo : "Menciona regalo barato que siempre será bien aceptado.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Flores", puntuacionUno: 44},
-			{respuestaDos: "Tarjeta/Carta", puntuacionDos: 24},
-			{respuestaTres: "Chocolates", puntuacionTres: 18},
-			{respuestaCuatro: "Peluches", puntuacionCuatro: 11},
-			{respuestaCinco: "Dinero", puntuacionCinco: 6}
-		]
-	},
-	{
-	titulo : "Termina la frase: Estoy que me lleva la...",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Fregada", puntuacionUno: 37},
-			{respuestaDos: "Chingada", puntuacionDos: 31},
-			{respuestaTres: "Verga", puntuacionTres: 12},
-			{respuestaCuatro: "Que me trajo", puntuacionCuatro: 12},
-			{respuestaCinco: "Canción", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Menciona Dato el cual se puede leer en una caja de cereal.",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Datos Nutricionales", puntuacionUno: 44},
-			{respuestaDos: "Ingredientes", puntuacionDos: 23},
-			{respuestaTres: "Marca", puntuacionTres: 16},
-			{respuestaCuatro: "Nombre del producto", puntuacionCuatro: 7},
-			{respuestaCinco: "Juego o Cupón", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Menciona Carrera la cuál suele asociarse como Artista.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Canto", puntuacionUno: 23},
-			{respuestaDos: "Actuación", puntuacionDos: 20},
-			{respuestaTres: "Baile/Danza", puntuacionTres: 18},
-			{respuestaCuatro: "Pintura/Dibujo", puntuacionCuatro: 13},
-			{respuestaCinco: "Músico", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Menciona un sabor de una crema en una fiesta.",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Queso", puntuacionUno: 32},
-			{respuestaDos: "Atun", puntuacionDos: 25},
-			{respuestaTres: "Cebolla", puntuacionTres: 25},
-			{respuestaCuatro: "Chipotle", puntuacionCuatro: 14},
-			{respuestaCinco: "Chile", puntuacionCinco: 13}
-		]
-	},
-	{
-	titulo : "Menciona una fobia o miedo.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Alturas", puntuacionUno: 25},
-			{respuestaDos: "Arañas", puntuacionDos: 21},
-			{respuestaTres: "Oscuridad", puntuacionTres: 16},
-			{respuestaCuatro: "Estar encerrado", puntuacionCuatro: 10},
-			{respuestaCinco: "Ratas", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Nombra algo que desafía la ley de la Gravedad.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Aviones", puntuacionUno: 37},
-			{respuestaDos: "Drones", puntuacionDos: 29},
-			{respuestaTres: "Helicópteros", puntuacionTres: 21},
-			{respuestaCuatro: "Cohetes", puntuacionCuatro: 16},
-			{respuestaCinco: "Satélites", puntuacionCinco: 10}
-		]
-	},
-	{
-	titulo : "Menciona lugar donde los estudiantes se la pintean.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Parque", puntuacionUno: 41},
-			{respuestaDos: "Cine", puntuacionDos: 18},
-			{respuestaTres: "Maquinitas", puntuacionTres: 12},
-			{respuestaCuatro: "Centro", puntuacionCuatro: 10},
-			{respuestaCinco: "Billar o Bar", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Menciona cosas que llevamos para acampar.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Casa de campaña", puntuacionUno: 38},
-			{respuestaDos: "Bolsa para dormir", puntuacionDos: 33},
-			{respuestaTres: "Comida", puntuacionTres: 24},
-			{respuestaCuatro: "Lámpara/Linterna", puntuacionCuatro: 15},
-			{respuestaCinco: "Mochila", puntuacionCinco: 11}
-		]
-	},
-	{
-	titulo : "Menciona preguntas que te hacen cuando vas a las carnes frias.",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "¿Que va a llevar?", puntuacionUno: 35},
-			{respuestaDos: "¿Cuánto va a llevar?", puntuacionDos: 24},
-			{respuestaTres: "¿De que marca?", puntuacionTres: 20},
-			{respuestaCuatro: "¿Así está bien?", puntuacionCuatro: 17},
-			{respuestaCinco: "¿En que le puedo ayudar?", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : "Menciona un animal marino que no sea un pez.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Camarón", puntuacionUno: 48},
-			{respuestaDos: "Pulpo", puntuacionDos: 39},
-			{respuestaTres: "Ballena", puntuacionTres: 21},
-			{respuestaCuatro: "Tortuga", puntuacionCuatro: 13},
-			{respuestaCinco: "Caballito de mar", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Menciona un pan No Dulce.",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Torcido", puntuacionUno: 29},
-			{respuestaDos: "Pan de caja(Bimbo)", puntuacionDos: 27},
-			{respuestaTres: "Virginia", puntuacionTres:18},
-			{respuestaCuatro: "Telera", puntuacionCuatro:11},
-			{respuestaCinco: "Baguette", puntuacionCinco: 6}		
-		]
-	},
-	{
-	titulo : "Menciona deporte que entre mas pesado estes mas te aydua.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Sumo", puntuacionUno: 39},
-			{respuestaDos: "Lucha libre", puntuacionDos: 31},
-			{respuestaTres: "FútBol Americano", puntuacionTres: 27},
-			{respuestaCuatro: "Levantamiento de pesas", puntuacionCuatro: 15},
-			{respuestaCinco: "Box", puntuacionCinco: 12}
-		]
-	},
-	{
-	titulo : "Menciona material que se usa para hacer esculturas.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Barro", puntuacionUno: 45},
-			{respuestaDos: "Piedra", puntuacionDos: 37},
-			{respuestaTres: "Mármol", puntuacionTres: 24},
-			{respuestaCuatro: "Yeso", puntuacionCuatro: 15},
-			{respuestaCinco: "Metal", puntuacionCinco: 10}
-		]
-	},
-	{
-	titulo : "Menciona Características de la gente Asiática.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Ojos chinos", puntuacionUno: 39},
-			{respuestaDos: "DelgaDos", puntuacionDos: 31},
-			{respuestaTres: "Inteligencia", puntuacionTres: 27},
-			{respuestaCuatro: "Color de piel", puntuacionCuatro: 15},
-			{respuestaCinco: "Idioma", puntuacionCinco: 12}
-		]
-	},
-	{
-	titulo : "Menciona algo que es malo para el cabello.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Tintes", puntuacionUno: 43},
-			{respuestaDos: "Fijadores", puntuacionDos: 36},
-			{respuestaTres: "El sol", puntuacionTres: 24},
-			{respuestaCuatro: "Caspa", puntuacionCuatro: 18},
-			{respuestaCinco: "Gel", puntuacionCinco: 8}		]
-	},
-	{
-	titulo : "Menciona un objeto que explota.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Bomba", puntuacionUno: 38},
-			{respuestaDos: "Trike", puntuacionDos: 29},
-			{respuestaTres: "Dinamita", puntuacionTres: 20},
-			{respuestaCuatro: "Tanques de gas", puntuacionCuatro: 13},
-			{respuestaCinco: "Granada", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Menciona un pan de Dulce.",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Dona", puntuacionUno: 36},
-			{respuestaDos: "Concha", puntuacionDos: 32},
-			{respuestaTres: "Leño", puntuacionTres: 26},
-			{respuestaCuatro: "Puerquito", puntuacionCuatro: 15},
-			{respuestaCinco: "Cocodrilo/Elote", puntuacionCinco: 6}		
-		]
-	},
-	{
-	titulo : "Menciona que hay en una billetera de un Hombre.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Dinero", puntuacionUno: 31},
-			{respuestaDos: "Fotos", puntuacionDos: 30},
-			{respuestaTres: "Credenciales", puntuacionTres: 20},
-			{respuestaCuatro: "Tarjetas", puntuacionCuatro: 11},
-			{respuestaCinco: "Condones", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Menciona una característica de una Limosina.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Larga", puntuacionUno: 31},
-			{respuestaDos: "Color negro", puntuacionDos: 22},
-			{respuestaTres: "Elegante", puntuacionTres: 16},
-			{respuestaCuatro: "Costosa", puntuacionCuatro: 14},
-			{respuestaCinco: "Divertida", puntuacionCinco: 10}
-		]
-	},
-	{
-	titulo : "Sin decir marcas Menciona alimentos que se pueden comprar en maquina Expendedora.",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Refresco", puntuacionUno: 37},
-			{respuestaDos: "Sabritas", puntuacionDos: 34},
-			{respuestaTres: "Galletas", puntuacionTres: 22},
-			{respuestaCuatro: "Dulces", puntuacionCuatro: 15},
-			{respuestaCinco: "Agua", puntuacionCinco: 14}
-		]
-	},
-	{
-	titulo : "Menciona un lugar donde haya un chicle pegado.",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Piso", puntuacionUno: 46},
-			{respuestaDos: "Bajo la mesa", puntuacionDos: 32},
-			{respuestaTres: "Zapato", puntuacionTres: 27},
-			{respuestaCuatro: "Silla", puntuacionCuatro: 22},
-			{respuestaCinco: "Pared", puntuacionCinco: 16}
-		]
-	},
-	{
-	titulo : "Menciona cosas que la gente compra esperando que le dure toda la vida.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Casa", puntuacionUno: 46},
-			{respuestaDos: "Carro", puntuacionDos: 34},
-			{respuestaTres: "Ropa", puntuacionTres: 29},
-			{respuestaCuatro: "Muebles", puntuacionCuatro: 17},
-			{respuestaCinco: "Electrodomestico", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Menciona que cosas hacen los Gatos.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Jugar", puntuacionUno: 47},
-			{respuestaDos: "Dormir", puntuacionDos: 39},
-			{respuestaTres: "Comer", puntuacionTres: 21},
-			{respuestaCuatro: "Maullar", puntuacionCuatro: 20},
-			{respuestaCinco: "Lamer", puntuacionCinco: 13}
-		]
-	},
-	{
-	titulo : "Menciona utensilios de cocina.",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Cuchara", puntuacionUno: 38},
-			{respuestaDos: "Cuchillo", puntuacionDos: 28},
-			{respuestaTres: "Sartén", puntuacionTres: 15},
-			{respuestaCuatro: "Tenedor", puntuacionCuatro: 10},
-			{respuestaCinco: "Cazuela", puntuacionCinco: 3}		
-		]
-	},
-	{
-	titulo : "Menciona algo que se enciende con un cerillo.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Cigarro", puntuacionUno: 43},
-			{respuestaDos: "Estufa", puntuacionDos:20},
-			{respuestaTres: "Velas", puntuacionTres:10},
-			{respuestaCuatro: "Papel", puntuacionCuatro:8},
-			{respuestaCinco: "Fuegos Artificiales", puntuacionCinco: 5}		
-		]
-	},
-	{
-	titulo : "Menciona algo que tenga cuernos.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Mi Ex", puntuacionUno: 62},
-			{respuestaDos: "Venado", puntuacionDos: 50},
-			{respuestaTres: "Chivo", puntuacionTres: 22},
-			{respuestaCuatro: "Vaca", puntuacionCuatro: 17},
-			{respuestaCinco: "Buey", puntuacionCinco: 5}		
-		]
-	},
-	{
-	titulo : "Menciona que es lo más constante que hace un bebe.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Llorar", puntuacionUno: 63},
-			{respuestaDos: "Popo", puntuacionDos: 42},
-			{respuestaTres: "Comer", puntuacionTres: 33},
-			{respuestaCuatro: "Dormir", puntuacionCuatro: 19},
-			{respuestaCinco: "Jugar", puntuacionCinco: 10}		
-		]
-	},
-	{
-	titulo : "Menciona un alimento que se vende en lata.",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Atún", puntuacionUno: 47},
-			{respuestaDos: "Frijoles", puntuacionDos: 39},
-			{respuestaTres: "Chícharos", puntuacionTres: 22},
-			{respuestaCuatro: "Chiles", puntuacionCuatro: 11},
-			{respuestaCinco: "Refresco", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Menciona Artículos de higiene que no suelen faltar en un viaje.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Pasta dental", puntuacionUno: 36},
-			{respuestaDos: "Cepillo de dientes", puntuacionDos: 34},
-			{respuestaTres: "peine", puntuacionTres: 24},
-			{respuestaCuatro: "Desodorante", puntuacionCuatro: 18},
-			{respuestaCinco: "Shampoo", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Menciona Lugar en donde conseguir hospedaje.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "App/Página web", puntuacionUno: 38},
-			{respuestaDos: "Hotel", puntuacionDos: 30},
-			{respuestaTres: "Motel", puntuacionTres: 27},
-			{respuestaCuatro: "Hostel", puntuacionCuatro: 18},
-			{respuestaCinco: "Con un conocido/Familiar", puntuacionCinco: 13}		
-		]
-	},
-	{
-	titulo : "Menciona personaje clasico de terror.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Chucky", puntuacionUno: 39},
-			{respuestaDos: "Wazaa :p", puntuacionDos:31},
-			{respuestaTres: "Freddy Krueger", puntuacionTres: 29},
-			{respuestaCuatro: "Un negro", puntuacionCuatro: 21},
-			{respuestaCinco: "Jason", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Menciona pelicula antigua de terror.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Drácula", puntuacionUno: 31},
-			{respuestaDos: "El Exorcista", puntuacionDos: 26},
-			{respuestaTres: "El Resplandor", puntuacionTres: 20},
-			{respuestaCuatro: "It (Eso)", puntuacionCuatro: 17},
-			{respuestaCinco: "Psicosis", puntuacionCinco: 3}		
-		]
-	},
-	{
-	titulo : "Menciona disfraces clasicos Sexys que una chica suele vestirse.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Gatita", puntuacionUno: 35},
-			{respuestaDos: "Vampira", puntuacionDos: 29},
-			{respuestaTres: "Diablita", puntuacionTres: 22},
-			{respuestaCuatro: "Brujita", puntuacionCuatro: 12},
-			{respuestaCinco: "Caperucita Roja", puntuacionCinco: 6}		
-		]
-	},
-	{
-	titulo : "Menciona que debe tener una casa para ser mansión.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Muy grande", puntuacionUno: 46},
-			{respuestaDos: "Tener alberca", puntuacionDos: 46},
-			{respuestaTres: "Gigante jardín", puntuacionTres: 26},
-			{respuestaCuatro: "Muebles lujosos", puntuacionCuatro: 17},
-			{respuestaCinco: "Muy alta", puntuacionCinco: 6}		
-		]
-	},
-	{
-	titulo : "Menciona especia usada en la cocina.",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Sal", puntuacionUno: 31},
-			{respuestaDos: "Pimienta", puntuacionDos: 28},
-			{respuestaTres: "Ajo", puntuacionTres: 25},
-			{respuestaCuatro: "laurel", puntuacionCuatro: 17},
-			{respuestaCinco: "Orégano", puntuacionCinco: 13}		
-		]
-	},
-	{
-	titulo : "Menciona cosas que un niño puede querer y tiene ruedas.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Bicicleta", puntuacionUno: 36},
-			{respuestaDos: "Un coche", puntuacionDos: 33},
-			{respuestaTres: "Patines", puntuacionTres: 27},
-			{respuestaCuatro: "Juguete", puntuacionCuatro: 14},
-			{respuestaCinco: "Patineta", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Menciona cosas bonitas que alguien se pudiera decir en el espejo.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Que guapo/bonito", puntuacionUno: 39},
-			{respuestaDos: "Que alto te ves", puntuacionDos: 32},
-			{respuestaTres: "Que delgado te ves", puntuacionTres:28},
-			{respuestaCuatro: "Que sexy te ves", puntuacionCuatro: 15},
-			{respuestaCinco: "me veo muy bien", puntuacionCinco: 12}		
-		]
-	},
-	{
-	titulo : "Menciona cosas que comen los gusanos.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Plantas", puntuacionUno: 45},
-			{respuestaDos: "Cadáveres", puntuacionDos: 37},
-			{respuestaTres: "Frutas", puntuacionTres: 31},
-			{respuestaCuatro: "Comida echada a perder", puntuacionCuatro: 16},
-			{respuestaCinco: "Cosas podridas", puntuacionCinco: 11}		
-		]
-	},
-	{
-	titulo : "Menciona signo de ortografía que sirve para marcas pausa.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Coma", puntuacionUno: 39},
-			{respuestaDos: "Punto", puntuacionDos: 36},
-			{respuestaTres: "Punto y coma", puntuacionTres: 25},
-			{respuestaCuatro: "Guión", puntuacionCuatro: 20},
-			{respuestaCinco: "Dos puntos", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Menciona cosas que se venden para fiestas patrias.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Banderas", puntuacionUno: 39},
-			{respuestaDos: "Bigotes", puntuacionDos: 36},
-			{respuestaTres: "Confeti", puntuacionTres: 25},
-			{respuestaCuatro: "Sombreros", puntuacionCuatro: 20},
-			{respuestaCinco: "Alcohol", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Termina la frase 'Te quiero de aquí hasta...'.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "El cielo", puntuacionUno: 39},
-			{respuestaDos: "La luna", puntuacionDos: 36},
-			{respuestaTres: "El infinito", puntuacionTres: 28},
-			{respuestaCuatro: "El mas allá", puntuacionCuatro: 17},
-			{respuestaCinco: "Las estrellas", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : "Menciona que suele ver en carnavales.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Disfraces", puntuacionUno: 37},
-			{respuestaDos: "Carros alegóricos", puntuacionDos: 32},
-			{respuestaTres: "Máscaras/antifraces", puntuacionTres: 26},
-			{respuestaCuatro: "Bailes", puntuacionCuatro: 21},
-			{respuestaCinco: "Mucha gente", puntuacionCinco: 13}		
-		]
-	},
-	{
-	titulo : "Menciona parte del cuerpo que puedes tocar para provocar el coito.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Cuello", puntuacionUno: 60},
-			{respuestaDos: "Cintura", puntuacionDos: 23},
-			{respuestaTres: "Espalda", puntuacionTres: 20},
-			{respuestaCuatro: "Piernas", puntuacionCuatro:15},
-			{respuestaCinco: "Pecho", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : "Menciona animal que la gente suele ver con sus crias.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Gallina", puntuacionUno: 47},
-			{respuestaDos: "Perro", puntuacionDos: 40},
-			{respuestaTres: "Gato", puntuacionTres: 34},
-			{respuestaCuatro: "Puercos", puntuacionCuatro: 13},
-			{respuestaCinco: "Roedores", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Menciona un insecto que asuste.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Araña/Trantula", puntuacionUno: 38},
-			{respuestaDos: "Cucaracha Voladora", puntuacionDos: 24},
-			{respuestaTres: "Alacrán", puntuacionTres: 8},
-			{respuestaCuatro: "Abeja/Avispa", puntuacionCuatro: 8},
-			{respuestaCinco: "Cienpiés", puntuacionCinco: 5}		
-		]
-	},
-	{
-	titulo : "Menciona que puede agregarse al café.",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Azúcar", puntuacionUno: 33},
-			{respuestaDos: "Crema", puntuacionDos: 28},
-			{respuestaTres: "Leche", puntuacionTres: 23},
-			{respuestaCuatro: "Canela", puntuacionCuatro: 10},
-			{respuestaCinco: "Alcohol", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Menciona frase clásica para decir que no te interesa tu EX.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "No l@ queria", puntuacionUno: 26},
-			{respuestaDos: "Era aburrid@", puntuacionDos: 20},
-			{respuestaTres: "Era odioso/No soportaba", puntuacionTres: 12},
-			{respuestaCuatro: "Infidelidad", puntuacionCuatro: 8},
-			{respuestaCinco: "Yo l@ deje", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Menciona un objeto hecho de vidrio.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Vaso", puntuacionUno: 38},
-			{respuestaDos: "Botellas", puntuacionDos: 19},
-			{respuestaTres: "Espejos", puntuacionTres: 15},
-			{respuestaCuatro: "Ventanas", puntuacionCuatro: 5},
-			{respuestaCinco: "Copa", puntuacionCinco: 1}		
-		]
-	},
-	{
-	titulo : "Menciona medio de transporte con el que podrías conocer todo el mundo.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Avión", puntuacionUno: 34},
-			{respuestaDos: "Motocicleta", puntuacionDos: 16},
-			{respuestaTres: "Automóvil", puntuacionTres: 16},
-			{respuestaCuatro: "Helicóptero", puntuacionCuatro: 7},
-			{respuestaCinco: "Autobús/Casa Rodante", puntuacionCinco: 5}		
-		]
-	},
-	{
-	titulo : "Menciona parte del cuerpo donde suelen hacerle cosquillas.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Pies", puntuacionUno: 37},
-			{respuestaDos: "Estómago", puntuacionDos: 19},
-			{respuestaTres: "Axila", puntuacionTres: 15},
-			{respuestaCuatro: "Costillas", puntuacionCuatro: 9},
-			{respuestaCinco: "Cuello", puntuacionCinco: 3}		
-		]
-	},
-	{
-	titulo : "Menciona un país que últimamente ha estado en algún tipo de guerra.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Rusia", puntuacionUno: 28},
-			{respuestaDos: "Ucrania", puntuacionDos: 17},
-			{respuestaTres: "China", puntuacionTres: 16},
-			{respuestaCuatro: "Estados Unidos", puntuacionCuatro: 12},
-			{respuestaCinco: "Israel", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Menciona algo que suele estar en el refigerador de un soltero.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Cerveza", puntuacionUno: 39},
-			{respuestaDos: "Leche", puntuacionDos: 24},
-			{respuestaTres: "Comida", puntuacionTres: 14},
-			{respuestaCuatro: "Refresco", puntuacionCuatro: 12},
-			{respuestaCinco: "Fruta/Verduras", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Menciona una actividad que provoca cansancio en los ojos.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Leer", puntuacionUno: 36},
-			{respuestaDos: "Televisión", puntuacionDos: 28},
-			{respuestaTres: "Teléfono", puntuacionTres: 26},
-			{respuestaCuatro: "Estar en el sol", puntuacionCuatro: 13},
-			{respuestaCinco: "Computadora", puntuacionCinco: 5}		
-		]
-	},
-	{
-	titulo : "Menciona característica clásica de una porrista de fútbol americano.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Mini falda", puntuacionUno: 42},
-			{respuestaDos: "Pompones", puntuacionDos: 33},
-			{respuestaTres: "Buen cuerpo", puntuacionTres: 23},
-			{respuestaCuatro: "Guapas/Bonitas", puntuacionCuatro: 17},
-			{respuestaCinco: "Flexibilidad", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Menciona prenda la cúal se abotone.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Camisa", puntuacionUno: 44},
-			{respuestaDos: "Blusa", puntuacionDos: 34},
-			{respuestaTres: "Pantalón", puntuacionTres: 27},
-			{respuestaCuatro: "Suéter", puntuacionCuatro: 22},
-			{respuestaCinco: "Falda", puntuacionCinco: 13}		
-		]
-	},
-	{
-	titulo : "Menciona ademas de Okay, di otra manera de decir que estás de acuerdo.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Bien", puntuacionUno: 45},
-			{respuestaDos: "Si", puntuacionDos: 19},
-			{respuestaTres: "Claro", puntuacionTres: 16},
-			{respuestaCuatro: "Perfecto", puntuacionCuatro: 10},
-			{respuestaCinco: "De acuerdo", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Menciona algo en lo que los niños se trepen.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Árboles", puntuacionUno: 44},
-			{respuestaDos: "Culumpio", puntuacionDos: 38},
-			{respuestaTres: "Resbaladilla", puntuacionTres: 24},
-			{respuestaCuatro: "En la gente", puntuacionCuatro: 10},
-			{respuestaCinco: "Coches", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : "Menciona la cantidad de un billete de México.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Cien", puntuacionUno: 23},
-			{respuestaDos: "Veinte", puntuacionDos: 20},
-			{respuestaTres: "Doscientos", puntuacionTres: 15},
-			{respuestaCuatro: "Quinientos", puntuacionCuatro: 10},
-			{respuestaCinco: "Mil", puntuacionCinco: 8}		
-		]
-	},
-		{
-	titulo : "Menciona vegetal que el mexicano promedio fríe.",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Papas", puntuacionUno: 35},
-			{respuestaDos: "Cebolla", puntuacionDos: 27},
-			{respuestaTres: "Calabaza", puntuacionTres: 22},
-			{respuestaCuatro: "Zanahoria", puntuacionCuatro: 11},
-			{respuestaCinco: "Chile", puntuacionCinco: 5}		
-		]
-	},
-	{
-	titulo : "Articulo escolar que pierden los niños",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "El Lápiz", puntuacionUno: 34},
-			{respuestaDos: "Sacapuntas", puntuacionDos: 30},
-			{respuestaTres: "Borrador", puntuacionTres: 25},
-			{respuestaCuatro: "Colores", puntuacionCuatro: 21},
-			{respuestaCinco: "Regla", puntuacionCinco: 14}		
-		]
-	},
-	{
-	titulo : "Menciona fruta que se usa de botana",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Mango", puntuacionUno: 35},
-			{respuestaDos: "Pepino", puntuacionDos: 30},
-			{respuestaTres: "Jicama", puntuacionTres: 27},
-			{respuestaCuatro: "Manzana", puntuacionCuatro: 15},
-			{respuestaCinco: "Uva", puntuacionCinco: 10}		
-		]
-	},
-	{
-	titulo : "Critica general que le suelen hacer a un restaurante",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Comida", puntuacionUno: 41},
-			{respuestaDos: "Servicio", puntuacionDos: 32},
-			{respuestaTres: "Decoración", puntuacionTres: 22},
-			{respuestaCuatro: "Ubicación", puntuacionCuatro: 20},
-			{respuestaCinco: "Igiene", puntuacionCinco: 13}		
-		]
-	},
-	{
-	titulo : "Algo que la gente suele desperticiar",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Agua", puntuacionUno: 40},
-			{respuestaDos: "Comida", puntuacionDos: 34},
-			{respuestaTres: "Tiempo", puntuacionTres: 26},
-			{respuestaCuatro: "Basura", puntuacionCuatro: 17},
-			{respuestaCinco: "Dinero", puntuacionCinco: 11}		
-		]
-	},
-	{
-	titulo : "Dinos una fobia comun de la gente",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Alturas", puntuacionUno: 42},
-			{respuestaDos: "Arañas", puntuacionDos: 35},
-			{respuestaTres: "Encerrado", puntuacionTres: 29},
-			{respuestaCuatro: "Hablar publico", puntuacionCuatro: 19},
-			{respuestaCinco: "Oscuridad", puntuacionCinco: 15}		
-		]
-	},
-	{
-	titulo : "Menciona algo especifico que las mujeres usan para maquillarse",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Labial", puntuacionUno: 41},
-			{respuestaDos: "Rimen", puntuacionDos: 35},
-			{respuestaTres: "Base", puntuacionTres: 33},
-			{respuestaCuatro: "Polvo", puntuacionCuatro: 25},
-			{respuestaCinco: "Rugor", puntuacionCinco: 12}		
-		]
-	},
-	{
-	titulo : "Menciona un ingrediente del Pozole",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Maiz", puntuacionUno: 38},
-			{respuestaDos: "Carne", puntuacionDos: 34},
-			{respuestaTres: "Chile", puntuacionTres: 22},
-			{respuestaCuatro: "Lechuga", puntuacionCuatro: 18},
-			{respuestaCinco: "Orégano", puntuacionCinco: 11}		
-		]
-	},
-	{
-	titulo : "Menciona un Animal que sea muy fuerte",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "León", puntuacionUno: 39},
-			{respuestaDos: "Oso", puntuacionDos: 31},
-			{respuestaTres: "Elefante", puntuacionTres: 29},
-			{respuestaCuatro: "Gorila", puntuacionCuatro: 21},
-			{respuestaCinco: "Tigre", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Castigo que los padres solían hacer a sus hijos",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "No salir", puntuacionUno: 37},
-			{respuestaDos: "Te pegaban", puntuacionDos: 30},
-			{respuestaTres: "No ver TV/Celular", puntuacionTres: 21},
-			{respuestaCuatro: "No comer", puntuacionCuatro: 12},
-			{respuestaCinco: "No dar Dinero", puntuacionCinco: 3}		
-		]
-	},
-	{
-	titulo: "Menciona algo común que arruina Las Vacaciones",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Mal Clima", puntuacionUno: 31},
-            {respuestaDos: "Enfermedad", puntuacionDos: 30},
-            {respuestaTres: "Accidente", puntuacionTres: 21},
-            {respuestaCuatro: "Por Dinero", puntuacionCuatro: 13},
-            {respuestaCinco: "Trabajo", puntuacionCinco: 9}
-        ]
-    },
-    {
-	titulo: "Forma común de decir que estuvo bien",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Estuvo Suave", puntuacionUno: 42},
-            {respuestaDos: "Estuvo Chingon", puntuacionDos: 32},
-            {respuestaTres: "Estuvo Padre", puntuacionTres: 16},
-            {respuestaCuatro: "Estuvo Genial", puntuacionCuatro: 15},
-            {respuestaCinco: "Estuvo Maravilloso", puntuacionCinco: 3}
-        ]
-    },
-	{
-	titulo: "Catástrofes que hayan sido tema de Películas",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Terremoto", puntuacionUno: 43},
-            {respuestaDos: "Huracán", puntuacionDos: 37},
-            {respuestaTres: "Hundimiento de Barco", puntuacionTres: 17},
-            {respuestaCuatro: "Erupción de volcán", puntuacionCuatro: 15},
-            {respuestaCinco: "Tornado", puntuacionCinco: 11}
-        ]
-    },
-	{
-	titulo: "Además de Fútbol, menciona un deporte con mucha afición.",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Básquetbol", puntuacionUno: 26},
-            {respuestaDos: "Tenis", puntuacionDos: 23},
-            {respuestaTres: "Béisbol", puntuacionTres: 17},
-            {respuestaCuatro: "Fútbol Americano", puntuacionCuatro: 12},
-            {respuestaCinco: "Voleibol", puntuacionCinco: 8}
-        ]
-    },
-	{
-	titulo: "Malestares que puede ocasionar subirse a un avión",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Mido", puntuacionUno: 40},
-            {respuestaDos: "Dolor de cabeza", puntuacionDos: 35},
-            {respuestaTres: "Dolor de estómago", puntuacionTres: 22},
-            {respuestaCuatro: "Obstrucción de oídos", puntuacionCuatro: 16},
-            {respuestaCinco: "Náuseas", puntuacionCinco: 9}
-        ]
-    },
-	{
-	titulo: "Con que suele rellenarse un Globo",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Aire", puntuacionUno: 37},
-            {respuestaDos: "Gas", puntuacionDos: 26},
-            {respuestaTres: "Agua", puntuacionTres: 20},
-            {respuestaCuatro: "Harina", puntuacionCuatro: 13},
-            {respuestaCinco: "Confeti", puntuacionCinco: 11}
-        ]
-    },
-	{
-	titulo: "Menciona algo que tenga rayas",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Cebra", puntuacionUno: 31},
-            {respuestaDos: "Ropa", puntuacionDos: 22},
-            {respuestaTres: "Cuaderno", puntuacionTres: 16},
-            {respuestaCuatro: "El piso/Asulejos", puntuacionCuatro: 13},
-            {respuestaCinco: "Una Regla", puntuacionCinco: 10}
-        ]
-    },
-	{
-	titulo: "Menciona cosas en las que la gente se fija antes de comprar un celular",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "La marca", puntuacionUno: 43},
-           {respuestaDos: "Si esta bonito", puntuacionDos: 33},
-            {respuestaTres: "Precio", puntuacionTres: 26},
-            {respuestaCuatro: "Color", puntuacionCuatro: 19},
-            {respuestaCinco: "Camara", puntuacionCinco: 13}
-        ]
-    },
-	{
-	titulo: "Cosas que te encuentras en un camino de terracería",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Piedras", puntuacionUno: 33},
-            {respuestaDos: "Animales", puntuacionDos: 25},
-            {respuestaTres: "Tierra", puntuacionTres: 21},
-            {respuestaCuatro: "Árboles", puntuacionCuatro: 14},
-            {respuestaCinco: "Polvo", puntuacionCinco: 7}
-        ]
-    },
-	{
-	titulo: "Cosas que la familia se turna para usar.",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "El Baño", puntuacionUno: 52},
-            {respuestaDos: "La Televisión", puntuacionDos: 41},
-            {respuestaTres: "Ropa", puntuacionTres: 33},
-            {respuestaCuatro: "La Computadora", puntuacionCuatro: 27},
-            {respuestaCinco: "El Coche", puntuacionCinco: 22}
-        ]
-    },
-	{
-	titulo: "Nombra una profesión que requiera estar detrás de series de TV o Novelas",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Camarógrafo", puntuacionUno: 48},
-            {respuestaDos: "Director", puntuacionDos: 37},
-            {respuestaTres: "Productor", puntuacionTres: 30},
-            {respuestaCuatro: "Actor/Actriz", puntuacionCuatro: 23},
-            {respuestaCinco: "Escritor", puntuacionCinco: 16}
-        ]
-    },
-	{
-	titulo: "Nombra una manera de llamar a la lluvia según su intensidad",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Tormenta", puntuacionUno: 34},
-            {respuestaDos: "Uracan", puntuacionDos: 32},
-            {respuestaTres: "ChipiChipi", puntuacionTres: 29},
-            {respuestaCuatro: "Tifón", puntuacionCuatro: 22},
-            {respuestaCinco: "Llovizna", puntuacionCinco: 11}
-        ]
-    },
-	{
-	titulo: "Menciona un personaje de Alicia en el país de las maravillas",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Alicia", puntuacionUno: 41},
-            {respuestaDos: "Conejo", puntuacionDos: 37},
-            {respuestaTres: "Sombrero", puntuacionTres: 21},
-            {respuestaCuatro: "Reina Roja", puntuacionCuatro: 15},
-            {respuestaCinco: "Gato", puntuacionCinco: 6}
-        ]
-    },
-	{
-	titulo: "Menciona una Aderezo para ensalada",
-	tipo: "alimento",
-	respuestas: [
-            {respuestaUno: "Ranch", puntuacionUno: 39},
-            {respuestaDos: "César", puntuacionDos: 33},
-            {respuestaTres: "Vinagreta", puntuacionTres: 24},
-            {respuestaCuatro: "Mayonesa", puntuacionCuatro: 16},
-            {respuestaCinco: "Chipotle", puntuacionCinco: 5}
-        ]
-    },
-	{
-	titulo: "Figuras clásicas que se hacen con hojas de papel",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Barco", puntuacionUno: 38},
-            {respuestaDos: "Avion", puntuacionDos: 31},
-            {respuestaTres: "Paloma/Ave", puntuacionTres: 27},
-            {respuestaCuatro: "Corazón", puntuacionCuatro: 18},
-            {respuestaCinco: "Sobre", puntuacionCinco: 7}
-        ]
-    },
-	{
-	titulo: "Cosas que los bebes hacen y causan Ternura",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Su risa", puntuacionUno: 32},
-            {respuestaDos: "Hacer Pucheros", puntuacionDos: 28},
-            {respuestaTres: "Balbucear", puntuacionTres: 20},
-            {respuestaCuatro: "Llorar", puntuacionCuatro: 14},
-            {respuestaCinco: "Dormir", puntuacionCinco: 5}
-        ]
-    },
-	{
-	titulo: "Canción mexicana que se canta en ocasiones especiales",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Cielito Lindo", puntuacionUno: 37},
-            {respuestaDos: "Las Mañanitas", puntuacionDos: 25},
-            {respuestaTres: "México lindo", puntuacionTres: 23},
-            {respuestaCuatro: "Himno nacional", puntuacionCuatro: 23},
-            {respuestaCinco: "La Guadalupana", puntuacionCinco: 12}
-        ]
-    },
-	{
-	titulo: "Nombra un insecto que no vuela",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "La Hormiga", puntuacionUno: 31},
-            {respuestaDos: "Gusano", puntuacionDos: 25},
-            {respuestaTres: "Araña", puntuacionTres: 23},
-            {respuestaCuatro: "Cochinilla", puntuacionCuatro: 12},
-            {respuestaCinco: "Mantis", puntuacionCinco: 10}
-        ]
-    },
-    {
-	titulo: "Algo que debes evitar cuando estás enfermo de la garganta",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Tomar Cosas Frías", puntuacionUno: 39},
-            {respuestaDos: "Estar en lo frío", puntuacionDos: 31},
-            {respuestaTres: "Fumar", puntuacionTres: 25},
-            {respuestaCuatro: "Hablar", puntuacionCuatro: 17},
-            {respuestaCinco: "Comer Picante", puntuacionCinco: 10}
-        ]
-    },
-    {
-	titulo: "Nombra un animal de boca grande",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Cocodrilo", puntuacionUno: 30},
-            {respuestaDos: "Tiburón", puntuacionDos: 26},
-            {respuestaTres: "Ballena", puntuacionTres: 16},
-            {respuestaCuatro: "León", puntuacionCuatro: 11},
-            {respuestaCinco: "Hipopótamo", puntuacionCinco: 10}
-        ]
-    },
-    {
-	titulo: "Cosas que le suele caer sobre la cabreza a personaje de caricatura",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Piedra", puntuacionUno: 37},
-            {respuestaDos: "Yunque", puntuacionDos: 25},
-            {respuestaTres: "Ladrillo", puntuacionTres: 17},
-            {respuestaCuatro: "Maceta", puntuacionCuatro: 13},
-            {respuestaCinco: "Agua", puntuacionCinco: 5}
-        ]
-    },
-    {
-	titulo: "Razones por las que una persona preferiría tener cabello corto",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Rapidez al peinar", puntuacionUno: 33},
-            {respuestaDos: "Porque se ve mejor", puntuacionDos: 28},
-            {respuestaTres: "Por el calor", puntuacionTres: 22},
-            {respuestaCuatro: "Por Moda", puntuacionCuatro: 10},
-            {respuestaCinco: "Se ensucia menos",puntuacionCinco: 7}
-        ]
-    },
-    {
-	titulo: "Manera de destruir un documento",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Quemandolo", puntuacionUno: 33},
-            {respuestaDos: "Mojandolo", puntuacionDos: 28},
-            {respuestaTres: "Partirlo en pedazos", puntuacionTres: 22},
-            {respuestaCuatro: "Rayandolo", puntuacionCuatro: 10},
-            {respuestaCinco: "En la Trituradora", puntuacionCinco: 7}
-        ]
-    },
-    {
-	titulo: "Menciona un nombre que va acompañado de Maria",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Guadalupe", puntuacionUno: 30},
-            {respuestaDos: "Isabel", puntuacionDos: 28},
-            {respuestaTres: "José", puntuacionTres: 21}, 
-            {respuestaCuatro: "Antonia", puntuacionCuatro: 17},
-            {respuestaCinco: "Fernanda", puntuacionCinco: 9}
-        ]
-    },
-    {
-	titulo: "Menciona un caldo",
-	tipo: "alimento",
-	respuestas: [
-            {respuestaUno: "De Pollo", puntuacionUno: 42},
-            {respuestaDos: "De Res", puntuacionDos: 35},
-            {respuestaTres: "De papas", puntuacionTres: 27},
-            {respuestaCuatro: "Albóndigas", puntuacionCuatro: 21},
-            {respuestaCinco: "Verduras/Cocido", puntuacionCinco: 13}
-        ]
-    },
-    {
-	titulo: "Actividad doméstica que se puede hacer en menos de 10Min",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Barrer", puntuacionUno: 34},
-            {respuestaDos: "Tender la cama", puntuacionDos: 28},
-            {respuestaTres: "Lavar trastes", puntuacionTres: 21},
-            {respuestaCuatro: "Sacudir", puntuacionCuatro: 14},
-            {respuestaCinco: "Trapear", puntuacionCinco: 10}
-        ]
-    },
-    {
-	titulo: "Menciona accesorio que complementa el vestido de novia",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Ramo", puntuacionUno: 28},
-            {respuestaDos: "Velo", puntuacionDos: 24},
-            {respuestaTres: "Zapatillas", puntuacionTres: 19},
-            {respuestaCuatro: "Anillo", puntuacionCuatro: 12},
-            {respuestaCinco: "La Cola", puntuacionCinco: 10}
-        ]
-    },
-    {
-	titulo: "Oficio o Profesión que se usen tijeras",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Costurero", puntuacionUno: 37},
-            {respuestaDos: "Peluquero/Estilista", puntuacionDos: 33},
-            {respuestaTres: "Modista", puntuacionTres: 28},
-            {respuestaCuatro: "Decorador", puntuacionCuatro: 17},
-            {respuestaCinco: "Jardinero", puntuacionCinco: 13}
-        ]
-    },
-    {
-	titulo: "Menciona algo que puede ser confundido con un OVNI a lo lejos",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Avion", puntuacionUno: 33},
-            {respuestaDos: "Estrella", puntuacionDos: 28},
-            {respuestaTres: "Globo", puntuacionTres: 23},
-            {respuestaCuatro: "Helicoptero", puntuacionCuatro: 18},
-            {respuestaCinco: "Cometa", puntuacionCinco: 14}
-        ]
-    },
-    {
-	titulo: "Además del Rey menciona una pieza de Ajedrez",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Caballo", puntuacionUno: 26},
-            {respuestaDos: "Reina", puntuacionDos: 19},
-            {respuestaTres: "Peón", puntuacionTres: 15},
-            {respuestaCuatro: "Torre", puntuacionCuatro: 8},
-            {respuestaCinco: "Alfil", puntuacionCinco: 3}
-        ]
-    },
-    {
-	titulo: "Menciona un oficio donde se requiere la ayuda de un chalan",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Albañil", puntuacionUno: 35},
-            {respuestaDos: "Mecánico", puntuacionDos: 31},
-            {respuestaTres: "Pintor", puntuacionTres: 27},
-            {respuestaCuatro: "Carpintero", puntuacionCuatro: 19},
-            {respuestaCinco: "Carniero", puntuacionCinco: 10}
-        ]
-    },
-    {
-	titulo: "Cosas que suelen rentarse",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Una casa", puntuacionUno: 38},
-            {respuestaDos: "Un Avion", puntuacionDos: 34},
-            {respuestaTres: "Departamento", puntuacionTres: 22},
-            {respuestaCuatro: "Una Habitación", puntuacionCuatro: 18},
-            {respuestaCinco: "Ropa", puntuacionCinco: 14}
-        ]
-    },
-    {
-	titulo: "Nombra un juego de mesa",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Uno", puntuacionUno: 41},
-             {respuestaDos: "Turista", puntuacionDos: 36},
-            {respuestaTres: "Domino", puntuacionTres: 29},
-            {respuestaCuatro: "Baraja", puntuacionCuatro: 11},
-            {respuestaCinco: "Lotería", puntuacionCinco: 8}
-        ]
-    },
-    {
-	titulo: "Ingrediente básico de un guacamole",
-	tipo: "alimento",
-	respuestas: [
-            {respuestaUno: "Aguacate", puntuacionUno: 40},
-            {respuestaDos: "Tomate", puntuacionDos: 30},
-            {respuestaTres: "Cebolla", puntuacionTres: 26},
-            {respuestaCuatro: "Sal", puntuacionCuatro: 16},
-            {respuestaCinco: "limón", puntuacionCinco: 7}
-        ]
-    },
-    {
-	titulo: "Antes de la invención de la luz ¿Con que se Iluminaba?",
-	tipo: "normal",
-	respuestas: [
-            {respuestaUno: "Vela", puntuacionUno: 27},
-            {respuestaDos: "Quinques", puntuacionDos: 20},
-            {respuestaTres: "Fogata", puntuacionTres: 15},
-            {respuestaCuatro: "Antorcha", puntuacionCuatro: 7},
-            {respuestaCinco: "Faroles", puntuacionCinco: 6}
-        ]
-    },
-    {
-	titulo: "Menciona refresco tipico de Sonora",
-	tipo: "alimento",
-	respuestas: [
-            {respuestaUno: "Coca Cola", puntuacionUno: 40},
-            {respuestaDos: "Pepsi", puntuacionDos: 38},
-            {respuestaTres: "Sprite", puntuacionTres: 20},
-            {respuestaCuatro: "Fresca", puntuacionCuatro: 10},
-            {respuestaCinco: "Fanta", puntuacionCinco: 6}
-        ]
-    },
-    {
-	titulo : "Menciona una razón para viajar.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Vacaciones", puntuacionUno: 32},
-			{respuestaDos: "Fiesta familiar", puntuacionDos: 27},
-			{respuestaTres: "Fecha festiva", puntuacionTres: 22},
-			{respuestaCuatro: "Por mejor precio", puntuacionCuatro: 19},
-			{respuestaCinco: "Descanso", puntuacionCinco: 16}		
-		]
-	},
-	{
-	titulo : "Dinos algo que los niños juegan a imitar a los adultos",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "A la casita", puntuacionUno: 54},
-			{respuestaDos: "Policias y ladrones", puntuacionDos: 40},
-			{respuestaTres: "A la comidita", puntuacionTres: 32},
-			{respuestaCuatro: "Al doctor", puntuacionCuatro: 26},
-			{respuestaCinco: "A los soldados", puntuacionCinco: 17}		
-		]
-	},
-	{
-	titulo : "Menciona un estado de ánimo",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Feliz/Contento", puntuacionUno: 41},
-			{respuestaDos: "Triste", puntuacionDos: 34},
-			{respuestaTres: "Aburrido", puntuacionTres: 25},
-			{respuestaCuatro: "Asustado", puntuacionCuatro: 20},
-			{respuestaCinco: "Sorprendido", puntuacionCinco: 12}		
-		]
-	},
-	{
-	titulo : "Nombra una fruta tropical",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Piña", puntuacionUno: 38},
-			{respuestaDos: "Mango", puntuacionDos: 33},
-			{respuestaTres: "Coco", puntuacionTres: 28},
-			{respuestaCuatro: "Naranja", puntuacionCuatro: 25},
-			{respuestaCinco: "Papaya", puntuacionCinco: 16}		
-		]
-	},
-	{
-	titulo : "Objetos o cosas que deja la gente debajo del colchón",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Dinero", puntuacionUno: 31},
-			{respuestaDos: "Revistas", puntuacionDos: 30},
-			{respuestaTres: "Documentos", puntuacionTres: 24},
-			{respuestaCuatro: "Cartas", puntuacionCuatro: 18},
-			{respuestaCinco: "Zapatos", puntuacionCinco: 11}		
-		]
-	},
-	{
-	titulo : "Cosa extraña que se encuentra en al comida de un restaurante y casue asco.",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Cucaracha", puntuacionUno: 30},
-			{respuestaDos: "Mosca", puntuacionDos: 26},
-			{respuestaTres: "Mosquito", puntuacionTres: 18},
-			{respuestaCuatro: "Gusano", puntuacionCuatro: 12},
-			{respuestaCinco: "Un cabello", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Nombra de dulce típico Mexicano",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Mazapan", puntuacionUno: 39},
-			{respuestaDos: "Cocada", puntuacionDos: 30},
-			{respuestaTres: "Jamoncillo", puntuacionTres: 26},
-			{respuestaCuatro: "Pepitorias", puntuacionCuatro: 17},
-			{respuestaCinco: "Camote", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : "Menciona una señal de carretera",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Curva peligrosa", puntuacionUno: 35},
-			{respuestaDos: "Max velocidad", puntuacionDos: 27},
-			{respuestaTres: "Alto", puntuacionTres: 20},
-			{respuestaCuatro: "Tope", puntuacionCuatro: 11},
-			{respuestaCinco: "Retorno", puntuacionCinco: 5}		
-		]
-	},
-	{
-	titulo : "Menciona algo que la gente hace estando triste",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Llorar", puntuacionUno: 39},
-			{respuestaDos: "Escuchar Musica", puntuacionDos: 31},
-			{respuestaTres: "Pensar/No salir", puntuacionTres: 29},
-			{respuestaCuatro: "Comer", puntuacionCuatro: 16},
-			{respuestaCinco: "Hablar con alguien", puntuacionCinco: 13}		
-		]
-	},
-	{
-	titulo : "Mueble que puede reparar un carpintero",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Silla", puntuacionUno: 31},
-			{respuestaDos: "Mesa", puntuacionDos: 27},
-			{respuestaTres: "Sillón", puntuacionTres: 22},
-			{respuestaCuatro: "Ropero/closet", puntuacionCuatro: 14},
-			{respuestaCinco: "Tocador", puntuacionCinco: 11}		
-		]
-	},
-	{
-	titulo : "Cuentanos una clásica crítica a un hotel.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "La cama", puntuacionUno: 38},
-			{respuestaDos: "La ubicación", puntuacionDos: 33},
-			{respuestaTres: "La habitación", puntuacionTres: 28},
-			{respuestaCuatro: "El servicio", puntuacionCuatro: 22},
-			{respuestaCinco: "La comida", puntuacionCinco: 15}		
-		]
-	},
-	{
-	titulo : "Acompañante de comida clásica de la dieta mexicana",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Tortilla", puntuacionUno: 36},
-			{respuestaDos: "Frijoles", puntuacionDos: 31},
-			{respuestaTres: "Arroz", puntuacionTres: 26},
-			{respuestaCuatro: "Pan", puntuacionCuatro: 17},
-			{respuestaCinco: "Refresco", puntuacionCinco: 11}		
-		]
-	},
-	{
-	titulo : "Menciona un tipo de salsa",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Valentina", puntuacionUno: 39},
-			{respuestaDos: "Sonora", puntuacionDos: 33},
-			{respuestaTres: "Mexico Lindo", puntuacionTres: 29},
-			{respuestaCuatro: "De Tomate", puntuacionCuatro: 22},
-			{respuestaCinco: "Bufalo", puntuacionCinco: 13}		
-		]
-	},
-	{
-	titulo : "Menciona un pariente Político en masculino",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Suegro", puntuacionUno: 33},
-			{respuestaDos: "Yerno", puntuacionDos: 28},
-			{respuestaTres: "Cuñado", puntuacionTres: 25},
-			{respuestaCuatro: "Tío", puntuacionCuatro: 17},
-			{respuestaCinco: "Concuño", puntuacionCinco: 11}		
-		]
-	},
-	{
-	titulo : "Que suele incluir la caja de un celular nuevo",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Celular", puntuacionUno: 38},
-			{respuestaDos: "Cargador", puntuacionDos: 30},
-			{respuestaTres: "Audífonos", puntuacionTres: 22},
-			{respuestaCuatro: "Instructivo", puntuacionCuatro: 16},
-			{respuestaCinco: "Llave tarjeta SIM", puntuacionCinco: 6}		
-		]
-	},
-	{
-	titulo : "Menciona alimento que viene enlatado",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Frijoles", puntuacionUno: 30},
-			{respuestaDos: "Chiles", puntuacionDos: 26},
-			{respuestaTres: "Atún", puntuacionTres: 17},
-			{respuestaCuatro: "Elotes", puntuacionCuatro: 11},
-			{respuestaCinco: "Hongos", puntuacionCinco: 3}		
-		]
-	},
-	{
-	titulo : "Ocaciones donde se le cita a los padres a la escuela.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Final de curso", puntuacionUno: 39},
-			{respuestaDos: "Dias festivos", puntuacionDos: 27},
-			{respuestaTres: "Reporte", puntuacionTres: 20},
-			{respuestaCuatro: "Graduación", puntuacionCuatro: 14},
-			{respuestaCinco: "Juntas", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Cosas que a los niños se les prohíbe llevar a la escuela",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Juguetes", puntuacionUno: 48},
-			{respuestaDos: "Animales", puntuacionDos: 34},
-			{respuestaTres: "Armas", puntuacionTres: 23},
-			{respuestaCuatro: "Sustancias tóxicas", puntuacionCuatro: 16},
-			{respuestaCinco: "Porno", puntuacionCinco: 12}		
-		]
-	},
-	{
-	titulo : "Menciona algo donde se pueda ser capitan",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Barco", puntuacionUno: 33},
-			{respuestaDos: "Equipo Deportivo", puntuacionDos: 29},
-			{respuestaTres: "Ejercicio", puntuacionTres: 27},
-			{respuestaCuatro: "Meseros", puntuacionCuatro: 14},
-			{respuestaCinco: "Bomberos", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : "Platillo extranjero popular en mexico",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Pizza", puntuacionUno: 32},
-			{respuestaDos: "Comida china", puntuacionDos: 29},
-			{respuestaTres: "Hamburguesa", puntuacionTres: 23},
-			{respuestaCuatro: "Sushi", puntuacionCuatro: 18},
-			{respuestaCinco: "HotDogs", puntuacionCinco: 6}		
-		]
-	},
-	{
-	titulo : "Menciona algo que es transparente",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Aire", puntuacionUno: 47},
-			{respuestaDos: "Agua", puntuacionDos: 35},
-			{respuestaTres: "Plástico", puntuacionTres: 21},
-			{respuestaCuatro: "Vidrio", puntuacionCuatro: 13},
-			{respuestaCinco: "Bolsa de nylon", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Juguetes de niños que suelen estar en un parque",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Columpio", puntuacionUno: 40},
-			{respuestaDos: "Resbaladilla", puntuacionDos: 33},
-			{respuestaTres: "Sube y baja", puntuacionTres: 22},
-			{respuestaCuatro: "Psamanos", puntuacionCuatro: 17},
-			{respuestaCinco: "Gira gira", puntuacionCinco: 10}		
-		]
-	},
-	{
-	titulo : 'Dinos una manera popular de decirle a alguien que "Se ponga listo".',
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Abusado", puntuacionUno: 38},
-			{respuestaDos: "Trucha", puntuacionDos: 36},
-			{respuestaTres: "Al tiro", puntuacionTres: 27},
-			{respuestaCuatro: "Aguas", puntuacionCuatro: 19},
-			{respuestaCinco: "Ponte buso", puntuacionCinco: 11}		
-		]
-	},
-	{
-	titulo : "Menciona un animal que se considere un felino",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Gato", puntuacionUno: 36},
-			{respuestaDos: "León", puntuacionDos: 34},
-			{respuestaTres: "Tigre", puntuacionTres: 17},
-			{respuestaCuatro: "Leopardo", puntuacionCuatro: 10},
-			{respuestaCinco: "Puma", puntuacionCinco: 3}		
-		]
-	},
-	{
-		titulo : "Cosas que la gente suele robarse de un restaurante",
-		tipo: "normal",
-		respuestas: [
-				{respuestaUno: "La comida", puntuacionUno: 38},
-				{respuestaDos: "Cubiertos", puntuacionDos: 29},
-				{respuestaTres: "Servilletas", puntuacionTres: 21},
-				{respuestaCuatro: "Cenicero", puntuacionCuatro: 10},
-				{respuestaCinco: "Basos", puntuacionCinco: 1}		
+	const preguntas = [
+				{
+					titulo: "¿Cuál es el idioma más hablado en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Inglés",
+						puntuacionUno: 40},
+						{respuestaDos: "Chino mandarín",
+						puntuacionDos: 30},
+						{respuestaTres: "Español",
+						puntuacionTres: 20},
+						{respuestaCuatro: "Hindú",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Árabe",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué país produce más café en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Brasil",
+						puntuacionUno: 50},
+						{respuestaDos: "Vietnam",
+						puntuacionDos: 25},
+						{respuestaTres: "Colombia",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Indonesia",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Etiopía",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Cuál es la religión con más seguidores a nivel mundial?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Cristianismo",
+						puntuacionUno: 33},
+						{respuestaDos: "Islam",
+						puntuacionDos: 24},
+						{respuestaTres: "Hinduismo",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Budismo",
+						puntuacionCuatro: 6},
+						{respuestaCinco: "Sin afiliación religiosa",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué animal es considerado el más rápido en tierra?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Guepardo",
+						puntuacionUno: 80},
+						{respuestaDos: "Antílope",
+						puntuacionDos: 10},
+						{respuestaTres: "Caballo",
+						puntuacionTres: 5},
+						{respuestaCuatro: "León",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Coyote",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué país es el mayor productor de petróleo en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Estados Unidos",
+						puntuacionUno: 50},
+						{respuestaDos: "Arabia Saudita",
+						puntuacionDos: 30},
+						{respuestaTres: "Rusia",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Irán",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Irak",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué continente tiene la mayor población?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Asia",
+						puntuacionUno: 60},
+						{respuestaDos: "África",
+						puntuacionDos: 20},
+						{respuestaTres: "Europa",
+						puntuacionTres: 10},
+						{respuestaCuatro: "América",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Oceanía",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Cuál es la red social con más usuarios activos?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Facebook",
+						puntuacionUno: 40},
+						{respuestaDos: "YouTube",
+						puntuacionDos: 30},
+						{respuestaTres: "WhatsApp",
+						puntuacionTres: 20},
+						{respuestaCuatro: "Instagram",
+						puntuacionCuatro: 8},
+						{respuestaCinco: "TikTok",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué deporte es el más popular a nivel mundial?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Fútbol",
+						puntuacionUno: 70},
+						{respuestaDos: "Críquet",
+						puntuacionDos: 15},
+						{respuestaTres: "Baloncesto",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Tenis",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Béisbol",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué país consume más chocolate per cápita?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Suiza",
+						puntuacionUno: 40},
+						{respuestaDos: "Alemania",
+						puntuacionDos: 25},
+						{respuestaTres: "Austria",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Bélgica",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Reino Unido",
+						puntuacionCinco: 10}
+					]
+				},
+				{
+					titulo: "¿Qué tipo de energía renovable es la más utilizada en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Hidráulica",
+						puntuacionUno: 40},
+						{respuestaDos: "Eólica",
+						puntuacionDos: 30},
+						{respuestaTres: "Solar",
+						puntuacionTres: 20},
+						{respuestaCuatro: "Geotérmica",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Biomasa",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Cuál es el país con mayor extensión territorial?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Rusia",
+						puntuacionUno: 50},
+						{respuestaDos: "Canadá",
+						puntuacionDos: 25},
+						{respuestaTres: "China",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Estados Unidos",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Brasil",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué océano es el más grande del mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Océano Pacífico",
+						puntuacionUno: 60},
+						{respuestaDos: "Océano Atlántico",
+						puntuacionDos: 20},
+						{respuestaTres: "Océano Índico",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Océano Ártico",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Océano Antártico",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Cuál es el metal más utilizado en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Acero",
+						puntuacionUno: 40},
+						{respuestaDos: "Aluminio",
+						puntuacionDos: 30},
+						{respuestaTres: "Cobre",
+						puntuacionTres: 20},
+						{respuestaCuatro: "Hierro",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Plata",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué país tiene la mayor población mundial?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "India",
+						puntuacionUno: 55},
+						{respuestaDos: "China",
+						puntuacionDos: 40},
+						{respuestaTres: "Estados Unidos",
+						puntuacionTres: 3},
+						{respuestaCuatro: "Indonesia",
+						puntuacionCuatro: 2},
+						{respuestaCinco: "Pakistán",
+						puntuacionCinco: 1}
+					]
+				},
+				{
+					titulo: "¿Qué continente tiene la mayor diversidad de especies animales?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "América del Sur",
+						puntuacionUno: 50},
+						{respuestaDos: "África",
+						puntuacionDos: 30},
+						{respuestaTres: "Asia",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Oceanía",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Europa",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué ciudad es conocida como la más turística del mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "París",
+						puntuacionUno: 40},
+						{respuestaDos: "Londres",
+						puntuacionDos: 30},
+						{respuestaTres: "Nueva York",
+						puntuacionTres: 20},
+						{respuestaCuatro: "Dubái",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Tokio",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué país consume más arroz en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "China",
+						puntuacionUno: 60},
+						{respuestaDos: "India",
+						puntuacionDos: 30},
+						{respuestaTres: "Indonesia",
+						puntuacionTres: 5},
+						{respuestaCuatro: "Bangladés",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Vietnam",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué tecnología es más utilizada para comunicarse a nivel mundial?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Teléfonos móviles",
+						puntuacionUno: 50},
+						{respuestaDos: "Internet",
+						puntuacionDos: 30},
+						{respuestaTres: "Correos electrónicos",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Redes sociales",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Llamadas telefónicas",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Cuál es el género musical más popular en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Pop",
+						puntuacionUno: 40},
+						{respuestaDos: "Rock",
+						puntuacionDos: 30},
+						{respuestaTres: "Hip-Hop",
+						puntuacionTres: 20},
+						{respuestaCuatro: "Música electrónica",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Jazz",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Cuál es el producto más exportado a nivel mundial?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Petróleo",
+						puntuacionUno: 50},
+						{respuestaDos: "Electrónica",
+						puntuacionDos: 30},
+						{respuestaTres: "Vehículos",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Productos farmacéuticos",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Maquinaria",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué país es el principal productor de vino?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Italia",
+						puntuacionUno: 40},
+						{respuestaDos: "Francia",
+						puntuacionDos: 30},
+						{respuestaTres: "España",
+						puntuacionTres: 20},
+						{respuestaCuatro: "Estados Unidos",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Australia",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué país tiene más ganadores del premio Nobel?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Estados Unidos",
+						puntuacionUno: 50},
+						{respuestaDos: "Reino Unido",
+						puntuacionDos: 25},
+						{respuestaTres: "Alemania",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Francia",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Suecia",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué animal terrestre es considerado el más rápido?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Guepardo",
+						puntuacionUno: 50},
+						{respuestaDos: "Antílope",
+						puntuacionDos: 25},
+						{respuestaTres: "León",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Caballo",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Lobo",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué país tiene la mayor cantidad de sitios Patrimonio de la Humanidad?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Italia",
+						puntuacionUno: 40},
+						{respuestaDos: "China",
+						puntuacionDos: 30},
+						{respuestaTres: "España",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Francia",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "India",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué elemento químico es el más abundante en la corteza terrestre?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Oxígeno",
+						puntuacionUno: 60},
+						{respuestaDos: "Silicio",
+						puntuacionDos: 20},
+						{respuestaTres: "Aluminio",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Hierro",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Calcio",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué instrumento musical es considerado el más popular en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Guitarra",
+						puntuacionUno: 50},
+						{respuestaDos: "Piano",
+						puntuacionDos: 30},
+						{respuestaTres: "Violín",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Batería",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Saxofón",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué continente tiene la mayor cantidad de países?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "África",
+						puntuacionUno: 50},
+						{respuestaDos: "Asia",
+						puntuacionDos: 25},
+						{respuestaTres: "Europa",
+						puntuacionTres: 15},
+						{respuestaCuatro: "América",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Oceanía",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué país tiene más volcanes activos?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Indonesia",
+						puntuacionUno: 40},
+						{respuestaDos: "Estados Unidos",
+						puntuacionDos: 25},
+						{respuestaTres: "Japón",
+						puntuacionTres: 20},
+						{respuestaCuatro: "Rusia",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Filipinas",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué planta es la base de la dieta de más personas en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Arroz",
+						puntuacionUno: 50},
+						{respuestaDos: "Trigo",
+						puntuacionDos: 30},
+						{respuestaTres: "Maíz",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Papas",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Yuca",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué país es el mayor exportador de café?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Brasil",
+						puntuacionUno: 60},
+						{respuestaDos: "Vietnam",
+						puntuacionDos: 25},
+						{respuestaTres: "Colombia",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Etiopía",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Honduras",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué continente tiene el río más largo del mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "África",
+						puntuacionUno: 50},
+						{respuestaDos: "América del Sur",
+						puntuacionDos: 30},
+						{respuestaTres: "Asia",
+						puntuacionTres: 15},
+						{respuestaCuatro: "América del Norte",
+						puntuacionCuatro: 4},
+						{respuestaCinco: "Europa",
+						puntuacionCinco: 1}
+					]
+				},
+				{
+					titulo: "¿Qué país tiene la mayor producción de energía solar?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "China",
+						puntuacionUno: 50},
+						{respuestaDos: "Estados Unidos",
+						puntuacionDos: 25},
+						{respuestaTres: "India",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Alemania",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Japón",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué país consume más té en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "China",
+						puntuacionUno: 40},
+						{respuestaDos: "India",
+						puntuacionDos: 30},
+						{respuestaTres: "Reino Unido",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Turquía",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Japón",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué país produce la mayor cantidad de automóviles?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "China",
+						puntuacionUno: 50},
+						{respuestaDos: "Japón",
+						puntuacionDos: 25},
+						{respuestaTres: "Alemania",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Estados Unidos",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "India",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué país tiene la mayor reserva de oro?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Estados Unidos",
+						puntuacionUno: 40},
+						{respuestaDos: "Alemania",
+						puntuacionDos: 25},
+						{respuestaTres: "Italia",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Francia",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Rusia",
+						puntuacionCinco: 10}
+					]
+				},
+				{
+					titulo: "¿Cuál es el país con mayor población del mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "India",
+						puntuacionUno: 45},
+						{respuestaDos: "China",
+						puntuacionDos: 40},
+						{respuestaTres: "Estados Unidos",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Indonesia",
+						puntuacionCuatro: 4},
+						{respuestaCinco: "Pakistán",
+						puntuacionCinco: 1}
+					]
+				},
+				{
+					titulo: "¿Cuál es el océano más grande de la Tierra?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Océano Pacífico",
+						puntuacionUno: 50},
+						{respuestaDos: "Océano Atlántico",
+						puntuacionDos: 30},
+						{respuestaTres: "Océano Índico",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Océano Antártico",
+						puntuacionCuatro: 4},
+						{respuestaCinco: "Océano Ártico",
+						puntuacionCinco: 1}
+					]
+				},
+				{
+					titulo: "¿Qué país produce más energía eólica?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "China",
+						puntuacionUno: 45},
+						{respuestaDos: "Estados Unidos",
+						puntuacionDos: 30},
+						{respuestaTres: "Alemania",
+						puntuacionTres: 15},
+						{respuestaCuatro: "India",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "España",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué continente tiene la selva tropical más grande?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "América del Sur",
+						puntuacionUno: 60},
+						{respuestaDos: "África",
+						puntuacionDos: 25},
+						{respuestaTres: "Asia",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Oceanía",
+						puntuacionCuatro: 4},
+						{respuestaCinco: "América del Norte",
+						puntuacionCinco: 1}
+					]
+				},
+				{
+					titulo: "¿Qué país tiene la mayor producción de diamantes?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Rusia",
+						puntuacionUno: 50},
+						{respuestaDos: "Botsuana",
+						puntuacionDos: 30},
+						{respuestaTres: "Canadá",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Australia",
+						puntuacionCuatro: 4},
+						{respuestaCinco: "República Democrática del Congo",
+						puntuacionCinco: 1}
+					]
+				},
+				{
+					titulo: "¿Qué país tiene el mayor consumo de chocolate por persona?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Suiza",
+						puntuacionUno: 40},
+						{respuestaDos: "Alemania",
+						puntuacionDos: 25},
+						{respuestaTres: "Bélgica",
+						puntuacionTres: 20},
+						{respuestaCuatro: "Reino Unido",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Estados Unidos",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué país es el mayor productor de vino?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Italia",
+						puntuacionUno: 50},
+						{respuestaDos: "Francia",
+						puntuacionDos: 30},
+						{respuestaTres: "España",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Estados Unidos",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Australia",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Cuál es el animal acuático más grande del mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Ballena azul",
+						puntuacionUno: 60},
+						{respuestaDos: "Tiburón ballena",
+						puntuacionDos: 25},
+						{respuestaTres: "Orca",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Delfín nariz de botella",
+						puntuacionCuatro: 4},
+						{respuestaCinco: "Atún gigante",
+						puntuacionCinco: 1}
+					]
+				},
+				{
+					titulo: "¿Qué país tiene la moneda más antigua aún en uso?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Reino Unido (Libra esterlina)",
+						puntuacionUno: 50},
+						{respuestaDos: "China (Yuan)",
+						puntuacionDos: 25},
+						{respuestaTres: "India (Rupia)",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Japón (Yen)",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Estados Unidos (Dólar)",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué país es el mayor exportador de mariscos?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "China",
+						puntuacionUno: 50},
+						{respuestaDos: "Noruega",
+						puntuacionDos: 25},
+						{respuestaTres: "Vietnam",
+						puntuacionTres: 15},
+						{respuestaCuatro: "India",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Estados Unidos",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Cuál es el idioma más hablado en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Inglés",
+						puntuacionUno: 40},
+						{respuestaDos: "Mandarín",
+						puntuacionDos: 35},
+						{respuestaTres: "Español",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Hindú",
+						puntuacionCuatro: 8},
+						{respuestaCinco: "Árabe",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué deporte es el más popular en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Fútbol",
+						puntuacionUno: 55},
+						{respuestaDos: "Críquet",
+						puntuacionDos: 20},
+						{respuestaTres: "Baloncesto",
+						puntuacionTres: 12},
+						{respuestaCuatro: "Tenis",
+						puntuacionCuatro: 8},
+						{respuestaCinco: "Béisbol",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué continente tiene más países?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "África",
+						puntuacionUno: 50},
+						{respuestaDos: "Europa",
+						puntuacionDos: 20},
+						{respuestaTres: "Asia",
+						puntuacionTres: 15},
+						{respuestaCuatro: "América",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Oceanía",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué tipo de energía renovable se utiliza más en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Energía solar",
+						puntuacionUno: 40},
+						{respuestaDos: "Energía eólica",
+						puntuacionDos: 35},
+						{respuestaTres: "Energía hidroeléctrica",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Energía geotérmica",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Energía de biomasa",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Cuál es el continente con mayor biodiversidad?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "América del Sur",
+						puntuacionUno: 50},
+						{respuestaDos: "África",
+						puntuacionDos: 25},
+						{respuestaTres: "Asia",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Oceanía",
+						puntuacionCuatro: 8},
+						{respuestaCinco: "Europa",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué país consume más café en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Finlandia",
+						puntuacionUno: 40},
+						{respuestaDos: "Noruega",
+						puntuacionDos: 30},
+						{respuestaTres: "Suecia",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Canadá",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Estados Unidos",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Cuál es el río más largo del mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Río Amazonas",
+						puntuacionUno: 45},
+						{respuestaDos: "Río Nilo",
+						puntuacionDos: 40},
+						{respuestaTres: "Río Yangtsé",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Río Misisipi",
+						puntuacionCuatro: 4},
+						{respuestaCinco: "Río Mekong",
+						puntuacionCinco: 1}
+					]
+				},
+				{
+					titulo: "¿Qué animal es considerado el más rápido en tierra?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Guepardo",
+						puntuacionUno: 60},
+						{respuestaDos: "Antílope americano",
+						puntuacionDos: 20},
+						{respuestaTres: "León",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Liebre europea",
+						puntuacionCuatro: 8},
+						{respuestaCinco: "Cebra",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Cuál es el país más grande en extensión territorial?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Rusia",
+						puntuacionUno: 50},
+						{respuestaDos: "Canadá",
+						puntuacionDos: 25},
+						{respuestaTres: "China",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Estados Unidos",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Brasil",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué elemento es el más abundante en la atmósfera de la Tierra?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Nitrógeno",
+						puntuacionUno: 78},
+						{respuestaDos: "Oxígeno",
+						puntuacionDos: 21},
+						{respuestaTres: "Argón",
+						puntuacionTres: 0.9},
+						{respuestaCuatro: "Dióxido de carbono",
+						puntuacionCuatro: 0.03},
+						{respuestaCinco: "Neón",
+						puntuacionCinco: 0.001}
+					]
+				},
+				{
+					titulo: "¿Qué país tiene la mayor cantidad de Patrimonios de la Humanidad según la UNESCO?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Italia",
+						puntuacionUno: 35},
+						{respuestaDos: "China",
+						puntuacionDos: 30},
+						{respuestaTres: "España",
+						puntuacionTres: 20},
+						{respuestaCuatro: "Francia",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Alemania",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué tipo de transporte público es el más utilizado en grandes ciudades?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Metro",
+						puntuacionUno: 40},
+						{respuestaDos: "Autobús",
+						puntuacionDos: 35},
+						{respuestaTres: "Tren",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Tranvía",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Bicicleta compartida",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué tecnología es la más utilizada para comunicarse a distancia?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Teléfono móvil",
+						puntuacionUno: 50},
+						{respuestaDos: "Correo electrónico",
+						puntuacionDos: 25},
+						{respuestaTres: "Videollamadas",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Redes sociales",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Mensajes de texto",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué recurso natural es más consumido en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Agua",
+						puntuacionUno: 60},
+						{respuestaDos: "Petróleo",
+						puntuacionDos: 25},
+						{respuestaTres: "Gas natural",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Carbón",
+						puntuacionCuatro: 4},
+						{respuestaCinco: "Minerales",
+						puntuacionCinco: 1}
+					]
+				},
+				{
+					titulo: "¿Qué plataforma de streaming es la más popular?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Netflix",
+						puntuacionUno: 45},
+						{respuestaDos: "YouTube",
+						puntuacionDos: 30},
+						{respuestaTres: "Amazon Prime Video",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Disney+",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "HBO Max",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué género musical es el más escuchado a nivel mundial?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Pop",
+						puntuacionUno: 50},
+						{respuestaDos: "Rock",
+						puntuacionDos: 20},
+						{respuestaTres: "Hip-Hop",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Música electrónica",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Reggae",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué red social tiene más usuarios activos?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Facebook",
+						puntuacionUno: 55},
+						{respuestaDos: "Instagram",
+						puntuacionDos: 25},
+						{respuestaTres: "TikTok",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Twitter",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "LinkedIn",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué es lo más buscado en Internet?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Información",
+						puntuacionUno: 40},
+						{respuestaDos: "Entretenimiento",
+						puntuacionDos: 30},
+						{respuestaTres: "Compras en línea",
+						puntuacionTres: 20},
+						{respuestaCuatro: "Educación",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Redes sociales",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué medio de transporte internacional es más usado?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Avión",
+						puntuacionUno: 60},
+						{respuestaDos: "Barco",
+						puntuacionDos: 20},
+						{respuestaTres: "Tren de alta velocidad",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Coche",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Autobús",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Cuál es el animal doméstico más popular?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Perro",
+						puntuacionUno: 50},
+						{respuestaDos: "Gato",
+						puntuacionDos: 35},
+						{respuestaTres: "Pez",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Ave",
+						puntuacionCuatro: 4},
+						{respuestaCinco: "Hámster",
+						puntuacionCinco: 1}
+					]
+				},
+				{
+					titulo: "¿Qué idioma es más hablado en el mundo como lengua materna?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Chino mandarín",
+						puntuacionUno: 45},
+						{respuestaDos: "Español",
+						puntuacionDos: 30},
+						{respuestaTres: "Inglés",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Hindi",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Árabe",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué deporte es el más practicado en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Fútbol",
+						puntuacionUno: 60},
+						{respuestaDos: "Críquet",
+						puntuacionDos: 20},
+						{respuestaTres: "Baloncesto",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Tenis",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Voleibol",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué continente tiene la mayor cantidad de población?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Asia",
+						puntuacionUno: 55},
+						{respuestaDos: "África",
+						puntuacionDos: 20},
+						{respuestaTres: "Europa",
+						puntuacionTres: 15},
+						{respuestaCuatro: "América",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Oceanía",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Cuál es el tipo de energía renovable más utilizada?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Energía solar",
+						puntuacionUno: 40},
+						{respuestaDos: "Energía eólica",
+						puntuacionDos: 30},
+						{respuestaTres: "Energía hidroeléctrica",
+						puntuacionTres: 20},
+						{respuestaCuatro: "Biomasa",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Geotérmica",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué país es el mayor exportador de petróleo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Arabia Saudita",
+						puntuacionUno: 50},
+						{respuestaDos: "Rusia",
+						puntuacionDos: 25},
+						{respuestaTres: "Estados Unidos",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Irán",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Canadá",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué invento ha cambiado más la vida cotidiana en el siglo XX?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Internet",
+						puntuacionUno: 50},
+						{respuestaDos: "Teléfono móvil",
+						puntuacionDos: 30},
+						{respuestaTres: "Electricidad",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Televisión",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Automóvil",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Cuál es la festividad más celebrada a nivel mundial?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Navidad",
+						puntuacionUno: 60},
+						{respuestaDos: "Año Nuevo",
+						puntuacionDos: 20},
+						{respuestaTres: "Ramadán",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Día de San Valentín",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Halloween",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué material es más reciclado en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Papel y cartón",
+						puntuacionUno: 50},
+						{respuestaDos: "Vidrio",
+						puntuacionDos: 25},
+						{respuestaTres: "Plástico",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Aluminio",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Textiles",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué producto agrícola es más producido a nivel mundial?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Arroz",
+						puntuacionUno: 40},
+						{respuestaDos: "Trigo",
+						puntuacionDos: 30},
+						{respuestaTres: "Maíz",
+						puntuacionTres: 20},
+						{respuestaCuatro: "Caña de azúcar",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Papa",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué continente tiene la mayor diversidad biológica?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "América del Sur",
+						puntuacionUno: 50},
+						{respuestaDos: "Asia",
+						puntuacionDos: 25},
+						{respuestaTres: "África",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Oceanía",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Europa",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué continente tiene más países?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "África",
+						puntuacionUno: 55},
+						{respuestaDos: "Asia",
+						puntuacionDos: 25},
+						{respuestaTres: "Europa",
+						puntuacionTres: 10},
+						{respuestaCuatro: "América",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Oceanía",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué animal es considerado el más rápido en tierra?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Guepardo",
+						puntuacionUno: 70},
+						{respuestaDos: "Antílope",
+						puntuacionDos: 15},
+						{respuestaTres: "Caballo",
+						puntuacionTres: 10},
+						{respuestaCuatro: "León",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Perro galgo",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Cuál es el metal más utilizado en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Hierro",
+						puntuacionUno: 50},
+						{respuestaDos: "Aluminio",
+						puntuacionDos: 30},
+						{respuestaTres: "Cobre",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Oro",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Plata",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Cuál es la montaña más alta del mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Monte Everest",
+						puntuacionUno: 60},
+						{respuestaDos: "K2",
+						puntuacionDos: 20},
+						{respuestaTres: "Kangchenjunga",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Lhotse",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Makalu",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué océano es el más grande?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Océano Pacífico",
+						puntuacionUno: 70},
+						{respuestaDos: "Océano Atlántico",
+						puntuacionDos: 15},
+						{respuestaTres: "Océano Índico",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Océano Ártico",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Océano Antártico",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué país tiene la mayor cantidad de habitantes?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "China",
+						puntuacionUno: 55},
+						{respuestaDos: "India",
+						puntuacionDos: 35},
+						{respuestaTres: "Estados Unidos",
+						puntuacionTres: 7},
+						{respuestaCuatro: "Indonesia",
+						puntuacionCuatro: 2},
+						{respuestaCinco: "Pakistán",
+						puntuacionCinco: 1}
+					]
+				},
+				{
+					titulo: "¿Cuál es el río más largo del mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Río Amazonas",
+						puntuacionUno: 50},
+						{respuestaDos: "Río Nilo",
+						puntuacionDos: 30},
+						{respuestaTres: "Río Yangtsé",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Río Misisipi",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Río Yeniséi",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué idioma tiene más hablantes en total (nativos y no nativos)?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Inglés",
+						puntuacionUno: 60},
+						{respuestaDos: "Chino mandarín",
+						puntuacionDos: 25},
+						{respuestaTres: "Español",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Hindi",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Árabe",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Cuál es el país con la mayor superficie terrestre?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Rusia",
+						puntuacionUno: 70},
+						{respuestaDos: "Canadá",
+						puntuacionDos: 15},
+						{respuestaTres: "China",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Estados Unidos",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Brasil",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué planeta del sistema solar es el más grande?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Júpiter",
+						puntuacionUno: 75},
+						{respuestaDos: "Saturno",
+						puntuacionDos: 15},
+						{respuestaTres: "Urano",
+						puntuacionTres: 5},
+						{respuestaCuatro: "Neptuno",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Tierra",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Cuál es el deporte más practicado a nivel mundial?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Fútbol",
+						puntuacionUno: 60},
+						{respuestaDos: "Baloncesto",
+						puntuacionDos: 20},
+						{respuestaTres: "Críquet",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Tenis",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Voleibol",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué género de música es el más popular globalmente?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Pop",
+						puntuacionUno: 50},
+						{respuestaDos: "Rock",
+						puntuacionDos: 25},
+						{respuestaTres: "Hip-Hop/Rap",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Música electrónica",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Música clásica",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué red social es la más utilizada actualmente?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Facebook",
+						puntuacionUno: 40},
+						{respuestaDos: "YouTube",
+						puntuacionDos: 30},
+						{respuestaTres: "Instagram",
+						puntuacionTres: 15},
+						{respuestaCuatro: "TikTok",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Twitter",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué país produce más café en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Brasil",
+						puntuacionUno: 65},
+						{respuestaDos: "Vietnam",
+						puntuacionDos: 20},
+						{respuestaTres: "Colombia",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Etiopía",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Honduras",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Cuál es la lengua más antigua que aún se habla?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Tamil",
+						puntuacionUno: 50},
+						{respuestaDos: "Sánscrito",
+						puntuacionDos: 25},
+						{respuestaTres: "Chino",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Árabe",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Hebreo",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Cuál es la ciudad más visitada por turistas al año?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Bangkok",
+						puntuacionUno: 40},
+						{respuestaDos: "París",
+						puntuacionDos: 30},
+						{respuestaTres: "Londres",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Dubai",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Nueva York",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué país tiene la mejor calidad de vida según índices globales?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Suiza",
+						puntuacionUno: 55},
+						{respuestaDos: "Noruega",
+						puntuacionDos: 30},
+						{respuestaTres: "Dinamarca",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Suecia",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Canadá",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué país consume más carne per cápita?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Estados Unidos",
+						puntuacionUno: 50},
+						{respuestaDos: "Australia",
+						puntuacionDos: 25},
+						{respuestaTres: "Argentina",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Brasil",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Uruguay",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué país produce más automóviles anualmente?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "China",
+						puntuacionUno: 60},
+						{respuestaDos: "Estados Unidos",
+						puntuacionDos: 20},
+						{respuestaTres: "Japón",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Alemania",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Corea del Sur",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Qué recurso natural es el más exportado globalmente?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Petróleo",
+						puntuacionUno: 70},
+						{respuestaDos: "Carbón",
+						puntuacionDos: 15},
+						{respuestaTres: "Gas natural",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Hierro",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Oro",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Cuál es el deporte más popular a nivel mundial?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Fútbol",
+						puntuacionUno: 60},
+						{respuestaDos: "Baloncesto",
+						puntuacionDos: 20},
+						{respuestaTres: "Críquet",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Tenis",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Voleibol",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Cuál es el continente más grande?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Asia",
+						puntuacionUno: 80},
+						{respuestaDos: "América",
+						puntuacionDos: 10},
+						{respuestaTres: "África",
+						puntuacionTres: 5},
+						{respuestaCuatro: "Europa",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Oceanía",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué continente tiene la mayor población?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Asia",
+						puntuacionUno: 85},
+						{respuestaDos: "África",
+						puntuacionDos: 7,},
+						{respuestaTres: "Europa",
+						puntuacionTres: 4},
+						{respuestaCuatro: "América",
+						puntuacionCuatro: 2},
+						{respuestaCinco: "Oceanía",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Cuál es el océano más grande del planeta?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Océano Pacífico",
+						puntuacionUno: 70},
+						{respuestaDos: "Océano Atlántico",
+						puntuacionDos: 15},
+						{respuestaTres: "Océano Índico",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Océano Ártico",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Océano Antártico",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Cuál es el país más grande en superficie?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Rusia",
+						puntuacionUno: 85},
+						{respuestaDos: "Canadá",
+						puntuacionDos: 10},
+						{respuestaTres: "China",
+						puntuacionTres: 3},
+						{respuestaCuatro: "Estados Unidos",
+						puntuacionCuatro: 1},
+						{respuestaCinco: "Brasil",
+						puntuacionCinco: 1}
+					]
+				},
+				{
+					titulo: "¿Qué es lo más comúnmente consumido por los habitantes de Japón?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Arroz",
+						puntuacionUno: 50},
+						{respuestaDos: "Sushi",
+						puntuacionDos: 20},
+						{respuestaTres: "Pescado",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Fideos",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Verduras",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Cuál es la tecnología más comúnmente utilizada en dispositivos móviles?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Pantallas táctiles",
+						puntuacionUno: 60},
+						{respuestaDos: "Cámaras de alta resolución",
+						puntuacionDos: 20},
+						{respuestaTres: "Conexión 5G",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Reconocimiento facial",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Carga inalámbrica",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Cuál es la bebida más consumida a nivel mundial después del agua?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Té",
+						puntuacionUno: 40},
+						{respuestaDos: "Café",
+						puntuacionDos: 35},
+						{respuestaTres: "Refrescos",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Jugo",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Agua mineral",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué tipo de música es más popular en América Latina?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Reggaetón",
+						puntuacionUno: 45},
+						{respuestaDos: "Salsa",
+						puntuacionDos: 20},
+						{respuestaTres: "Cumbia",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Rock latino",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Merengue",
+						puntuacionCinco: 10}
+					]
+				},
+				{
+					titulo: "¿Qué continente tiene más países?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "África",
+						puntuacionUno: 60},
+						{respuestaDos: "Asia",
+						puntuacionDos: 20},
+						{respuestaTres: "Europa",
+						puntuacionTres: 10},
+						{respuestaCuatro: "América",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Oceanía",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo más importante para la mayoría de las personas al elegir un lugar para vivir?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Seguridad",
+						puntuacionUno: 50},
+						{respuestaDos: "Costo de vida",
+						puntuacionDos: 30},
+						{respuestaTres: "Acceso a servicios",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Clima",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Cultura",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué es más común en las películas de acción?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Escenas de persecución",
+						puntuacionUno: 50},
+						{respuestaDos: "Explosiones",
+						puntuacionDos: 30},
+						{respuestaTres: "Luchas cuerpo a cuerpo",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Peleas con armas",
+						puntuacionCuatro: 7},
+						{respuestaCinco: "Viajes en el tiempo",
+						puntuacionCinco: 3}
+					]
+				},
+				{
+					titulo: "¿Cuál es el principal motor de la economía de China?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Manufactura",
+						puntuacionUno: 70},
+						{respuestaDos: "Exportaciones",
+						puntuacionDos: 15},
+						{respuestaTres: "Turismo",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Tecnología",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Agricultura",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Cuál es el principal recurso natural de Arabia Saudita?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Petróleo",
+						puntuacionUno: 80},
+						{respuestaDos: "Gas natural",
+						puntuacionDos: 10},
+						{respuestaTres: "Minerales",
+						puntuacionTres: 5},
+						{respuestaCuatro: "Agua dulce",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Oro",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué comida se asocia más con Italia?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Pizza",
+						puntuacionUno: 60},
+						{respuestaDos: "Pasta",
+						puntuacionDos: 30},
+						{respuestaTres: "Lasagna",
+						puntuacionTres: 5},
+						{respuestaCuatro: "Risotto",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Focaccia",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué es lo que más valoran los estudiantes al elegir una universidad?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Reputación académica",
+						puntuacionUno: 60},
+						{respuestaDos: "Oferta de becas",
+						puntuacionDos: 20},
+						{respuestaTres: "Ubicación",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Instalaciones",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Vida social",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué país es conocido por sus avances tecnológicos?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Japón",
+						puntuacionUno: 70},
+						{respuestaDos: "Estados Unidos",
+						puntuacionDos: 20},
+						{respuestaTres: "Alemania",
+						puntuacionTres: 5},
+						{respuestaCuatro: "Corea del Sur",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "China",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué es más común ver en las películas de terror?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Fantasmales",
+						puntuacionUno: 60},
+						{respuestaDos: "Asesinos en serie",
+						puntuacionDos: 20},
+						{respuestaTres: "Zombis",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Criaturas extrañas",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Cuentos de hadas",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo que más buscan las personas al comprar un coche?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Eficiencia de combustible",
+						puntuacionUno: 45},
+						{respuestaDos: "Precio",
+						puntuacionDos: 30},
+						{respuestaTres: "Seguridad",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Diseño",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Marca",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Cuál es la forma de entretenimiento más popular a nivel mundial?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Ver televisión",
+						puntuacionUno: 40},
+						{respuestaDos: "Jugar videojuegos",
+						puntuacionDos: 30},
+						{respuestaTres: "Escuchar música",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Leer",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Hacer deporte",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué tipo de clima prefieren más las personas?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Clima templado",
+						puntuacionUno: 50},
+						{respuestaDos: "Clima cálido",
+						puntuacionDos: 25},
+						{respuestaTres: "Clima frío",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Clima húmedo",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Clima seco",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué medio de transporte prefieren las personas para ir al trabajo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Automóvil propio",
+						puntuacionUno: 50},
+						{respuestaDos: "Transporte público",
+						puntuacionDos: 25},
+						{respuestaTres: "Bicicleta",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Caminar",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Moto",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Cuál es el tipo de comida más consumido en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Comida rápida",
+						puntuacionUno: 50},
+						{respuestaDos: "Comida casera",
+						puntuacionDos: 25},
+						{respuestaTres: "Comida italiana",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Comida asiática",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Comida mexicana",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué cualidad buscan más las personas en un líder?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Visión",
+						puntuacionUno: 40},
+						{respuestaDos: "Empatía",
+						puntuacionDos: 30},
+						{respuestaTres: "Integridad",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Carisma",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Experiencia",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué red social es más utilizada por jóvenes?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Instagram",
+						puntuacionUno: 40},
+						{respuestaDos: "TikTok",
+						puntuacionDos: 30},
+						{respuestaTres: "Facebook",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Snapchat",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Twitter",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Cuál es el deporte más popular en Estados Unidos?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Fútbol americano",
+						puntuacionUno: 60},
+						{respuestaDos: "Básquetbol",
+						puntuacionDos: 25},
+						{respuestaTres: "Beisbol",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Fútbol",
+						puntuacionCuatro: 3},
+						{respuestaCinco: "Hockey sobre hielo",
+						puntuacionCinco: 2}
+					]
+				},
+				{
+					titulo: "¿Qué es lo más importante para las personas a la hora de hacer compras online?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Precio",
+						puntuacionUno: 45},
+						{respuestaDos: "Variedad de productos",
+						puntuacionDos: 25},
+						{respuestaTres: "Tiempo de entrega",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Reputación de la tienda",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Promociones",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo que más afecta el bienestar de las personas?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Estrés",
+						puntuacionUno: 50},
+						{respuestaDos: "Falta de sueño",
+						puntuacionDos: 30},
+						{respuestaTres: "Malos hábitos alimenticios",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Falta de ejercicio",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Problemas emocionales",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Cuál es la actividad preferida para pasar el tiempo libre?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Ver películas o series",
+						puntuacionUno: 40},
+						{respuestaDos: "Leer",
+						puntuacionDos: 30},
+						{respuestaTres: "Salir con amigos",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Hacer ejercicio",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Viajar",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué cualidad valoran más las personas en sus amigos?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Lealtad",
+						puntuacionUno: 50},
+						{respuestaDos: "Honestidad",
+						puntuacionDos: 30},
+						{respuestaTres: "Sentido del humor",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Apoyo emocional",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Simpatía",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo más importante para las personas cuando eligen una carrera profesional?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Estabilidad financiera",
+						puntuacionUno: 50},
+						{respuestaDos: "Pasión por la carrera",
+						puntuacionDos: 30},
+						{respuestaTres: "Oportunidades de crecimiento",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Reputación de la institución educativa",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Flexibilidad laboral",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Cuál es la actividad favorita en las fiestas?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Bailar",
+						puntuacionUno: 40},
+						{respuestaDos: "Comer",
+						puntuacionDos: 30},
+						{respuestaTres: "Socializar",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Jugar juegos",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Escuchar música",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué país es considerado como el más desarrollado del mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Estados Unidos",
+						puntuacionUno: 40},
+						{respuestaDos: "Japón",
+						puntuacionDos: 30},
+						{respuestaTres: "Alemania",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Canadá",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Suecia",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo que más valoran las personas en una pareja?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Confianza",
+						puntuacionUno: 50},
+						{respuestaDos: "Respeto",
+						puntuacionDos: 30},
+						{respuestaTres: "Amor",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Compañerismo",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Sentido del humor",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Cuál es el tipo de música más popular entre los jóvenes?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Pop",
+						puntuacionUno: 40},
+						{respuestaDos: "Hip-hop",
+						puntuacionDos: 30},
+						{respuestaTres: "Rock",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Electrónica",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Jazz",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué actividad prefieren las personas para relajarse?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Meditar",
+						puntuacionUno: 40},
+						{respuestaDos: "Escuchar música",
+						puntuacionDos: 30},
+						{respuestaTres: "Leer",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Hacer ejercicio",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Salir al aire libre",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué habilidad se valora más en el entorno laboral?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Trabajo en equipo",
+						puntuacionUno: 45},
+						{respuestaDos: "Creatividad",
+						puntuacionDos: 30},
+						{respuestaTres: "Liderazgo",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Resiliencia",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Habilidades técnicas",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo que más preocupa a las personas sobre su salud?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Enfermedades crónicas",
+						puntuacionUno: 50},
+						{respuestaDos: "Estrés",
+						puntuacionDos: 30},
+						{respuestaTres: "Falta de ejercicio",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Alimentación desequilibrada",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Problemas de sueño",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Cuál es el lugar más visitado en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "La Gran Muralla China",
+						puntuacionUno: 40},
+						{respuestaDos: "La Torre Eiffel",
+						puntuacionDos: 30},
+						{respuestaTres: "El Coliseo de Roma",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Las Pirámides de Egipto",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "El Taj Mahal",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué deporte es más practicado a nivel mundial?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Fútbol",
+						puntuacionUno: 60},
+						{respuestaDos: "Baloncesto",
+						puntuacionDos: 20},
+						{respuestaTres: "Tenis",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Ciclismo",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Natación",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué factor influye más en la elección de un smartphone?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Rendimiento",
+						puntuacionUno: 40},
+						{respuestaDos: "Precio",
+						puntuacionDos: 30},
+						{respuestaTres: "Cámara",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Duración de batería",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Diseño",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo más importante a la hora de elegir una película?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Género",
+						puntuacionUno: 40},
+						{respuestaDos: "Director",
+						puntuacionDos: 30},
+						{respuestaTres: "Elenco",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Reseñas",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Duración",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo que más valoran las personas en su lugar de trabajo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Ambiente laboral",
+						puntuacionUno: 40},
+						{respuestaDos: "Oportunidades de crecimiento",
+						puntuacionDos: 30},
+						{respuestaTres: "Estabilidad laboral",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Salario",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Beneficios adicionales",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué tipo de vacaciones prefieren las personas?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Playa",
+						puntuacionUno: 50},
+						{respuestaDos: "Montaña",
+						puntuacionDos: 30},
+						{respuestaTres: "Ciudad",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Aventura",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Cultural",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo que más influye en el éxito de un negocio?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Clientes fieles",
+						puntuacionUno: 40},
+						{respuestaDos: "Innovación",
+						puntuacionDos: 30},
+						{respuestaTres: "Buena gestión financiera",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Buena estrategia de marketing",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Redes de contactos",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué tipo de comida prefieren las personas para una reunión social?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Comida rápida",
+						puntuacionUno: 40},
+						{respuestaDos: "Comida mexicana",
+						puntuacionDos: 30},
+						{respuestaTres: "Comida italiana",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Comida asiática",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Comida vegetariana",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo que más influye en la felicidad de las personas?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Relaciones personales",
+						puntuacionUno: 50},
+						{respuestaDos: "Salud",
+						puntuacionDos: 30},
+						{respuestaTres: "Trabajo",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Economía",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Tiempo libre",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué tipo de tecnología tiene mayor impacto en la vida cotidiana?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Internet",
+						puntuacionUno: 50},
+						{respuestaDos: "Smartphones",
+						puntuacionDos: 30},
+						{respuestaTres: "Inteligencia artificial",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Redes sociales",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Robótica",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué factor es más importante al momento de comprar ropa?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Estilo",
+						puntuacionUno: 40},
+						{respuestaDos: "Comodidad",
+						puntuacionDos: 30},
+						{respuestaTres: "Precio",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Marca",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Tendencia",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo que más valoran las personas al viajar?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Confort",
+						puntuacionUno: 40},
+						{respuestaDos: "Precio",
+						puntuacionDos: 30},
+						{respuestaTres: "Destino",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Comodidad",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Duración del viaje",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué actividad prefieren las personas para mejorar su salud mental?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Meditar",
+						puntuacionUno: 40},
+						{respuestaDos: "Ejercicio físico",
+						puntuacionDos: 30},
+						{respuestaTres: "Leer",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Escuchar música",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Pasar tiempo con seres queridos",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué tipo de entretenimiento prefieren las personas?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Ver películas o series",
+						puntuacionUno: 50},
+						{respuestaDos: "Escuchar música",
+						puntuacionDos: 30},
+						{respuestaTres: "Leer libros",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Jugar videojuegos",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Ir a eventos sociales",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué red social es la más utilizada a nivel mundial?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Facebook",
+						puntuacionUno: 40},
+						{respuestaDos: "Instagram",
+						puntuacionDos: 30},
+						{respuestaTres: "TikTok",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Twitter",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "LinkedIn",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué habilidad se valora más en el entorno laboral?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Trabajo en equipo",
+						puntuacionUno: 45},
+						{respuestaDos: "Creatividad",
+						puntuacionDos: 30},
+						{respuestaTres: "Liderazgo",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Resiliencia",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Habilidades técnicas",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo que más preocupa a las personas sobre su salud?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Enfermedades crónicas",
+						puntuacionUno: 50},
+						{respuestaDos: "Estrés",
+						puntuacionDos: 30},
+						{respuestaTres: "Falta de ejercicio",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Alimentación desequilibrada",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Problemas de sueño",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Cuál es el lugar más visitado en el mundo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "La Gran Muralla China",
+						puntuacionUno: 40},
+						{respuestaDos: "La Torre Eiffel",
+						puntuacionDos: 30},
+						{respuestaTres: "El Coliseo de Roma",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Las Pirámides de Egipto",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "El Taj Mahal",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué deporte es más practicado a nivel mundial?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Fútbol",
+						puntuacionUno: 60},
+						{respuestaDos: "Baloncesto",
+						puntuacionDos: 20},
+						{respuestaTres: "Tenis",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Ciclismo",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Natación",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué factor influye más en la elección de un smartphone?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Rendimiento",
+						puntuacionUno: 40},
+						{respuestaDos: "Precio",
+						puntuacionDos: 30},
+						{respuestaTres: "Cámara",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Duración de batería",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Diseño",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo más importante a la hora de elegir una película?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Género",
+						puntuacionUno: 40},
+						{respuestaDos: "Director",
+						puntuacionDos: 30},
+						{respuestaTres: "Elenco",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Reseñas",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Duración",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo que más valoran las personas en su lugar de trabajo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Ambiente laboral",
+						puntuacionUno: 40},
+						{respuestaDos: "Oportunidades de crecimiento",
+						puntuacionDos: 30},
+						{respuestaTres: "Estabilidad laboral",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Salario",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Beneficios adicionales",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué tipo de vacaciones prefieren las personas?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Playa",
+						puntuacionUno: 50},
+						{respuestaDos: "Montaña",
+						puntuacionDos: 30},
+						{respuestaTres: "Ciudad",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Aventura",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Cultural",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo que más influye en el éxito de un negocio?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Clientes fieles",
+						puntuacionUno: 40},
+						{respuestaDos: "Innovación",
+						puntuacionDos: 30},
+						{respuestaTres: "Buena gestión financiera",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Buena estrategia de marketing",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Redes de contactos",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué tipo de comida prefieren las personas para una reunión social?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Comida rápida",
+						puntuacionUno: 40},
+						{respuestaDos: "Comida mexicana",
+						puntuacionDos: 30},
+						{respuestaTres: "Comida italiana",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Comida asiática",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Comida vegetariana",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo que más influye en la felicidad de las personas?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Relaciones personales",
+						puntuacionUno: 50},
+						{respuestaDos: "Salud",
+						puntuacionDos: 30},
+						{respuestaTres: "Trabajo",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Economía",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Tiempo libre",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué tipo de tecnología tiene mayor impacto en la vida cotidiana?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Internet",
+						puntuacionUno: 50},
+						{respuestaDos: "Smartphones",
+						puntuacionDos: 30},
+						{respuestaTres: "Inteligencia artificial",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Redes sociales",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Robótica",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué factor es más importante al momento de comprar ropa?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Estilo",
+						puntuacionUno: 40},
+						{respuestaDos: "Comodidad",
+						puntuacionDos: 30},
+						{respuestaTres: "Precio",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Marca",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Tendencia",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo que más valoran las personas al viajar?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Confort",
+						puntuacionUno: 40},
+						{respuestaDos: "Precio",
+						puntuacionDos: 30},
+						{respuestaTres: "Destino",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Comodidad",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Duración del viaje",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué actividad prefieren las personas para mejorar su salud mental?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Meditar",
+						puntuacionUno: 40},
+						{respuestaDos: "Ejercicio físico",
+						puntuacionDos: 30},
+						{respuestaTres: "Leer",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Escuchar música",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Pasar tiempo con seres queridos",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué tipo de entretenimiento prefieren las personas?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Ver películas o series",
+						puntuacionUno: 50},
+						{respuestaDos: "Escuchar música",
+						puntuacionDos: 30},
+						{respuestaTres: "Leer libros",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Jugar videojuegos",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Ir a eventos sociales",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué red social es la más utilizada a nivel mundial?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Facebook",
+						puntuacionUno: 40},
+						{respuestaDos: "Instagram",
+						puntuacionDos: 30},
+						{respuestaTres: "TikTok",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Twitter",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "LinkedIn",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué factor es el más importante para las personas al elegir un lugar para vivir?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Seguridad",
+						puntuacionUno: 40},
+						{respuestaDos: "Costo de vida",
+						puntuacionDos: 30},
+						{respuestaTres: "Accesibilidad al trabajo",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Clima",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Cercanía a la familia",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué tipo de música prefieren las personas en general?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Pop",
+						puntuacionUno: 40},
+						{respuestaDos: "Rock",
+						puntuacionDos: 30},
+						{respuestaTres: "Reggaeton",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Jazz",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Clásica",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué factor es más decisivo al elegir un coche?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Precio",
+						puntuacionUno: 40},
+						{respuestaDos: "Seguridad",
+						puntuacionDos: 30},
+						{respuestaTres: "Eficiencia de combustible",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Diseño",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Tecnología",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo que más motiva a las personas a estudiar?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Mejorar las oportunidades laborales",
+						puntuacionUno: 45},
+						{respuestaDos: "Pasión por el tema",
+						puntuacionDos: 30},
+						{respuestaTres: "Presión social",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Competencia con otros",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Otros motivos personales",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué factor influye más en la felicidad de las personas?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Relaciones personales",
+						puntuacionUno: 50},
+						{respuestaDos: "Salud",
+						puntuacionDos: 30},
+						{respuestaTres: "Trabajo",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Dinero",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Tiempo libre",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué tipo de actividad es más popular entre los jóvenes?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Redes sociales",
+						puntuacionUno: 40},
+						{respuestaDos: "Deportes",
+						puntuacionDos: 30},
+						{respuestaTres: "Juegos en línea",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Viajes",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Leer",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo más valorado en un amigo?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Confianza",
+						puntuacionUno: 45},
+						{respuestaDos: "Lealtad",
+						puntuacionDos: 30},
+						{respuestaTres: "Sentido del humor",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Compañerismo",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Intereses comunes",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué red social es más utilizada por los adolescentes?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "TikTok",
+						puntuacionUno: 50},
+						{respuestaDos: "Instagram",
+						puntuacionDos: 30},
+						{respuestaTres: "Snapchat",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Facebook",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Twitter",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué aspecto prefieren las personas al elegir un destino turístico?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Cultura y patrimonio",
+						puntuacionUno: 40},
+						{respuestaDos: "Paisajes naturales",
+						puntuacionDos: 30},
+						{respuestaTres: "Actividades de aventura",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Playas",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Gastronomía",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo más importante al momento de tomar decisiones en la vida?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Instinto",
+						puntuacionUno: 40},
+						{respuestaDos: "Razón y lógica",
+						puntuacionDos: 30},
+						{respuestaTres: "Consejos de familiares o amigos",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Experiencia previa",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Consultas con expertos",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo más comúnmente valorado por los estudiantes en sus maestros?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Paciencia",
+						puntuacionUno: 40},
+						{respuestaDos: "Claridad en la explicación",
+						puntuacionDos: 30},
+						{respuestaTres: "Empatía",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Autoridad",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Capacidad de motivación",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué cualidad prefieren los empleadores en sus empleados?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Responsabilidad",
+						puntuacionUno: 40},
+						{respuestaDos: "Trabajo en equipo",
+						puntuacionDos: 30},
+						{respuestaTres: "Iniciativa",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Comunicación",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Habilidades técnicas",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué factor es más importante en una relación de pareja?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Comunicación",
+						puntuacionUno: 50},
+						{respuestaDos: "Confianza",
+						puntuacionDos: 30},
+						{respuestaTres: "Respeto mutuo",
+						puntuacionTres: 10},
+						{respuestaCuatro: "Intereses comunes",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Atracción física",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué aspecto prefieren los consumidores al elegir una tienda online?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Facilidad de uso",
+						puntuacionUno: 40},
+						{respuestaDos: "Variedad de productos",
+						puntuacionDos: 30},
+						{respuestaTres: "Ofertas y descuentos",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Tiempo de entrega",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Reseñas de otros usuarios",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué tipo de tecnología crees que dominará el futuro?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Inteligencia artificial",
+						puntuacionUno: 40},
+						{respuestaDos: "Realidad virtual",
+						puntuacionDos: 30},
+						{respuestaTres: "Robótica",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Impresión 3D",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Blockchain",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué cualidad prefieren las personas en un líder?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Capacidad para inspirar",
+						puntuacionUno: 45},
+						{respuestaDos: "Empatía",
+						puntuacionDos: 30},
+						{respuestaTres: "Visión",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Confianza",
+						puntuacionCuatro: 5},
+						{respuestaCinco: "Carisma",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué es lo más importante al elegir una carrera profesional?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Interés personal",
+						puntuacionUno: 40},
+						{respuestaDos: "Salario",
+						puntuacionDos: 30},
+						{respuestaTres: "Oportunidades de crecimiento",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Estabilidad laboral",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Flexibilidad de horario",
+						puntuacionCinco: 5}
+					]
+				},
+				{
+					titulo: "¿Qué tipo de vacaciones prefieren la mayoría de las personas?",
+					tipo: "normal",
+					respuestas: [
+						{respuestaUno: "Playas",
+						puntuacionUno: 40},
+						{respuestaDos: "Ciudades históricas",
+						puntuacionDos: 30},
+						{respuestaTres: "Destinos de aventura",
+						puntuacionTres: 15},
+						{respuestaCuatro: "Montañas",
+						puntuacionCuatro: 10},
+						{respuestaCinco: "Lugares con cultura local",
+						puntuacionCinco: 5}
+					]
+				}
 			]
-		},
-		{
-	titulo : "Menciona una herramienta de un carpintero",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Martillo", puntuacionUno: 31},
-			{respuestaDos: "Sierra", puntuacionDos: 29},
-			{respuestaTres: "Cinta métrica", puntuacionTres: 20},
-			{respuestaCuatro: "Nivel de gota", puntuacionCuatro: 13},
-			{respuestaCinco: "Pinzas", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : "Cosas que necesitas para servirte un buen café en casa",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Café", puntuacionUno: 35},
-			{respuestaDos: "Leche", puntuacionDos: 24},
-			{respuestaTres: "Taza", puntuacionTres: 17},
-			{respuestaCuatro: "Azucar", puntuacionCuatro: 9},
-			{respuestaCinco: "Agua", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Alimentos que suelen comerse en rebanadas",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Pizza", puntuacionUno: 33},
-			{respuestaDos: "Jamón", puntuacionDos: 26},
-			{respuestaTres: "Pastel", puntuacionTres: 17},
-			{respuestaCuatro: "Sushi", puntuacionCuatro: 11},
-			{respuestaCinco: "Fruta", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Menciona una forma o manera de preparar los chiles",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Rellenos", puntuacionUno: 36},
-			{respuestaDos: "Asados", puntuacionDos: 27},
-			{respuestaTres: "En Nogada", puntuacionTres: 19},
-			{respuestaCuatro: "En vinagre", puntuacionCuatro: 9},
-			{respuestaCinco: "En salsa", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Menciona un súper héroe de Marvel",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Spiderman", puntuacionUno: 31},
-			{respuestaDos: "Hulk", puntuacionDos: 29},
-			{respuestaTres: "IronMan", puntuacionTres: 21},
-			{respuestaCuatro: "Capitan America", puntuacionCuatro: 14},
-			{respuestaCinco: "Wolverine", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Animal que puede andan en tierra como en agua",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Tortuga", puntuacionUno: 38},
-			{respuestaDos: "Cocodrilo", puntuacionDos: 27},
-			{respuestaTres: "Hipopótamo", puntuacionTres: 19},
-			{respuestaCuatro: "Pato", puntuacionCuatro: 10},
-			{respuestaCinco: "Rana", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Actividad donde se suela cerrarse los ojos",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Dormir", puntuacionUno: 40},
-			{respuestaDos: "Besar", puntuacionDos: 33},
-			{respuestaTres: "Estornudar", puntuacionTres: 27},
-			{respuestaCuatro: "Meditar", puntuacionCuatro: 16},
-			{respuestaCinco: "Guiñar", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Alimentos que suelen venderse en un carrito por las noches",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "HotDogs", puntuacionUno: 44},
-			{respuestaDos: "Hamburguesas", puntuacionDos: 37},
-			{respuestaTres: "Tacos", puntuacionTres: 26},
-			{respuestaCuatro: "Helados", puntuacionCuatro: 17},
-			{respuestaCinco: "Elotes", puntuacionCinco: 10}		
-		]
-	},
-	{
-	titulo : "Sabor comun de aguas frescas",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Limón", puntuacionUno: 42},
-			{respuestaDos: "Jamaica", puntuacionDos: 34},
-			{respuestaTres: "Horchata", puntuacionTres: 29},
-			{respuestaCuatro: "Fresa", puntuacionCuatro: 20},
-			{respuestaCinco: "Tamarindo", puntuacionCinco: 13}		
-		]
-	},
-	{
-	titulo : "Menciona una verdura verde",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Lechuga", puntuacionUno: 30},
-			{respuestaDos: "Brócoli", puntuacionDos: 28},
-			{respuestaTres: "Calabaza", puntuacionTres: 16},
-			{respuestaCuatro: "Chiles", puntuacionCuatro: 10},
-			{respuestaCinco: "Repollo", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Habitacion o cuarto de un hogar",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Recamara", puntuacionUno: 36},
-			{respuestaDos: "Comedor", puntuacionDos: 21},
-			{respuestaTres: "Cocina", puntuacionTres: 17},
-			{respuestaCuatro: "Baño", puntuacionCuatro: 10},
-			{respuestaCinco: "Sala", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Antojitos mexicanos mas populares",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Tacos", puntuacionUno: 33},
-			{respuestaDos: "Pozole", puntuacionDos: 26},
-			{respuestaTres: "Enchiladas", puntuacionTres: 21},
-			{respuestaCuatro: "Quesadillas", puntuacionCuatro: 15},
-			{respuestaCinco: "Tostadas", puntuacionCinco: 10}		
-		]
-	},
-	{
-	titulo : "Menciona algo que enciendes y apagas todos los dias",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "La luz", puntuacionUno: 38},
-			{respuestaDos: "El automovil", puntuacionDos: 28},
-			{respuestaTres: "La television", puntuacionTres: 24},
-			{respuestaCuatro: "Celular/Laptop", puntuacionCuatro: 13},
-			{respuestaCinco: "Estufa", puntuacionCinco: 11}		
-		]
-	},
-	{
-	titulo : "Parte del cuerpo que comúnmente le duele a la gente",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "La cabeza", puntuacionUno: 33},
-			{respuestaDos: "El estomago", puntuacionDos: 26},
-			{respuestaTres: "La espalda", puntuacionTres: 20},
-			{respuestaCuatro: "Las piernas", puntuacionCuatro: 9},
-			{respuestaCinco: "El cuello", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Ademas del pollo ¿Que ave suele comerse?",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Pavo", puntuacionUno: 33},
-			{respuestaDos: "Pato", puntuacionDos: 26},
-			{respuestaTres: "Codorniz", puntuacionTres: 20},
-			{respuestaCuatro: "Gallina", puntuacionCuatro: 9},
-			{respuestaCinco: "Paloma", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Problemas que te pueden suceder cuando vas al WC",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "No hay papel", puntuacionUno: 37},
-			{respuestaDos: "Estreñido", puntuacionDos: 31},
-			{respuestaTres: "No hay agua", puntuacionTres: 24},
-			{respuestaCuatro: "Tapar el baño", puntuacionCuatro: 15},
-			{respuestaCinco: "Ocupado", puntuacionCinco: 5}		
-		]
-	},
-	{
-	titulo : "Sobrenombre que suele hacer referencia a que eres menor.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Niño", puntuacionUno: 41},
-			{respuestaDos: "Chamaco", puntuacionDos: 39},
-			{respuestaTres: "Escuincle", puntuacionTres: 28},
-			{respuestaCuatro: "Chiquillo", puntuacionCuatro: 12},
-			{respuestaCinco: "Plevello", puntuacionCinco: 6}		
-		]
-	},
-	{
-	titulo : "Manera Mexicana de hacer referencia al dinero",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Lana", puntuacionUno: 47},
-			{respuestaDos: "Baro", puntuacionDos: 32},
-			{respuestaTres: "Feria", puntuacionTres: 24},
-			{respuestaCuatro: "Billete", puntuacionCuatro: 11},
-			{respuestaCinco: "Money", puntuacionCinco: 5}		
-		]
-	},
-	{
-	titulo : "Que suele robar la gente en un asalto.",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Dinero", puntuacionUno: 43},
-			{respuestaDos: "Reloj", puntuacionDos: 30},
-			{respuestaTres: "Aretes", puntuacionTres: 27},
-			{respuestaCuatro: "Teléfono", puntuacionCuatro: 16},
-			{respuestaCinco: "Mochila/Bolsa", puntuacionCinco: 10}		
-		]
-	},
-	{
-	titulo : "Menciona un objeto con ruedas",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Automovil", puntuacionUno: 41},
-			{respuestaDos: "Motocicleta", puntuacionDos: 37},
-			{respuestaTres: "Bicicleta", puntuacionTres: 23},
-			{respuestaCuatro: "Silla Ancianos", puntuacionCuatro: 11},
-			{respuestaCinco: "Carretilla", puntuacionCinco: 3}		
-		]
-	},
-	{
-	titulo : "Menciona un deporte que utilice un balón",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Fútbol", puntuacionUno: 52},
-			{respuestaDos: "Baloncesto", puntuacionDos: 38},
-			{respuestaTres: "Voleibol", puntuacionTres: 17},
-			{respuestaCuatro: "Fútbol Amerciano", puntuacionCuatro: 13},
-			{respuestaCinco: "Handbol", puntuacionCinco: 1}		
-		]
-	},
-	{
-	titulo : "Sin decir marcas, menciona bebidas alcohólicas",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Tequila", puntuacionUno: 47},
-			{respuestaDos: "Vodka", puntuacionDos: 35},
-			{respuestaTres: "Whisky", puntuacionTres: 24},
-			{respuestaCuatro: "Cerveza", puntuacionCuatro: 19},
-			{respuestaCinco: "Ron", puntuacionCinco: 10}		
-		]
-	},
-	{
-	titulo : "Formas románticas de referirte a tu pareja",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Amor", puntuacionUno: 41},
-			{respuestaDos: "Cariño", puntuacionDos: 33},
-			{respuestaTres: "Cielo", puntuacionTres: 27},
-			{respuestaCuatro: "Vida", puntuacionCuatro: 21},
-			{respuestaCinco: "Tesoro", puntuacionCinco: 12}		
-		]
-	},{
-	titulo : "Redes sociales mas importantes del momento",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Facebook", puntuacionUno: 44},
-			{respuestaDos: "Instagram", puntuacionDos: 32},
-			{respuestaTres: "TikTok", puntuacionTres: 25},
-			{respuestaCuatro: "Twitter", puntuacionCuatro: 17},
-			{respuestaCinco: "Whatsapp", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : "Menciona algo que te pones en los pies para caminar",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Tenis", puntuacionUno: 32},
-			{respuestaDos: "Zapatos", puntuacionDos: 26},
-			{respuestaTres: "Chanclas", puntuacionTres: 19},
-			{respuestaCuatro: "Pantuflas", puntuacionCuatro: 14},
-			{respuestaCinco: "Mocasines", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Prenda que sueles vestir para cubrirse del frío",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Chamarra", puntuacionUno: 36},
-			{respuestaDos: "Abrigo", puntuacionDos: 29},
-			{respuestaTres: "Suéter", puntuacionTres: 25},
-			{respuestaCuatro: "Chaqueta", puntuacionCuatro: 18},
-			{respuestaCinco: "Chaleco", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Objeto que sueles ponerte encima de la cabeza",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Gorra", puntuacionUno: 32},
-			{respuestaDos: "Gorro", puntuacionDos: 29},
-			{respuestaTres: "Sombrero", puntuacionTres: 17},
-			{respuestaCuatro: "Visera", puntuacionCuatro: 16},
-			{respuestaCinco: "Boina", puntuacionCinco: 10}		
-		]
-	},
-	{
-	titulo : "Género musical para bailar en pareja",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Salsa", puntuacionUno: 35},
-			{respuestaDos: "Cumbia", puntuacionDos: 28},
-			{respuestaTres: "Banda", puntuacionTres: 23},
-			{respuestaCuatro: "Danzón", puntuacionCuatro: 17},
-			{respuestaCinco: "Bachata", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Objetos que te llevas a la playa",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Traje de baño", puntuacionUno: 31},
-			{respuestaDos: "Chanclas", puntuacionDos: 24},
-			{respuestaTres: "Bloqueador", puntuacionTres: 19},
-			{respuestaCuatro: "Gafas", puntuacionCuatro: 10},
-			{respuestaCinco: "Goggles", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Objeto de joyeria que se pueden hacer con el oro",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Anillos", puntuacionUno: 46},
-			{respuestaDos: "Cadenas", puntuacionDos: 35},
-			{respuestaTres: "Esclava", puntuacionTres: 27},
-			{respuestaCuatro: "Aretes", puntuacionCuatro: 14},
-			{respuestaCinco: "Relojes", puntuacionCinco: 3}		
-		]
-	},
-	{
-	titulo : "Productos de mar (Comida) que se venden en lata",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Atún", puntuacionUno: 41},
-			{respuestaDos: "Sardinas", puntuacionDos: 37},
-			{respuestaTres: "Pulpo", puntuacionTres: 29},
-			{respuestaCuatro: "Ostiones", puntuacionCuatro: 16},
-			{respuestaCinco: "Jaiba", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Que color se distingue en el fuego",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Rojo", puntuacionUno: 35},
-			{respuestaDos: "Naranja", puntuacionDos: 27},
-			{respuestaTres: "Amarillo", puntuacionTres: 19},
-			{respuestaCuatro: "Azul", puntuacionCuatro: 13},
-			{respuestaCinco: "Morado", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Menciona lugar donde la gente guarda el dinero",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Billetera", puntuacionUno: 36},
-			{respuestaDos: "Alcancia", puntuacionDos: 28},
-			{respuestaTres: "El colchon", puntuacionTres: 20},
-			{respuestaCuatro: "El banco", puntuacionCuatro: 15},
-			{respuestaCinco: "Monedero", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Cosas que las mujeres suelen ponerse postizo",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Bubis", puntuacionUno: 33},
-			{respuestaDos: "Pompis", puntuacionDos: 29},
-			{respuestaTres: "Pestañas", puntuacionTres: 23},
-			{respuestaCuatro: "Uñas", puntuacionCuatro: 16},
-			{respuestaCinco: "Cabello", puntuacionCinco: 10}		
-		]
-	},
-	{
-	titulo : "Pieza de pollo que pides en una polleria",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Pechuga", puntuacionUno: 37},
-			{respuestaDos: "Alas", puntuacionDos: 28},
-			{respuestaTres: "Perna", puntuacionTres: 22},
-			{respuestaCuatro: "Muslo", puntuacionCuatro: 16},
-			{respuestaCinco: "Patas", puntuacionCinco: 3}		
-		]
-	},
-	{
-	titulo : "Animal comestible de carne blanca",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Pollo", puntuacionUno: 38},
-			{respuestaDos: "Pavo", puntuacionDos: 26},
-			{respuestaTres: "Cerdo", puntuacionTres: 19},
-			{respuestaCuatro: "Conejo", puntuacionCuatro: 13},
-			{respuestaCinco: "Cordero", puntuacionCinco: 5}		
-		]
-	},
-	{
-	titulo : "Lugar donde la gente puede desnudarse. 7u7",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "En su cuarto", puntuacionUno: 46},
-			{respuestaDos: "En el baño", puntuacionDos: 38},
-			{respuestaTres: "Motel/Hotel", puntuacionTres: 18},
-			{respuestaCuatro: "Playa", puntuacionCuatro: 12},
-			{respuestaCinco: "Vestidores", puntuacionCinco: 3}		
-		]
-	},
-	{
-	titulo : "Menciona un platillo popular de huevos",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Estrellados", puntuacionUno: 34},
-			{respuestaDos: "Revuelto", puntuacionDos: 31},
-			{respuestaTres: "Divorciados", puntuacionTres: 23},
-			{respuestaCuatro: "Huevo Torta", puntuacionCuatro: 17},
-			{respuestaCinco: "Ranchero", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Frutas que suelen ponerse arriba de un postre",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Fresa", puntuacionUno: 30},
-			{respuestaDos: "Cereza", puntuacionDos: 23},
-			{respuestaTres: "Uva", puntuacionTres: 20},
-			{respuestaCuatro: "Piña", puntuacionCuatro: 15},
-			{respuestaCinco: "Mango", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Partes del hardware de una computadora",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Pantalla", puntuacionUno: 33},
-			{respuestaDos: "Mouse", puntuacionDos: 26},
-			{respuestaTres: "Teclado", puntuacionTres: 21},
-			{respuestaCuatro: "CPU", puntuacionCuatro: 14},
-			{respuestaCinco: "...", puntuacionCinco: 0}		
-		]
-	},
-	{
-	titulo : "Accesorios o joyas que van en al cabeza",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Diadema", puntuacionUno: 37},
-			{respuestaDos: "Corona", puntuacionDos: 31},
-			{respuestaTres: "Broche", puntuacionTres: 25},
-			{respuestaCuatro: "Moño", puntuacionCuatro: 13},
-			{respuestaCinco: "Liga", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Reptil que se puede usar como mascota",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Tortuga", puntuacionUno: 37},
-			{respuestaDos: "Camaleón", puntuacionDos: 28},
-			{respuestaTres: "Iguana", puntuacionTres: 24},
-			{respuestaCuatro: "Vibora", puntuacionCuatro: 16},
-			{respuestaCinco: "Lagartija", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Forma mas popular de referirse a un niño",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Chamaco", puntuacionUno: 25},
-			{respuestaDos: "Morrito", puntuacionDos: 17},
-			{respuestaTres: "Escuincle", puntuacionTres: 15},
-			{respuestaCuatro: "Mocoso", puntuacionCuatro: 11},
-			{respuestaCinco: "Chiquillo", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Que le pones a un plato de frutas",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Yogurt", puntuacionUno: 28},
-			{respuestaDos: "Miel", puntuacionDos: 23},
-			{respuestaTres: "Cereal", puntuacionTres: 19},
-			{respuestaCuatro: "Queso", puntuacionCuatro: 13},
-			{respuestaCinco: "Chile piquín", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Menciona un producto lácteo",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "La leche", puntuacionUno: 31},
-			{respuestaDos: "El queso", puntuacionDos: 24},
-			{respuestaTres: "La crema", puntuacionTres: 16},
-			{respuestaCuatro: "El Yogurt", puntuacionCuatro: 10},
-			{respuestaCinco: "La nata", puntuacionCinco: 1}		
-		]
-	},
-	{
-	titulo : "Menciona una raza de perro",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Chihuahua", puntuacionUno: 33},
-			{respuestaDos: "Salchicha", puntuacionDos: 25},
-			{respuestaTres: "Pug", puntuacionTres: 17},
-			{respuestaCuatro: "Dálamta", puntuacionCuatro: 9},
-			{respuestaCinco: "Labrador", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Actividades que se hacen con la nariz",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Oler", puntuacionUno: 37},
-			{respuestaDos: "Sacarse mocos", puntuacionDos: 23},
-			{respuestaTres: "Estrnudar", puntuacionTres: 16},
-			{respuestaCuatro: "Rascarse", puntuacionCuatro: 11},
-			{respuestaCinco: "Respirar", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Menciona un deporte individual",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Natacion", puntuacionUno: 37},
-			{respuestaDos: "Tenis", puntuacionDos: 23},
-			{respuestaTres: "Arco", puntuacionTres: 16},
-			{respuestaCuatro: "Gimnasia", puntuacionCuatro: 11},
-			{respuestaCinco: "Boxeo", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Menciona que parte del cuerpo se puede inyectar",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Brazo", puntuacionUno: 33},
-			{respuestaDos: "Pompas", puntuacionDos: 28},
-			{respuestaTres: "Abdomen", puntuacionTres: 21},
-			{respuestaCuatro: "Hombro", puntuacionCuatro: 13},
-			{respuestaCinco: "Muñeca", puntuacionCinco: 10}		
-		]
-	},
-	{
-	titulo : "Pretexto de un niño para no ir a la escuela",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Dolor de estómago", puntuacionUno: 38},
-			{respuestaDos: "Resfriado", puntuacionDos: 30},
-			{respuestaTres: "No hizo tarea", puntuacionTres: 22},
-			{respuestaCuatro: "No estoy bien", puntuacionCuatro: 17},
-			{respuestaCinco: "Lo molestan", puntuacionCinco: 14}		
-		]
-	},
-	{
-	titulo : "Marca de automoviles en mexico",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "VolksWagen", puntuacionUno: 37},
-			{respuestaDos: "Ford", puntuacionDos: 33},
-			{respuestaTres: "Honda", puntuacionTres: 25},
-			{respuestaCuatro: "Toyota", puntuacionCuatro: 18},
-			{respuestaCinco: "Nissan", puntuacionCinco: 10}		
-		]
-	},
-	{
-	titulo : "Menciona un personajes que haya revolucionado la tecnologia en los ultimos años",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Steve Jobs", puntuacionUno: 36},
-			{respuestaDos: "Bill Gates", puntuacionDos: 28},
-			{respuestaTres: "Mark Zuckerberg", puntuacionTres: 24},
-			{respuestaCuatro: "Elon Musk", puntuacionCuatro: 13},
-			{respuestaCinco: "Jeff Bezos", puntuacionCinco: 6}		
-		]
-	},
-	{
-	titulo : "Menciona un pais que tenga rojo en su bandera",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Mexico", puntuacionUno: 43},
-			{respuestaDos: "Canada", puntuacionDos: 37},
-			{respuestaTres: "China", puntuacionTres: 29},
-			{respuestaCuatro: "Japón", puntuacionCuatro: 11},
-			{respuestaCinco: "España", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Nombra a una princesa famosa de Disney",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "BlancaNieves", puntuacionUno: 33},
-			{respuestaDos: "Cenicienta", puntuacionDos: 26},
-			{respuestaTres: "Aurora", puntuacionTres: 18},
-			{respuestaCuatro: "Ariel", puntuacionCuatro: 14},
-			{respuestaCinco: "Bella", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : "Menciona un personaje de los Simpson",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Homero", puntuacionUno: 33},
-			{respuestaDos: "Bart", puntuacionDos: 26},
-			{respuestaTres: "Lisa", puntuacionTres: 18},
-			{respuestaCuatro: "Marge", puntuacionCuatro: 14},
-			{respuestaCinco: "Maggie", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : "Menciona un personaje icónico de Eugenio Derbez",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Ludovico Peluches", puntuacionUno: 34},
-			{respuestaDos: "Longe Moco", puntuacionDos: 25},
-			{respuestaTres: "Armando Hoyos", puntuacionTres: 16},
-			{respuestaCuatro: "Diablito", puntuacionCuatro: 11},
-			{respuestaCinco: "Burro de Shrek", puntuacionCinco: 5}		
-		]
-	},
-	{
-	titulo : "Cosas que más importan en un hotel",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "La cama", puntuacionUno: 30},
-			{respuestaDos: "La ubicación", puntuacionDos: 26},
-			{respuestaTres: "La limpieza", puntuacionTres: 15},
-			{respuestaCuatro: "La alberca", puntuacionCuatro: 9},
-			{respuestaCinco: "La comida", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Artículo con el que se suele escribir a mano",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Lápiz", puntuacionUno: 29},
-			{respuestaDos: "Lapicero", puntuacionDos: 27},
-			{respuestaTres: "Plumón", puntuacionTres: 15},
-			{respuestaCuatro: "Pluma", puntuacionCuatro: 10},
-			{respuestaCinco: "Colores", puntuacionCinco: 3}		
-		]
-	},
-	{
-	titulo : "Menciona un marisco popular",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Camarón", puntuacionUno: 29},
-			{respuestaDos: "Cangrejo", puntuacionDos: 23},
-			{respuestaTres: "Langosta", puntuacionTres: 16},
-			{respuestaCuatro: "Langostino", puntuacionCuatro: 11},
-			{respuestaCinco: "Ostras", puntuacionCinco: 3}		
-		]
-	},
-	{
-	titulo : "Deporte donde se usa casco",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Fútbol Americano", puntuacionUno: 32},
-			{respuestaDos: "Hockey", puntuacionDos: 24},
-			{respuestaTres: "Ciclismo", puntuacionTres: 18},
-			{respuestaCuatro: "Motociclismo", puntuacionCuatro: 14},
-			{respuestaCinco: "Beisbol", puntuacionCinco: 6}		
-		]
-	},
-	{
-	titulo : "Fruta comun que se da en los arboles",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Manzana", puntuacionUno: 29},
-			{respuestaDos: "Naranja", puntuacionDos: 23},
-			{respuestaTres: "Plátano", puntuacionTres: 17},
-			{respuestaCuatro: "Mango", puntuacionCuatro: 10},
-			{respuestaCinco: "Limón", puntuacionCinco: 5}		
-		]
-	},
-	{
-	titulo : "Alimento que se da en una Vaina",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Chícharos", puntuacionUno: 36},
-			{respuestaDos: "Habas", puntuacionDos: 27},
-			{respuestaTres: "Lentejas", puntuacionTres: 19},
-			{respuestaCuatro: "Frijoles", puntuacionCuatro: 11},
-			{respuestaCinco: "Tamarindo", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Menciona las partes que conforman un libro",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Portada", puntuacionUno: 26},
-			{respuestaDos: "Contraportada", puntuacionDos: 21},
-			{respuestaTres: "Lomo", puntuacionTres: 14},
-			{respuestaCuatro: "Introduccion", puntuacionCuatro: 7},
-			{respuestaCinco: "Cuerpo", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Medio de transporte que vuelan",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Avión", puntuacionUno: 25},
-			{respuestaDos: "Helicóptero", puntuacionDos: 20},
-			{respuestaTres: "Globo", puntuacionTres: 17},
-			{respuestaCuatro: "Planeador", puntuacionCuatro: 14},
-			{respuestaCinco: "Cohete", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Idiomas mas comunes en el mundo",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Español", puntuacionUno: 31},
-			{respuestaDos: "Chino", puntuacionDos: 27},
-			{respuestaTres: "Inglés", puntuacionTres: 19},
-			{respuestaCuatro: "Coreano", puntuacionCuatro: 16},
-			{respuestaCinco: "Francés", puntuacionCinco: 10}		
-		]
-	},
-	{
-	titulo : "Personaje del chavo del ocho",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "El chavo", puntuacionUno: 38},
-			{respuestaDos: "Kiko", puntuacionDos: 27},
-			{respuestaTres: "Don Ramón", puntuacionTres: 19},
-			{respuestaCuatro: "Chilindrina", puntuacionCuatro: 10},
-			{respuestaCinco: "Doña Florinda", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Los ultimos presidenes de México",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Obrador", puntuacionUno: 38},
-			{respuestaDos: "Peña", puntuacionDos: 27},
-			{respuestaTres: "Calderón", puntuacionTres: 19},
-			{respuestaCuatro: "Fox", puntuacionCuatro: 10},
-			{respuestaCinco: "Zedillo", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Deporte mas popular en México",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Fútbol", puntuacionUno: 28},
-			{respuestaDos: "Boxeo", puntuacionDos: 23},
-			{respuestaTres: "Basquetbol", puntuacionTres: 17},
-			{respuestaCuatro: "Natacion", puntuacionCuatro: 10},
-			{respuestaCinco: "Beisbol", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Cadena de comida rápida más popular en México",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "McDonal's", puntuacionUno: 36},
-			{respuestaDos: "Burger King", puntuacionDos: 27},
-			{respuestaTres: "Pizza Domino's", puntuacionTres: 23},
-			{respuestaCuatro: "Little Caesars", puntuacionCuatro: 16},
-			{respuestaCinco: "KFC", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : "Postre Mexicano mas popular",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Arroz con leche", puntuacionUno: 33},
-			{respuestaDos: "Flan", puntuacionDos: 29},
-			{respuestaTres: "Pastel Galleta", puntuacionTres: 21},
-			{respuestaCuatro: "Churros", puntuacionCuatro: 14},
-			{respuestaCinco: "Helado/Nieve", puntuacionCinco: 11}		
-		]
-	},
-	{
-	titulo : "Instrumento con cuerdas",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Guitarra", puntuacionUno: 34},
-			{respuestaDos: "Bajo", puntuacionDos: 26},
-			{respuestaTres: "Ukelele", puntuacionTres: 21},
-			{respuestaCuatro: "Violín", puntuacionCuatro: 12},
-			{respuestaCinco: "Guitarra Eléctrica", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Que sueles untar al pan blanco",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Mayonesa", puntuacionUno: 33},
-			{respuestaDos: "Mermelada", puntuacionDos: 25},
-			{respuestaTres: "Nutella", puntuacionTres: 12},
-			{respuestaCuatro: "Frijoles", puntuacionCuatro: 8},
-			{respuestaCinco: "Mantequilla", puntuacionCinco: 5}		
-		]
-	},
-	{
-	titulo : "Tipos de madera mas conocidos",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Roble", puntuacionUno: 33},
-			{respuestaDos: "Pino", puntuacionDos: 24},
-			{respuestaTres: "Caoba", puntuacionTres: 19},
-			{respuestaCuatro: "Cerezo", puntuacionCuatro: 13},
-			{respuestaCinco: "Fresno", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Minearles mas populares",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Diamante", puntuacionUno: 36},
-			{respuestaDos: "Oro", puntuacionDos: 27},
-			{respuestaTres: "Plata", puntuacionTres: 20},
-			{respuestaCuatro: "Esmeralda", puntuacionCuatro: 15},
-			{respuestaCinco: "Rubí", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Cargo mas comun para hacer una pelicula",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Director", puntuacionUno: 31},
-			{respuestaDos: "Guionista", puntuacionDos: 27},
-			{respuestaTres: "Actores", puntuacionTres: 22},
-			{respuestaCuatro: "Productor", puntuacionCuatro: 14},
-			{respuestaCinco: "Camarógrafo", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : "Partes que componen un teatro",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Escenario", puntuacionUno: 28},
-			{respuestaDos: "Sillas", puntuacionDos: 24},
-			{respuestaTres: "Telón", puntuacionTres: 19},
-			{respuestaCuatro: "Vestíbulo", puntuacionCuatro: 11},
-			{respuestaCinco: "Vestuario", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Menciona a los compañeros de clases del chavo del ocho",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Ñoño", puntuacionUno: 37},
-			{respuestaDos: "Kiko", puntuacionDos: 27},
-			{respuestaTres: "Chilindrina", puntuacionTres: 15},
-			{respuestaCuatro: "Popis", puntuacionCuatro: 10},
-			{respuestaCinco: "Godínez", puntuacionCinco: 6}		
-		]
-	},
-	{
-	titulo : "Menciona tipos de leche mas comunes",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "De vaca", puntuacionUno: 34},
-			{respuestaDos: "De Almendra", puntuacionDos: 23},
-			{respuestaTres: "De cabra", puntuacionTres: 17},
-			{respuestaCuatro: "En polvo", puntuacionCuatro: 13},
-			{respuestaCinco: "De soja", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : "Ingredientes de un guacamoles",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Aguacate", puntuacionUno: 38},
-			{respuestaDos: "Jitomate", puntuacionDos: 22},
-			{respuestaTres: "Cebolla", puntuacionTres: 17},
-			{respuestaCuatro: "Chile", puntuacionCuatro: 11},
-			{respuestaCinco: "Sal", puntuacionCinco: 6}		
-		]
-	},{
-	titulo : "Menciona diez marcas de supermercado mas populares en mexico",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Walmart", puntuacionUno: 41},
-			{respuestaDos: "Soriana", puntuacionDos: 31},
-			{respuestaTres: "Bodega Aurrerá", puntuacionTres: 26},
-			{respuestaCuatro: "Chedraui", puntuacionCuatro: 17},
-			{respuestaCinco: "Ley", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Materia básica en primaria",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Matemáticas", puntuacionUno: 35},
-			{respuestaDos: "Español", puntuacionDos: 27},
-			{respuestaTres: "Historia", puntuacionTres: 20},
-			{respuestaCuatro: "Eduacación Física", puntuacionCuatro: 15},
-			{respuestaCinco: "Computación", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : 'Menciona un color de los "Power Rangers"',
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Rojo", puntuacionUno: 38},
-			{respuestaDos: "Amarillo", puntuacionDos: 29},
-			{respuestaTres: "Rosa", puntuacionTres: 21},
-			{respuestaCuatro: "Verde", puntuacionCuatro: 11},
-			{respuestaCinco: "Azul", puntuacionCinco: 3}		
-		]
-	},
-	{
-	titulo : "Fruta que no puedes comerte con cascara",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Plátano", puntuacionUno: 41},
-			{respuestaDos: "Sandía", puntuacionDos: 37},
-			{respuestaTres: "Melón", puntuacionTres: 23},
-			{respuestaCuatro: "Piña", puntuacionCuatro: 15},
-			{respuestaCinco: "Naranja", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : "Menciona un país con mayor población en el mundo",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "China", puntuacionUno: 36},
-			{respuestaDos: "India", puntuacionDos: 29},
-			{respuestaTres: "Estados Unidos", puntuacionTres: 21},
-			{respuestaCuatro: "Indonesia", puntuacionCuatro: 11},
-			{respuestaCinco: "Brasil", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Dinos la posición de un jugaro de fútbol",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Delantero", puntuacionUno: 31},
-			{respuestaDos: "Portero", puntuacionDos: 27},
-			{respuestaTres: "Defensa", puntuacionTres: 19},
-			{respuestaCuatro: "Medio Campista", puntuacionCuatro: 14},
-			{respuestaCinco: "Lateral", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Dinos un personaje de pinocho",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Pinocho", puntuacionUno: 29},
-			{respuestaDos: "Geppetto", puntuacionDos: 26},
-			{respuestaTres: "Grillo", puntuacionTres: 17},
-			{respuestaCuatro: "Hada Azul", puntuacionCuatro: 13},
-			{respuestaCinco: "Zorro/Gato", puntuacionCinco: 1}		
-		]
-	},
-	{
-	titulo : "Menciona un personaje de la biblia",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Jesus", puntuacionUno: 34},
-			{respuestaDos: "La virgen", puntuacionDos: 28},
-			{respuestaTres: "Adan/Eva", puntuacionTres: 21},
-			{respuestaCuatro: "Dios", puntuacionCuatro: 16},
-			{respuestaCinco: "Moises", puntuacionCinco: 6}		
-		]
-	},
-	{
-	titulo : "Menciona un regalo para el 14 de febrero",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Flores", puntuacionUno: 43},
-			{respuestaDos: "Chocolates", puntuacionDos: 28},
-			{respuestaTres: "Peluches", puntuacionTres: 25},
-			{respuestaCuatro: "Carta", puntuacionCuatro: 19},
-			{respuestaCinco: "Comida", puntuacionCinco: 10}		
-		]
-	},
-	{
-	titulo : "Verduras tipicas de una Sopa de verduras",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Zanahoria", puntuacionUno: 47},
-			{respuestaDos: "Cebolla", puntuacionDos: 40},
-			{respuestaTres: "Calabaza", puntuacionTres: 36},
-			{respuestaCuatro: "Papa", puntuacionCuatro: 15},
-			{respuestaCinco: "Brócoli", puntuacionCinco: 5}		
-		]
-	},
-	{
-	titulo : "Lugar donde sueles ver la hora",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "En el teléfono", puntuacionUno: 36},
-			{respuestaDos: "En la pared", puntuacionDos: 30},
-			{respuestaTres: "En la TV", puntuacionTres: 24},
-			{respuestaCuatro: "En la PC", puntuacionCuatro: 15},
-			{respuestaCinco: "En la muñeca", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Lugar donde haces amigos",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Escuela", puntuacionUno: 39},
-			{respuestaDos: "Trabajo", puntuacionDos: 27},
-			{respuestaTres: "Internet", puntuacionTres: 20},
-			{respuestaCuatro: "Deporte", puntuacionCuatro: 14},
-			{respuestaCinco: "En la calle", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Lugares en una casa donde suelen tener televisores",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Habitacion", puntuacionUno: 41},
-			{respuestaDos: "Sala", puntuacionDos: 35},
-			{respuestaTres: "Cocina", puntuacionTres: 26},
-			{respuestaCuatro: "Jardín", puntuacionCuatro: 15},
-			{respuestaCinco: "Comedor", puntuacionCinco: 8}		
-		]
-	},
-	{
-	titulo : "Cosas que relajan a una persona",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Dormir", puntuacionUno: 36},
-			{respuestaDos: "Un abrazo", puntuacionDos: 33},
-			{respuestaTres: "La Musica", puntuacionTres: 22},
-			{respuestaCuatro: "Comida", puntuacionCuatro: 13},
-			{respuestaCinco: "Un Masaje", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Menciona Elenco (Personajes) de TOY STORY",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Woody", puntuacionUno: 37},
-			{respuestaDos: "Buzz", puntuacionDos: 26},
-			{respuestaTres: "Señor cara de papa", puntuacionTres: 19},
-			{respuestaCuatro: "Ham (Cerdo)", puntuacionCuatro: 11},
-			{respuestaCinco: "Jessie", puntuacionCinco: 5}		
-		]
-	},
-	{
-	titulo : "Menciona tipo de sabores populares de la marca Chips",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Fuego/Moradas", puntuacionUno: 80},
-			{respuestaDos: "Jalapeño/Verdes", puntuacionDos: 76},
-			{respuestaTres: "Sal de mar/Amarillas", puntuacionTres: 50},
-			{respuestaCuatro: "Adobadas/Rojas", puntuacionCuatro: 45},
-			{respuestaCinco: "Toreadas/habanero", puntuacionCinco: 30}		
-		]
-	},
-	{
-	titulo : "Valor de monedas mas usadas en México",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Cinco pesos", puntuacionUno: 45},
-			{respuestaDos: "Diez pesos", puntuacionDos: 39},
-			{respuestaTres: "Dos pesos", puntuacionTres: 31},
-			{respuestaCuatro: "Un peso", puntuacionCuatro: 23},
-			{respuestaCinco: "Cincuenta centavos", puntuacionCinco: 11}		
-		]
-	},
-	{
-	titulo : "Alimentos mas consumidos en mexico",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Tortilla", puntuacionUno: 31},
-			{respuestaDos: "Frijoles", puntuacionDos: 27},
-			{respuestaTres: "Huevo", puntuacionTres: 19},
-			{respuestaCuatro: "Chile", puntuacionCuatro: 11},
-			{respuestaCinco: "Pan", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Objetos naturales que vemos al observar el cielo",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Sol", puntuacionUno: 44},
-			{respuestaDos: "Luna", puntuacionDos: 36},
-			{respuestaTres: "Estrellas", puntuacionTres: 28},
-			{respuestaCuatro: "Nubes", puntuacionCuatro: 17},
-			{respuestaCinco: "Pajaro", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : "Documento que necesite tu firma",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Identificación", puntuacionUno: 44},
-			{respuestaDos: "Contrato", puntuacionDos: 37},
-			{respuestaTres: "Pasaporte", puntuacionTres: 28},
-			{respuestaCuatro: "Acta de nacimiento", puntuacionCuatro: 11},
-			{respuestaCinco: "Licencia de conducir", puntuacionCinco: 6}		
-		]
-	},
-	{
-	titulo : "Donde podrías ponerte un reloj",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "En la muñeca", puntuacionUno: 33},
-			{respuestaDos: "En la pared", puntuacionDos: 28},
-			{respuestaTres: "En la oficina", puntuacionTres: 21},
-			{respuestaCuatro: "Trabajo", puntuacionCuatro: 8},
-			{respuestaCinco: "En el buró", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Que tipo de personas lleva dentro un coche blindado",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Politícos", puntuacionUno: 38},
-			{respuestaDos: "Artistas", puntuacionDos: 27},
-			{respuestaTres: "Prisioneros", puntuacionTres: 19},
-			{respuestaCuatro: "Mafiosos", puntuacionCuatro: 10},
-			{respuestaCinco: "Delincuentes", puntuacionCinco: 1}		
-		]
-	},
-	{
-	titulo : "De que se suele rellenar un chile",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Queso", puntuacionUno: 33},
-			{respuestaDos: "Carne", puntuacionDos: 31},
-			{respuestaTres: "Verduras", puntuacionTres: 25},
-			{respuestaCuatro: "Camaron", puntuacionCuatro: 12},
-			{respuestaCinco: "Pollo", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Algun objeto que puedas rentar en la playa",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Camastro", puntuacionUno: 31},
-			{respuestaDos: "Sombrilla", puntuacionDos: 26},
-			{respuestaTres: "Moto", puntuacionTres: 17},
-			{respuestaCuatro: "Lancha", puntuacionCuatro: 14},
-			{respuestaCinco: "Goggles", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Menciona un tipo de consomé",
-	tipo: "alimento",
-	respuestas: [
-			{respuestaUno: "Pollo", puntuacionUno: 36},
-			{respuestaDos: "Res", puntuacionDos: 21},
-			{respuestaTres: "Tomate", puntuacionTres: 17},
-			{respuestaCuatro: "Camaron", puntuacionCuatro: 13},
-			{respuestaCinco: "Verduras", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Lugares donde puedas encontrar un baño",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "En la casa", puntuacionUno: 35},
-			{respuestaDos: "Restaurante", puntuacionDos: 26},
-			{respuestaTres: "Hotel", puntuacionTres: 22},
-			{respuestaCuatro: "Cafetería", puntuacionCuatro: 13},
-			{respuestaCinco: "supermercado", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Menciona algo que forma parte de la decoarión de una casa",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Muebles", puntuacionUno: 37},
-			{respuestaDos: "Floreros", puntuacionDos: 31},
-			{respuestaTres: "Alfombras", puntuacionTres: 24},
-			{respuestaCuatro: "Cortinas", puntuacionCuatro: 19},
-			{respuestaCinco: "Pinturas", puntuacionCinco: 6}		
-		]
-	},
-	{
-	titulo : "Menciona una característica de Michael Jackson",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Su baile", puntuacionUno: 41},
-			{respuestaDos: "Guante Blanco", puntuacionDos: 37},
-			{respuestaTres: "Su grito uhhhh", puntuacionTres: 22},
-			{respuestaCuatro: "Su vestimenta", puntuacionCuatro: 14},
-			{respuestaCinco: "Su sombrero", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Cosas que te hacen crecer la panza",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Embarazo", puntuacionUno: 38},
-			{respuestaDos: "Alcohol", puntuacionDos: 33},
-			{respuestaTres: "Las grasas", puntuacionTres: 20},
-			{respuestaCuatro: "Falta de ejercicio", puntuacionCuatro: 10},
-			{respuestaCinco: "Enfermedad", puntuacionCinco: 1}		
-		]
-	},
-	{
-	titulo : "Dinos un color que sea el nombre de una mujer",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Blanca", puntuacionUno: 28},
-			{respuestaDos: "Rosa", puntuacionDos: 22},
-			{respuestaTres: "Violeta", puntuacionTres: 14},
-			{respuestaCuatro: "Celeste", puntuacionCuatro: 11},
-			{respuestaCinco: "Azul", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Que suele hacer un niño a la hora de hacer berrinche",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Llorar", puntuacionUno: 34},
-			{respuestaDos: "Gritar", puntuacionDos: 29},
-			{respuestaTres: "Pegar", puntuacionTres: 25},
-			{respuestaCuatro: "Patalear", puntuacionCuatro: 17},
-			{respuestaCinco: "Ofender", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Departamentos de un súper mercado",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Carnes Frias", puntuacionUno: 41},
-			{respuestaDos: "Abarrotes", puntuacionDos: 30},
-			{respuestaTres: "Panadería", puntuacionTres: 24},
-			{respuestaCuatro: "Hogar", puntuacionCuatro: 11},
-			{respuestaCinco: "Jugueteria", puntuacionCinco: 6}		
-		]
-	},
-	{
-	titulo : "Cosas comunes que se compran en la tienda de la esquina",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Refresco", puntuacionUno: 47},
-			{respuestaDos: "Botana", puntuacionDos: 34},
-			{respuestaTres: "Alcohol", puntuacionTres: 27},
-			{respuestaCuatro: "Despensa Basica", puntuacionCuatro: 16},
-			{respuestaCinco: "Dulces", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "¿Que bebida es tradicional acompañar en una comida?",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Refresco", puntuacionUno: 40},
-			{respuestaDos: "Cerveza", puntuacionDos: 34},
-			{respuestaTres: "Agua", puntuacionTres: 24},
-			{respuestaCuatro: "Aguas Frescas", puntuacionCuatro: 11},
-			{respuestaCinco: "Café", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Fechas importantes para una pareja",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Dia de novios", puntuacionUno: 45},
-			{respuestaDos: "Dia de boda", puntuacionDos: 32},
-			{respuestaTres: "Cuando se conocieron", puntuacionTres: 21},
-			{respuestaCuatro: "Compromiso", puntuacionCuatro: 16},
-			{respuestaCinco: "San valentin", puntuacionCinco: 5}		
-		]
-	},
-	{
-	titulo : "Requisitos comunes para pedir empleo",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Edad", puntuacionUno: 33},
-			{respuestaDos: "Experiencia", puntuacionDos: 22},
-			{respuestaTres: "Sexo", puntuacionTres: 19},
-			{respuestaCuatro: "Disponibilidad", puntuacionCuatro: 15},
-			{respuestaCinco: "Ganas", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Beneficios de tener trabajo",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Salario", puntuacionUno: 41},
-			{respuestaDos: "Prestaciones", puntuacionDos: 33},
-			{respuestaTres: "Experiencia", puntuacionTres: 30},
-			{respuestaCuatro: "Conocer Gente", puntuacionCuatro: 18},
-			{respuestaCinco: "Hacer algo", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Que es importante considerar al elegir una carrera universitaria",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Habilidades", puntuacionUno: 39},
-			{respuestaDos: "Intereses", puntuacionDos: 26},
-			{respuestaTres: "Salario", puntuacionTres: 17},
-			{respuestaCuatro: "Oferta Laboral", puntuacionCuatro: 13},
-			{respuestaCinco: "Campus", puntuacionCinco: 10}		
-		]
-	},
-	{
-	titulo : "Operaciones que hacen en un banco",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Depositar", puntuacionUno: 40},
-			{respuestaDos: "Retirar Dinero", puntuacionDos: 38},
-			{respuestaTres: "Transferir cuenta", puntuacionTres: 29},
-			{respuestaCuatro: "Abrir cuenta", puntuacionCuatro: 11},
-			{respuestaCinco: "Cambiar cheque", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Menciona un género de televisión",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Noticiero", puntuacionUno: 35},
-			{respuestaDos: "Telenovelas", puntuacionDos: 27},
-			{respuestaTres: "Serie", puntuacionTres: 15},
-			{respuestaCuatro: "Caricaturas", puntuacionCuatro: 10},
-			{respuestaCinco: "Deportes", puntuacionCinco: 7}		
-		]
-	},
-	{
-	titulo : "Algo que suele enmarcarse",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Fotografias", puntuacionUno: 31},
-			{respuestaDos: "Pinturas", puntuacionDos: 29},
-			{respuestaTres: "Diplomas", puntuacionTres: 19},
-			{respuestaCuatro: "Titulos", puntuacionCuatro: 14},
-			{respuestaCinco: "Carteles", puntuacionCinco: 5}		
-		]
-	},
-	{
-	titulo : "Cosas que se ponen encima de una mesa de restaurante",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Platos", puntuacionUno: 35},
-			{respuestaDos: "Vasos", puntuacionDos: 28},
-			{respuestaTres: "Cubiertos", puntuacionTres: 23},
-			{respuestaCuatro: "Mantel", puntuacionCuatro: 16},
-			{respuestaCinco: "Flores", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : "Liquido que contiene una botella de plastico",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Agua", puntuacionUno: 35},
-			{respuestaDos: "Refresco", puntuacionDos: 28},
-			{respuestaTres: "Jugo", puntuacionTres: 23},
-			{respuestaCuatro: "Alcohol", puntuacionCuatro: 16},
-			{respuestaCinco: "Aceite", puntuacionCinco: 9}		
-		]
-	},
-	{
-	titulo : "Verdura que no sea de color verde",
-	tipo: "normal",
-	respuestas: [
-			{respuestaUno: "Zanahoria", puntuacionUno: 44},
-			{respuestaDos: "Coliflor", puntuacionDos: 30},
-			{respuestaTres: "Cebolla", puntuacionTres: 26},
-			{respuestaCuatro: "Ajo", puntuacionCuatro: 15},
-			{respuestaCinco: "Pimiento", puntuacionCinco: 3}		
-		]
-	},
-	/*
-	{
-	titulo : "",
-	tipo: "",
-	respuestas: [
-			{respuestaUno: "", puntuacionUno: },
-			{respuestaDos: "", puntuacionDos: },
-			{respuestaTres: "", puntuacionTres: },
-			{respuestaCuatro: "", puntuacionCuatro: },
-			{respuestaCinco: "", puntuacionCinco: }		
-		]
-	},*/
+		
 
 
-	//TERMINE LA TEMPORADA 26, EMPEZAR CON LA 27s EN ADELANTE.
 
-	//MUSICA ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		{
-	titulo : "Menciona las claves musicales mas comunes (3 respuestas).",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "Sol", puntuacionUno: 40},
-			{respuestaDos: "Fa", puntuacionDos: 30},
-			{respuestaTres: "Do", puntuacionTres: 22},
-			{respuestaCuatro: "", puntuacionCuatro: 0},
-			{respuestaCinco: "", puntuacionCinco: 0}		
-		]
-	},
-		{
-	titulo : "Menciona las claves musicales mas comunes (3 respuestas).",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "Sol", puntuacionUno: 40},
-			{respuestaDos: "Fa", puntuacionDos: 30},
-			{respuestaTres: "Do", puntuacionTres: 22},
-			{respuestaCuatro: "", puntuacionCuatro: 0},
-			{respuestaCinco: "", puntuacionCinco: 0}		
-		]
-	},
-	{
-	titulo : "Menciona armaduras mas comunes en musica.",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "Do mayor, La menor (0#)", puntuacionUno: 36},
-			{respuestaDos: "Re mayor, Si menor (2#)", puntuacionDos: 30},
-			{respuestaTres: "Fa mayor, Re menor (1b)", puntuacionTres: 22},
-			{respuestaCuatro: "Sol mayor, Mi menor (1#)", puntuacionCuatro: 17},
-			{respuestaCinco: "La mayor, f# menor (3#)", puntuacionCinco: 15}		
-		]
-	},
-	{
-	titulo : "Menciona indicadores de Compás mas comunes en musica.",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "4/4", puntuacionUno: 50},
-			{respuestaDos: "3/4", puntuacionDos: 46},
-			{respuestaTres: "2/4", puntuacionTres: 26},
-			{respuestaCuatro: "Compasillo (C)", puntuacionCuatro: 13},
-			{respuestaCinco: "Compasillo Binario (C|)", puntuacionCinco: 15}		
-		]
-	},
-	{
-	titulo : "Nombra Alteraciones Musicales.",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "Sostenido", puntuacionUno: 33},
-			{respuestaDos: "Bemol", puntuacionDos: 29},
-			{respuestaTres: "Becuadro", puntuacionTres: 20},
-			{respuestaCuatro: "Doble Sostenido (x)", puntuacionCuatro: 5},
-			{respuestaCinco: "Doble Bemol (bb)", puntuacionCinco: 2}		
-		]
-	},
-	{
-	titulo : "Nombra Articulaciones que podrias encontrar en una partitura.",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "Staccato (.)", puntuacionUno: 46},
-			{respuestaDos: "Tenuto (-)", puntuacionDos: 37},
-			{respuestaTres: "Marcato (v)", puntuacionTres: 18},
-			{respuestaCuatro: "Trino (tr)", puntuacionCuatro: 15},
-			{respuestaCinco: "Calderón (c.)", puntuacionCinco: 10}		
-		]
-	},
-	{
-	titulo : "Menciona las notas musicales.",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "Corchea", puntuacionUno: 30},
-			{respuestaDos: "Negra", puntuacionDos: 27},
-			{respuestaTres: "Redonda", puntuacionTres: 25},
-			{respuestaCuatro: "Blanca", puntuacionCuatro: 10},
-			{respuestaCinco: "Cuadrada", puntuacionCinco: 1}		
-		]
-	},
-	{
-	titulo : "Menciona barra de compas que encuentras en una Partitura (3 respuestas).",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "Repeticion", puntuacionUno: 45},
-			{respuestaDos: "Barra Final", puntuacionDos: 30},
-			{respuestaTres: "Barra de compas", puntuacionTres: 27},
-			{respuestaCuatro: "", puntuacionCuatro: 0},
-			{respuestaCinco: "", puntuacionCinco: 0}		
-		]
-	},
-	{
-	titulo : "Menciona dinámicas mas utilizadas.",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "Forte", puntuacionUno: 50},
-			{respuestaDos: "Piano", puntuacionDos: 45},
-			{respuestaTres: "MezzoPiano", puntuacionTres: 30},
-			{respuestaCuatro: "MezzoForte", puntuacionCuatro: 25},
-			{respuestaCinco: "Fortísimo", puntuacionCinco: 10}		
-		]
-	},
-	{
-	titulo : "Menciona mejores compositores de música clásica.",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "Wolfgang Amadeus Mozart", puntuacionUno: 46},
-			{respuestaDos: "Ludwig van Beethoven", puntuacionDos: 44},
-			{respuestaTres: "Vivaldi", puntuacionTres: 38},
-			{respuestaCuatro: "Chopin", puntuacionCuatro: 30},
-			{respuestaCinco: "Johann Sebastian Bach", puntuacionCinco: 28}		
-		]
-	},
-	{
-	titulo : "Menciona las notas principales que forman el acorde de Sol mayor (3 respuestas).",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "Sol", puntuacionUno: 33},
-			{respuestaDos: "Si", puntuacionDos: 28},
-			{respuestaTres: "Re", puntuacionTres: 17},
-			{respuestaCuatro: "", puntuacionCuatro: 0},
-			{respuestaCinco: "", puntuacionCinco: 0}		
-		]
-	},
-	{
-	titulo : "Menciona las notas principales que forman el acorde de Re mayor (3 respuestas).",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "Re", puntuacionUno: 45},
-			{respuestaDos: "Fa#", puntuacionDos: 38},
-			{respuestaTres: "La", puntuacionTres: 36},
-			{respuestaCuatro: "", puntuacionCuatro: 0},
-			{respuestaCinco: "", puntuacionCinco: 0}		
-		]
-	},
-	{
-	titulo : "Menciona las notas principales que forman el acorde de Do mayor (3 respuestas).",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "Do", puntuacionUno: 20},
-			{respuestaDos: "Mi", puntuacionDos: 17},
-			{respuestaTres: "Sol", puntuacionTres: 14},
-			{respuestaCuatro: "", puntuacionCuatro: 0},
-			{respuestaCinco: "", puntuacionCinco: 0}		
-		]
-	},
-	{
-	titulo : "Menciona las notas principales que forman el acorde de La menor (3 respuestas).",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "La", puntuacionUno: 60},
-			{respuestaDos: "Do", puntuacionDos: 40},
-			{respuestaTres: "Mi", puntuacionTres: 36},
-			{respuestaCuatro: "", puntuacionCuatro: 0},
-			{respuestaCinco: "", puntuacionCinco: 0}		
-		]
-	},
-	{
-	titulo : "Menciona instrumentos que mas famosos en una orquesta.",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "Violin", puntuacionUno: 36},
-			{respuestaDos: "Cello", puntuacionDos: 34},
-			{respuestaTres: "Trompeta", puntuacionTres: 28},
-			{respuestaCuatro: "Piano", puntuacionCuatro: 24},
-			{respuestaCinco: "Viola c:", puntuacionCinco: 1}		
-		]
-	},
-	{
-	titulo : "Menciona instrumentos de cuerda Frotada (4 respuestas).",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "Violin", puntuacionUno: 24},
-			{respuestaDos: "Cello", puntuacionDos: 20},
-			{respuestaTres: "Viola", puntuacionTres: 13},
-			{respuestaCuatro: "Contra Bajo", puntuacionCuatro: 8},
-			{respuestaCinco: "", puntuacionCinco: 0}		
-		]
-	},
-	{
-	titulo : "Menciona instrumentos de cuerda Pulsada.",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "Guitarra", puntuacionUno: 34},
-			{respuestaDos: "Arpa", puntuacionDos: 28},
-			{respuestaTres: "Banjo", puntuacionTres: 20},
-			{respuestaCuatro: "Tololoche", puntuacionCuatro: 17},
-			{respuestaCinco: "Mandolina", puntuacionCinco: 12}		
-		]
-	},
-	{
-	titulo : "Menciona instrumentos de Aliento",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "Trompeta", puntuacionUno: 32},
-			{respuestaDos: "Flauta", puntuacionDos: 28},
-			{respuestaTres: "Clarinete", puntuacionTres: 23},
-			{respuestaCuatro: "Oboe", puntuacionCuatro: 17},
-			{respuestaCinco: "Fagot", puntuacionCinco: 4}		
-		]
-	},
-	{
-	titulo : "Menciona las secciones de una orquesta (4 respuestas).",
-	tipo: "musica",
-	respuestas: [
-			{respuestaUno: "Cuerdas", puntuacionUno: 40},
-			{respuestaDos: "Maderas", puntuacionDos: 36},
-			{respuestaTres: "Metales", puntuacionTres: 28},
-			{respuestaCuatro: "Percusiones", puntuacionCuatro: 15},
-			{respuestaCinco: "", puntuacionCinco: 0}		
-		]
-	}
-]
+
+
+
+
+
+
+
+
+
+
+
+
 
 var sonido = new Audio();
 sonido.src="mp3/correcto.mp3";
@@ -17014,6886 +16897,5 @@ document.getElementById("vida183C").innerHTML = vidasCambio;
 }
 }
 //----------------------------------------------
-var paseA184=true;
-function funcionesA184(){
-if (paseA184 == true){
-puntuacionUnoR = preguntas[184].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA184 = false;
-}
-}
-var paseB184=true;
-function funcionesB184(){
-if (paseB184 == true){
-puntuacionUnoR = preguntas[184].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB184 = false;
-}
-}
-var paseC184=true;
-function funcionesC184(){
-if (paseC184 == true){
-puntuacionUnoR = preguntas[184].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC184 = false;
-}
-}
-var paseD184=true;
-function funcionesD184(){
-if (paseD184 == true){
-puntuacionUnoR = preguntas[184].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD184 = false;
-}
-}
-var paseE184=true;
-function funcionesE184(){
-if (paseE184 == true){
-puntuacionUnoR = preguntas[184].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE184 = false;
-}
-}
-//----------------------------------------------
-function vidas184(){
-if(conteoVidas == 0){
-document.getElementById("vida184A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida184B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida184C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA185=true;
-function funcionesA185(){
-if (paseA185 == true){
-puntuacionUnoR = preguntas[185].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA185 = false;
-}
-}
-var paseB185=true;
-function funcionesB185(){
-if (paseB185 == true){
-puntuacionUnoR = preguntas[185].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB185 = false;
-}
-}
-var paseC185=true;
-function funcionesC185(){
-if (paseC185 == true){
-puntuacionUnoR = preguntas[185].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC185 = false;
-}
-}
-var paseD185=true;
-function funcionesD185(){
-if (paseD185 == true){
-puntuacionUnoR = preguntas[185].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD185 = false;
-}
-}
-var paseE185=true;
-function funcionesE185(){
-if (paseE185 == true){
-puntuacionUnoR = preguntas[185].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE185 = false;
-}
-}
-//----------------------------------------------
-function vidas185(){
-if(conteoVidas == 0){
-document.getElementById("vida185A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida185B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida185C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA186=true;
-function funcionesA186(){
-if (paseA186 == true){
-puntuacionUnoR = preguntas[186].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA186 = false;
-}
-}
-var paseB186=true;
-function funcionesB186(){
-if (paseB186 == true){
-puntuacionUnoR = preguntas[186].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB186 = false;
-}
-}
-var paseC186=true;
-function funcionesC186(){
-if (paseC186 == true){
-puntuacionUnoR = preguntas[186].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC186 = false;
-}
-}
-var paseD186=true;
-function funcionesD186(){
-if (paseD186 == true){
-puntuacionUnoR = preguntas[186].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD186 = false;
-}
-}
-var paseE186=true;
-function funcionesE186(){
-if (paseE186 == true){
-puntuacionUnoR = preguntas[186].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE186 = false;
-}
-}
-//----------------------------------------------
-function vidas186(){
-if(conteoVidas == 0){
-document.getElementById("vida186A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida186B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida186C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA187=true;
-function funcionesA187(){
-if (paseA187 == true){
-puntuacionUnoR = preguntas[187].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA187 = false;
-}
-}
-var paseB187=true;
-function funcionesB187(){
-if (paseB187 == true){
-puntuacionUnoR = preguntas[187].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB187 = false;
-}
-}
-var paseC187=true;
-function funcionesC187(){
-if (paseC187 == true){
-puntuacionUnoR = preguntas[187].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC187 = false;
-}
-}
-var paseD187=true;
-function funcionesD187(){
-if (paseD187 == true){
-puntuacionUnoR = preguntas[187].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD187 = false;
-}
-}
-var paseE187=true;
-function funcionesE187(){
-if (paseE187 == true){
-puntuacionUnoR = preguntas[187].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE187 = false;
-}
-}
-//----------------------------------------------
-function vidas187(){
-if(conteoVidas == 0){
-document.getElementById("vida187A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida187B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida187C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA188=true;
-function funcionesA188(){
-if (paseA188 == true){
-puntuacionUnoR = preguntas[188].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA188 = false;
-}
-}
-var paseB188=true;
-function funcionesB188(){
-if (paseB188 == true){
-puntuacionUnoR = preguntas[188].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB188 = false;
-}
-}
-var paseC188=true;
-function funcionesC188(){
-if (paseC188 == true){
-puntuacionUnoR = preguntas[188].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC188 = false;
-}
-}
-var paseD188=true;
-function funcionesD188(){
-if (paseD188 == true){
-puntuacionUnoR = preguntas[188].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD188 = false;
-}
-}
-var paseE188=true;
-function funcionesE188(){
-if (paseE188 == true){
-puntuacionUnoR = preguntas[188].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE188 = false;
-}
-}
-//----------------------------------------------
-function vidas188(){
-if(conteoVidas == 0){
-document.getElementById("vida188A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida188B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida188C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA189=true;
-function funcionesA189(){
-if (paseA189 == true){
-puntuacionUnoR = preguntas[189].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA189 = false;
-}
-}
-var paseB189=true;
-function funcionesB189(){
-if (paseB189 == true){
-puntuacionUnoR = preguntas[189].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB189 = false;
-}
-}
-var paseC189=true;
-function funcionesC189(){
-if (paseC189 == true){
-puntuacionUnoR = preguntas[189].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC189 = false;
-}
-}
-var paseD189=true;
-function funcionesD189(){
-if (paseD189 == true){
-puntuacionUnoR = preguntas[189].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD189 = false;
-}
-}
-var paseE189=true;
-function funcionesE189(){
-if (paseE189 == true){
-puntuacionUnoR = preguntas[189].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE189 = false;
-}
-}
-//----------------------------------------------
-function vidas189(){
-if(conteoVidas == 0){
-document.getElementById("vida189A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida189B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida189C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA190=true;
-function funcionesA190(){
-if (paseA190 == true){
-puntuacionUnoR = preguntas[190].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA190 = false;
-}
-}
-var paseB190=true;
-function funcionesB190(){
-if (paseB190 == true){
-puntuacionUnoR = preguntas[190].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB190 = false;
-}
-}
-var paseC190=true;
-function funcionesC190(){
-if (paseC190 == true){
-puntuacionUnoR = preguntas[190].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC190 = false;
-}
-}
-var paseD190=true;
-function funcionesD190(){
-if (paseD190 == true){
-puntuacionUnoR = preguntas[190].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD190 = false;
-}
-}
-var paseE190=true;
-function funcionesE190(){
-if (paseE190 == true){
-puntuacionUnoR = preguntas[190].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE190 = false;
-}
-}
-//----------------------------------------------
-function vidas190(){
-if(conteoVidas == 0){
-document.getElementById("vida190A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida190B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida190C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA191=true;
-function funcionesA191(){
-if (paseA191 == true){
-puntuacionUnoR = preguntas[191].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA191 = false;
-}
-}
-var paseB191=true;
-function funcionesB191(){
-if (paseB191 == true){
-puntuacionUnoR = preguntas[191].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB191 = false;
-}
-}
-var paseC191=true;
-function funcionesC191(){
-if (paseC191 == true){
-puntuacionUnoR = preguntas[191].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC191 = false;
-}
-}
-var paseD191=true;
-function funcionesD191(){
-if (paseD191 == true){
-puntuacionUnoR = preguntas[191].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD191 = false;
-}
-}
-var paseE191=true;
-function funcionesE191(){
-if (paseE191 == true){
-puntuacionUnoR = preguntas[191].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE191 = false;
-}
-}
-//----------------------------------------------
-function vidas191(){
-if(conteoVidas == 0){
-document.getElementById("vida191A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida191B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida191C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA192=true;
-function funcionesA192(){
-if (paseA192 == true){
-puntuacionUnoR = preguntas[192].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA192 = false;
-}
-}
-var paseB192=true;
-function funcionesB192(){
-if (paseB192 == true){
-puntuacionUnoR = preguntas[192].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB192 = false;
-}
-}
-var paseC192=true;
-function funcionesC192(){
-if (paseC192 == true){
-puntuacionUnoR = preguntas[192].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC192 = false;
-}
-}
-var paseD192=true;
-function funcionesD192(){
-if (paseD192 == true){
-puntuacionUnoR = preguntas[192].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD192 = false;
-}
-}
-var paseE192=true;
-function funcionesE192(){
-if (paseE192 == true){
-puntuacionUnoR = preguntas[192].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE192 = false;
-}
-}
-//----------------------------------------------
-function vidas192(){
-if(conteoVidas == 0){
-document.getElementById("vida192A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida192B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida192C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA193=true;
-function funcionesA193(){
-if (paseA193 == true){
-puntuacionUnoR = preguntas[193].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA193 = false;
-}
-}
-var paseB193=true;
-function funcionesB193(){
-if (paseB193 == true){
-puntuacionUnoR = preguntas[193].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB193 = false;
-}
-}
-var paseC193=true;
-function funcionesC193(){
-if (paseC193 == true){
-puntuacionUnoR = preguntas[193].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC193 = false;
-}
-}
-var paseD193=true;
-function funcionesD193(){
-if (paseD193 == true){
-puntuacionUnoR = preguntas[193].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD193 = false;
-}
-}
-var paseE193=true;
-function funcionesE193(){
-if (paseE193 == true){
-puntuacionUnoR = preguntas[193].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE193 = false;
-}
-}
-//----------------------------------------------
-function vidas193(){
-if(conteoVidas == 0){
-document.getElementById("vida193A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida193B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida193C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA194=true;
-function funcionesA194(){
-if (paseA194 == true){
-puntuacionUnoR = preguntas[194].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA194 = false;
-}
-}
-var paseB194=true;
-function funcionesB194(){
-if (paseB194 == true){
-puntuacionUnoR = preguntas[194].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB194 = false;
-}
-}
-var paseC194=true;
-function funcionesC194(){
-if (paseC194 == true){
-puntuacionUnoR = preguntas[194].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC194 = false;
-}
-}
-var paseD194=true;
-function funcionesD194(){
-if (paseD194 == true){
-puntuacionUnoR = preguntas[194].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD194 = false;
-}
-}
-var paseE194=true;
-function funcionesE194(){
-if (paseE194 == true){
-puntuacionUnoR = preguntas[194].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE194 = false;
-}
-}
-//----------------------------------------------
-function vidas194(){
-if(conteoVidas == 0){
-document.getElementById("vida194A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida194B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida194C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA195=true;
-function funcionesA195(){
-if (paseA195 == true){
-puntuacionUnoR = preguntas[195].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA195 = false;
-}
-}
-var paseB195=true;
-function funcionesB195(){
-if (paseB195 == true){
-puntuacionUnoR = preguntas[195].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB195 = false;
-}
-}
-var paseC195=true;
-function funcionesC195(){
-if (paseC195 == true){
-puntuacionUnoR = preguntas[195].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC195 = false;
-}
-}
-var paseD195=true;
-function funcionesD195(){
-if (paseD195 == true){
-puntuacionUnoR = preguntas[195].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD195 = false;
-}
-}
-var paseE195=true;
-function funcionesE195(){
-if (paseE195 == true){
-puntuacionUnoR = preguntas[195].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE195 = false;
-}
-}
-//----------------------------------------------
-function vidas195(){
-if(conteoVidas == 0){
-document.getElementById("vida195A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida195B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida195C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA196=true;
-function funcionesA196(){
-if (paseA196 == true){
-puntuacionUnoR = preguntas[196].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA196 = false;
-}
-}
-var paseB196=true;
-function funcionesB196(){
-if (paseB196 == true){
-puntuacionUnoR = preguntas[196].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB196 = false;
-}
-}
-var paseC196=true;
-function funcionesC196(){
-if (paseC196 == true){
-puntuacionUnoR = preguntas[196].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC196 = false;
-}
-}
-var paseD196=true;
-function funcionesD196(){
-if (paseD196 == true){
-puntuacionUnoR = preguntas[196].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD196 = false;
-}
-}
-var paseE196=true;
-function funcionesE196(){
-if (paseE196 == true){
-puntuacionUnoR = preguntas[196].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE196 = false;
-}
-}
-//----------------------------------------------
-function vidas196(){
-if(conteoVidas == 0){
-document.getElementById("vida196A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida196B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida196C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA197=true;
-function funcionesA197(){
-if (paseA197 == true){
-puntuacionUnoR = preguntas[197].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA197 = false;
-}
-}
-var paseB197=true;
-function funcionesB197(){
-if (paseB197 == true){
-puntuacionUnoR = preguntas[197].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB197 = false;
-}
-}
-var paseC197=true;
-function funcionesC197(){
-if (paseC197 == true){
-puntuacionUnoR = preguntas[197].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC197 = false;
-}
-}
-var paseD197=true;
-function funcionesD197(){
-if (paseD197 == true){
-puntuacionUnoR = preguntas[197].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD197 = false;
-}
-}
-var paseE197=true;
-function funcionesE197(){
-if (paseE197 == true){
-puntuacionUnoR = preguntas[197].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE197 = false;
-}
-}
-//----------------------------------------------
-function vidas197(){
-if(conteoVidas == 0){
-document.getElementById("vida197A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida197B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida197C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA198=true;
-function funcionesA198(){
-if (paseA198 == true){
-puntuacionUnoR = preguntas[198].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA198 = false;
-}
-}
-var paseB198=true;
-function funcionesB198(){
-if (paseB198 == true){
-puntuacionUnoR = preguntas[198].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB198 = false;
-}
-}
-var paseC198=true;
-function funcionesC198(){
-if (paseC198 == true){
-puntuacionUnoR = preguntas[198].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC198 = false;
-}
-}
-var paseD198=true;
-function funcionesD198(){
-if (paseD198 == true){
-puntuacionUnoR = preguntas[198].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD198 = false;
-}
-}
-var paseE198=true;
-function funcionesE198(){
-if (paseE198 == true){
-puntuacionUnoR = preguntas[198].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE198 = false;
-}
-}
-//----------------------------------------------
-function vidas198(){
-if(conteoVidas == 0){
-document.getElementById("vida198A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida198B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida198C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA199=true;
-function funcionesA199(){
-if (paseA199 == true){
-puntuacionUnoR = preguntas[199].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA199 = false;
-}
-}
-var paseB199=true;
-function funcionesB199(){
-if (paseB199 == true){
-puntuacionUnoR = preguntas[199].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB199 = false;
-}
-}
-var paseC199=true;
-function funcionesC199(){
-if (paseC199 == true){
-puntuacionUnoR = preguntas[199].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC199 = false;
-}
-}
-var paseD199=true;
-function funcionesD199(){
-if (paseD199 == true){
-puntuacionUnoR = preguntas[199].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD199 = false;
-}
-}
-var paseE199=true;
-function funcionesE199(){
-if (paseE199 == true){
-puntuacionUnoR = preguntas[199].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE199 = false;
-}
-}
-//----------------------------------------------
-function vidas199(){
-if(conteoVidas == 0){
-document.getElementById("vida199A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida199B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida199C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA200=true;
-function funcionesA200(){
-if (paseA200 == true){
-puntuacionUnoR = preguntas[200].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA200 = false;
-}
-}
-var paseB200=true;
-function funcionesB200(){
-if (paseB200 == true){
-puntuacionUnoR = preguntas[200].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB200 = false;
-}
-}
-var paseC200=true;
-function funcionesC200(){
-if (paseC200 == true){
-puntuacionUnoR = preguntas[200].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC200 = false;
-}
-}
-var paseD200=true;
-function funcionesD200(){
-if (paseD200 == true){
-puntuacionUnoR = preguntas[200].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD200 = false;
-}
-}
-var paseE200=true;
-function funcionesE200(){
-if (paseE200 == true){
-puntuacionUnoR = preguntas[200].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE200 = false;
-}
-}
-//----------------------------------------------
-function vidas200(){
-if(conteoVidas == 0){
-document.getElementById("vida200A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida200B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida200C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA201=true;
-function funcionesA201(){
-if (paseA201 == true){
-puntuacionUnoR = preguntas[201].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA201 = false;
-}
-}
-var paseB201=true;
-function funcionesB201(){
-if (paseB201 == true){
-puntuacionUnoR = preguntas[201].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB201 = false;
-}
-}
-var paseC201=true;
-function funcionesC201(){
-if (paseC201 == true){
-puntuacionUnoR = preguntas[201].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC201 = false;
-}
-}
-var paseD201=true;
-function funcionesD201(){
-if (paseD201 == true){
-puntuacionUnoR = preguntas[201].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD201 = false;
-}
-}
-var paseE201=true;
-function funcionesE201(){
-if (paseE201 == true){
-puntuacionUnoR = preguntas[201].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE201 = false;
-}
-}
-//----------------------------------------------
-function vidas201(){
-if(conteoVidas == 0){
-document.getElementById("vida201A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida201B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida201C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA202=true;
-function funcionesA202(){
-if (paseA202 == true){
-puntuacionUnoR = preguntas[202].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA202 = false;
-}
-}
-var paseB202=true;
-function funcionesB202(){
-if (paseB202 == true){
-puntuacionUnoR = preguntas[202].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB202 = false;
-}
-}
-var paseC202=true;
-function funcionesC202(){
-if (paseC202 == true){
-puntuacionUnoR = preguntas[202].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC202 = false;
-}
-}
-var paseD202=true;
-function funcionesD202(){
-if (paseD202 == true){
-puntuacionUnoR = preguntas[202].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD202 = false;
-}
-}
-var paseE202=true;
-function funcionesE202(){
-if (paseE202 == true){
-puntuacionUnoR = preguntas[202].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE202 = false;
-}
-}
-//----------------------------------------------
-function vidas202(){
-if(conteoVidas == 0){
-document.getElementById("vida202A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida202B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida202C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA203=true;
-function funcionesA203(){
-if (paseA203 == true){
-puntuacionUnoR = preguntas[203].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA203 = false;
-}
-}
-var paseB203=true;
-function funcionesB203(){
-if (paseB203 == true){
-puntuacionUnoR = preguntas[203].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB203 = false;
-}
-}
-var paseC203=true;
-function funcionesC203(){
-if (paseC203 == true){
-puntuacionUnoR = preguntas[203].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC203 = false;
-}
-}
-var paseD203=true;
-function funcionesD203(){
-if (paseD203 == true){
-puntuacionUnoR = preguntas[203].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD203 = false;
-}
-}
-var paseE203=true;
-function funcionesE203(){
-if (paseE203 == true){
-puntuacionUnoR = preguntas[203].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE203 = false;
-}
-}
-//----------------------------------------------
-function vidas203(){
-if(conteoVidas == 0){
-document.getElementById("vida203A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida203B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida203C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA204=true;
-function funcionesA204(){
-if (paseA204 == true){
-puntuacionUnoR = preguntas[204].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA204 = false;
-}
-}
-var paseB204=true;
-function funcionesB204(){
-if (paseB204 == true){
-puntuacionUnoR = preguntas[204].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB204 = false;
-}
-}
-var paseC204=true;
-function funcionesC204(){
-if (paseC204 == true){
-puntuacionUnoR = preguntas[204].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC204 = false;
-}
-}
-var paseD204=true;
-function funcionesD204(){
-if (paseD204 == true){
-puntuacionUnoR = preguntas[204].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD204 = false;
-}
-}
-var paseE204=true;
-function funcionesE204(){
-if (paseE204 == true){
-puntuacionUnoR = preguntas[204].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE204 = false;
-}
-}
-//----------------------------------------------
-function vidas204(){
-if(conteoVidas == 0){
-document.getElementById("vida204A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida204B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida204C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA205=true;
-function funcionesA205(){
-if (paseA205 == true){
-puntuacionUnoR = preguntas[205].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA205 = false;
-}
-}
-var paseB205=true;
-function funcionesB205(){
-if (paseB205 == true){
-puntuacionUnoR = preguntas[205].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB205 = false;
-}
-}
-var paseC205=true;
-function funcionesC205(){
-if (paseC205 == true){
-puntuacionUnoR = preguntas[205].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC205 = false;
-}
-}
-var paseD205=true;
-function funcionesD205(){
-if (paseD205 == true){
-puntuacionUnoR = preguntas[205].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD205 = false;
-}
-}
-var paseE205=true;
-function funcionesE205(){
-if (paseE205 == true){
-puntuacionUnoR = preguntas[205].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE205 = false;
-}
-}
-//----------------------------------------------
-function vidas205(){
-if(conteoVidas == 0){
-document.getElementById("vida205A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida205B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida205C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA206=true;
-function funcionesA206(){
-if (paseA206 == true){
-puntuacionUnoR = preguntas[206].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA206 = false;
-}
-}
-var paseB206=true;
-function funcionesB206(){
-if (paseB206 == true){
-puntuacionUnoR = preguntas[206].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB206 = false;
-}
-}
-var paseC206=true;
-function funcionesC206(){
-if (paseC206 == true){
-puntuacionUnoR = preguntas[206].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC206 = false;
-}
-}
-var paseD206=true;
-function funcionesD206(){
-if (paseD206 == true){
-puntuacionUnoR = preguntas[206].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD206 = false;
-}
-}
-var paseE206=true;
-function funcionesE206(){
-if (paseE206 == true){
-puntuacionUnoR = preguntas[206].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE206 = false;
-}
-}
-//----------------------------------------------
-function vidas206(){
-if(conteoVidas == 0){
-document.getElementById("vida206A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida206B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida206C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA207=true;
-function funcionesA207(){
-if (paseA207 == true){
-puntuacionUnoR = preguntas[207].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA207 = false;
-}
-}
-var paseB207=true;
-function funcionesB207(){
-if (paseB207 == true){
-puntuacionUnoR = preguntas[207].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB207 = false;
-}
-}
-var paseC207=true;
-function funcionesC207(){
-if (paseC207 == true){
-puntuacionUnoR = preguntas[207].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC207 = false;
-}
-}
-var paseD207=true;
-function funcionesD207(){
-if (paseD207 == true){
-puntuacionUnoR = preguntas[207].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD207 = false;
-}
-}
-var paseE207=true;
-function funcionesE207(){
-if (paseE207 == true){
-puntuacionUnoR = preguntas[207].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE207 = false;
-}
-}
-//----------------------------------------------
-function vidas207(){
-if(conteoVidas == 0){
-document.getElementById("vida207A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida207B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida207C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA208=true;
-function funcionesA208(){
-if (paseA208 == true){
-puntuacionUnoR = preguntas[208].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA208 = false;
-}
-}
-var paseB208=true;
-function funcionesB208(){
-if (paseB208 == true){
-puntuacionUnoR = preguntas[208].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB208 = false;
-}
-}
-var paseC208=true;
-function funcionesC208(){
-if (paseC208 == true){
-puntuacionUnoR = preguntas[208].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC208 = false;
-}
-}
-var paseD208=true;
-function funcionesD208(){
-if (paseD208 == true){
-puntuacionUnoR = preguntas[208].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD208 = false;
-}
-}
-var paseE208=true;
-function funcionesE208(){
-if (paseE208 == true){
-puntuacionUnoR = preguntas[208].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE208 = false;
-}
-}
-//----------------------------------------------
-function vidas208(){
-if(conteoVidas == 0){
-document.getElementById("vida208A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida208B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida208C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA209=true;
-function funcionesA209(){
-if (paseA209 == true){
-puntuacionUnoR = preguntas[209].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA209 = false;
-}
-}
-var paseB209=true;
-function funcionesB209(){
-if (paseB209 == true){
-puntuacionUnoR = preguntas[209].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB209 = false;
-}
-}
-var paseC209=true;
-function funcionesC209(){
-if (paseC209 == true){
-puntuacionUnoR = preguntas[209].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC209 = false;
-}
-}
-var paseD209=true;
-function funcionesD209(){
-if (paseD209 == true){
-puntuacionUnoR = preguntas[209].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD209 = false;
-}
-}
-var paseE209=true;
-function funcionesE209(){
-if (paseE209 == true){
-puntuacionUnoR = preguntas[209].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE209 = false;
-}
-}
-//----------------------------------------------
-function vidas209(){
-if(conteoVidas == 0){
-document.getElementById("vida209A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida209B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida209C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA210=true;
-function funcionesA210(){
-if (paseA210 == true){
-puntuacionUnoR = preguntas[210].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA210 = false;
-}
-}
-var paseB210=true;
-function funcionesB210(){
-if (paseB210 == true){
-puntuacionUnoR = preguntas[210].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB210 = false;
-}
-}
-var paseC210=true;
-function funcionesC210(){
-if (paseC210 == true){
-puntuacionUnoR = preguntas[210].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC210 = false;
-}
-}
-var paseD210=true;
-function funcionesD210(){
-if (paseD210 == true){
-puntuacionUnoR = preguntas[210].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD210 = false;
-}
-}
-var paseE210=true;
-function funcionesE210(){
-if (paseE210 == true){
-puntuacionUnoR = preguntas[210].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE210 = false;
-}
-}
-//----------------------------------------------
-function vidas210(){
-if(conteoVidas == 0){
-document.getElementById("vida210A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida210B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida210C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA211=true;
-function funcionesA211(){
-if (paseA211 == true){
-puntuacionUnoR = preguntas[211].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA211 = false;
-}
-}
-var paseB211=true;
-function funcionesB211(){
-if (paseB211 == true){
-puntuacionUnoR = preguntas[211].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB211 = false;
-}
-}
-var paseC211=true;
-function funcionesC211(){
-if (paseC211 == true){
-puntuacionUnoR = preguntas[211].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC211 = false;
-}
-}
-var paseD211=true;
-function funcionesD211(){
-if (paseD211 == true){
-puntuacionUnoR = preguntas[211].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD211 = false;
-}
-}
-var paseE211=true;
-function funcionesE211(){
-if (paseE211 == true){
-puntuacionUnoR = preguntas[211].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE211 = false;
-}
-}
-//----------------------------------------------
-function vidas211(){
-if(conteoVidas == 0){
-document.getElementById("vida211A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida211B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida211C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA212=true;
-function funcionesA212(){
-if (paseA212 == true){
-puntuacionUnoR = preguntas[212].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA212 = false;
-}
-}
-var paseB212=true;
-function funcionesB212(){
-if (paseB212 == true){
-puntuacionUnoR = preguntas[212].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB212 = false;
-}
-}
-var paseC212=true;
-function funcionesC212(){
-if (paseC212 == true){
-puntuacionUnoR = preguntas[212].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC212 = false;
-}
-}
-var paseD212=true;
-function funcionesD212(){
-if (paseD212 == true){
-puntuacionUnoR = preguntas[212].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD212 = false;
-}
-}
-var paseE212=true;
-function funcionesE212(){
-if (paseE212 == true){
-puntuacionUnoR = preguntas[212].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE212 = false;
-}
-}
-//----------------------------------------------
-function vidas212(){
-if(conteoVidas == 0){
-document.getElementById("vida212A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida212B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida212C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA213=true;
-function funcionesA213(){
-if (paseA213 == true){
-puntuacionUnoR = preguntas[213].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA213 = false;
-}
-}
-var paseB213=true;
-function funcionesB213(){
-if (paseB213 == true){
-puntuacionUnoR = preguntas[213].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB213 = false;
-}
-}
-var paseC213=true;
-function funcionesC213(){
-if (paseC213 == true){
-puntuacionUnoR = preguntas[213].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC213 = false;
-}
-}
-var paseD213=true;
-function funcionesD213(){
-if (paseD213 == true){
-puntuacionUnoR = preguntas[213].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD213 = false;
-}
-}
-var paseE213=true;
-function funcionesE213(){
-if (paseE213 == true){
-puntuacionUnoR = preguntas[213].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE213 = false;
-}
-}
-//----------------------------------------------
-function vidas213(){
-if(conteoVidas == 0){
-document.getElementById("vida213A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida213B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida213C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA214=true;
-function funcionesA214(){
-if (paseA214 == true){
-puntuacionUnoR = preguntas[214].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA214 = false;
-}
-}
-var paseB214=true;
-function funcionesB214(){
-if (paseB214 == true){
-puntuacionUnoR = preguntas[214].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB214 = false;
-}
-}
-var paseC214=true;
-function funcionesC214(){
-if (paseC214 == true){
-puntuacionUnoR = preguntas[214].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC214 = false;
-}
-}
-var paseD214=true;
-function funcionesD214(){
-if (paseD214 == true){
-puntuacionUnoR = preguntas[214].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD214 = false;
-}
-}
-var paseE214=true;
-function funcionesE214(){
-if (paseE214 == true){
-puntuacionUnoR = preguntas[214].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE214 = false;
-}
-}
-//----------------------------------------------
-function vidas214(){
-if(conteoVidas == 0){
-document.getElementById("vida214A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida214B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida214C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA215=true;
-function funcionesA215(){
-if (paseA215 == true){
-puntuacionUnoR = preguntas[215].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA215 = false;
-}
-}
-var paseB215=true;
-function funcionesB215(){
-if (paseB215 == true){
-puntuacionUnoR = preguntas[215].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB215 = false;
-}
-}
-var paseC215=true;
-function funcionesC215(){
-if (paseC215 == true){
-puntuacionUnoR = preguntas[215].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC215 = false;
-}
-}
-var paseD215=true;
-function funcionesD215(){
-if (paseD215 == true){
-puntuacionUnoR = preguntas[215].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD215 = false;
-}
-}
-var paseE215=true;
-function funcionesE215(){
-if (paseE215 == true){
-puntuacionUnoR = preguntas[215].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE215 = false;
-}
-}
-//----------------------------------------------
-function vidas215(){
-if(conteoVidas == 0){
-document.getElementById("vida215A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida215B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida215C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA216=true;
-function funcionesA216(){
-if (paseA216 == true){
-puntuacionUnoR = preguntas[216].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA216 = false;
-}
-}
-var paseB216=true;
-function funcionesB216(){
-if (paseB216 == true){
-puntuacionUnoR = preguntas[216].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB216 = false;
-}
-}
-var paseC216=true;
-function funcionesC216(){
-if (paseC216 == true){
-puntuacionUnoR = preguntas[216].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC216 = false;
-}
-}
-var paseD216=true;
-function funcionesD216(){
-if (paseD216 == true){
-puntuacionUnoR = preguntas[216].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD216 = false;
-}
-}
-var paseE216=true;
-function funcionesE216(){
-if (paseE216 == true){
-puntuacionUnoR = preguntas[216].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE216 = false;
-}
-}
-//----------------------------------------------
-function vidas216(){
-if(conteoVidas == 0){
-document.getElementById("vida216A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida216B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida216C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA217=true;
-function funcionesA217(){
-if (paseA217 == true){
-puntuacionUnoR = preguntas[217].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA217 = false;
-}
-}
-var paseB217=true;
-function funcionesB217(){
-if (paseB217 == true){
-puntuacionUnoR = preguntas[217].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB217 = false;
-}
-}
-var paseC217=true;
-function funcionesC217(){
-if (paseC217 == true){
-puntuacionUnoR = preguntas[217].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC217 = false;
-}
-}
-var paseD217=true;
-function funcionesD217(){
-if (paseD217 == true){
-puntuacionUnoR = preguntas[217].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD217 = false;
-}
-}
-var paseE217=true;
-function funcionesE217(){
-if (paseE217 == true){
-puntuacionUnoR = preguntas[217].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE217 = false;
-}
-}
-//----------------------------------------------
-function vidas217(){
-if(conteoVidas == 0){
-document.getElementById("vida217A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida217B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida217C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA218=true;
-function funcionesA218(){
-if (paseA218 == true){
-puntuacionUnoR = preguntas[218].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA218 = false;
-}
-}
-var paseB218=true;
-function funcionesB218(){
-if (paseB218 == true){
-puntuacionUnoR = preguntas[218].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB218 = false;
-}
-}
-var paseC218=true;
-function funcionesC218(){
-if (paseC218 == true){
-puntuacionUnoR = preguntas[218].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC218 = false;
-}
-}
-var paseD218=true;
-function funcionesD218(){
-if (paseD218 == true){
-puntuacionUnoR = preguntas[218].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD218 = false;
-}
-}
-var paseE218=true;
-function funcionesE218(){
-if (paseE218 == true){
-puntuacionUnoR = preguntas[218].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE218 = false;
-}
-}
-//----------------------------------------------
-function vidas218(){
-if(conteoVidas == 0){
-document.getElementById("vida218A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida218B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida218C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA219=true;
-function funcionesA219(){
-if (paseA219 == true){
-puntuacionUnoR = preguntas[219].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA219 = false;
-}
-}
-var paseB219=true;
-function funcionesB219(){
-if (paseB219 == true){
-puntuacionUnoR = preguntas[219].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB219 = false;
-}
-}
-var paseC219=true;
-function funcionesC219(){
-if (paseC219 == true){
-puntuacionUnoR = preguntas[219].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC219 = false;
-}
-}
-var paseD219=true;
-function funcionesD219(){
-if (paseD219 == true){
-puntuacionUnoR = preguntas[219].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD219 = false;
-}
-}
-var paseE219=true;
-function funcionesE219(){
-if (paseE219 == true){
-puntuacionUnoR = preguntas[219].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE219 = false;
-}
-}
-//----------------------------------------------
-function vidas219(){
-if(conteoVidas == 0){
-document.getElementById("vida219A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida219B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida219C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA220=true;
-function funcionesA220(){
-if (paseA220 == true){
-puntuacionUnoR = preguntas[220].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA220 = false;
-}
-}
-var paseB220=true;
-function funcionesB220(){
-if (paseB220 == true){
-puntuacionUnoR = preguntas[220].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB220 = false;
-}
-}
-var paseC220=true;
-function funcionesC220(){
-if (paseC220 == true){
-puntuacionUnoR = preguntas[220].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC220 = false;
-}
-}
-var paseD220=true;
-function funcionesD220(){
-if (paseD220 == true){
-puntuacionUnoR = preguntas[220].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD220 = false;
-}
-}
-var paseE220=true;
-function funcionesE220(){
-if (paseE220 == true){
-puntuacionUnoR = preguntas[220].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE220 = false;
-}
-}
-//----------------------------------------------
-function vidas220(){
-if(conteoVidas == 0){
-document.getElementById("vida220A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida220B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida220C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA221=true;
-function funcionesA221(){
-if (paseA221 == true){
-puntuacionUnoR = preguntas[221].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA221 = false;
-}
-}
-var paseB221=true;
-function funcionesB221(){
-if (paseB221 == true){
-puntuacionUnoR = preguntas[221].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB221 = false;
-}
-}
-var paseC221=true;
-function funcionesC221(){
-if (paseC221 == true){
-puntuacionUnoR = preguntas[221].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC221 = false;
-}
-}
-var paseD221=true;
-function funcionesD221(){
-if (paseD221 == true){
-puntuacionUnoR = preguntas[221].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD221 = false;
-}
-}
-var paseE221=true;
-function funcionesE221(){
-if (paseE221 == true){
-puntuacionUnoR = preguntas[221].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE221 = false;
-}
-}
-//----------------------------------------------
-function vidas221(){
-if(conteoVidas == 0){
-document.getElementById("vida221A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida221B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida221C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA222=true;
-function funcionesA222(){
-if (paseA222 == true){
-puntuacionUnoR = preguntas[222].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA222 = false;
-}
-}
-var paseB222=true;
-function funcionesB222(){
-if (paseB222 == true){
-puntuacionUnoR = preguntas[222].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB222 = false;
-}
-}
-var paseC222=true;
-function funcionesC222(){
-if (paseC222 == true){
-puntuacionUnoR = preguntas[222].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC222 = false;
-}
-}
-var paseD222=true;
-function funcionesD222(){
-if (paseD222 == true){
-puntuacionUnoR = preguntas[222].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD222 = false;
-}
-}
-var paseE222=true;
-function funcionesE222(){
-if (paseE222 == true){
-puntuacionUnoR = preguntas[222].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE222 = false;
-}
-}
-//----------------------------------------------
-function vidas222(){
-if(conteoVidas == 0){
-document.getElementById("vida222A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida222B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida222C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA223=true;
-function funcionesA223(){
-if (paseA223 == true){
-puntuacionUnoR = preguntas[223].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA223 = false;
-}
-}
-var paseB223=true;
-function funcionesB223(){
-if (paseB223 == true){
-puntuacionUnoR = preguntas[223].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB223 = false;
-}
-}
-var paseC223=true;
-function funcionesC223(){
-if (paseC223 == true){
-puntuacionUnoR = preguntas[223].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC223 = false;
-}
-}
-var paseD223=true;
-function funcionesD223(){
-if (paseD223 == true){
-puntuacionUnoR = preguntas[223].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD223 = false;
-}
-}
-var paseE223=true;
-function funcionesE223(){
-if (paseE223 == true){
-puntuacionUnoR = preguntas[223].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE223 = false;
-}
-}
-//----------------------------------------------
-function vidas223(){
-if(conteoVidas == 0){
-document.getElementById("vida223A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida223B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida223C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA224=true;
-function funcionesA224(){
-if (paseA224 == true){
-puntuacionUnoR = preguntas[224].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA224 = false;
-}
-}
-var paseB224=true;
-function funcionesB224(){
-if (paseB224 == true){
-puntuacionUnoR = preguntas[224].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB224 = false;
-}
-}
-var paseC224=true;
-function funcionesC224(){
-if (paseC224 == true){
-puntuacionUnoR = preguntas[224].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC224 = false;
-}
-}
-var paseD224=true;
-function funcionesD224(){
-if (paseD224 == true){
-puntuacionUnoR = preguntas[224].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD224 = false;
-}
-}
-var paseE224=true;
-function funcionesE224(){
-if (paseE224 == true){
-puntuacionUnoR = preguntas[224].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE224 = false;
-}
-}
-//----------------------------------------------
-function vidas224(){
-if(conteoVidas == 0){
-document.getElementById("vida224A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida224B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida224C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA225=true;
-function funcionesA225(){
-if (paseA225 == true){
-puntuacionUnoR = preguntas[225].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA225 = false;
-}
-}
-var paseB225=true;
-function funcionesB225(){
-if (paseB225 == true){
-puntuacionUnoR = preguntas[225].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB225 = false;
-}
-}
-var paseC225=true;
-function funcionesC225(){
-if (paseC225 == true){
-puntuacionUnoR = preguntas[225].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC225 = false;
-}
-}
-var paseD225=true;
-function funcionesD225(){
-if (paseD225 == true){
-puntuacionUnoR = preguntas[225].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD225 = false;
-}
-}
-var paseE225=true;
-function funcionesE225(){
-if (paseE225 == true){
-puntuacionUnoR = preguntas[225].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE225 = false;
-}
-}
-//----------------------------------------------
-function vidas225(){
-if(conteoVidas == 0){
-document.getElementById("vida225A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida225B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida225C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA226=true;
-function funcionesA226(){
-if (paseA226 == true){
-puntuacionUnoR = preguntas[226].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA226 = false;
-}
-}
-var paseB226=true;
-function funcionesB226(){
-if (paseB226 == true){
-puntuacionUnoR = preguntas[226].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB226 = false;
-}
-}
-var paseC226=true;
-function funcionesC226(){
-if (paseC226 == true){
-puntuacionUnoR = preguntas[226].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC226 = false;
-}
-}
-var paseD226=true;
-function funcionesD226(){
-if (paseD226 == true){
-puntuacionUnoR = preguntas[226].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD226 = false;
-}
-}
-var paseE226=true;
-function funcionesE226(){
-if (paseE226 == true){
-puntuacionUnoR = preguntas[226].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE226 = false;
-}
-}
-//----------------------------------------------
-function vidas226(){
-if(conteoVidas == 0){
-document.getElementById("vida226A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida226B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida226C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA227=true;
-function funcionesA227(){
-if (paseA227 == true){
-puntuacionUnoR = preguntas[227].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA227 = false;
-}
-}
-var paseB227=true;
-function funcionesB227(){
-if (paseB227 == true){
-puntuacionUnoR = preguntas[227].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB227 = false;
-}
-}
-var paseC227=true;
-function funcionesC227(){
-if (paseC227 == true){
-puntuacionUnoR = preguntas[227].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC227 = false;
-}
-}
-var paseD227=true;
-function funcionesD227(){
-if (paseD227 == true){
-puntuacionUnoR = preguntas[227].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD227 = false;
-}
-}
-var paseE227=true;
-function funcionesE227(){
-if (paseE227 == true){
-puntuacionUnoR = preguntas[227].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE227 = false;
-}
-}
-//----------------------------------------------
-function vidas227(){
-if(conteoVidas == 0){
-document.getElementById("vida227A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida227B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida227C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA228=true;
-function funcionesA228(){
-if (paseA228 == true){
-puntuacionUnoR = preguntas[228].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA228 = false;
-}
-}
-var paseB228=true;
-function funcionesB228(){
-if (paseB228 == true){
-puntuacionUnoR = preguntas[228].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB228 = false;
-}
-}
-var paseC228=true;
-function funcionesC228(){
-if (paseC228 == true){
-puntuacionUnoR = preguntas[228].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC228 = false;
-}
-}
-var paseD228=true;
-function funcionesD228(){
-if (paseD228 == true){
-puntuacionUnoR = preguntas[228].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD228 = false;
-}
-}
-var paseE228=true;
-function funcionesE228(){
-if (paseE228 == true){
-puntuacionUnoR = preguntas[228].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE228 = false;
-}
-}
-//----------------------------------------------
-function vidas228(){
-if(conteoVidas == 0){
-document.getElementById("vida228A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida228B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida228C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA229=true;
-function funcionesA229(){
-if (paseA229 == true){
-puntuacionUnoR = preguntas[229].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA229 = false;
-}
-}
-var paseB229=true;
-function funcionesB229(){
-if (paseB229 == true){
-puntuacionUnoR = preguntas[229].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB229 = false;
-}
-}
-var paseC229=true;
-function funcionesC229(){
-if (paseC229 == true){
-puntuacionUnoR = preguntas[229].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC229 = false;
-}
-}
-var paseD229=true;
-function funcionesD229(){
-if (paseD229 == true){
-puntuacionUnoR = preguntas[229].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD229 = false;
-}
-}
-var paseE229=true;
-function funcionesE229(){
-if (paseE229 == true){
-puntuacionUnoR = preguntas[229].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE229 = false;
-}
-}
-//----------------------------------------------
-function vidas229(){
-if(conteoVidas == 0){
-document.getElementById("vida229A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida229B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida229C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA230=true;
-function funcionesA230(){
-if (paseA230 == true){
-puntuacionUnoR = preguntas[230].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA230 = false;
-}
-}
-var paseB230=true;
-function funcionesB230(){
-if (paseB230 == true){
-puntuacionUnoR = preguntas[230].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB230 = false;
-}
-}
-var paseC230=true;
-function funcionesC230(){
-if (paseC230 == true){
-puntuacionUnoR = preguntas[230].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC230 = false;
-}
-}
-var paseD230=true;
-function funcionesD230(){
-if (paseD230 == true){
-puntuacionUnoR = preguntas[230].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD230 = false;
-}
-}
-var paseE230=true;
-function funcionesE230(){
-if (paseE230 == true){
-puntuacionUnoR = preguntas[230].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE230 = false;
-}
-}
-//----------------------------------------------
-function vidas230(){
-if(conteoVidas == 0){
-document.getElementById("vida230A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida230B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida230C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA231=true;
-function funcionesA231(){
-if (paseA231 == true){
-puntuacionUnoR = preguntas[231].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA231 = false;
-}
-}
-var paseB231=true;
-function funcionesB231(){
-if (paseB231 == true){
-puntuacionUnoR = preguntas[231].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB231 = false;
-}
-}
-var paseC231=true;
-function funcionesC231(){
-if (paseC231 == true){
-puntuacionUnoR = preguntas[231].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC231 = false;
-}
-}
-var paseD231=true;
-function funcionesD231(){
-if (paseD231 == true){
-puntuacionUnoR = preguntas[231].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD231 = false;
-}
-}
-var paseE231=true;
-function funcionesE231(){
-if (paseE231 == true){
-puntuacionUnoR = preguntas[231].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE231 = false;
-}
-}
-//----------------------------------------------
-function vidas231(){
-if(conteoVidas == 0){
-document.getElementById("vida231A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida231B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida231C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA232=true;
-function funcionesA232(){
-if (paseA232 == true){
-puntuacionUnoR = preguntas[232].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA232 = false;
-}
-}
-var paseB232=true;
-function funcionesB232(){
-if (paseB232 == true){
-puntuacionUnoR = preguntas[232].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB232 = false;
-}
-}
-var paseC232=true;
-function funcionesC232(){
-if (paseC232 == true){
-puntuacionUnoR = preguntas[232].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC232 = false;
-}
-}
-var paseD232=true;
-function funcionesD232(){
-if (paseD232 == true){
-puntuacionUnoR = preguntas[232].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD232 = false;
-}
-}
-var paseE232=true;
-function funcionesE232(){
-if (paseE232 == true){
-puntuacionUnoR = preguntas[232].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE232 = false;
-}
-}
-//----------------------------------------------
-function vidas232(){
-if(conteoVidas == 0){
-document.getElementById("vida232A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida232B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida232C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA233=true;
-function funcionesA233(){
-if (paseA233 == true){
-puntuacionUnoR = preguntas[233].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA233 = false;
-}
-}
-var paseB233=true;
-function funcionesB233(){
-if (paseB233 == true){
-puntuacionUnoR = preguntas[233].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB233 = false;
-}
-}
-var paseC233=true;
-function funcionesC233(){
-if (paseC233 == true){
-puntuacionUnoR = preguntas[233].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC233 = false;
-}
-}
-var paseD233=true;
-function funcionesD233(){
-if (paseD233 == true){
-puntuacionUnoR = preguntas[233].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD233 = false;
-}
-}
-var paseE233=true;
-function funcionesE233(){
-if (paseE233 == true){
-puntuacionUnoR = preguntas[233].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE233 = false;
-}
-}
-//----------------------------------------------
-function vidas233(){
-if(conteoVidas == 0){
-document.getElementById("vida233A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida233B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida233C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA234=true;
-function funcionesA234(){
-if (paseA234 == true){
-puntuacionUnoR = preguntas[234].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA234 = false;
-}
-}
-var paseB234=true;
-function funcionesB234(){
-if (paseB234 == true){
-puntuacionUnoR = preguntas[234].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB234 = false;
-}
-}
-var paseC234=true;
-function funcionesC234(){
-if (paseC234 == true){
-puntuacionUnoR = preguntas[234].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC234 = false;
-}
-}
-var paseD234=true;
-function funcionesD234(){
-if (paseD234 == true){
-puntuacionUnoR = preguntas[234].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD234 = false;
-}
-}
-var paseE234=true;
-function funcionesE234(){
-if (paseE234 == true){
-puntuacionUnoR = preguntas[234].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE234 = false;
-}
-}
-//----------------------------------------------
-function vidas234(){
-if(conteoVidas == 0){
-document.getElementById("vida234A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida234B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida234C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA235=true;
-function funcionesA235(){
-if (paseA235 == true){
-puntuacionUnoR = preguntas[235].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA235 = false;
-}
-}
-var paseB235=true;
-function funcionesB235(){
-if (paseB235 == true){
-puntuacionUnoR = preguntas[235].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB235 = false;
-}
-}
-var paseC235=true;
-function funcionesC235(){
-if (paseC235 == true){
-puntuacionUnoR = preguntas[235].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC235 = false;
-}
-}
-var paseD235=true;
-function funcionesD235(){
-if (paseD235 == true){
-puntuacionUnoR = preguntas[235].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD235 = false;
-}
-}
-var paseE235=true;
-function funcionesE235(){
-if (paseE235 == true){
-puntuacionUnoR = preguntas[235].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE235 = false;
-}
-}
-//----------------------------------------------
-function vidas235(){
-if(conteoVidas == 0){
-document.getElementById("vida235A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida235B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida235C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA236=true;
-function funcionesA236(){
-if (paseA236 == true){
-puntuacionUnoR = preguntas[236].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA236 = false;
-}
-}
-var paseB236=true;
-function funcionesB236(){
-if (paseB236 == true){
-puntuacionUnoR = preguntas[236].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB236 = false;
-}
-}
-var paseC236=true;
-function funcionesC236(){
-if (paseC236 == true){
-puntuacionUnoR = preguntas[236].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC236 = false;
-}
-}
-var paseD236=true;
-function funcionesD236(){
-if (paseD236 == true){
-puntuacionUnoR = preguntas[236].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD236 = false;
-}
-}
-var paseE236=true;
-function funcionesE236(){
-if (paseE236 == true){
-puntuacionUnoR = preguntas[236].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE236 = false;
-}
-}
-//----------------------------------------------
-function vidas236(){
-if(conteoVidas == 0){
-document.getElementById("vida236A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida236B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida236C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA237=true;
-function funcionesA237(){
-if (paseA237 == true){
-puntuacionUnoR = preguntas[237].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA237 = false;
-}
-}
-var paseB237=true;
-function funcionesB237(){
-if (paseB237 == true){
-puntuacionUnoR = preguntas[237].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB237 = false;
-}
-}
-var paseC237=true;
-function funcionesC237(){
-if (paseC237 == true){
-puntuacionUnoR = preguntas[237].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC237 = false;
-}
-}
-var paseD237=true;
-function funcionesD237(){
-if (paseD237 == true){
-puntuacionUnoR = preguntas[237].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD237 = false;
-}
-}
-var paseE237=true;
-function funcionesE237(){
-if (paseE237 == true){
-puntuacionUnoR = preguntas[237].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE237 = false;
-}
-}
-//----------------------------------------------
-function vidas237(){
-if(conteoVidas == 0){
-document.getElementById("vida237A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida237B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida237C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA238=true;
-function funcionesA238(){
-if (paseA238 == true){
-puntuacionUnoR = preguntas[238].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA238 = false;
-}
-}
-var paseB238=true;
-function funcionesB238(){
-if (paseB238 == true){
-puntuacionUnoR = preguntas[238].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB238 = false;
-}
-}
-var paseC238=true;
-function funcionesC238(){
-if (paseC238 == true){
-puntuacionUnoR = preguntas[238].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC238 = false;
-}
-}
-var paseD238=true;
-function funcionesD238(){
-if (paseD238 == true){
-puntuacionUnoR = preguntas[238].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD238 = false;
-}
-}
-var paseE238=true;
-function funcionesE238(){
-if (paseE238 == true){
-puntuacionUnoR = preguntas[238].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE238 = false;
-}
-}
-//----------------------------------------------
-function vidas238(){
-if(conteoVidas == 0){
-document.getElementById("vida238A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida238B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida238C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA239=true;
-function funcionesA239(){
-if (paseA239 == true){
-puntuacionUnoR = preguntas[239].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA239 = false;
-}
-}
-var paseB239=true;
-function funcionesB239(){
-if (paseB239 == true){
-puntuacionUnoR = preguntas[239].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB239 = false;
-}
-}
-var paseC239=true;
-function funcionesC239(){
-if (paseC239 == true){
-puntuacionUnoR = preguntas[239].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC239 = false;
-}
-}
-var paseD239=true;
-function funcionesD239(){
-if (paseD239 == true){
-puntuacionUnoR = preguntas[239].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD239 = false;
-}
-}
-var paseE239=true;
-function funcionesE239(){
-if (paseE239 == true){
-puntuacionUnoR = preguntas[239].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE239 = false;
-}
-}
-//----------------------------------------------
-function vidas239(){
-if(conteoVidas == 0){
-document.getElementById("vida239A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida239B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida239C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA240=true;
-function funcionesA240(){
-if (paseA240 == true){
-puntuacionUnoR = preguntas[240].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA240 = false;
-}
-}
-var paseB240=true;
-function funcionesB240(){
-if (paseB240 == true){
-puntuacionUnoR = preguntas[240].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB240 = false;
-}
-}
-var paseC240=true;
-function funcionesC240(){
-if (paseC240 == true){
-puntuacionUnoR = preguntas[240].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC240 = false;
-}
-}
-var paseD240=true;
-function funcionesD240(){
-if (paseD240 == true){
-puntuacionUnoR = preguntas[240].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD240 = false;
-}
-}
-var paseE240=true;
-function funcionesE240(){
-if (paseE240 == true){
-puntuacionUnoR = preguntas[240].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE240 = false;
-}
-}
-//----------------------------------------------
-function vidas240(){
-if(conteoVidas == 0){
-document.getElementById("vida240A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida240B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida240C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA241=true;
-function funcionesA241(){
-if (paseA241 == true){
-puntuacionUnoR = preguntas[241].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA241 = false;
-}
-}
-var paseB241=true;
-function funcionesB241(){
-if (paseB241 == true){
-puntuacionUnoR = preguntas[241].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB241 = false;
-}
-}
-var paseC241=true;
-function funcionesC241(){
-if (paseC241 == true){
-puntuacionUnoR = preguntas[241].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC241 = false;
-}
-}
-var paseD241=true;
-function funcionesD241(){
-if (paseD241 == true){
-puntuacionUnoR = preguntas[241].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD241 = false;
-}
-}
-var paseE241=true;
-function funcionesE241(){
-if (paseE241 == true){
-puntuacionUnoR = preguntas[241].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE241 = false;
-}
-}
-//----------------------------------------------
-function vidas241(){
-if(conteoVidas == 0){
-document.getElementById("vida241A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida241B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida241C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA242=true;
-function funcionesA242(){
-if (paseA242 == true){
-puntuacionUnoR = preguntas[242].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA242 = false;
-}
-}
-var paseB242=true;
-function funcionesB242(){
-if (paseB242 == true){
-puntuacionUnoR = preguntas[242].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB242 = false;
-}
-}
-var paseC242=true;
-function funcionesC242(){
-if (paseC242 == true){
-puntuacionUnoR = preguntas[242].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC242 = false;
-}
-}
-var paseD242=true;
-function funcionesD242(){
-if (paseD242 == true){
-puntuacionUnoR = preguntas[242].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD242 = false;
-}
-}
-var paseE242=true;
-function funcionesE242(){
-if (paseE242 == true){
-puntuacionUnoR = preguntas[242].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE242 = false;
-}
-}
-//----------------------------------------------
-function vidas242(){
-if(conteoVidas == 0){
-document.getElementById("vida242A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida242B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida242C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA243=true;
-function funcionesA243(){
-if (paseA243 == true){
-puntuacionUnoR = preguntas[243].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA243 = false;
-}
-}
-var paseB243=true;
-function funcionesB243(){
-if (paseB243 == true){
-puntuacionUnoR = preguntas[243].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB243 = false;
-}
-}
-var paseC243=true;
-function funcionesC243(){
-if (paseC243 == true){
-puntuacionUnoR = preguntas[243].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC243 = false;
-}
-}
-var paseD243=true;
-function funcionesD243(){
-if (paseD243 == true){
-puntuacionUnoR = preguntas[243].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD243 = false;
-}
-}
-var paseE243=true;
-function funcionesE243(){
-if (paseE243 == true){
-puntuacionUnoR = preguntas[243].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE243 = false;
-}
-}
-//----------------------------------------------
-function vidas243(){
-if(conteoVidas == 0){
-document.getElementById("vida243A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida243B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida243C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA244=true;
-function funcionesA244(){
-if (paseA244 == true){
-puntuacionUnoR = preguntas[244].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA244 = false;
-}
-}
-var paseB244=true;
-function funcionesB244(){
-if (paseB244 == true){
-puntuacionUnoR = preguntas[244].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB244 = false;
-}
-}
-var paseC244=true;
-function funcionesC244(){
-if (paseC244 == true){
-puntuacionUnoR = preguntas[244].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC244 = false;
-}
-}
-var paseD244=true;
-function funcionesD244(){
-if (paseD244 == true){
-puntuacionUnoR = preguntas[244].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD244 = false;
-}
-}
-var paseE244=true;
-function funcionesE244(){
-if (paseE244 == true){
-puntuacionUnoR = preguntas[244].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE244 = false;
-}
-}
-//----------------------------------------------
-function vidas244(){
-if(conteoVidas == 0){
-document.getElementById("vida244A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida244B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida244C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA245=true;
-function funcionesA245(){
-if (paseA245 == true){
-puntuacionUnoR = preguntas[245].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA245 = false;
-}
-}
-var paseB245=true;
-function funcionesB245(){
-if (paseB245 == true){
-puntuacionUnoR = preguntas[245].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB245 = false;
-}
-}
-var paseC245=true;
-function funcionesC245(){
-if (paseC245 == true){
-puntuacionUnoR = preguntas[245].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC245 = false;
-}
-}
-var paseD245=true;
-function funcionesD245(){
-if (paseD245 == true){
-puntuacionUnoR = preguntas[245].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD245 = false;
-}
-}
-var paseE245=true;
-function funcionesE245(){
-if (paseE245 == true){
-puntuacionUnoR = preguntas[245].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE245 = false;
-}
-}
-//----------------------------------------------
-function vidas245(){
-if(conteoVidas == 0){
-document.getElementById("vida245A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida245B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida245C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA246=true;
-function funcionesA246(){
-if (paseA246 == true){
-puntuacionUnoR = preguntas[246].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA246 = false;
-}
-}
-var paseB246=true;
-function funcionesB246(){
-if (paseB246 == true){
-puntuacionUnoR = preguntas[246].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB246 = false;
-}
-}
-var paseC246=true;
-function funcionesC246(){
-if (paseC246 == true){
-puntuacionUnoR = preguntas[246].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC246 = false;
-}
-}
-var paseD246=true;
-function funcionesD246(){
-if (paseD246 == true){
-puntuacionUnoR = preguntas[246].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD246 = false;
-}
-}
-var paseE246=true;
-function funcionesE246(){
-if (paseE246 == true){
-puntuacionUnoR = preguntas[246].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE246 = false;
-}
-}
-//----------------------------------------------
-function vidas246(){
-if(conteoVidas == 0){
-document.getElementById("vida246A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida246B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida246C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA247=true;
-function funcionesA247(){
-if (paseA247 == true){
-puntuacionUnoR = preguntas[247].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA247 = false;
-}
-}
-var paseB247=true;
-function funcionesB247(){
-if (paseB247 == true){
-puntuacionUnoR = preguntas[247].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB247 = false;
-}
-}
-var paseC247=true;
-function funcionesC247(){
-if (paseC247 == true){
-puntuacionUnoR = preguntas[247].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC247 = false;
-}
-}
-var paseD247=true;
-function funcionesD247(){
-if (paseD247 == true){
-puntuacionUnoR = preguntas[247].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD247 = false;
-}
-}
-var paseE247=true;
-function funcionesE247(){
-if (paseE247 == true){
-puntuacionUnoR = preguntas[247].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE247 = false;
-}
-}
-//----------------------------------------------
-function vidas247(){
-if(conteoVidas == 0){
-document.getElementById("vida247A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida247B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida247C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA248=true;
-function funcionesA248(){
-if (paseA248 == true){
-puntuacionUnoR = preguntas[248].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA248 = false;
-}
-}
-var paseB248=true;
-function funcionesB248(){
-if (paseB248 == true){
-puntuacionUnoR = preguntas[248].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB248 = false;
-}
-}
-var paseC248=true;
-function funcionesC248(){
-if (paseC248 == true){
-puntuacionUnoR = preguntas[248].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC248 = false;
-}
-}
-var paseD248=true;
-function funcionesD248(){
-if (paseD248 == true){
-puntuacionUnoR = preguntas[248].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD248 = false;
-}
-}
-var paseE248=true;
-function funcionesE248(){
-if (paseE248 == true){
-puntuacionUnoR = preguntas[248].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE248 = false;
-}
-}
-//----------------------------------------------
-function vidas248(){
-if(conteoVidas == 0){
-document.getElementById("vida248A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida248B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida248C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA249=true;
-function funcionesA249(){
-if (paseA249 == true){
-puntuacionUnoR = preguntas[249].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA249 = false;
-}
-}
-var paseB249=true;
-function funcionesB249(){
-if (paseB249 == true){
-puntuacionUnoR = preguntas[249].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB249 = false;
-}
-}
-var paseC249=true;
-function funcionesC249(){
-if (paseC249 == true){
-puntuacionUnoR = preguntas[249].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC249 = false;
-}
-}
-var paseD249=true;
-function funcionesD249(){
-if (paseD249 == true){
-puntuacionUnoR = preguntas[249].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD249 = false;
-}
-}
-var paseE249=true;
-function funcionesE249(){
-if (paseE249 == true){
-puntuacionUnoR = preguntas[249].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE249 = false;
-}
-}
-//----------------------------------------------
-function vidas249(){
-if(conteoVidas == 0){
-document.getElementById("vida249A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida249B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida249C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA250=true;
-function funcionesA250(){
-if (paseA250 == true){
-puntuacionUnoR = preguntas[250].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA250 = false;
-}
-}
-var paseB250=true;
-function funcionesB250(){
-if (paseB250 == true){
-puntuacionUnoR = preguntas[250].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB250 = false;
-}
-}
-var paseC250=true;
-function funcionesC250(){
-if (paseC250 == true){
-puntuacionUnoR = preguntas[250].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC250 = false;
-}
-}
-var paseD250=true;
-function funcionesD250(){
-if (paseD250 == true){
-puntuacionUnoR = preguntas[250].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD250 = false;
-}
-}
-var paseE250=true;
-function funcionesE250(){
-if (paseE250 == true){
-puntuacionUnoR = preguntas[250].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE250 = false;
-}
-}
-//----------------------------------------------
-function vidas250(){
-if(conteoVidas == 0){
-document.getElementById("vida250A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida250B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida250C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA251=true;
-function funcionesA251(){
-if (paseA251 == true){
-puntuacionUnoR = preguntas[251].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA251 = false;
-}
-}
-var paseB251=true;
-function funcionesB251(){
-if (paseB251 == true){
-puntuacionUnoR = preguntas[251].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB251 = false;
-}
-}
-var paseC251=true;
-function funcionesC251(){
-if (paseC251 == true){
-puntuacionUnoR = preguntas[251].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC251 = false;
-}
-}
-var paseD251=true;
-function funcionesD251(){
-if (paseD251 == true){
-puntuacionUnoR = preguntas[251].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD251 = false;
-}
-}
-var paseE251=true;
-function funcionesE251(){
-if (paseE251 == true){
-puntuacionUnoR = preguntas[251].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE251 = false;
-}
-}
-//----------------------------------------------
-function vidas251(){
-if(conteoVidas == 0){
-document.getElementById("vida251A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida251B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida251C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA252=true;
-function funcionesA252(){
-if (paseA252 == true){
-puntuacionUnoR = preguntas[252].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA252 = false;
-}
-}
-var paseB252=true;
-function funcionesB252(){
-if (paseB252 == true){
-puntuacionUnoR = preguntas[252].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB252 = false;
-}
-}
-var paseC252=true;
-function funcionesC252(){
-if (paseC252 == true){
-puntuacionUnoR = preguntas[252].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC252 = false;
-}
-}
-var paseD252=true;
-function funcionesD252(){
-if (paseD252 == true){
-puntuacionUnoR = preguntas[252].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD252 = false;
-}
-}
-var paseE252=true;
-function funcionesE252(){
-if (paseE252 == true){
-puntuacionUnoR = preguntas[252].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE252 = false;
-}
-}
-//----------------------------------------------
-function vidas252(){
-if(conteoVidas == 0){
-document.getElementById("vida252A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida252B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida252C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA253=true;
-function funcionesA253(){
-if (paseA253 == true){
-puntuacionUnoR = preguntas[253].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA253 = false;
-}
-}
-var paseB253=true;
-function funcionesB253(){
-if (paseB253 == true){
-puntuacionUnoR = preguntas[253].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB253 = false;
-}
-}
-var paseC253=true;
-function funcionesC253(){
-if (paseC253 == true){
-puntuacionUnoR = preguntas[253].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC253 = false;
-}
-}
-var paseD253=true;
-function funcionesD253(){
-if (paseD253 == true){
-puntuacionUnoR = preguntas[253].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD253 = false;
-}
-}
-var paseE253=true;
-function funcionesE253(){
-if (paseE253 == true){
-puntuacionUnoR = preguntas[253].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE253 = false;
-}
-}
-//----------------------------------------------
-function vidas253(){
-if(conteoVidas == 0){
-document.getElementById("vida253A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida253B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida253C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA254=true;
-function funcionesA254(){
-if (paseA254 == true){
-puntuacionUnoR = preguntas[254].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA254 = false;
-}
-}
-var paseB254=true;
-function funcionesB254(){
-if (paseB254 == true){
-puntuacionUnoR = preguntas[254].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB254 = false;
-}
-}
-var paseC254=true;
-function funcionesC254(){
-if (paseC254 == true){
-puntuacionUnoR = preguntas[254].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC254 = false;
-}
-}
-var paseD254=true;
-function funcionesD254(){
-if (paseD254 == true){
-puntuacionUnoR = preguntas[254].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD254 = false;
-}
-}
-var paseE254=true;
-function funcionesE254(){
-if (paseE254 == true){
-puntuacionUnoR = preguntas[254].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE254 = false;
-}
-}
-//----------------------------------------------
-function vidas254(){
-if(conteoVidas == 0){
-document.getElementById("vida254A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida254B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida254C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA255=true;
-function funcionesA255(){
-if (paseA255 == true){
-puntuacionUnoR = preguntas[255].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA255 = false;
-}
-}
-var paseB255=true;
-function funcionesB255(){
-if (paseB255 == true){
-puntuacionUnoR = preguntas[255].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB255 = false;
-}
-}
-var paseC255=true;
-function funcionesC255(){
-if (paseC255 == true){
-puntuacionUnoR = preguntas[255].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC255 = false;
-}
-}
-var paseD255=true;
-function funcionesD255(){
-if (paseD255 == true){
-puntuacionUnoR = preguntas[255].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD255 = false;
-}
-}
-var paseE255=true;
-function funcionesE255(){
-if (paseE255 == true){
-puntuacionUnoR = preguntas[255].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE255 = false;
-}
-}
-//----------------------------------------------
-function vidas255(){
-if(conteoVidas == 0){
-document.getElementById("vida255A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida255B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida255C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA256=true;
-function funcionesA256(){
-if (paseA256 == true){
-puntuacionUnoR = preguntas[256].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA256 = false;
-}
-}
-var paseB256=true;
-function funcionesB256(){
-if (paseB256 == true){
-puntuacionUnoR = preguntas[256].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB256 = false;
-}
-}
-var paseC256=true;
-function funcionesC256(){
-if (paseC256 == true){
-puntuacionUnoR = preguntas[256].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC256 = false;
-}
-}
-var paseD256=true;
-function funcionesD256(){
-if (paseD256 == true){
-puntuacionUnoR = preguntas[256].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD256 = false;
-}
-}
-var paseE256=true;
-function funcionesE256(){
-if (paseE256 == true){
-puntuacionUnoR = preguntas[256].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE256 = false;
-}
-}
-//----------------------------------------------
-function vidas256(){
-if(conteoVidas == 0){
-document.getElementById("vida256A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida256B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida256C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA257=true;
-function funcionesA257(){
-if (paseA257 == true){
-puntuacionUnoR = preguntas[257].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA257 = false;
-}
-}
-var paseB257=true;
-function funcionesB257(){
-if (paseB257 == true){
-puntuacionUnoR = preguntas[257].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB257 = false;
-}
-}
-var paseC257=true;
-function funcionesC257(){
-if (paseC257 == true){
-puntuacionUnoR = preguntas[257].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC257 = false;
-}
-}
-var paseD257=true;
-function funcionesD257(){
-if (paseD257 == true){
-puntuacionUnoR = preguntas[257].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD257 = false;
-}
-}
-var paseE257=true;
-function funcionesE257(){
-if (paseE257 == true){
-puntuacionUnoR = preguntas[257].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE257 = false;
-}
-}
-//----------------------------------------------
-function vidas257(){
-if(conteoVidas == 0){
-document.getElementById("vida257A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida257B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida257C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA258=true;
-function funcionesA258(){
-if (paseA258 == true){
-puntuacionUnoR = preguntas[258].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA258 = false;
-}
-}
-var paseB258=true;
-function funcionesB258(){
-if (paseB258 == true){
-puntuacionUnoR = preguntas[258].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB258 = false;
-}
-}
-var paseC258=true;
-function funcionesC258(){
-if (paseC258 == true){
-puntuacionUnoR = preguntas[258].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC258 = false;
-}
-}
-var paseD258=true;
-function funcionesD258(){
-if (paseD258 == true){
-puntuacionUnoR = preguntas[258].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD258 = false;
-}
-}
-var paseE258=true;
-function funcionesE258(){
-if (paseE258 == true){
-puntuacionUnoR = preguntas[258].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE258 = false;
-}
-}
-//----------------------------------------------
-function vidas258(){
-if(conteoVidas == 0){
-document.getElementById("vida258A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida258B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida258C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA259=true;
-function funcionesA259(){
-if (paseA259 == true){
-puntuacionUnoR = preguntas[259].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA259 = false;
-}
-}
-var paseB259=true;
-function funcionesB259(){
-if (paseB259 == true){
-puntuacionUnoR = preguntas[259].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB259 = false;
-}
-}
-var paseC259=true;
-function funcionesC259(){
-if (paseC259 == true){
-puntuacionUnoR = preguntas[259].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC259 = false;
-}
-}
-var paseD259=true;
-function funcionesD259(){
-if (paseD259 == true){
-puntuacionUnoR = preguntas[259].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD259 = false;
-}
-}
-var paseE259=true;
-function funcionesE259(){
-if (paseE259 == true){
-puntuacionUnoR = preguntas[259].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE259 = false;
-}
-}
-//----------------------------------------------
-function vidas259(){
-if(conteoVidas == 0){
-document.getElementById("vida259A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida259B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida259C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA260=true;
-function funcionesA260(){
-if (paseA260 == true){
-puntuacionUnoR = preguntas[260].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA260 = false;
-}
-}
-var paseB260=true;
-function funcionesB260(){
-if (paseB260 == true){
-puntuacionUnoR = preguntas[260].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB260 = false;
-}
-}
-var paseC260=true;
-function funcionesC260(){
-if (paseC260 == true){
-puntuacionUnoR = preguntas[260].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC260 = false;
-}
-}
-var paseD260=true;
-function funcionesD260(){
-if (paseD260 == true){
-puntuacionUnoR = preguntas[260].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD260 = false;
-}
-}
-var paseE260=true;
-function funcionesE260(){
-if (paseE260 == true){
-puntuacionUnoR = preguntas[260].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE260 = false;
-}
-}
-//----------------------------------------------
-function vidas260(){
-if(conteoVidas == 0){
-document.getElementById("vida260A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida260B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida260C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA261=true;
-function funcionesA261(){
-if (paseA261 == true){
-puntuacionUnoR = preguntas[261].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA261 = false;
-}
-}
-var paseB261=true;
-function funcionesB261(){
-if (paseB261 == true){
-puntuacionUnoR = preguntas[261].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB261 = false;
-}
-}
-var paseC261=true;
-function funcionesC261(){
-if (paseC261 == true){
-puntuacionUnoR = preguntas[261].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC261 = false;
-}
-}
-var paseD261=true;
-function funcionesD261(){
-if (paseD261 == true){
-puntuacionUnoR = preguntas[261].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD261 = false;
-}
-}
-var paseE261=true;
-function funcionesE261(){
-if (paseE261 == true){
-puntuacionUnoR = preguntas[261].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE261 = false;
-}
-}
-//----------------------------------------------
-function vidas261(){
-if(conteoVidas == 0){
-document.getElementById("vida261A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida261B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida261C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA262=true;
-function funcionesA262(){
-if (paseA262 == true){
-puntuacionUnoR = preguntas[262].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA262 = false;
-}
-}
-var paseB262=true;
-function funcionesB262(){
-if (paseB262 == true){
-puntuacionUnoR = preguntas[262].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB262 = false;
-}
-}
-var paseC262=true;
-function funcionesC262(){
-if (paseC262 == true){
-puntuacionUnoR = preguntas[262].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC262 = false;
-}
-}
-var paseD262=true;
-function funcionesD262(){
-if (paseD262 == true){
-puntuacionUnoR = preguntas[262].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD262 = false;
-}
-}
-var paseE262=true;
-function funcionesE262(){
-if (paseE262 == true){
-puntuacionUnoR = preguntas[262].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE262 = false;
-}
-}
-//----------------------------------------------
-function vidas262(){
-if(conteoVidas == 0){
-document.getElementById("vida262A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida262B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida262C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA263=true;
-function funcionesA263(){
-if (paseA263 == true){
-puntuacionUnoR = preguntas[263].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA263 = false;
-}
-}
-var paseB263=true;
-function funcionesB263(){
-if (paseB263 == true){
-puntuacionUnoR = preguntas[263].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB263 = false;
-}
-}
-var paseC263=true;
-function funcionesC263(){
-if (paseC263 == true){
-puntuacionUnoR = preguntas[263].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC263 = false;
-}
-}
-var paseD263=true;
-function funcionesD263(){
-if (paseD263 == true){
-puntuacionUnoR = preguntas[263].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD263 = false;
-}
-}
-var paseE263=true;
-function funcionesE263(){
-if (paseE263 == true){
-puntuacionUnoR = preguntas[263].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE263 = false;
-}
-}
-//----------------------------------------------
-function vidas263(){
-if(conteoVidas == 0){
-document.getElementById("vida263A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida263B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida263C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA264=true;
-function funcionesA264(){
-if (paseA264 == true){
-puntuacionUnoR = preguntas[264].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA264 = false;
-}
-}
-var paseB264=true;
-function funcionesB264(){
-if (paseB264 == true){
-puntuacionUnoR = preguntas[264].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB264 = false;
-}
-}
-var paseC264=true;
-function funcionesC264(){
-if (paseC264 == true){
-puntuacionUnoR = preguntas[264].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC264 = false;
-}
-}
-var paseD264=true;
-function funcionesD264(){
-if (paseD264 == true){
-puntuacionUnoR = preguntas[264].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD264 = false;
-}
-}
-var paseE264=true;
-function funcionesE264(){
-if (paseE264 == true){
-puntuacionUnoR = preguntas[264].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE264 = false;
-}
-}
-//----------------------------------------------
-function vidas264(){
-if(conteoVidas == 0){
-document.getElementById("vida264A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida264B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida264C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA265=true;
-function funcionesA265(){
-if (paseA265 == true){
-puntuacionUnoR = preguntas[265].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA265 = false;
-}
-}
-var paseB265=true;
-function funcionesB265(){
-if (paseB265 == true){
-puntuacionUnoR = preguntas[265].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB265 = false;
-}
-}
-var paseC265=true;
-function funcionesC265(){
-if (paseC265 == true){
-puntuacionUnoR = preguntas[265].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC265 = false;
-}
-}
-var paseD265=true;
-function funcionesD265(){
-if (paseD265 == true){
-puntuacionUnoR = preguntas[265].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD265 = false;
-}
-}
-var paseE265=true;
-function funcionesE265(){
-if (paseE265 == true){
-puntuacionUnoR = preguntas[265].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE265 = false;
-}
-}
-//----------------------------------------------
-function vidas265(){
-if(conteoVidas == 0){
-document.getElementById("vida265A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida265B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida265C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA266=true;
-function funcionesA266(){
-if (paseA266 == true){
-puntuacionUnoR = preguntas[266].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA266 = false;
-}
-}
-var paseB266=true;
-function funcionesB266(){
-if (paseB266 == true){
-puntuacionUnoR = preguntas[266].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB266 = false;
-}
-}
-var paseC266=true;
-function funcionesC266(){
-if (paseC266 == true){
-puntuacionUnoR = preguntas[266].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC266 = false;
-}
-}
-var paseD266=true;
-function funcionesD266(){
-if (paseD266 == true){
-puntuacionUnoR = preguntas[266].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD266 = false;
-}
-}
-var paseE266=true;
-function funcionesE266(){
-if (paseE266 == true){
-puntuacionUnoR = preguntas[266].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE266 = false;
-}
-}
-//----------------------------------------------
-function vidas266(){
-if(conteoVidas == 0){
-document.getElementById("vida266A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida266B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida266C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA267=true;
-function funcionesA267(){
-if (paseA267 == true){
-puntuacionUnoR = preguntas[267].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA267 = false;
-}
-}
-var paseB267=true;
-function funcionesB267(){
-if (paseB267 == true){
-puntuacionUnoR = preguntas[267].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB267 = false;
-}
-}
-var paseC267=true;
-function funcionesC267(){
-if (paseC267 == true){
-puntuacionUnoR = preguntas[267].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC267 = false;
-}
-}
-var paseD267=true;
-function funcionesD267(){
-if (paseD267 == true){
-puntuacionUnoR = preguntas[267].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD267 = false;
-}
-}
-var paseE267=true;
-function funcionesE267(){
-if (paseE267 == true){
-puntuacionUnoR = preguntas[267].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE267 = false;
-}
-}
-//----------------------------------------------
-function vidas267(){
-if(conteoVidas == 0){
-document.getElementById("vida267A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida267B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida267C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA268=true;
-function funcionesA268(){
-if (paseA268 == true){
-puntuacionUnoR = preguntas[268].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA268 = false;
-}
-}
-var paseB268=true;
-function funcionesB268(){
-if (paseB268 == true){
-puntuacionUnoR = preguntas[268].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB268 = false;
-}
-}
-var paseC268=true;
-function funcionesC268(){
-if (paseC268 == true){
-puntuacionUnoR = preguntas[268].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC268 = false;
-}
-}
-var paseD268=true;
-function funcionesD268(){
-if (paseD268 == true){
-puntuacionUnoR = preguntas[268].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD268 = false;
-}
-}
-var paseE268=true;
-function funcionesE268(){
-if (paseE268 == true){
-puntuacionUnoR = preguntas[268].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE268 = false;
-}
-}
-//----------------------------------------------
-function vidas268(){
-if(conteoVidas == 0){
-document.getElementById("vida268A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida268B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida268C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA269=true;
-function funcionesA269(){
-if (paseA269 == true){
-puntuacionUnoR = preguntas[269].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA269 = false;
-}
-}
-var paseB269=true;
-function funcionesB269(){
-if (paseB269 == true){
-puntuacionUnoR = preguntas[269].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB269 = false;
-}
-}
-var paseC269=true;
-function funcionesC269(){
-if (paseC269 == true){
-puntuacionUnoR = preguntas[269].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC269 = false;
-}
-}
-var paseD269=true;
-function funcionesD269(){
-if (paseD269 == true){
-puntuacionUnoR = preguntas[269].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD269 = false;
-}
-}
-var paseE269=true;
-function funcionesE269(){
-if (paseE269 == true){
-puntuacionUnoR = preguntas[269].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE269 = false;
-}
-}
-//----------------------------------------------
-function vidas269(){
-if(conteoVidas == 0){
-document.getElementById("vida269A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida269B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida269C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA270=true;
-function funcionesA270(){
-if (paseA270 == true){
-puntuacionUnoR = preguntas[270].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA270 = false;
-}
-}
-var paseB270=true;
-function funcionesB270(){
-if (paseB270 == true){
-puntuacionUnoR = preguntas[270].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB270 = false;
-}
-}
-var paseC270=true;
-function funcionesC270(){
-if (paseC270 == true){
-puntuacionUnoR = preguntas[270].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC270 = false;
-}
-}
-var paseD270=true;
-function funcionesD270(){
-if (paseD270 == true){
-puntuacionUnoR = preguntas[270].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD270 = false;
-}
-}
-var paseE270=true;
-function funcionesE270(){
-if (paseE270 == true){
-puntuacionUnoR = preguntas[270].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE270 = false;
-}
-}
-//----------------------------------------------
-function vidas270(){
-if(conteoVidas == 0){
-document.getElementById("vida270A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida270B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida270C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA271=true;
-function funcionesA271(){
-if (paseA271 == true){
-puntuacionUnoR = preguntas[271].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA271 = false;
-}
-}
-var paseB271=true;
-function funcionesB271(){
-if (paseB271 == true){
-puntuacionUnoR = preguntas[271].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB271 = false;
-}
-}
-var paseC271=true;
-function funcionesC271(){
-if (paseC271 == true){
-puntuacionUnoR = preguntas[271].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC271 = false;
-}
-}
-var paseD271=true;
-function funcionesD271(){
-if (paseD271 == true){
-puntuacionUnoR = preguntas[271].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD271 = false;
-}
-}
-var paseE271=true;
-function funcionesE271(){
-if (paseE271 == true){
-puntuacionUnoR = preguntas[271].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE271 = false;
-}
-}
-//----------------------------------------------
-function vidas271(){
-if(conteoVidas == 0){
-document.getElementById("vida271A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida271B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida271C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA272=true;
-function funcionesA272(){
-if (paseA272 == true){
-puntuacionUnoR = preguntas[272].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA272 = false;
-}
-}
-var paseB272=true;
-function funcionesB272(){
-if (paseB272 == true){
-puntuacionUnoR = preguntas[272].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB272 = false;
-}
-}
-var paseC272=true;
-function funcionesC272(){
-if (paseC272 == true){
-puntuacionUnoR = preguntas[272].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC272 = false;
-}
-}
-var paseD272=true;
-function funcionesD272(){
-if (paseD272 == true){
-puntuacionUnoR = preguntas[272].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD272 = false;
-}
-}
-var paseE272=true;
-function funcionesE272(){
-if (paseE272 == true){
-puntuacionUnoR = preguntas[272].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE272 = false;
-}
-}
-//----------------------------------------------
-function vidas272(){
-if(conteoVidas == 0){
-document.getElementById("vida272A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida272B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida272C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA273=true;
-function funcionesA273(){
-if (paseA273 == true){
-puntuacionUnoR = preguntas[273].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA273 = false;
-}
-}
-var paseB273=true;
-function funcionesB273(){
-if (paseB273 == true){
-puntuacionUnoR = preguntas[273].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB273 = false;
-}
-}
-var paseC273=true;
-function funcionesC273(){
-if (paseC273 == true){
-puntuacionUnoR = preguntas[273].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC273 = false;
-}
-}
-var paseD273=true;
-function funcionesD273(){
-if (paseD273 == true){
-puntuacionUnoR = preguntas[273].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD273 = false;
-}
-}
-var paseE273=true;
-function funcionesE273(){
-if (paseE273 == true){
-puntuacionUnoR = preguntas[273].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE273 = false;
-}
-}
-//----------------------------------------------
-function vidas273(){
-if(conteoVidas == 0){
-document.getElementById("vida273A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida273B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida273C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA274=true;
-function funcionesA274(){
-if (paseA274 == true){
-puntuacionUnoR = preguntas[274].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA274 = false;
-}
-}
-var paseB274=true;
-function funcionesB274(){
-if (paseB274 == true){
-puntuacionUnoR = preguntas[274].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB274 = false;
-}
-}
-var paseC274=true;
-function funcionesC274(){
-if (paseC274 == true){
-puntuacionUnoR = preguntas[274].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC274 = false;
-}
-}
-var paseD274=true;
-function funcionesD274(){
-if (paseD274 == true){
-puntuacionUnoR = preguntas[274].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD274 = false;
-}
-}
-var paseE274=true;
-function funcionesE274(){
-if (paseE274 == true){
-puntuacionUnoR = preguntas[274].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE274 = false;
-}
-}
-//----------------------------------------------
-function vidas274(){
-if(conteoVidas == 0){
-document.getElementById("vida274A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida274B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida274C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA275=true;
-function funcionesA275(){
-if (paseA275 == true){
-puntuacionUnoR = preguntas[275].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA275 = false;
-}
-}
-var paseB275=true;
-function funcionesB275(){
-if (paseB275 == true){
-puntuacionUnoR = preguntas[275].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB275 = false;
-}
-}
-var paseC275=true;
-function funcionesC275(){
-if (paseC275 == true){
-puntuacionUnoR = preguntas[275].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC275 = false;
-}
-}
-var paseD275=true;
-function funcionesD275(){
-if (paseD275 == true){
-puntuacionUnoR = preguntas[275].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD275 = false;
-}
-}
-var paseE275=true;
-function funcionesE275(){
-if (paseE275 == true){
-puntuacionUnoR = preguntas[275].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE275 = false;
-}
-}
-//----------------------------------------------
-function vidas275(){
-if(conteoVidas == 0){
-document.getElementById("vida275A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida275B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida275C").innerHTML = vidasCambio;
-}
-}
-//----------------------------------------------
-var paseA276=true;
-function funcionesA276(){
-if (paseA276 == true){
-puntuacionUnoR = preguntas[276].respuestas[0].puntuacionUno;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseA276 = false;
-}
-}
-var paseB276=true;
-function funcionesB276(){
-if (paseB276 == true){
-puntuacionUnoR = preguntas[276].respuestas[1].puntuacionDos;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseB276 = false;
-}
-}
-var paseC276=true;
-function funcionesC276(){
-if (paseC276 == true){
-puntuacionUnoR = preguntas[276].respuestas[2].puntuacionTres;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseC276 = false;
-}
-}
-var paseD276=true;
-function funcionesD276(){
-if (paseD276 == true){
-puntuacionUnoR = preguntas[276].respuestas[3].puntuacionCuatro;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseD276 = false;
-}
-}
-var paseE276=true;
-function funcionesE276(){
-if (paseE276 == true){
-puntuacionUnoR = preguntas[276].respuestas[4].puntuacionCinco;
-puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;
-for (var e = 0; e < cantidadPreguntas; e++){
-var divPuntuacionPorRonda = textoRonda + e;
-document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;
-}
-paseE276 = false;
-}
-}
-//----------------------------------------------
-function vidas276(){
-if(conteoVidas == 0){
-document.getElementById("vida276A").innerHTML = vidasCambio;
-conteoVidas++;
-}else if(conteoVidas == 1){
-document.getElementById("vida276B").innerHTML = vidasCambio;
-conteoVidas++;
-}
-else if(conteoVidas == 2){
-document.getElementById("vida276C").innerHTML = vidasCambio;
-}
-}
 //----------------------------------------------
 		//---------------------------------PREGUNTA 3------------------------------------------
