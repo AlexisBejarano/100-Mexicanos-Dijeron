@@ -2,7 +2,7 @@ var print = ""
 
 function imprimir(){
 
-  for (var e = 0; e <= 276; e++){
+  for (var e = 0; e <= 394; e++){
         print += 'var paseA'+e+'=true;<br>';
         print += 'function funcionesA'+e+'(){<br>if (paseA'+e+' == true){<br>puntuacionUnoR = preguntas['+e+'].respuestas[0].puntuacionUno;<br>puntuacionPorRonda = puntuacionPorRonda + puntuacionUnoR;<br>for (var e = 0; e < cantidadPreguntas; e++){<br>var divPuntuacionPorRonda = textoRonda + e;<br>document.getElementById(divPuntuacionPorRonda).innerHTML = puntuacionPorRonda;<br>}<br>paseA'+e+' = false;<br>}<br>}<br>';
         
