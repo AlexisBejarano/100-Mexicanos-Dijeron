@@ -92,6 +92,15 @@ p {
 	text-align: center;
 }
 
+.inputFamilias{
+	display: block ruby;
+}
+
+.textVS{
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
 .button{
 	border: 0px;
 	background-color: #fff0;;
@@ -225,12 +234,25 @@ p {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
-    margin-top: 55px;
+    margin-top: 15px;
     border-radius: 10px;
     padding: 4px;
     border: 3px solid #00000029;
     background-color: #1ced0054;
 }
+
+.vidas-main2{
+	width: 193px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    border-radius: 10px;
+    padding: 4px;
+    border: 3px solid #00000029;
+    background-color: #27cb11;
+}
+
 
 .vidas{
 	width: 65px;
@@ -279,7 +301,7 @@ p {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-image: url("../img/background2.png");
+	background-image: url("../img/winGold5.jpg");
 	background-size: cover;
 }
 
@@ -334,11 +356,11 @@ p {
 
 .container-list-preg{
 	position: relative;
-	top: 215px;
 	max-width: 750px;
-	margin: auto;
+	margin-left: auto;
+	margin-right: auto;
 	box-shadow: 0px 0px 20px 0px #00000045;
-	padding: 12px 15px 10px 15px;
+	padding: 176px 15px 10px 15px;
 	background-color: white;
 }
 
@@ -373,7 +395,7 @@ p {
 	position: relative;
     background: radial-gradient(#000000cf 20%, blue 160%);
     width: 350px;
-    border: 12px solid #c27e0a;
+    border: 12px solid #d0a374;
     color: white;
     margin: auto;
     border-radius: 14px;
@@ -395,14 +417,14 @@ p {
     margin: auto;
     color: white;
     border-radius: 14px;
-    border: 12px solid #c27e0a;
+    border: 12px solid #d0a374;
 }
 
 .modal-body{
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 100% 100%;
-	background-image: url('../img/backgroundTabla.png');
+	background-image: url('../img/winGold5.jpg');
 }
 
 .green{
@@ -410,6 +432,10 @@ p {
     border-radius: 12px;
     padding: 8px;
     border: 3px solid #00000038;
+}
+
+.btn-close{
+	background-color: red;
 }
 
 /*CONFETI CSS*/
